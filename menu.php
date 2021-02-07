@@ -67,7 +67,7 @@
                 </ul>
             </li>
 
-            <li><a href="#"> Documentos </a>
+            <li><a href="#"> Eduardo é corno </a>
                 <ul>
                     <li><a href="/TCC/documentos/listarDocumentos.php">Listar</a> </li>
                     <li><a href="/TCC/documentos/cadastrarOficio.php">Gerar</a></li>
