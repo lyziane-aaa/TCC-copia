@@ -1,0 +1,155 @@
+#fundooficio {
+    background-image: url("../documentos/interno/elementos/img/foto_oficio.png") !important;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    float: left;
+    width: 210mm;
+}
+
+#divform {
+    float: right;
+    width: 100mm;
+}
+
+#interface {
+    margin: 0px auto 0px auto;
+    font-family: 'Liberation Serif';
+    font-size: 11pt;
+}
+
+#numeracaoOficio {
+    margin-top: 56mm;
+    margin-left: 29mm;
+    margin-right: 15mm;
+    width: 106mm;
+    height: 5mm;
+    background-color: red;
+}
+
+#input-numeracaoOficio {
+    width: 108mm;
+    height: 5mm;
+}
+
+#dataOficio {
+    margin-top: 2mm;
+    margin-left: 138mm;
+    margin-right: 15mm;
+    width: 58mm;
+    height: 7mm;
+    background-color: blue;
+}
+
+#input-dataOficio {
+    width: 58mm;
+    height: 7mm;
+}
+
+#enderecamentoOficio {
+    margin-top: -1mm;
+    margin-left: 29mm;
+    margin-right: 15mm;
+    width: 88mm;
+    height: 23mm;
+    background-color: green;
+}
+
+#input-enderecamentoOficio {
+    width: 88mm;
+    height: 23mm
+}
+
+#assuntoOficio {
+    margin-top: 0mm;
+    margin-left: 29mm;
+    margin-right: 15mm;
+    width: 120mm;
+    height: 10mm;
+}
+
+#input-assuntoOficioB {
+    width: 17mm;
+    height: 5mm;
+}
+
+#input-assuntoOficio {
+    width: 100mm;
+    height: 5mm;
+    margin-left: -1mm;
+}
+
+#corpoOficio {
+    margin-top: -1mm;
+    margin-left: 29mm;
+    margin-right: 15mm;
+    width: 166mm;
+    height: 125mm;
+    background-color: navy;
+}
+
+#input-corpoOficio {
+    width: 168mm;
+    height: 125mm;
+}
+
+#fechoOficio {
+    margin-top: 9mm;
+    margin-left: 29mm;
+    margin-right: 15mm;
+    width: 40mm;
+    height: 5mm;
+    background-color: grey;
+}
+
+#input-fechoOficio {
+    width: 42mm;
+    height: 5mm;
+}
+
+#assinaturaOficio {
+    margin-top: 14mm;
+    margin-left: 91mm;
+    margin-right: 15mm;
+    width: 43mm;
+    height: 5mm;
+    background-color: gold;
+}
+
+#input-assinaturaOficio {
+    width: 45mm;
+    height: 5mm;
+}
+
+#cargoOficio {
+    margin-top: 0mm;
+    margin-left: 91mm;
+    margin-right: 15mm;
+    width: 43mm;
+    height: 5mm;
+    background-color: coral;
+}
+
+#input-cargoOficio {
+    width: 45mm;
+    height: 5mm;
+}
+
+#input-cardOfc {
+    margin-top: -130px;
+    margin-left: 720px;
+    position: absolute;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+
+/*Classes*/
+
+.divoficio {
+    margin-left: 400px;
+    margin-right: 400px;
+    background-position: center;
+    border-radius: 15px;
+    height: 297mm;
+    display: block;
+}
