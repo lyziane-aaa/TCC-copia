@@ -10,6 +10,7 @@
 <footer id="rodape">
     <!-- Ainda é necessário definir os links -->
     <hr>
+    
     <p>Copyright &copy; 2020 by Gremio Estudantil Valdemar dos Pássaros <br>
     <a href="" target="blank">Facebook </a>| <a href="" target="blank"> Instagram </a></p>
 </footer>
