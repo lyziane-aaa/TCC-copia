@@ -28,7 +28,7 @@
 
 .menu{
     /* Setamos a largura, Altura e Cor da Nav */
-    position: fixed ;
+    position: absolute ;
     top: 0;
     width: 99.8%;
     height: 50px;
