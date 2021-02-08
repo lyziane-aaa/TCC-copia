@@ -46,7 +46,7 @@ sair da sessão clicando no icone de usuário. -->
                     echo '</select>';
                 } else {
                     echo '<label for="obj_emp">Objetos disponíveis para empréstimo</label>
-                        <select name="obj_emp" readonly ="readonly" id="nome-objeto">
+                        <select name="" readonly ="readonly" id="nome-objeto">
                         <option value="">Não há objetos disponíveis para empréstimos</option>
                         </select>';
                 }
