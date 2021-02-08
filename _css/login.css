@@ -1,0 +1,179 @@
+@font-face {
+    font-family: 'nasalization';
+    src: url("../_css/fontes/nasalization-rg.ttf");
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Montserrant", sans-serif;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    background-image: url(../imagens/fundo_login.jpg)/*  */
+    ;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.corpo {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 195px;
+    background-color: rgb(237, 237, 242, 0.5);
+    margin: 0 auto;
+    width: 40%;
+    height: 400px;
+}
+
+.corpo h2 {
+    font-family: 'nasalization';
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.corpo h2::after {
+    content: '';
+    display: block;
+    margin: 10px auto;
+    border-bottom: 3px solid white;
+    width: 25%;
+}
+
+.corpo input {
+    display: block;
+    margin: 20px auto;
+    box-sizing: content-box;
+    border: white;
+    border-radius: 5px;
+    width: 55%;
+    height: 29px;
+    padding: 2px 20px;
+    font-size: 13pt;
+    transition: .2s;
+    outline: none;
+    text-indent: 10px;
+}
+
+.corpo input[type="text"]:focus,
+.corpo input[type="password"]:focus {
+    background-color: #1ce2f0;
+}
+
+.corpo input[type="text"]::placeholder,
+.corpo input[type="password"]::placeholder {
+    font-size: 13pt;
+    color: black;
+    text-indent: 10px;
+}
+
+.corpo input[type="submit"],
+.corpo input[type="reset"] {
+    background-color: #ca130d;
+    color: white;
+    border: none;
+}
+
+.corpo input[type="submit"]:hover {
+    background-color: #3235f0;
+    color: white;
+    transition: 1s;
+}
+
+.corpo input[type="reset"]:hover {
+    background-color: #3235f0;
+    color: white;
+    transition: 1s;
+}
+
+.inputWithIcon {
+    position: relative;
+}
+
+.inputWithIcon i {
+    position: absolute;
+    left: 18%;
+    top: 0px;
+    padding: 9px 8px;
+    color: black;
+    transition: 0.3s;
+    background-color: rgb(0, 225, 255);
+}
+
+.inputWithIcon.inputIconBg i {
+    background-color: black;
+    color: #fff;
+    padding: 9px 4px;
+    border-radius: 4px 0 0 4px;
+}
+
+.corpo .aluno {
+    margin-left: 39%;
+}
+
+.aluno a {
+    font-size: 10pt;
+    color: darkblue;
+    font-style: none;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.aluno a:hover {
+    color: rgb(26, 6, 117);
+}
+
+.corpo button {
+    display: block;
+    margin: 20px auto;
+    box-sizing: content-box;
+    border: white;
+    border-radius: 5px;
+    width: 55%;
+    height: 29px;
+    padding: 2px 20px;
+    font-size: 13pt;
+    transition: .2s;
+    outline: none;
+    text-indent: 10px;
+    background-color: #ca130d;
+    color: white;
+    border: none;
+}
+
+.corpo button:hover {
+    background-color: #3235f0;
+    color: white;
+    transition: 1s;
+}
+
+
+/* Código para quando a resolução da tela ficar pequena demais */
+
+@media screen and (max-width: 900px) {
+    /* para menor ou igual a 900px */
+    .corpo {
+        width: 70%;
+    }
+    .inputWithIcon i {
+        left: 15%;
+    }
+    .corpo .aluno {
+        margin-left: 32%;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    /* para menor ou igual a 400px */
+    .corpo {
+        width: 80%;
+    }
+}

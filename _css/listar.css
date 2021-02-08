@@ -1,0 +1,90 @@
+﻿    @charset "utf-8";
+    @font-face {
+        font-family: 'liberation_serifregular';
+        src: url('../_css/fontes/liberationserif-regular-webfont.woff2') format('woff2'), url('../_css/fontes/liberationserif-regular-webfont.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+    }
+    
+    .temaescuro {
+        color: #cfc8c8;
+        background-color: #212529;
+        font-family: 'liberation_serifregular';
+    }
+    
+    .buscador {
+        background-color: #212529;
+        text-align: left;
+        padding-left: 10px;
+        color: #cfc8c8;
+    }
+    
+    .buscador label {
+        font-size: 18px;
+    }
+    
+    .cinza {
+        background-color: #e8e9eb;
+    }
+    /* Listar Achados e Perdidos (listarAchados.php)*/
+    
+    #tabelaAchados {
+        font-family: 'Liberation Serif';
+        color: black;
+        background-color: rgb(71, 232, 237);
+    }
+    
+    #theadteste {
+        background-color: rgb(191, 10, 10);
+        color: white;
+    }
+    /* Início da Janela Modal*/
+    
+    .janelaModal {
+        /*isplay: none;*/
+        position: fixed;
+        z-index: 1;
+        padding-top: 100px;
+        left: 0px;
+        top: 0px;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.8);
+        overflow: auto;
+    }
+    
+    .imgAchados {
+        margin: auto;
+        display: block;
+        width: 50%;
+        max-width: 200px;
+    }
+    
+    .botao_icon {
+        background: url("../imagens/img_icon.png");
+        background-size: auto;
+        width: 40px;
+        height: 40px;
+        border: none;
+    }
+    
+    .modal {
+        font-family: 'liberation_serifregular';
+        color: black !important;
+        position: relative;
+        display: block !important;
+    }
+    
+    .modal-dialog {
+        overflow-y: initial !important;
+    }
+    
+    .modal-body {
+        height: 250px !important;
+        overflow-y: auto !important;
+    }
+    
+    #tbodyAchados {
+        background-color: white;
+    }
+    /* Fim da Janela Modal*/
