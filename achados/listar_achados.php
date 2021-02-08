@@ -24,7 +24,7 @@
             }, 5000);
         </script>
 			<script>
-        $.fn.dataTable.Buttons.swfPath = '../../Teste/flashExport.swf'
+       
 			$(document).ready(function() {
 					$('#tabela_achados').DataTable( {
 						"Processando": true,
@@ -61,7 +61,7 @@
 
 	<?php
 	include_once("../menu.php");
-    if(isset($_SESSION['login'])) {session_start();}
+    if(!isset($_SESSION['login'])) {session_start();}
     
 		$nivel_necessario = 2;
 		include_once("../conexao.php");

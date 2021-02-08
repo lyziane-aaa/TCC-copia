@@ -20,7 +20,7 @@ sair da sessão clicando no icone de usuário. -->
         if(isset($_SESSION['login']) && isset($_SESSION['nivel'])) { 
             $_SESSION['listar'] = 2; 
     ?>
-    <form action="inserir_achados.php" class = "cadastro" method="post">
+    <form action="inserir_achados.php" class = "cadastro" method="post" enctype="multipart/form-data">
         <h2 class="cad-titulo"><img src="../imagens/achados.png"> Cadastro Achados e Perdidos</h2>
         <hr class="divisor"> 
 
@@ -62,6 +62,14 @@ sair da sessão clicando no icone de usuário. -->
                     <option value="Incorporado">Incorporado</option>
                 </select>
         </div>
+        <div class="form-row">
+          <div class="form-group mx-sm-3 mb-2"> <!-- Imagem -->
+         <label for="imgAchados">Imagem do Achado:</label>
+         <input name = "imgAchados" type="file" required="true" name="imgAchados" class="form-control">
+           
+         
+          </div>
+             </div> <!-- fim form-row -->
         <br>
 
         <label for="descricao">Descrição</label> 

@@ -28,7 +28,7 @@
 				"Processando": true,
 				"serverSide": true,
 				"language": {
-   								 "url": "https://cdn.datatables.net/plug-ins/1.10.22/i18n/Portuguese-Brasil.json"
+   					"url": "https://cdn.datatables.net/plug-ins/1.10.22/i18n/Portuguese-Brasil.json"
 						},
 				"ajax": {
 					"url": "tabelabc.php",
@@ -53,14 +53,7 @@
 			então essa variavel se encontrara em todos os listar e conterá o novo conteudo a ser colocado
 			como formartação da imagem, porém para isso dar certo terei de fazer um teste lógico dentro do
 			 menu com o php */
-			?>
-	<div class="container">
-    <br/>
-    <div class="panel panel-default listar-escuro">
-        <div class="panel-heading">Bolsa cópia</div>
-        <div class="panel-body">
-		<!-- Painel de Controle de Bimestre, visível apenas para gremistas -->
-		<?php
+			
 		//if (isset($_SESSION)) {
 			if ($_SESSION['nivel'] == 2) {
 
@@ -70,15 +63,23 @@
 			$bim_fim = date('d/m/Y', strtotime($row_bc['bimestrefim_bim_bc']));
 		
 		?>
-		
-		<div  id = "painel-bimestre" class="panel-heading">
-			<h5> Configuração de Bimestre </h5>
-			<h6> Bimestre atual: <input type="text" readonly value = "<?php echo $row_bc['nome_bim_bc']?>"> </h6>
+	<div class="container">
+    <br/>
+    <div class="panel panel-default listar-escuro">
+        <div class="panel-heading panel-heading_bc">Bolsa Cópia
+		<hr class="divisor_bc"> 
+		<h6> Bimestre atual: <input type="text" readonly value = "<?php echo $row_bc['nome_bim_bc']?>"> </h6>
 			<h6> Início do bimestre: <input type="text" readonly value = "<?php echo $bim_inicio ?>"> </h6>
 			<h6> Término do bimestre: <input type="text" readonly value = "<?php echo $bim_fim ?>"> </h6>
- 			<!-- Botão para acionar modal de configuração de bimestre -->
+			<!-- Botão para acionar modal de configuração de bimestre -->
 			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-bimestre"> Configurar Bimestre </button>
-
+			<!-- Botão para acionar modal de escolha do bimestre vigente-->
+			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-vigor"> Alterar Bimestre </button>
+		</div>
+        <div class="panel-body">
+		<!-- Painel de Controle de Bimestre, visível apenas para gremistas -->
+		
+		
 			<!-- Modal -->
 			<div class="modal fade" id="modal-bimestre" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true">
 			<div class="modal-dialog modal-dialog-centered" role="document">
@@ -90,9 +91,8 @@
 					</button>
 				</div>
 				<div class="modal-body">
-					
 					<form action="bimestre/inserir_bimestrenovo.php" class = "cadastro" method="post">
-						<h2 class="cad-titulo"><img src="../imagens/bc.png"> Cadastro Bolsa Cópia</h2>
+						<h2 class="cad-titulo"><img class ="bimestre" src="https://img.icons8.com/android/24/000000/calendar.png"/> <p class ="bim">Configurar<br> Bimestre</p></h2>
 						<hr class="divisor"> 
 
 						<label for="nome-bc">Número do novo bimestre</label>
@@ -120,7 +120,7 @@
 						
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+					<button type="button" class="botao" data-dismiss="modal">Fechar</button>
 					<input type="reset" class="botao" value="Limpar">
 					<input type="submit" class="botao" onclick="msg()" value="Cadastrar">
 				
@@ -134,9 +134,6 @@
 
 			</div>
 			</div>
-			<h5> Alterar bimestre em vigor </h5>
-			<!-- Botão para acionar modal de escolha do bimestre vigente-->
-			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-vigor"> Configurar Bimestre </button>
 
 			<!-- Modal -->
 			<div class="modal fade" id="modal-vigor" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true">
@@ -148,20 +145,14 @@
 					<span aria-hidden="true">&times;</span>
 					</button>
 				</div>
-				<div class="modal-body">
+				<div class="modal-body alt-bimestre">
 					
 					<form action="bimestre/inserir_bimestre_vigor.php" class = "cadastro" method="post">
 						<h2 class="cad-titulo"> Alterar bimestre em vigor </h2>
-						
-	<?php
-
-		
-		
-	?>
-						<label>Alterar bimestre</label>
+						<label>Alterar o Bimestre</label>
+						<hr class="divisor"> 
 						<select name="bimestre_vigor_bim_bc">
 						<?php
-
 						$resultado_bc=mysqli_query($conn, "SELECT * FROM bimestrebc");
 		
 								while($row_bc = mysqli_fetch_array($resultado_bc))
@@ -169,18 +160,15 @@
 									echo '<option value="' . $row_bc["id_bim_bc"].'">' . $row_bc["nome_bim_bc"] . '</option>';    
 								}
 							?>   
-						</form>
-				</div>
+						</select>
+			</div> 
 				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+					<button type="button" class="botao" data-dismiss="modal">Fechar</button>
 					<input type="reset" class="botao" value="Limpar">
-					<input type="submit" class="botao" onclick="msg()" value="Atualizar bimestre"> <!-- botar aviso aqui-->
-				
-				
-				
-				
-				</div>
-				</div> <!-- fim do modal de cadastro do bimestre -->
+					<input type="submit" class="botao" onclick="msg()" value="Atualizar"> <!-- botar aviso aqui-->
+				</form>
+			</div>
+			</div> <!-- fim do modal de cadastro do bimestre -->
 				
 
 

@@ -22,35 +22,36 @@
     margin: 0px;
     padding: 0px;
 }
-
-.log {
+.log{
     margin-top: -30px;
 }
 
-.menu {
+.menu{
     /* Setamos a largura, Altura e Cor da Nav */
-    position: fixed;
+    position: fixed ;
     top: 0;
-    width: 100%;
-    height: 55px;
+    width: 99.8%;
+    height: 50px;
     background-color: #006144;
     font-family: Arial, Helvetica, sans-serif;
     z-index: 99;
+    margin-left: 2px;
+    font-size: 10pt;
+    border-radius: 10px;
 }
-
-.menu ul {
+.menu ul{
     /* Retiramos o estilo nativo das listas e ajeitamos a posição */
     list-style: none;
     position: relative;
 }
 
-.menu ul li {
+.menu ul li{
     /* Designamos o espaço máximo das <li> */
     width: 150px;
     float: left;
 }
 
-.menu a {
+.menu a{
     /* configuramos o <a> */
     display: block;
     text-decoration: none;
@@ -59,22 +60,20 @@
     /* Cor das Opções: */
     background-color: #006144;
     color: white;
-    max-height: 50px;
 }
 
-.menu ul ul {
+.menu ul ul{
     /* configuração para fazer com que as opções do dropdown fiquem 
     invisiveis até que se passe o mouse por cima */
     position: absolute;
-    visibility: hidden;
+    visibility: hidden ;
 }
 
-.menu ul li:hover ul {
+.menu ul li:hover ul{
     /*Faz com que depois que se passe o mouse por cima o dropdown fique visível */
     visibility: visible;
 }
-
-.menu a:hover {
+.menu a:hover{
     /* estilizamos a cor das opções quando passamos o mouse */
     background-color: #f4f4f4;
     color: black;
@@ -86,11 +85,11 @@
     border-top: solid 1px #cccccc;
 }
 
-.menu ul ul li a {
+.menu ul ul li a{
     background-color: #069;
 }
 
-.label_menu {
+.label_menu{
     /* Configuração do icone da versão reduzida */
     padding: 5px;
     background-color: #006144;
@@ -104,92 +103,102 @@
     display: none;
 }
 
-#bt_menu {
+#bt_menu{
     display: none;
 }
 
-.logo {
+.logo{
     /* configuração da logo do inicio */
-    width: 40px;
+    width: 50px;
     height: 40px;
     margin: 5px;
-    cursor: pointer;
+    cursor: pointer;  
+}
+.li_logo{
+    margin-right: -80px;
+    margin-left: 10px;
+    width: 150px !important;
+
+}
+.navbar-toggler-icon{
+    filter: invert(75%) !important;
+    padding: 10px !important;
+    width: 50px !important;
+    height: 50px !important;
+    margin-top: -1px;
 }
 
-.li_logo {
-    margin-right: -70px;
-    margin-left: 30px;
-}
-
-.usu_icone {
-    filter: invert(75%);
-    padding: 10px;
-    width: 30px;
-    height: 30px;
-}
-
-.usu {
+.usu{
     width: 80px !important;
     height: 50px !important;
 }
-
-.usu:hover {
+.usu:hover{
     background-color: white;
 }
-
-.usu:hover img {
-    filter: invert(0%);
+.usu:hover img{
+    filter: invert(0%) !important;
 }
 
 
-/* tamanho da fonte li diário oficial da agremiação e gestão passada menu */
 
-#li_gestaopassada {
-    font-size: 85%;
-}
-
-#li_doa {
-    font-size: 90%;
-}
 
 
 /* O @Media vai servir para dizer o que deve acontecer 
 as classes quando o widht ficar menor ou igual a 900px */
+@media(max-width: 900px){
 
-@media(max-width: 900px) {
-    .menu {
-        margin-top: 2px;
-        margin-left: -100%;
-        font-size: 12pt;
-    }
-    .li_logo {
-        margin-left: 47%;
-    }
-    #bt_menu:checked~.menu {
-        /* Faz com que depois que checado a "check-box" as opções voltem a aparecer  */
-        margin-left: 0;
-        margin-top: 2px;
-        background-color: #0c1ee8;
-    }
-    .menu ul li {
-        width: 100%;
-        float: none;
-    }
-    .menu ul ul {
-        position: static;
-        overflow: hidden;
-        max-height: 0;
-        transition: all .4s;
-    }
-    .menu ul li:hover ul {
-        height: auto;
-        max-height: 400px;
-        /* O max height vai variar dependendo do número de itens */
-    }
-    .label_menu {
-        display: block;
-        width: 100%;
-    }
+.menu{
+    margin-top: 2px;
+    margin-left: -100%;
+    font-size:12pt;
+}
+#bt_menu:checked~ .menu{
+    /* Faz com que depois que checado a "check-box" as opções voltem a aparecer  */
+    margin-left: 0;
+    margin-top: 2px;
+    background:url("../imagens/fundo_login2.jpg");
+}
+
+.menu ul li, .usu{
+    width: 100%;
+    float: none;
+}
+
+.usu{
+    background-color:#006144;
+    width: 100% !important;
+    margin-top: -10px;
+}
+
+.usu img{
+    margin-left: 44% !important;
+}
+.menu ul ul{
+    position: static;
+    overflow: hidden;
+    max-height: 0;
+    transition: all .4s;
+}
+.menu ul li:hover ul{
+    height: auto;
+    max-height: 500px;
+    /* O max height vai variar dependendo do número de itens */
+}
+.label_menu{
+    display: block;
+    width: 100%;
+}
+
+.invi{
+    visibility:hidden;
+}
+.reduzido{
+    width: 100%;
+}
+
+.espacamento{
+    padding-left: 42%;
+}
 }
 
 
@@ -458,7 +467,7 @@ img {
 }
 
 .panel-heading {
-    background-color: #943738 !important;
+    background-color: rgb(187, 20, 20) !important;
     color: white !important;
     font-size: 25px !important;
     text-align: center !important;
@@ -506,4 +515,87 @@ img {
 .modal-body {
     color: black;
     font-size: 15px;
+    height: 470px;
+}
+
+.modal-body .cadastro{
+    width: 90%;
+    height: 90%;
+    margin-top: -8px;
+}
+
+.modal-body label{
+    margin-bottom: 1px;
+    margin-left: 10px ;
+}
+
+.modal-body input[type="text"],input[type="date"]{
+    margin-top: 1px;
+    margin-bottom: 24px;
+}
+
+.botao{
+    border-radius: 10px;
+    color: white;
+    background-color: rgb(206, 27, 27);
+    border: none;
+    padding: 5px;
+    width: 34%;
+
+}
+.modal-footer{
+    font-family: 'roboto';
+    font-size: 14pt;
+
+}
+
+#TituloModalCentralizado{
+    color: white;
+    font-family: 'nasalization';
+    font-size: 14pt;
+}
+
+.bimestre{
+    margin-left: 5px;
+    margin-top: 40px;
+}
+
+.bim{
+    margin-left: 70px;
+    margin-top: -50px;
+    margin-right: 20px;
+    width: 150px;
+}
+.modal-header span{
+    filter: invert(100%) !important;
+}
+
+.modal-header, .modal-footer, .modal-body{
+    background-color: rgb(15, 15, 15);
+}
+
+.modal-body select{
+    width: 70%;
+
+}
+
+.alt-bimestre{
+    height: 20%!important; 
+}
+
+.cad-titulo{
+    width: 90%;
+    margin-left: 20px;
+}
+
+.divisor_bc{
+    margin-top: 10px;
+    width: 20%;
+    border-color: white;
+    margin-left: 40%;
+}
+
+.panel-heading_bc input[type="text"]{
+    width: 120px !important;
+
 }

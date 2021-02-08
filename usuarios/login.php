@@ -1,7 +1,6 @@
 <?php
-
-include_once('../conexao.php');
-include_once('../menu.php');
+include_once("../conexao.php");
+session_start();
 
 ?>
 <html lang="pt-br">
@@ -11,7 +10,7 @@ include_once('../menu.php');
 	<title>Login</title>		
 	<link rel = "stylesheet" type = "text/css" href = "../_css/estilo.css">
 	<link rel="stylesheet" type="text/css" href="../_css/login.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"">
 
 <script type="text/javascript">
             setTimeout(function(){ 
@@ -21,7 +20,7 @@ include_once('../menu.php');
                 }
             }, 5000);
         </script>
-<script src="../../js/scripts.js"></script>
+<script src="../js/scripts.js"></script>
 </head>
 <?php
 $mensg1="";
@@ -51,6 +50,7 @@ if((isset($_POST['login'])) && (isset($_POST['senha']))){
 	$_SESSION['nivel'] = $resultado['nivel'];
 	$_SESSION['nome_usuarios'] = $resultado['nome_usuarios'];
 
+
 	//verifica se login e senha são iguais	
 	
 	 //estou redirecionando ao realizar o login        
@@ -79,13 +79,7 @@ if((isset($_POST['login'])) && (isset($_POST['senha']))){
             <input type="submit" value="Logar">
 			<input type="reset" value="Resetar">
 
-			
-			<!-- é necessário usar o javascript para fazer com que o não sou gremista ative uma função php ou JS
-			que faça a criação de uma váriavel PHP chamada "$_SESSION['alunos'] e adicione true a ela.
-			O objetivo é fazer com que a) o menu não apareça no login e b) saibamos quem é aluno
-			c) Quem não passou pelo login não vai ter acesso ao site
-			Possibilidade 2: Fazer o não sou gremista levar a uma outra pagina onde deve colocar a matricula
-			e assim usarmos ela como forma de realizar o teste.-->
+			<div class="aluno"><a href="../Funcs/inicio.php">Não sou Gremista</a></div>
 		
             <?= $mensg1 ?>
         </form>

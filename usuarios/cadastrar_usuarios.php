@@ -41,11 +41,15 @@ sair da sessão clicando no icone de usuário. -->
         <label for="senha">Senha:</label>
         <input type="password" name="senha" id="senha"required>
         <br>
-
-        <label for="cargo">Cargo:</label>
-        <input type="text" name="cargo" id="cargo" required>
-        <br>
+            <select name = "cargo">
+      <?php  $resultado_car=mysqli_query($conn, "SELECT * FROM usuarios_diretoria");
+            while($row_car = mysqli_fetch_array($resultado_car))
         
+            {
+                echo '<option value="' . $row_car["id_diretoria"].'">' . $row_car["cargo_diretoria"] . '</option>';    
+            }?>
+
+            </select>   
         <label for="matricula">Matrícula:</label>
         <input type="text" name="matricula_usuarios" id="matricula" onKeyPress="return Onlynumbers(event);" required>
         <br>

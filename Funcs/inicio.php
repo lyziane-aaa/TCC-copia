@@ -1,7 +1,6 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
-    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio</title>
@@ -14,8 +13,11 @@
 
 <body class="tema-escuro">
 <?php
-
+include_once("../conexao.php"); 
 include_once("../menu.php"); 
+if(!isset($_SESSION['login'])){
+    session_start();
+}
 ?>
 <!-- A div do "Owl carousel" para configurar o Carrossel-->
 <div class="owl-carousel owl-theme extra">
@@ -61,8 +63,6 @@ include_once("../menu.php");
 <!-- Cada linha regra corresponde a duas regras -->
 
 <?php 
-
-    include_once ('../conexao.php'); 
     $_SESSION['listar'] = 2;
     if(isset($_SESSION['login']) && isset($_SESSION['nivel'])) {
 
@@ -113,9 +113,10 @@ include_once("../menu.php");
     </div> 
 </div>
 <?php }
+    
     else{
-        //A analisar o que colocar aqui.
+        //pensar no que colocar aqui
     }
-    include_once ('../footer.php'); ?>
+include_once("../footer.php"); ?>
 </body>
 </html>
