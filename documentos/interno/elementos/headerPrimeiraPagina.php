@@ -671,15 +671,7 @@ function ParseTable($Table)
             $data[] = $elems2;
         }
     }
-    return $data;
+    return $data; 
 }
+ }
 
-   
-
-    
-
-   
-  
-
-   
-}
