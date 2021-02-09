@@ -30,13 +30,11 @@ sair da sessão clicando no icone de usuário. -->
                 <h2 class="cad-titulo"><img src="../imagens/emprestimos.png"> Cadastro Empréstimo</h2>
                 <hr class="divisor">
                 <br>
-
-
                 <?php
 
                 $resultado_pat = mysqli_query($conn, "SELECT * FROM patrimonioativo WHERE emprestado_pat = 0 && emprestavel = 1") or die("erro " . mysqli_error($conn));
                 $row_pat = mysqli_fetch_array($resultado_pat);
-              
+
                 if (isset($row_pat)) {
                     echo '  <label for="obj_emp">Objetos disponíveis para empréstimo</label>
                     <select name="obj_emp" id="nome-objeto">';
@@ -46,7 +44,7 @@ sair da sessão clicando no icone de usuário. -->
                     echo '</select>';
                 } else {
                     echo '<label for="obj_emp">Objetos disponíveis para empréstimo</label>
-                        <select name="" readonly ="readonly" id="nome-objeto">
+                        <select  name="" readonly ="readonly" class="bt-desativado">
                         <option value="">Não há objetos disponíveis para empréstimos</option>
                         </select>';
                 }
@@ -77,13 +75,16 @@ sair da sessão clicando no icone de usuário. -->
                 <label for="data_emp">Data e horário do empréstimo:</label>
                 <input type="text" name="data_emp" required readonly value="<?php $data = date('d/m/Y - H:i:s');
                                                                             echo $data; ?>">
-                <!-- Input Escondida -->
-                <input type="number" name="emprestado_pat" required readonly value="1" hidden>
 
                 <br>
 
                 <input type="reset" class="botao" value="Limpar">
-                <input type="submit" class="botao" onclick="msg()" value="Cadastrar">
+                <?php if (isset($row_pat)) {
+                    echo '<input type="submit" class="botao" onclick="msg()" value="Cadastrar">';
+                } else {
+                    echo '<input type="submit" class="botao bt-desativado" onclick="msg()" value="Cadastrar">';
+                }
+                ?>
 
             </form>
     <?php
