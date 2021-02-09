@@ -449,18 +449,36 @@ img {
 
 /* ESTILO DO LISTAR */
 
+.container {
+    background-color: rgb(14, 14, 14) !important;
+}
+
 .listar-escuro th {
     background-color: #262627 !important;
     color: white;
+    border: none;
 }
 
 .listar-escuro td {
     background-color: #3a3636;
     color: white;
+    border: none;
+}
+
+.dataTables_info {
+    color: white !important;
+}
+
+.table tr:last-child th:last-child {
+    border-top-right-radius: 20px;
+}
+
+.table tr:last-child th:first-child {
+    border-top-left-radius: 20px;
 }
 
 .panel {
-    background-color: #202529;
+    background-color: rgb(14, 14, 14);
     color: white;
     margin-top: 100px;
 }
@@ -474,10 +492,11 @@ img {
     padding: 10px;
     border-radius: 20px;
     margin-bottom: 10px;
+    margin-top: -40px;
 }
 
 .dataTables_wrapper {
-    background-color: rgb(19, 17, 17);
+    background-color: #474444;
     padding: 5px;
     border-radius: 20px;
 }
@@ -495,6 +514,10 @@ img {
     margin-left: 20px;
     margin-right: 10px;
     margin-top: 10px;
+}
+
+.table {
+    border: none;
 }
 
 
@@ -556,12 +579,12 @@ input[type="date"] {
 
 .bimestre {
     margin-left: 5px;
-    margin-top: 40px;
+    margin-top: 30px !important;
 }
 
 .bim {
     margin-left: 70px;
-    margin-top: -50px;
+    margin-top: -40px;
     margin-right: 20px;
     width: 150px;
 }
