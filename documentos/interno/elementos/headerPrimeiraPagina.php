@@ -1,6 +1,6 @@
 <?php
 
-//require("fpdf/fpdf.php");  
+("/TCC/fpdf/fpdf.php");  
 
 class HPDF extends FPDF
 {
@@ -82,20 +82,20 @@ function Header()
     $this->SetFont('Liberation Serif');
     $this->SetFontSize('11');
     // Move to the right
-    $this->Image('../_documentos/elementos/img/logogremio.png',35,12,35);
+    $this->Image('/TCC/documentos/elementos/img/logogremio.png',35,12,35);
        
       
-    $this->Cell(170,5,'INSTITUTO FEDERAL DE EDUCAÇÃO, CIÊNCIA E ',0,1,'C');
+    $this->Cell(170,5,'INSTITUTO FEDERAL DE EDUCAÃ‡ÃƒO, CIÃŠNCIA E ',0,1,'C');
     $this->Cell(170,5,'TECNOLOGIA DO RIO GRANDE DO NORTE -',0,1,'C');
-    $this->Cell(170,5,'CÂMPUS MOSSORÓ - IFRN-MO',0,1,'C');
+    $this->Cell(170,5,'CÃ‚MPUS MOSSORÃ“ - IFRN-MO',0,1,'C');
     $this->Ln(1);
     $this->SetFont('Liberation Serif','B','10');
-    $this->Cell(170,5,'Grêmio Estudantil Valdemar dos Pássaros',0,1,'C');
+    $this->Cell(170,5,'GrÃªmio Estudantil Valdemar dos PÃ¡ssaros',0,1,'C');
     $this->SetFont('Liberation Serif');
     $this->Cell(170,5,'CNPJ: 02.102.875/0001-20',0,1,'C');
     $this->SetFont('Liberation Serif','I','10');
-    $this->Cell(170,5,'Gestão 2019.2020: IF Para Tempos de Guerra',0,1,'C');
-    $this->Image('../_documentos/elementos/img/logo_ifmo.png',160,10,30); //156 é o tamanho da página sem as margens
+    $this->Cell(170,5,'GestÃ£o 2019.2020: IF Para Tempos de Guerra',0,1,'C');
+    $this->Image('../_documentos/elementos/img/logo_ifmo.png',160,10,30); //156 ï¿½ o tamanho da pï¿½gina sem as margens
     $this->Line(30,41,195,41);
 
    
@@ -104,7 +104,7 @@ function Header()
     $this->Ln(5);
 } else{
 $this-> Ln(30);
-$this->Image('../_documentos/elementos/img/logogremio.png',95,12,30);
+$this->Image('/TCC/documentos/elementos/img/logogremio.png',95,12,30);
 
 }
 
@@ -126,9 +126,9 @@ function Footer()
     $this->SetFont('Liberation Serif');
     $this->SetFontSize('11');
     // Page number
-    $this->Cell(156,5,'Rua Raimundo Firmino de Oliveira, nº 400, Sala 74, Conj. Ulrick Graff, Mossoró-RN – CEP 59628-330',0,0,"L"); // Alinhamento "L" apenas para não ficar torto
+    $this->Cell(156,5,'Rua Raimundo Firmino de Oliveira, nÂº 400, Sala 74, Conj. Ulrick Graff, Mossorï¿½-RN ï¿½ CEP 59628-330',0,0,"L"); // Alinhamento "L" apenas para nï¿½o ficar torto
     $this->Ln(4);
-    $this->Cell(156,5,' Telefone: (84) 3422-2665– Ramal: 2665  – Instagram: @gevp.ifrn',0,0,"C");
+    $this->Cell(156,5,' Telefone: (84) 3422-2665 - Ramal: 2665  - Instagram: @gevp.ifrn',0,0,"C");
 			}
 			
 		
@@ -192,9 +192,9 @@ function WriteHTML($html)
        
      
 
-        $html = str_replace('&trade;','™',$html);
-        $html = str_replace('&copy;','©',$html);
-        $html = str_replace('&euro;','€',$html);
+        $html = str_replace('&trade;','ï¿½',$html);
+        $html = str_replace('&copy;','ï¿½',$html);
+        $html = str_replace('&euro;','ï¿½',$html);
 
         $a=preg_split('/<(.*)>/U',$html,-1,PREG_SPLIT_DELIM_CAPTURE);
         $skip=false;
@@ -334,7 +334,7 @@ function OpenTag($tag, $attr)
             case 'LI':
                 $this->Ln(4);
                 $this->SetTextColor(0,0,0);
-                $this->Write(5,'     » ');
+                $this->Write(5,'     ï¿½ ');
             
                 break;
             case 'TR':
@@ -430,7 +430,7 @@ function PutLink($URL, $txt)
     $this->SetStyle('U',true);
     $this->Write(5,$txt,$URL);
     $this->SetStyle('U',false);
-    $this->SetTextColor(0);
+    $this->SetTextColor(0);}
 
 function Cell($w, $h=0, $txt='', $border=0, $ln=0, $align='', $fill=false, $link='')
 {
@@ -530,7 +530,7 @@ function Cell($w, $h=0, $txt='', $border=0, $ln=0, $align='', $fill=false, $link
 }
 
 
-// funções tabela
+// funï¿½ï¿½es tabela
    function WriteTable($data, $w)
 {
     $this->SetLineWidth(.3);
@@ -683,5 +683,3 @@ function ParseTable($Table)
 
    
 }
-
-?>

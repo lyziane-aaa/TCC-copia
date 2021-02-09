@@ -8,8 +8,8 @@ session_start();
 	<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<title>Login</title>		
-	<link rel = "stylesheet" type = "text/css" href = "../_css/estilo.css">
-	<link rel="stylesheet" type="text/css" href="../_css/login.css">
+	<link rel = "stylesheet" type = "text/css" href = "/TCC/_css/estilo.css">
+	<link rel="stylesheet" type="text/css" href="/TCC/_css/login.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"">
 
 <script type="text/javascript">
@@ -20,7 +20,7 @@ session_start();
                 }
             }, 5000);
         </script>
-<script src="../js/scripts.js"></script>
+<script src="/TCC/js/scripts.js"></script>
 </head>
 <?php
 $mensg1="";
@@ -40,7 +40,9 @@ if((isset($_POST['login'])) && (isset($_POST['senha']))){
 	//print ($_POST['senha']);
 	//exit();
 
-	$resultado_select = "SELECT login, senha, nivel, nome_usuarios FROM usuarios WHERE login='".$login."' and senha = '".$senha."'";
+	$resultado_select = "SELECT login, senha, nivel, nome_usuarios, usuarios_diretoria.cargo_diretoria FROM usuarios
+	join usuarios_diretoria 
+	on usuarios.cargo = usuarios_diretoria.id_diretoria WHERE login='".$login."' and senha = '".$senha."'";
     $resultado_usuario = mysqli_query($conn, $resultado_select);
     $resultado = mysqli_fetch_assoc($resultado_usuario);
 	//verifica se login e senha são iguais	
@@ -48,13 +50,14 @@ if((isset($_POST['login'])) && (isset($_POST['senha']))){
 	$_SESSION['login'] = $resultado['login'];
 	$_SESSION['senha'] = $resultado['senha'];
 	$_SESSION['nivel'] = $resultado['nivel'];
+	$_SESSION['cargo'] = $resultado['cargo_diretoria'];
 	$_SESSION['nome_usuarios'] = $resultado['nome_usuarios'];
 
 
 	//verifica se login e senha são iguais	
 	
 	 //estou redirecionando ao realizar o login        
-	header("Location: ../Funcs/inicio.php");
+	header("Location: /TCC/Funcs/inicio.php");
 	//se não forem iguais, exibe a mensagem
 	}else{
 	$mensg1 = '<div class="alert alert-danger preto alertaDeErro" role="alert">Usuário ou senha incorreto!
@@ -79,7 +82,7 @@ if((isset($_POST['login'])) && (isset($_POST['senha']))){
             <input type="submit" value="Logar">
 			<input type="reset" value="Resetar">
 
-			<div class="aluno"><a href="../Funcs/inicio.php">Não sou Gremista</a></div>
+			<div class="aluno"><a href="/TCC/Funcs/inicio.php">Não sou Gremista</a></div>
 		
             <?= $mensg1 ?>
         </form>
