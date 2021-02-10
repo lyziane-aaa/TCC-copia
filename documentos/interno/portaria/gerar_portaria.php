@@ -59,11 +59,10 @@
 				<form action="inserir_doc_port.php" method="POST">
 					<!--<div id="gestao_doc_ofc">
 						<input id ="input-gestao" type="text" placeholder="Gestão 2019.2021 - IF Para Tempos de Guerra" name="gestao_doc_ofc" required>
-					</div>
--->
+					</div>-->
 
 					<div id="titulo_doc_port">
-						<input name="titulo_doc_port" id="titulo_doc_port" type="text" placeholder="PORTARIA Nº <NÚMERO>/<ANO>, DE <DIA> DE <MÊS> DE <ANO>" value = "PORTARIA Nº <NÚMERO>/<ANO>, DE <DIA> DE <MÊS> DE <ANO>" required>
+						<input name="titulo_doc_port" id="input-titulo_doc_port" type="text" placeholder="PORTARIA Nº <NÚMERO>/<ANO>, DE <DIA> DE <MÊS> DE <ANO>" value = "PORTARIA Nº <NÚMERO>/<ANO>, DE <DIA> DE <MÊS> DE <ANO>" required>
 					</div>
 
 					<div id="resumo-port">
@@ -80,7 +79,7 @@
 					</div>
 
 					<div id="assinatura-port">
-						<input name="assinatura_doc_port" required id="input-assinatura-port" type="text" placeholder="<NOME DO GREMISTA>" value="<?php echo strtoupper($_SESSION['nome_usuarios']) ?>" readonly>
+						<input name="assinatura_doc_port" required id="input-assinatura-port" type="text" placeholder="<NOME DO GREMISTA>" value="<?php echo $_SESSION['nome_usuarios'] ?>" readonly>
 					</div>
 
 					<div id="cargo-port">
@@ -118,10 +117,10 @@
 		<script src="../../../ckeditor/ckfinder/ckfinder.js"></script>
 		<script src="../../../ckeditor/js/javascript.js"></script>
 		<script>
+			CKEDITOR.replace('input-texto-port');
 			// Replace the <textarea id="editor1"> with a CKEditor 4
 			// instance, using default configuration.
 
-			// CKEDITOR.replace('corpo_doc_ofc');
 		</script>
 
 </body>

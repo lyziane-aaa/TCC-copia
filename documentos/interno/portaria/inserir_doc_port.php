@@ -1,30 +1,43 @@
 <?php
+	session_start();
 	include_once("../../../conexao.php");
 	
 	
-	
-	$num_doc_ofc = filter_input(INPUT_POST, 'num_doc_ofc', FILTER_SANITIZE_STRING);
-	$data_doc_ofc = filter_input(INPUT_POST, 'data_doc_ofc', FILTER_SANITIZE_STRING);	
-	$endrc_doc_ofc = filter_input(INPUT_POST, 'endrc_doc_ofc',FILTER_SANITIZE_STRING);
-	
-	$assunto_doc_ofc = filter_input(INPUT_POST, 'assunto_doc_ofc', FILTER_SANITIZE_STRING);
-	$corpo_doc_ofc = $_POST['corpo_doc_ofc'];
-	$fecho_doc_ofc = filter_input(INPUT_POST, 'fecho_doc_ofc', FILTER_SANITIZE_STRING);
-	$assinatura_doc_ofc = strtoupper(filter_input(INPUT_POST, 'assinatura_doc_ofc', FILTER_SANITIZE_STRING));
-	$cargo_doc_ofc = filter_input(INPUT_POST, 'cargo_doc_ofc', FILTER_SANITIZE_STRING);
-	$data_registro_ofc = filter_input(INPUT_POST, 'data_registro_ofc', FILTER_SANITIZE_STRING);
-	$gremista_registro_ofc = filter_input(INPUT_POST, 'gremista_registro_ofc', FILTER_SANITIZE_STRING);
-
-	$titulo_doc_ofc = "$num_doc_ofc: $assunto_doc_ofc"; // o T�tulo do Documento � a jun��o de $num_doc_ofc:$assunto_doc_ofc
-	
-	
-
-	$resultado_insert = "INSERT INTO documentos_ofc (titulo_doc_ofc,num_doc_ofc,data_doc_ofc,endrc_doc_ofc,assunto_doc_ofc,corpo_doc_ofc,fecho_doc_ofc,assinatura_doc_ofc, cargo_doc_ofc,data_registro_ofc,gremista_registro_ofc) 
-	VALUES ('$titulo_doc_ofc','$num_doc_ofc','$data_doc_ofc','$endrc_doc_ofc','$assunto_doc_ofc','$corpo_doc_ofc','$fecho_doc_ofc','$assinatura_doc_ofc', '$cargo_doc_ofc',NOW(),'$gremista_registro_ofc')";
 	// 
-	$resultado_insertBC = mysqli_query($conn, $resultado_insert);
+	
+	
+	
+	$titulo_doc_port = filter_input(INPUT_POST, 'titulo_doc_port', FILTER_SANITIZE_STRING);
+	$resumo_doc_port = filter_input(INPUT_POST, 'resumo_doc_port', FILTER_SANITIZE_STRING);	
+	$texto_doc_port = filter_input(INPUT_POST, 'texto_doc_port', FILTER_SANITIZE_STRING);
+	$fecho_doc_port = filter_input(INPUT_POST,'fecho_doc_port');
+	$assinatura_doc_port = $_SESSION['nome_usuarios'];
+	$cargo_doc_port = $_SESSION['cargo'];
+	$gremista_registro_port = $_SESSION['login'];
+	
+	$consulta_cargo = "SELECT id_diretoria from usuarios_diretoria where cargo_diretoria = '$cargo_doc_port'";
+	$resultado_cargo= mysqli_query($conn, $consulta_cargo) or die("erro " . mysqli_error($conn));
+	$resultado_cargo = mysqli_fetch_array($resultado_cargo); // Pega o ID do Array e transforma em int
+	$resultado_cargo = $resultado_cargo['id_diretoria'];
 
-	header ("location:../../documentos/interno/cadastrarOficio.php");
+	
+		
+	$consulta_usuario = "Select id_usuarios from usuarios where nome_usuarios = '$assinatura_doc_port'";
+	
+	
+	$resultado_usuario= mysqli_query($conn, $consulta_usuario) or die("erro " . mysqli_error($conn));
+	$resultado_usuario= mysqli_fetch_array($resultado_usuario); // Pega o ID do Array e transforma em int
+	$resultado_usuario = $resultado_usuario['id_usuarios'];
+	
+
+	$resultado_insert = "INSERT INTO documentos_port (titulo_doc_port,resumo_doc_port,
+		texto_doc_port,fecho_doc_port,assinatura_doc_port, cargo_doc_port,data_doc_port,gremista_doc_port) 
+	VALUES ('$titulo_doc_port','$resumo_doc_port','$texto_doc_port','$fecho_doc_port',
+	'$resultado_usuario', '$resultado_cargo ',NOW(),'$gremista_registro_port')";
+	// 
+	$resultado_insertBC = mysqli_query($conn, $resultado_insert) or die("erro " . mysqli_error($conn));
+
+	header ("location: /TCC/documentos/interno/oficio/listar_documentos.php");
 	
 
 	 

@@ -165,7 +165,7 @@
     width: 210mm;
 }
 
-#numeracao-port {
+#titulo_doc_port {
     margin-top: 50mm;
     margin-left: 29mm;
     margin-right: 15mm;
@@ -174,7 +174,7 @@
     background-color: red;
 }
 
-#input-numeracao-port {
+#input-titulo_doc_port {
     width: 130mm;
     height: 5mm;
 }

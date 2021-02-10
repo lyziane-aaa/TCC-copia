@@ -28,7 +28,7 @@
 
 
         <!-- Inicio da Nav Bar -->
-        <nav class="menu">
+        <nav class="menu" >
             <ul>
                 <!-- A logo foi colocada em uma <li> com uma classe especifica para não
         atrapalhar a formatação -->
@@ -73,7 +73,7 @@
 
                 <li><a href="#"> Documentos </a>
                     <ul>
-                        <li><a href="/TCC/documentos/interno/oficio/listar_documentos.php">Meus Documentos</a> </li>
+                        <li><a href="/TCC/documentos/interno/listar_documentos.php">Meus Documentos</a> </li>
                         <li><a href="/TCC/documentos/interno/oficio/gerar_oficio.php">Gerar Ofício</a></li>
                         <li><a href="/TCC/documentos/interno/portaria/gerar_portaria.php">Gerar Portaria</a></li>
                     </ul>
