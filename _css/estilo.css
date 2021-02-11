@@ -612,6 +612,9 @@ input[type="date"] {
     margin-left: 20px;
 }
 
+.cad-titulo img{
+    margin-top: -15px;
+}
 .divisor_bc {
     margin-top: 10px;
     width: 20%;
@@ -632,4 +635,10 @@ input[type="date"] {
     pointer-events: none;
     touch-action: none;
     color: gray !important;
+}
+
+h6 input[type ="text"]{
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
 }

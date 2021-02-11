@@ -47,16 +47,7 @@
 	<?php 
 		$nivel_necessario = 2;
 		include_once("../conexao.php");
-		
-			$_SESSION['listar'] = 1;
-			/* Aparentemente a presença do Bootstrap altera o tamanho da imagem no menu,
-			então essa variavel se encontrara em todos os listar e conterá o novo conteudo a ser colocado
-			como formartação da imagem, porém para isso dar certo terei de fazer um teste lógico dentro do
-			 menu com o php */
-			
-		//if (isset($_SESSION)) {
 			if ($_SESSION['nivel'] == 2) {
-
 			$resultado_bc=mysqli_query($conn, "SELECT nome_bim_bc, 	bimestreinicio_bim_bc, bimestrefim_bim_bc FROM bimestrebc where bimestre_vigor_bim_bc = 1");
 			$row_bc = mysqli_fetch_array($resultado_bc);
 			$bim_inicio = date('d/m/Y', strtotime($row_bc['bimestreinicio_bim_bc']));
@@ -68,7 +59,7 @@
     <div class="panel panel-default listar-escuro">
         <div class="panel-heading panel-heading_bc">Bolsa Cópia
 		<hr class="divisor_bc"> 
-		<h6> Bimestre atual: <input type="text" readonly value = "<?php echo $row_bc['nome_bim_bc']?>"> </h6>
+			<h6> Bimestre atual: <input type="text" readonly value = "<?php echo $row_bc['nome_bim_bc']?>"> </h6>
 			<h6> Início do bimestre: <input type="text" readonly value = "<?php echo $bim_inicio ?>"> </h6>
 			<h6> Término do bimestre: <input type="text" readonly value = "<?php echo $bim_fim ?>"> </h6>
 			<!-- Botão para acionar modal de configuração de bimestre -->

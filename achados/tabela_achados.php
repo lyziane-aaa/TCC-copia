@@ -64,12 +64,12 @@ while($row_achados =mysqli_fetch_array($resultado_achados) ) {
 	$dado[] = '
 	<!-- Botão para acionar modal da imagem -->
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-img-' . $row_achados["id_achados"] . '">
-  Abrir imagem
+Visualizar
 </button>';
 	$dado[] = '
 	<!-- Botão para acionar modal de editar -->
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-editar-' . $row_achados["id_achados"] . '">
-  Abrir imagem
+Editar
 </button>';
 
 
