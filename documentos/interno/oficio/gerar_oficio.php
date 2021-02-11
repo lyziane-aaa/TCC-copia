@@ -54,6 +54,7 @@ function Onlynumbers(e)
 		return false;
 	}
 }</script>
+
 		<div id="interface">
 				<div class= "divoficio" id="fundooficio" > <!-- div de exibição do bimestre--> 
 					<form action="inserirDocOfc.php" method="POST">
@@ -137,7 +138,9 @@ function Onlynumbers(e)
                 // Replace the <textarea id="editor1"> with a CKEditor 4
                 // instance, using default configuration.
                
-			 CKEDITOR.replace('input-corpoOficio');
+			 CKEDITOR.replace('input-corpoOficio',{
+				enterMode : CKEDITOR.ENTER_BR 
+			});
                 
                
      </script>

@@ -24,7 +24,7 @@
 	// 
 	$resultado_insertBC = mysqli_query($conn, $resultado_insert);
 
-	header ("location:../../documentos/interno/cadastrarOficio.php");
+	header ("Location: gerar_oficio.php");
 	
 
 	 

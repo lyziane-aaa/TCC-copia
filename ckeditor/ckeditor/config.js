@@ -7,6 +7,10 @@ CKEDITOR.editorConfig = function(config) {
     // Define changes to default configuration here.
     // For complete reference see:
     // https://ckeditor.com/docs/ckeditor4/latest/api/CKEDITOR_config.html
+    config.enterMode = 2; //disabled <p> completely
+    config.enterMode = CKEDITOR.ENTER_BR // pressing the ENTER KEY input <br/>
+    config.shiftEnterMode = CKEDITOR.ENTER_P; //pressing the SHIFT + ENTER KEYS input <p>
+    config.autoParagraph = false; // stops automatic insertion of <p> on focus
 
     // The toolbar groups arrangement, optimized for two toolbar rows.
     config.toolbarGroups = [
@@ -40,8 +44,10 @@ CKEDITOR.editorConfig = function(config) {
     config.height = '105mm';
 
 
+    // preserve newlines in source
+    //  config.protectedSource.push(/\n/g);
     config.entities = false;
     config.basicEntities = false;
     config.entities_greek = false;
-    config.entities_latin = false;
+    config.entities_latin = true;
 };

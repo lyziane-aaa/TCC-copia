@@ -122,6 +122,8 @@ $pdf-> Ln(5);
 $pdf-> MultiCell (190,5,utf8_decode("$endrc_doc_ofc")); //Endereçamento
 $pdf-> Ln(7);
 $html = "<b>Assunto: $assunto_doc_ofc </b>";
+$pdf->writeHTMLCell(0, 0, '', '', $html, 'LRTB', 1, 1, true, 'C', true);
+
 $pdf-> WriteHTML($html, true, false, true, false, '');
 $html = "";
 //$pdf-> MultiCell(190,5,);//Assunto
