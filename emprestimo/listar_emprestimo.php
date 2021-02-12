@@ -28,6 +28,11 @@
 			$('#tabela_emprestimo').DataTable({
 				"Processando": true,
 				"serverSide": true,
+				select: 'multi',
+            select: {
+                items: 'row',
+				
+			},
 				"language": {
 					"url": "https://cdn.datatables.net/plug-ins/1.10.22/i18n/Portuguese-Brasil.json"
 				},
@@ -50,13 +55,7 @@
 	<?php
 	$nivel_necessario = 2;
 	include_once("../conexao.php");
-
 	//if(isset($_SESSION['login']) && isset($_SESSION['nivel'])) {
-	$_SESSION['listar'] = 1;
-	/* Aparentemente a presença do Bootstrap altera o tamanho da imagem no menu,
-			então essa variavel se encontrara em todos os listar e conterá o novo conteudo a ser colocado
-			como formartação da imagem, porém para isso dar certo terei de fazer um teste lógico dentro do
-			 menu com o php */
 	?>
 	<div class="container">
 		<br />
@@ -69,17 +68,22 @@
 							<thead>
 								<tr>
 									<th>Nome do Objeto</th>
-									<th>Quem pegou emprestado</th>
-									<th>Matrícula de quem pegou emprestado</th>
-									<th>Gremista que emprestou</th>
-									<th>Data do Empréstimo</th>
-
+									<th>Nome Completo</th>
+									<th>Matrícula ou CPF</th>
+									<th>Gremista que Emprestou</th>
+									<th>Condição</th>
+									<th>Data do Emprestimo</th>
+									<th>Data Devolução</th>
+									<th>Gremista que Recebeu</th>
+									<th>Editar</th>
+									<th>Excluir</th>
 								</tr>
 							</thead>
 							<tbody>
+								<!-- Panel-body !-->
 							</tbody>
 						</table>
-					</div> <!-- Panel-body !-->
+					</div> 
 				</div>
 			</div>
 		</div>

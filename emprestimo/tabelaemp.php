@@ -10,13 +10,16 @@ $requestData= $_REQUEST;
 
 $columns = array( 
 	0=> 'nome_pat', 
-	1=>'nome_emp', 
+	1=> 'nome_emp',
 	2=> 'matricula_emp',
 	3=> 'gremista_emp',
-	4=> 'data_emp'
+	4=> 'condicao_emp',
+	5=> 'data_emp', 
+	6=> 'data_dev',
+	7=> 'gremista_dev'
 );
 //Verifica��o de quantas linhas tem a tabela para pagina��o
-$consulta_emp="SELECT patrimonioativo.nome_pat, emp.nome_emp, emp.matricula_emp, emp.gremista_emp,emp.data_emp FROM emprestimos as emp
+$consulta_emp="SELECT patrimonioativo.nome_pat,emp.id_emp, emp.nome_emp, emp.matricula_emp, emp.gremista_emp, emp.condicao_emp ,emp.data_emp, emp.data_dev, emp.gremista_dev FROM emprestimos as emp
 join patrimonioativo 
 on emp.obj_emp = patrimonioativo.id_pat WHERE concluido_emp = 0;";
 $resultado_consulta_emp=mysqli_query($conn,$consulta_emp);
@@ -30,7 +33,7 @@ $linhas=mysqli_num_rows($resultado_consulta_emp);
 
 
 //Obter dados
-$result_emp="SELECT patrimonioativo.nome_pat, emp.nome_emp, emp.matricula_emp, emp.gremista_emp,emp.data_emp FROM emprestimos as emp
+$result_emp="SELECT patrimonioativo.nome_pat, emp.id_emp ,emp.nome_emp, emp.matricula_emp, emp.gremista_emp, emp.condicao_emp ,emp.data_emp, emp.data_dev, emp.gremista_dev FROM emprestimos as emp
 join patrimonioativo 
 on emp.obj_emp = patrimonioativo.id_pat WHERE concluido_emp = 0;";
 
@@ -58,11 +61,20 @@ while($row_emp =mysqli_fetch_array($resultado_emp) ) {
 	$dado[] = $row_emp["nome_emp"];
 	$dado[] = $row_emp["matricula_emp"];
 	$dado[] = $row_emp["gremista_emp"];	
+	$dado[] = $row_emp["condicao_emp"]
 	$dataemp = date('d/m/Y H:i:s',strtotime($row_emp["data_emp"]));
-	$dado[] = '$row_emp["gremista_emp"];';
 	$dado[] = $dataemp;
+	$dado[] = $row_emp["data_dev"];
+	$dado[] = $row_emp["gremista_dev"];
+	//Botão de Editar
+	$dados[] = '<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-editar-' . $row_achados["id_emp"] . '">
+	Editar
+	</button>';
+	//Botão de Excluir (Ele envia o id via Get)
+	$dados[] = '<a class="btn btn-primary" href="excluir_emprestimo.php?id='. $row_emp["id_emp"].' </a>';
 	$dados[] = $dado;
 }
+
 // <?php echo $rows_emp['img_emp'];"';
 //Cria o array de informa��es a serem retornadas para o Javascript
 $json_data = array(
