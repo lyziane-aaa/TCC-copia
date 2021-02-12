@@ -65,63 +65,25 @@ $html = '
 
 <b>' . $num_doc_ofc . '</b>
 <p style="margin-top: 0px" align = "right">' . $data_doc_ofc . '</p>
-<p align = "left">' . $endrc_doc_ofc . ' </p>
-<p> </p> <!-- pula linha melhor que BR por causa do tamanho da célula --> 
-<p align = "justify"><b> Assunto: ' . $assunto_doc_ofc . '</b></p>';
+<p> </p> <!-- pula linha melhor que BR por causa do tamanho da célula -->';
 
-$pdf->writeHTMLCell(168, 30, 29, 45, $html, 0, 0, 0, '', true);
+
+$pdf->writeHTMLCell(168, 30, 29, 45, $html, 0, 0, 0, '', false);
 $pdf->setCellHeightRatio(K_CELL_HEIGHT_RATIO);
-$html =  $corpo_doc_ofc;
-
-$pdf->writeHTMLCell(168,30,29,45,$html,0, 0,0, '',false);
-//$pdf->SetXY(29, 60);
-//$pdf->writeHTML($html, true, 0, false, false, 0, 0, 'L');
-//$pdf->writeHTML(168,30,29,48,$html,0, 0,0, '',true);
-
-
-
+$pdf->MultiCell(0, '', $endrc_doc_ofc, 0, 'L',0, 1, 29, 55, true, 0, false, true, 0, 'B');
+$pdf->Ln(5);//pula 1cm
+$html = '<p align = "justify"><b> Assunto: ' . $assunto_doc_ofc . '</b></p>';
+$pdf->writeHTMLCell(168, '', 28, '', $html, 0, 0, 0, true, 'J', true);
+$pdf->Ln(10);//pula 1cm
+$pdf->writeHTMLCell(168, '', 29, '', $corpo_doc_ofc, 0, 0, 0, true, 'J', true);
 
 $pdf->SetFont('Liberation Serif', 'R', 12);
+$pdf->Ln(40);//pula 1cm
+$pdf->lastPage(); // Coloca para a última página
+$pdf->MultiCell('', 6, '(assinado eletronicamente)', 0, 'C', 0, 1, 29, '', true, 0, false, true, 6, 'B');
+$pdf->MultiCell('', 6, $assinatura_doc_ofc, 0, 'C', 0, 1, 29, '', true, 0, false, true, 6, 'B');
+$pdf->MultiCell('', 6,  $cargo_doc_ofc, 0, 'C', 0, 1, 29, '', true, 0, false, true, 6, 'B');
 
+$titulo_doc_ofc = utf8_decode($titulo_doc_ofc);
 
-
-
-
-//$html = "<p align = 'right'>$data_doc_ofc</p>";
-//$pdf->writeHTML($html,true,false,false,false,'');
-
-
-
-/*
-//                         
-$pdf-> writeHTMLCell(140,5,29,45,$num_doc_ofc,0, 0,0, 'L'); //'OFÍCIO 2020.10/DIEXE/GEVP
-$pdf->SetFont('Liberation Serif','r',12);// tira o negrito
-
-//$data_doc_ofc = "<p align = 'right'>$data_doc_ofc</p>";// a tag p alinha à direita
-//$pdf-> writeHTMLCell(120,5,20,48,$data_doc_ofc,1, 0,0, 'R',true); //'OFÍCIO 2020.10/DIEXE/GEVP
-$pdf->SetXY(76, 48); // Define um ponto para a próxima célula
-$pdf->Cell(120, 5, $data_doc_ofc,
- 0, false, 'R', 0, '', 0, false, 'T', 'M');
-$endrc_doc_ofc = "$endrc_doc_ofc";// a tag p alinha à direita
-$pdf-> writeHTMLCell(80,5,29,55,$endrc_doc_ofc,0, 0,0, 'R' );
-
-
-$pdf->SetXY(30, 62);
-$html = utf8_decode("<b>Assunto: $assunto_doc_ofc </b>");
-$pdf-> WriteHTMLCell($html);
-$html = "";
-//$pdf-> MultiCell(190,5,);//Assunto
-
-
-$pdf->writeHTMLCell(165,30,30,78,$corpo_doc_ofc,1, 0,0, 'R',true);
-
-
-//$pdf-> Cell(165,5,utf8_decode("$fecho_doc_ofc"),0,0,"L"); //Fecho
-//$pdf-> Ln(15);
-$pdf->Cell (165,5,utf8_decode('(assinado eletronicamente)'),0,0,"C"); //
-$pdf-> Ln(4);
-$pdf->Cell (165,5,utf8_decode("$assinatura_doc_ofc"),0,0,"C"); //Assinatura
-$pdf->Ln(4);
-$pdf->Cell (165,5,utf8_decode("$cargo_doc_ofc"),0,0,"C"); //Cargo
-*/
 $pdf->Output($titulo_doc_ofc . '.pdf', 'I');

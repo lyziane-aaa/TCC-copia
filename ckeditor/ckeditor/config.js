@@ -1,53 +1,38 @@
-/**
- * @license Copyright (c) 2003-2020, CKSource - Frederico Knabben. All rights reserved.
+﻿/**
+ * @license Copyright (c) 2003-2021, CKSource - Frederico Knabben. All rights reserved.
  * For licensing, see https://ckeditor.com/legal/ckeditor-oss-license
  */
 
 CKEDITOR.editorConfig = function(config) {
-    // Define changes to default configuration here.
-    // For complete reference see:
-    // https://ckeditor.com/docs/ckeditor4/latest/api/CKEDITOR_config.html
-    config.enterMode = 2; //disabled <p> completely
-    config.enterMode = CKEDITOR.ENTER_BR // pressing the ENTER KEY input <br/>
-    config.shiftEnterMode = CKEDITOR.ENTER_P; //pressing the SHIFT + ENTER KEYS input <p>
-    config.autoParagraph = false; // stops automatic insertion of <p> on focus
 
-    // The toolbar groups arrangement, optimized for two toolbar rows.
+    // %REMOVE_START%
+    // The configuration options below are needed when running CKEditor from source files.
+    config.plugins = 'dialogui,dialog,about,a11yhelp,dialogadvtab,basicstyles,bidi,blockquote,notification,button,toolbar,clipboard,panelbutton,panel,floatpanel,colorbutton,colordialog,templates,menu,contextmenu,copyformatting,div,editorplaceholder,resize,elementspath,enterkey,entities,popup,filetools,filebrowser,find,fakeobjects,flash,floatingspace,listblock,richcombo,font,forms,format,horizontalrule,htmlwriter,iframe,wysiwygarea,image,indent,indentblock,indentlist,smiley,justify,menubutton,language,link,list,liststyle,magicline,maximize,newpage,pagebreak,pastetext,xml,ajax,pastetools,pastefromgdocs,pastefromlibreoffice,pastefromword,preview,print,removeformat,save,selectall,showblocks,showborders,sourcearea,specialchar,scayt,stylescombo,tab,table,tabletools,tableselection,undo,lineutils,widgetselection,widget,notificationaggregator,uploadwidget,uploadimage,tableresize,imagebrowser,imageresize,textmatch,autolink,loremipsum,tabletoolstoolbar,toc,tableresizerowandcolumn,imageresizerowandcolumn,textindent,zsuploader';
+    config.skin = 'moono-lisa';
+    // %REMOVE_END%
+
+    // Define changes to default configuration here. For example:
+    config.language = 'pt-br';
+    config.uiColor = '#AADC6E';
+
+
+
     config.toolbarGroups = [
-        { name: 'clipboard', groups: ['clipboard', 'undo'] },
-        { name: 'editing', groups: ['find', 'selection', 'spellchecker'] },
-        { name: 'links' },
-        { name: 'insert' },
-        { name: 'forms' },
-        { name: 'tools' },
         { name: 'document', groups: ['mode', 'document', 'doctools'] },
-        { name: 'others' },
-        '/',
+        { name: 'clipboard', groups: ['clipboard', 'undo'] },
+        { name: 'editing', groups: ['find', 'selection', 'spellchecker', 'editing'] },
+        { name: 'forms', groups: ['forms'] },
         { name: 'basicstyles', groups: ['basicstyles', 'cleanup'] },
-        { name: 'paragraph', groups: ['list', 'indent', 'blocks', 'align', 'bidi'] },
-        { name: 'styles' },
-        { name: 'colors' },
-        { name: 'about' }
+        { name: 'paragraph', groups: ['list', 'indent', 'blocks', 'align', 'bidi', 'paragraph'] },
+        { name: 'links', groups: ['links'] },
+        { name: 'insert', groups: ['insert'] },
+        { name: 'styles', groups: ['styles'] },
+        { name: 'colors', groups: ['colors'] },
+        { name: 'tools', groups: ['tools'] },
+        { name: 'others', groups: ['others'] },
+        { name: 'about', groups: ['about'] }
     ];
 
-    // Remove some buttons provided by the standard plugins, which are
-    // not needed in the Standard(s) toolbar.
-    config.removeButtons = 'Underline,Subscript,Superscript';
+    config.removeButtons = 'Save,NewPage,ExportPdf,Flash,Language,Form,Checkbox,Radio,Select,Button,ImageButton,HiddenField,Font,TextColor,BGColor';
 
-    // Set the most common block elements.
-    config.format_tags = 'p;h1;h2;h3;pre';
-
-    // Simplify the dialog windows.
-    config.removeDialogTabs = 'image:advanced;link:advanced';
-
-    config.width = '166mm';
-    config.height = '105mm';
-
-
-    // preserve newlines in source
-    //  config.protectedSource.push(/\n/g);
-    config.entities = false;
-    config.basicEntities = false;
-    config.entities_greek = false;
-    config.entities_latin = true;
 };

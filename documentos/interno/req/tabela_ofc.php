@@ -28,9 +28,9 @@ if(!empty($requestData['search']['value']) ) {   // se houver um parâmetro de p
 	$result_doc_ofc.=" AND ( titulo_doc_ofc LIKE '%".$requestData['search']['value']."%' ";    
 	$result_doc_ofc.=" OR data_registro_ofc LIKE '%".$requestData['search']['value']."%' ";
 	$result_doc_ofc.=" OR assinatura_doc_ofc LIKE '%".$requestData['search']['value']."%' )";
-	$result_doc_ofc.=" ORDER BY ". $columns[$requestData['order'][0]['column']]."   ".$requestData['order'][0]['dir']."  LIMIT ".$requestData['start']." ,".$requestData['length']."   ";
-
+	
 }
+$result_doc_ofc.=" ORDER BY ". $columns[$requestData['order'][0]['column']]."   ".$requestData['order'][0]['dir']."  LIMIT ".$requestData['start']." ,".$requestData['length']."   ";
 
 $resultado_doc_ofc= mysqli_query($conn, $result_doc_ofc);
 $totalFiltered = mysqli_num_rows($resultado_doc_ofc); // contar as linhas
@@ -48,6 +48,8 @@ $dado[] = $row_doc_ofc["titulo_doc_ofc"];
 $dado[] = $row_doc_ofc["assinatura_doc_ofc"];
 $dado[] = $row_doc_ofc["data_registro_ofc"];
 $dado[] = "<a href='/tcc/PDF/documentos/gerar_pdf_ofc.php?id_doc_ofc=" . $row_doc_ofc['id_doc_ofc'] . "' style= 'filter: invert(100%);'><img src='/tcc/imagens/salvarpdf.png' width='20' height='20'/>";
+//$dado[] = "<a href='/tcc/documentos/interno/oficio/gerarPDFDoc.php?id_doc_ofc=" . $row_doc_ofc['id_doc_ofc'] . "' style= 'filter: invert(100%);'><img src='/tcc/imagens/salvarpdf.png' width='20' height='20'/>";
+
 $dados[] = $dado;
 }
 						

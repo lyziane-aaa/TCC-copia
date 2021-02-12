@@ -16,6 +16,7 @@ class oficioPDF extends TCPDF
 
 // If para verificar se é a primeira página
 if  ($this->numpages == 1 ) {
+        
         $this->Image('../../imagens/logo_gremio.png', 30, 12, 35, 28, 'PNG', '', 'M', false, 150, '', false, false, 0, false, false, true);
         // Escolhe a fonte
         $this->SetFont('Liberation Serif', 'R', 11);
@@ -34,11 +35,12 @@ if  ($this->numpages == 1 ) {
 
         $this->Image('../../imagens/logo_ifmo.png', 163, 13, 45, 40, 'PNG', '', 'M', false, 150, '', false, false, 0, false, false, true);
 
-
+      //  $this-> SetMargins(30, 30,15,true);
         $this->Line(30, 42, 195, 42);
+        
     }else { 
         $this->Image('../../imagens/logo_gremio.png', 0, 10,25, 18, 'PNG', '', 'M', false, 150, 'C', false, false, 0, false, false, true);
-        
+        $this-> SetMargins(30, 35,15,true);
     }
     }
 
@@ -60,7 +62,7 @@ if  ($this->numpages == 1 ) {
         $this->SetFont('Liberation Serif', 'R', 10);
         $this->SetY(-20); //Colocar a altura do rodapé igual a 20mm ou 2cm conforme o Manual de Redação da REGIF. Negativo por estar contando de baixo para cima.
         $html = 'Pág. '.$this->getAliasNumPage().'/'.$this->getAliasNbPages();
-        $this->WriteHTMLCell(156, 5, 30, -10, $html, 0, 0, 0, 0, 'C');
+        $this->WriteHTMLCell(156, 5, 45, -10, $html, 0, 0, 0, 0, 'C');
         //$this->Cell(0, 5, 'Pág. '.$this->getAliasNumPage().'/'.$this->getAliasNbPages(), 0, false, 'C', 0, '', 0, false, 'T', 'M');
     }
     
