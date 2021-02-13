@@ -65,7 +65,7 @@
 <div class="container">
     <br/>
     <div class="panel panel-default listar-escuro">
-        <div class="panel-heading">Meus Documentos</div>
+        <div class="panel-heading">Meus Documentos: Ofícios</div>
         <div class="panel-body">
 
 
@@ -84,7 +84,10 @@
 					</tbody>
 				</table>
             </div> <!-- tabela !-->
-
+			<br>
+			<br>
+			<br>
+			<div class="panel-heading">Meus Documentos: Portarias</div>
 			<div class="table-responsive"> <!-- tabela portaria -->
 				<table id="tabela_port" class="table table-bordered table-striped">
 					<thead>
