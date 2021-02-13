@@ -84,7 +84,6 @@
     margin-right: 15mm;
     width: 166mm;
     height: 125mm;
-    background-color: navy;
 }
 
 #input-corpoOficio {
@@ -199,7 +198,6 @@
     margin-right: 16mm;
     width: 158mm;
     height: 115mm;
-    background-color: navy;
 }
 
 #input-texto-port {
@@ -250,6 +248,139 @@
 }
 
 #input-card-port {
+    margin-top: -130px;
+    margin-left: 720px;
+    position: absolute;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+
+/* Gerar Ata */
+
+#fundo-ata {
+    background-image: url("/TCC/documentos/interno/elementos/img/foto_ata.jpg") !important;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    float: left;
+    width: 210mm;
+}
+
+#titulo_doc_ata {
+    margin-top: 50mm;
+    margin-left: 99mm;
+    margin-right: 15mm;
+    width: 29mm;
+    height: 6mm;
+    background-color: white;
+}
+
+#input-num_doc_ata {
+    width: 20mm;
+    height: 5mm;
+    margin-top: 1mm;
+}
+
+#data-ata {
+    margin-top: 5mm;
+    margin-left: 110mm;
+    margin-right: 5mm;
+    width: 20mm;
+    height: 10mm;
+}
+
+.input-data-ata {
+    width: 88mm;
+    height: 6mm
+}
+
+#convoc-ata {
+    margin-top: 10mm;
+    margin-left: 70mm;
+    margin-right: 5mm;
+    width: 20mm;
+    height: 10mm;
+}
+
+#input-convoc-ata {
+    width: 88mm;
+    height: 6mm;
+    transform: scale(0.9);
+}
+
+.select-convoc-ata {
+    font-size: 10px;
+    width: 25mm;
+    height: 8mm;
+    transform: scale(0.9);
+    margin-top: 0mm;
+    margin-left: -10mm;
+}
+
+#input-sec-ata {
+    width: 88mm;
+    height: 6mm;
+    transform: scale(0.8);
+    margin-left: -10mm;
+    margin-top: -1mm;
+}
+
+#texto-ata {
+    margin-top: 200mm;
+    margin-left: 30mm;
+    margin-right: 16mm;
+    width: 158mm;
+    height: 115mm;
+}
+
+#input-texto-ata {
+    width: 158mm;
+    height: 115mm;
+}
+
+#matricula-ata {
+    margin-top: 18mm;
+    margin-left: 30mm;
+    margin-right: 15mm;
+    width: 40mm;
+    height: 5mm;
+    background-color: grey;
+}
+
+#input-matricula-ata {
+    width: 42mm;
+    height: 5mm;
+}
+
+#assinatura-ata {
+    margin-top: 12mm;
+    margin-left: 91mm;
+    margin-right: 15mm;
+    width: 43mm;
+    height: 5mm;
+    background-color: gold;
+}
+
+#input-assinatura-ata {
+    width: 45mm;
+    height: 5mm;
+}
+
+#cargo-ata {
+    margin-top: 0mm;
+    margin-left: 91mm;
+    margin-right: 15mm;
+    width: 43mm;
+    height: 5mm;
+    background-color: coral;
+}
+
+#input-cargo-ata {
+    width: 45mm;
+    height: 5mm;
+}
+
+#input-card-ata {
     margin-top: -130px;
     margin-left: 720px;
     position: absolute;

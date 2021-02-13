@@ -28,9 +28,9 @@ if(!empty($requestData['search']['value']) ) {   // se houver um parâmetro de p
 	$result_doc_ofc.=" AND ( titulo_doc_ofc LIKE '%".$requestData['search']['value']."%' ";    
 	$result_doc_ofc.=" OR data_registro_ofc LIKE '%".$requestData['search']['value']."%' ";
 	$result_doc_ofc.=" OR assinatura_doc_ofc LIKE '%".$requestData['search']['value']."%' )";
-	$result_doc_ofc.=" ORDER BY ". $columns[$requestData['order'][0]['column']]."   ".$requestData['order'][0]['dir']."  LIMIT ".$requestData['start']." ,".$requestData['length']."   ";
-
+	
 }
+$result_doc_ofc.=" ORDER BY ". $columns[$requestData['order'][0]['column']]."   ".$requestData['order'][0]['dir']."  LIMIT ".$requestData['start']." ,".$requestData['length']."   ";
 
 $resultado_doc_ofc= mysqli_query($conn, $result_doc_ofc);
 $totalFiltered = mysqli_num_rows($resultado_doc_ofc); // contar as linhas

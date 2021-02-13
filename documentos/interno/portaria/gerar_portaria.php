@@ -71,7 +71,7 @@
 
 
 					<div id="texto-port">
-						<textarea name="texto_doc_port" required id="input-texto-port" type="text" placeholder="O Presidente, no uso de suas atribuições, resolve" spellcheck="true">O Presidente, no uso de suas atribuições, resolve</textarea>
+						<textarea name="texto_doc_port" required id="input-texto-port" type="text" placeholder="O Presidente, no uso de suas atribuições, resolve" spellcheck="true"></textarea>
 					</div>
 
 					<div id="fecho-port">
@@ -114,8 +114,8 @@
 
 
 		<script src="../../../ckeditor/ckeditor/ckeditor.js" charset="utf-8"></script><!-- Arquivos para o editor de texto opensource CKEditor-->
-		<script src="../../../ckeditor/ckfinder/ckfinder.js"></script>
-		<script src="../../../ckeditor/js/javascript.js"></script>
+	 <script src="../../../ckeditor/ckfinder/ckfinder.js"></script>
+	<script src="../../../ckeditor/js/javascript.js"></script>
 		<script>
 			CKEDITOR.replace('input-texto-port');
 			// Replace the <textarea id="editor1"> with a CKEditor 4

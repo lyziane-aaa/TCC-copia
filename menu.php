@@ -74,8 +74,9 @@
                 <li><a href="#"> Documentos </a>
                     <ul>
                         <li><a href="/TCC/documentos/interno/listar_documentos.php">Meus Documentos</a> </li>
-                        <li><a href="/TCC/documentos/interno/oficio/gerar_oficio.php">Gerar Ofício</a></li>
-                        <li><a href="/TCC/documentos/interno/portaria/gerar_portaria.php">Gerar Portaria</a></li>
+                        <li><a href="/TCC/documentos/interno/oficio/gerar_oficio.php">Novo Ofício</a></li>
+                        <li><a href="/TCC/documentos/interno/portaria/gerar_portaria.php">Nova Portaria</a></li>
+                        <li><a href="/TCC/documentos/interno/ata/gerar_ata.php">Nova ata</a></li>
                     </ul>
                 </li>
 

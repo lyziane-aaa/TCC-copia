@@ -36,6 +36,19 @@
 						},
 					} );
 				} );
+				$(document).ready(function() {
+			$('#tabela_port').DataTable( {
+				"Processando": true,
+				"serverSide": true,
+				"language": {
+   								 "url": "https://cdn.datatables.net/plug-ins/1.10.22/i18n/Portuguese-Brasil.json"
+						},
+				"ajax": {
+					"url": "req/tabela_port.php",
+					"type": "POST"
+						},
+					} );
+				} );
 	</script>
 </head>
 
