@@ -40,7 +40,7 @@ if((isset($_POST['login'])) && (isset($_POST['senha']))){
 	//print ($_POST['senha']);
 	//exit();
 
-	$resultado_select = "SELECT login, senha, nivel, nome_usuarios, usuarios_diretoria.cargo_diretoria FROM usuarios
+	$resultado_select = "SELECT login, senha, nivel, nome_usuarios, usuarios_diretoria.cargo_diretoria, matricula_usuarios FROM usuarios
 	join usuarios_diretoria 
 	on usuarios.cargo = usuarios_diretoria.id_diretoria WHERE login='".$login."' and senha = '".$senha."'";
     $resultado_usuario = mysqli_query($conn, $resultado_select);
@@ -52,6 +52,7 @@ if((isset($_POST['login'])) && (isset($_POST['senha']))){
 	$_SESSION['nivel'] = $resultado['nivel'];
 	$_SESSION['cargo'] = $resultado['cargo_diretoria'];
 	$_SESSION['nome_usuarios'] = $resultado['nome_usuarios'];
+	$_SESSION['matricula'] = $resultado['matricula_usuarios'];
 
 
 	//verifica se login e senha são iguais	

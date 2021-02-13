@@ -28,7 +28,7 @@ if  ($this->numpages == 1 ) {
 
         $html = "INSTITUTO FEDERAL DE EDUCAÇÃO, CIÊNCIA E TECNOLOGIA DO RIO GRANDE DO NORTE - <br>
         CÂMPUS MOSSORÓ - IFRN-MO<br><b> Grêmio Estudantil Valdemar dos Pássaros</b> 
-            <br><i>CNPJ: 02.102.875/0001-20</i><br> Gestão 2019.2021 - IF Para Tempos de Guerra";
+            <br><i></i><br> Gestão 2019.2021 - IF Para Tempos de Guerra";
         $this->WriteHTMLCell(111, 5, 60, 13, $html, 0, 0, 0, 0, 'C'); // o eixo y está maior para ficar alinhado com as logos
 
 

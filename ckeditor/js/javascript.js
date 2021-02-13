@@ -1,1 +1,2 @@
 CKFinder.setupCKEditor();
+CKFinder.setupCKEditor();

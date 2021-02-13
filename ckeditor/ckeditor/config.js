@@ -33,6 +33,7 @@ CKEDITOR.editorConfig = function(config) {
         { name: 'about', groups: ['about'] }
     ];
 
+
     config.removeButtons = 'Save,NewPage,ExportPdf,Flash,Language,Form,Checkbox,Radio,Select,Button,ImageButton,HiddenField,Font,TextColor,BGColor';
 
 };

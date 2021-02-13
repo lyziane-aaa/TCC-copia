@@ -4,7 +4,7 @@
 
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<title>Gerar Nova Portaria</title>
+	<title>Nova Ata</title>
 
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
@@ -54,46 +54,72 @@
 			}
 		</script>
 		<div id="interface">
-			<div class="divoficio" id="fundo-port">
+			<div class="divoficio" id="fundo-ata">
 				<!-- div de exibição do bimestre-->
-				<form action="inserir_doc_port.php" method="POST">
+				<form action="inserir_doc_ata.php" method="POST">
 					<!--<div id="gestao_doc_ofc">
 						<input id ="input-gestao" type="text" placeholder="Gestão 2019.2021 - IF Para Tempos de Guerra" name="gestao_doc_ofc" required>
 					</div>-->
+					<?php
+					$query = "SELECT * FROM documentos_ata ORDER BY num_doc_ata DESC LIMIT 1";
+					$query_a = mysqli_query($conn, $query);
+					$num = mysqli_fetch_assoc($query_a);
+					
+					// Configurar a numeração 
+					
+					//	if (!empty($num['num_doc_ata'])){
+						//$num = intval($num['num_doc_ata']);
+						$num_exp = explode("/",$num['num_doc_ata']);
+						$num_a = intval($num_exp['0']);
+						$num_a = $num_a++;
+						$numnovo = 'Ata ' . $num_a . '/' . date('Y');//}
+						
+					?>
 
-					<div id="titulo_doc_port">
-						<input name="titulo_doc_port" id="input-titulo_doc_port" type="text" placeholder="PORTARIA Nº <NÚMERO>/<ANO>, DE <DIA> DE <MÊS> DE <ANO>" value = "PORTARIA Nº <NÚMERO>/<ANO>, DE <DIA> DE <MÊS> DE <ANO>" required>
+					<div id="titulo_doc_ata">
+					<input name="num_doc_ata" required id="input-num_doc_ata" type="text" placeholder="<NOME DO GREMISTA>" value="<?php echo $numnovo ?>" readonly>
+					</div>
+					<div id="data-ata">			
+					<input name="data_doc_ata" class="input-data-ata" type="text" placeholder="Mossoró, 08 de maio de 2021."  >
+					<input name="local_doc_ata" class="input-data-ata" type="text" placeholder="Plataforma Virtual Google Meet"  >
+				</div>			
+
+					<div id="convoc-ata">
+					<input name="data_doc_ata" id="input-convoc-ata" type="text" placeholder="<Nome Complete>, <Cargo>">
+					<select name="local_doc_ata" class="select-convoc-ata">
+						<option value = "Deliberativa" selected = "selected">Deliberativa</option>
+						<option value = "Informativa">Informativa</option>
+					</select>
+					<input name="data_doc_ata" id="input-sec-ata" type="text" placeholder="Karydja França, Presidente do Grêmio">
+					</div>
+					<div id="pautas-ata">
+					<textarea></textarea>
+					</div>
+				
+					<div id="texto-ata">
+						<textarea name="texto_doc_ata" required id="input-texto-ata" type="text" spellcheck="true"></textarea>
 					</div>
 
-					<div id="resumo-port">
-						<textarea wrap="hard" required name="resumo_doc_port" id="input-resumo_doc_port" spellcheck="true"></textarea>
+					<div id="matricula-ata">
+						<input name="matricula_doc_ata" required id="input-matricula-ata" type="text" value   spellcheck="true">
 					</div>
 
-
-					<div id="texto-port">
-						<textarea name="texto_doc_port" required id="input-texto-port" type="text" placeholder="O Presidente, no uso de suas atribuições, resolve" spellcheck="true"></textarea>
+					<div id="assinatura-ata">
+						<input name="assinatura_doc_ata" required id="input-assinatura-ata" type="text" placeholder="<NOME DO GREMISTA>" value="<?php echo $numnovo ?>" readonly>
 					</div>
 
-					<div id="fecho-port">
-						<input name="fecho_doc_port" required id="input-fecho-port" type="text" placeholder="<Atenciosamente>,"  spellcheck="true">
-					</div>
-
-					<div id="assinatura-port">
-						<input name="assinatura_doc_port" required id="input-assinatura-port" type="text" placeholder="<NOME DO GREMISTA>" value="<?php echo $_SESSION['nome_usuarios'] ?>" readonly>
-					</div>
-
-					<div id="cargo-port">
-						<input required id="input-cargo-port" readonly type="text" value="<?php echo $_SESSION['cargo'] ?>" name="cargo_doc_port" spellcheck="true">
+					<div id="cargo-ata">
+						<input required id="input-cargo-ata" readonly type="text" value="<?php echo $num_a?>" name="cargo_doc_ata" spellcheck="true">
 
 					</div>
-					<input required name="gremista_registro_port" type="text" hidden value="<?php echo $_SESSION['login'] ?>">
+					<input required name="gremista_registro_ata" type="text" hidden value="<?php   ?>">
 
-					<div class="card border-danger mb-3" style="min-width:12rem;max-width: 18rem;" id="input-card-port">
+					<div class="card border-danger mb-3" style="min-width:12rem;max-width: 18rem;" id="input-card-ata">
 
 						<div class="card-body text-danger">
-							<h5 class="card-title">Terminou a  Portaria? </h5>
+							<h5 class="card-title">Terminou a  ata? </h5>
 							<p class="card-text">Lembre-se:<br>Documentos só valem após assinados!</p>
-							<input type="submit" class="btn btn-danger" value="Salvar Portaria">
+							<input type="submit" class="btn btn-danger" value="Salvar ata">
 						</div>
 					</div>
 
@@ -117,7 +143,8 @@
 	 <script src="../../../ckeditor/ckfinder/ckfinder.js"></script>
 	<script src="../../../ckeditor/js/javascript.js"></script>
 		<script>
-			CKEDITOR.replace('input-texto-port');
+			CKEDITOR.replace('input-texto-ata');
+			
 			// Replace the <textarea id="editor1"> with a CKEditor 4
 			// instance, using default configuration.
 
