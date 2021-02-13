@@ -48,7 +48,7 @@ $dado[] = $row_doc_ofc["titulo_doc_ofc"];
 $dado[] = $row_doc_ofc["assinatura_doc_ofc"];
 $dado[] = $row_doc_ofc["data_registro_ofc"];
 $dado[] = "<a href='/tcc/PDF/documentos/gerar_pdf_ofc.php?id_doc_ofc=" . $row_doc_ofc['id_doc_ofc'] . "' style= 'filter: invert(100%);'><img src='/tcc/imagens/salvarpdf.png' width='20' height='20'/>";
-$dado[] = ' <a href="excluir_documentos.php?id_doc_ofc_ofi='. $row_doc_ofc["id_doc_ofc"].'"> <button type="button" class="btn btn-primary">Excluir</button></a>';
+$dado[] = ' <a href="../interno/req/excluir_documentos.php?id_doc_ofc='. $row_doc_ofc["id_doc_ofc"].'"> <button type="button" class="btn btn-primary">Excluir</button></a>';
 $dados[] = $dado;
 }
 						

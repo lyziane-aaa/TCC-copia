@@ -61,12 +61,6 @@
 		$nivel_necessario = 2;
 		include_once("../../conexao.php");
 		
-			$_SESSION['listar'] = 1;
-			/* Aparentemente a presença do Bootstrap altera o tamanho da imagem no menu,
-			então essa variavel se encontrara em todos os listar e conterá o novo conteudo a ser colocado
-			como formartação da imagem, porém para isso dar certo terei de fazer um teste lógico dentro do
-			 menu com o php */
-			// O LISTAR DE DOCUMENTOS VAI TER UMA LOGISTICA DIFERENTE PARA ALUNOS. AINDA A APLICAR!
 			?>
 <div class="container">
     <br/>
@@ -98,6 +92,7 @@
 							<th>Título</th>
 							<th>Autor</th>
 							<th>Data de emissão</th>
+							<th>Gerar PDF</th>
 							<th>Excluir</th>
 						</tr>
 					</thead>

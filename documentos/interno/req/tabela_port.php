@@ -52,7 +52,7 @@ while ($row_doc_port = mysqli_fetch_array($resultado_doc_port)) {
 	$dado[] = $row_doc_port["assinatura_doc_port"];
 	$dado[] = $row_doc_port["data_registro_port"];
 	$dado[] = "<a href='/tcc/PDF/documentos/gerar_pdf_port.php?id_doc_port=" . $row_doc_port['id_doc_port'] . "' style= 'filter: invert(100%);'><img src='/tcc/imagens/salvarpdf.png' width='20' height='20'/>";
-	$dado[] = ' <a href="excluir_documentos.php?id_doc_port='. $row_doc_port["id_doc_port"].'"> <button type="button" class="btn btn-primary">Excluir</button></a>';
+	$dado[] = ' <a href="../interno/req/excluir_documentos.php?id_doc_port='. $row_doc_port["id_doc_port"].'"> <button type="button" class="btn btn-primary">Excluir</button></a>';
 	$dados[] = $dado;
 }
 
