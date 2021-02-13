@@ -54,10 +54,10 @@
 			como formartação da imagem, porém para isso dar certo terei de fazer um teste lógico dentro do
 			 menu com o php */
 			?>
-<div class="container">
+<div class="container container-grande-usu">
     <br/>
-    <div class="panel panel-default listar-escuro">
-        <div class="panel-heading">Usuários</div>
+    <div class="panel panel-default listar-escuro panel-grande">
+        <div class="panel-heading">Usuários da Gestão</div>
         <div class="panel-body">
             <div class="table-responsive">
 				<table id="tabela_usuarios" class="table table-bordered table-striped">
@@ -71,6 +71,8 @@
 							<th>E-mail</th>
 							<th>Nível de Acesso</th>
 							<th>Data de Registro</th>
+							<th>Editar</th>
+							<th>Excluir</th>
 						</tr>
 					</thead>
 					<tbody>

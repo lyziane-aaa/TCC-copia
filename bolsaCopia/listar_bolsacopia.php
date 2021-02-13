@@ -174,7 +174,7 @@
 		<?php
 		} // if para administradores
 		?>
-		<div class="table-responsive">
+		<div class="table-responsive table_bc">
     <table id="tabelabc" class="table table-bordered table-striped">
         <thead>
             <tr>
@@ -182,6 +182,8 @@
                 <th>Matrícula</th>
                 <th>Laudas:</th>
 				<th>Última impressão em:</th>
+				<th>Editar</th>
+				<th>Excluir</th>
 			</tr>
         </thead>
         <tbody>

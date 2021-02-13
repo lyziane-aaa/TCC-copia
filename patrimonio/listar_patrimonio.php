@@ -48,11 +48,6 @@
 		$nivel_necessario = 2;
 		include_once("../conexao.php");
 	
-			$_SESSION['listar'] = 1;
-			/* Aparentemente a presença do Bootstrap altera o tamanho da imagem no menu,
-			então essa variavel se encontrara em todos os listar e conterá o novo conteudo a ser colocado
-			como formartação da imagem, porém para isso dar certo terei de fazer um teste lógico dentro do
-			 menu com o php */
 			?>
 	<div class="container">
     <br/>
@@ -70,6 +65,8 @@
 				<th >Custo de Obtenção</th>
 				<th >Observações sobre o objeto</th>
 				<th >Data de Aquisição</th>
+				<th>Editar</th>
+				<th>Excluir</th>
             </tr>
         </thead>
         <tbody>
@@ -81,8 +78,7 @@
 </div>
 
 <?php 
-
 include_once("../footer.php"); 
 ?>
-	</body>
+</body>
 </html>

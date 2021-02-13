@@ -21,17 +21,11 @@ sair da sessão clicando no icone de usuário. -->
         if(isset($_SESSION['login'])) {
             if ($_SESSION['nivel'] = 2) {
             $_SESSION['listar'] = 2; 
-			/* Aparentemente a presença do Bootstrap altera o tamanho da imagem no menu,
-			então essa variavel se encontrara em todos os listar e conterá o novo conteudo a ser colocado
-			como formartação da imagem, porém para isso dar certo terei de fazer um teste lógico dentro do
-			 menu com o php */
-             
-             
     ?>
 <p> O Cadastro de uma nova gestão necessariamente implicará no arquivamento de todos os usuários existentes para o módulo Histórico </p>
 
     <form action="inserir_gestao.php" class = "cadastro" method="post" enctype="multipart/form-data">
-        <h2 class="cad-titulo"><img src="/TCC/imagens/usuarios.png"> Cadastro Usuários</h2>
+        <h2 class="cad-titulo"><img src="/TCC/imagens/gestao.png"> Cadastro Gestão</h2>
         <hr class="divisor"> 
 
         <label >Nome da Gestão:</label>
@@ -48,10 +42,11 @@ sair da sessão clicando no icone de usuário. -->
                 
         <label >Ata de Posse</label>
         <input type="file" required="true" name="ata_posse_gestao" class="form-control">
+        <br>
+        <br>
 
         <!-- Cadastrar novo Administrador do sistema -->
-
-        <h2 class="cad-titulo"><img src="../imagens/usuarios.png"> Cadastro de novo administrador</h2>
+        <h2 class="cad-titulo"><img src="/TCC/imagens/login.png"> Cadastro de novo administrador</h2>
         <hr class="divisor"> 
 
         <label for="login">Nome de usuário:</label>

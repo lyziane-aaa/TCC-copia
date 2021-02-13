@@ -67,11 +67,11 @@ while($row_emp =mysqli_fetch_array($resultado_emp) ) {
 	$dado[] = $row_emp["data_dev"];
 	$dado[] = $row_emp["gremista_dev"];
 	//Botão de Editar
-	$dados[] = '<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-editar-' . $row_achados["id_emp"] . '">
+	$dados[] = '<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-editar-' . $row_emp["id_emp"] . '">
 	Editar
 	</button>';
 	//Botão de Excluir (Ele envia o id via Get)
-	$dados[] = '<a class="btn btn-primary" href="excluir_emprestimo.php?id='. $row_emp["id_emp"].' </a>';
+	$dado[] = ' <a href="excluir_emprestimo.php?id_emp='.$row_emp["id_emp"].'> <button type="button" class="btn btn-primary">Excluir</button></a>';
 	$dados[] = $dado;
 }
 

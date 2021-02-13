@@ -58,6 +58,12 @@ while($row_usuarios =mysqli_fetch_array($resultado_usuarios) ) {
 	$dado[] = $row_usuarios["email"];
 	$dado[] = $row_usuarios["nivel"];
 	$dado[] = $row_usuarios["data_registro"];
+	
+	$dado[] = '<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-editar-'.$row_usuarios["id_usuarios"].'">
+	Editar
+	</button>';
+	//Botão de Excluir (Ele envia o id via Get)
+	$dado[] = ' <a href="excluir_usuarios.php?id_usuarios='. $row_usuarios["id_usuarios"].'"> <button type="button" class="btn btn-primary">Excluir</button></a>';
 	$dados[] = $dado;
 }
 // <?php echo $rows_usuarios['img_usuarios'];"';

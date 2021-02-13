@@ -70,6 +70,7 @@
 							<th>Autor</th>
 							<th>Data de emissão</th>
 							<th>Gerar PDF</th>
+							<th>Excluir</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -84,6 +85,7 @@
 							<th>Título</th>
 							<th>Autor</th>
 							<th>Data de emissão</th>
+							<th>Excluir</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -98,7 +100,7 @@
 
 <?php 
 	
-include_once("../footer.php");
+include_once("../../footer.php");
 ?>
 				
 	</body>

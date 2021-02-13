@@ -53,6 +53,8 @@ $dado[] = $row_doc_ofc["id_doc_ofc"];
 $dado[] = $row_doc_ofc["titulo_doc_ofc"];
 $dado[] = $row_doc_ofc["gremista_registro_ofc"];
 $dado[] = $row_doc_ofc["data_registro_ofc"];	
+$dado[] = ' <a href="excluir_documentos.php?id_doc_port='. $row_doc_ofc["id_doc_ofc"].'"> <button type="button" class="btn btn-primary">Excluir</button></a>';
+
 $dados[] = $dado;
 }
 						

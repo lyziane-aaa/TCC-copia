@@ -63,13 +63,13 @@
 		include_once("../conexao.php");
   ?>
 	
-		<div class="container">
+		<div class="container container-grande">
     <br/>
-    <div class="panel panel-default listar-escuro">
+    <div class="panel panel-default listar-escuro panel-grande">
         <div class="panel-heading">Achados e Perdidos</div>
         <div class="panel-body">
             <div class="table-responsive">
-    <table id="tabela_achados" class="table table-bordered table-striped">>
+    <table id="tabela_achados" class="table table-bordered table-striped">
         <thead>
             <tr>
               <th>Nome do Objeto</th>
@@ -83,6 +83,7 @@
               <th>Postado</th>
               <th>Situação</th>
               <th>Imagem</th>
+              <th>Editar</th>
               <th>Excluir</th>
             </tr>
         </thead>

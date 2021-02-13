@@ -21,7 +21,7 @@ $linhas=mysqli_num_rows($resultado_consulta_bc);
 
 
 //Obter dados
-$result_bc="SELECT nome_bc,matricula_bc,laudas_bc,ultima_data_bc FROM bolsacopia WHERE 1=1";
+$result_bc="SELECT id_bc, nome_bc,matricula_bc,laudas_bc,ultima_data_bc FROM bolsacopia WHERE 1=1";
 
 $dados=array();
 if(!empty($requestData['search']['value']) ) {   // se houver um par�metro de pesquisa, $requestData['search']['value'] cont�m o par�metro de pesquisa
@@ -45,7 +45,11 @@ while($row_bc =mysqli_fetch_array($resultado_bc) ) {
 	$dado[] = $row_bc["laudas_bc"];
 	$databr = date('d/m/Y H:i:s',strtotime($row_bc["ultima_data_bc"]));
 	$dado[] = $databr;
-	//$dado[] = $row_bc["ultima_data_bc"];
+	$dado[] = '<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-editar-'.$row_bc["id_bc"].'">
+	Editar
+	</button>';
+	//Botão de Excluir (Ele envia o id via Get)
+	$dado[] = ' <a href="excluir_bolsacopia.php?id_bc='.$row_bc["id_bc"].'"><button type="button" class="btn btn-primary">Excluir</button></a>';
 	$dados[] = $dado;
 }
 // <?php echo $rows_bc['img_bc'];"';
