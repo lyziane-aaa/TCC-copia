@@ -33,14 +33,14 @@ sair da sessão clicando no icone de usuário. -->
         <br>
 
         <div class="linha">
-            <label for="obtencao" id="post">Forma de Obtenção:</label>
+            <label for="obtencao" class="post" >Forma de Obtenção:</label>
             <select name="obtencaoPat" id="obtencao">
                 <option value="Compra">Compra</option>
                 <option selected value="Doação">Doação</option>
             </select>
             <br>
 
-            <label for="status" id="post">Condição:</label>
+            <label for="status" class="post" >Condição:</label>
             <select name="statusPat" id="status">
                 <option value="Novo">Novo</option>
                 <option selected value="Normal">Normal</option>
@@ -54,6 +54,17 @@ sair da sessão clicando no icone de usuário. -->
         <input type="number" name="custoPat" id="custo" onKeyPress="return Onlynumbers(event);" >
         <br>
         <br>
+
+        <label for="nome-gresmista">Cadastrado por</label>
+        <input type="text" name="gremista_cadastro_pat" id="nome-gremista" value="<?= $_SESSION['nome_usuarios'] ?> ." required readonly>
+        <br>
+        <br>
+
+        <label for="emprestavel" class="post" >Pode ser emprestado:</label>
+            <select name="emprestavel" id="emprestavel">
+                <option value="1">Sim</option>
+                <option selected value="0">Não</option>
+            </select>
 
         <label for="descricao">Descrição:</label> 
         <textarea name="obsPat" id="descricao" 
