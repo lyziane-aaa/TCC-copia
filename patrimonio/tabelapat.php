@@ -56,12 +56,19 @@ while($row_pat =mysqli_fetch_array($resultado_pat) ) {
 	$dado[] = $row_pat["custo_obt"];
 	$dado[] = $row_pat["obs_pat"];
 	$datapat = date('d/m/Y H:i:s',strtotime($row_pat["data_cad_pat"]));
-	$dado[] = $datapat;	
+	$dado[] = $datapat;
+	$dado[] = $row_pat["gremista_cadastro_pat"];
+	if($row_pat["emprestavel"]== 1){
+		$data_emprestavel = "Sim";	
+	}else{
+		$data_emprestavel = "Não";
+	}
+	$dado[] = $data_emprestavel;
 	$dado[] = '<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-editar-'.$row_pat["id_pat"].'">
 	Editar
 	</button>';
 	//Botão de Excluir (Ele envia o id via Get)
-	$dado[] = ' <a href="excluir_patrimonio.php?id_pat='. $row_pat["id_pat"].'"> <button type="button" class="btn btn-primary">Excluir</button></a>';
+	$dado[] = ' <a href="excluir_patrimonio.php?id_pat='. $row_pat["id_pat"].'" data-confirm="Tem certeza que deseja prosseguir com a exclusão desse registro ?"> <button type="button" class="btn btn-primary">Excluir</button></a>';
 	$dados[] = $dado;
 }
 // <?php echo $rows_pat['img_pat'];"';

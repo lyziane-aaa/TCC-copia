@@ -14,6 +14,7 @@
 	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
 	<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 	<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+	<script src="../js/scripts.js"></script>
 	<script type="text/javascript">
 		setTimeout(function() {
 			var msg = document.getElementsByClassName("alertaDeErro");
@@ -58,10 +59,9 @@
 	//if(isset($_SESSION['login']) && isset($_SESSION['nivel'])) {
 	?>
 	<div class="container">
-		<br />
+		<br/>
 		<div class="panel panel-default listar-escuro">
 			<div class="panel-heading">Histórico de Empréstimos</div>
-			<div class="panel panel-default listar-escuro">
 				<div class="panel-body">
 					<div class="table-responsive">
 						<table id="tabela_emprestimo" class="table table-bordered table-striped">

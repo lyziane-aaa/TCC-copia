@@ -323,7 +323,7 @@ input[type="email"] {
 }
 
 #situ,
-#post {
+.post {
     display: inline-block;
 }
 
