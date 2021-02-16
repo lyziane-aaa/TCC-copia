@@ -35,11 +35,11 @@ O Sistema já possui cargos padrão que podem ser alterados segundo o disposto n
             <select name = "alterar_cargo_antigo"> 
         <?php
         
-            $resultado_car=mysqli_query($conn, "SELECT * FROM usuarios_diretoria");
+            $resultado_car=mysqli_query($conn, "SELECT * FROM usuarios_cargos");
             while($row_car = mysqli_fetch_array($resultado_car))
         
             {
-                echo '<option value="' . $row_car["id_diretoria"].'">' . $row_car["cargo_diretoria"] . '</option>';    
+                echo '<option value="' . $row_car["id_diretoria"].'">' . $row_car["nome_cargo"] . '</option>';    
             }
             ?>                        
             </select>

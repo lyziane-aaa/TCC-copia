@@ -54,7 +54,7 @@ VALUES ('$nome_gestao', '$inicio_gestao', '$vencimento_gestao','$cadastro_gremis
 
 $sql = "INSERT INTO usuarios_desativados (nome_des, matricula_des, cargo_des, gestao_des, email_des, inicio_gestao, vencimento_gestao) 
 
-select usuarios.nome_usuarios, usuarios.matricula_usuarios, usuarios_diretoria.cargo_diretoria, usuarios_gestao.nome_gestao, 
+select usuarios.nome_usuarios, usuarios.matricula_usuarios, usuarios_cargos.nome_cargo, usuarios_gestao.nome_gestao, 
 usuarios.email, usuarios_gestao.inicio_gestao, usuarios_gestao.vencimento_gestao
  
 from usuarios 

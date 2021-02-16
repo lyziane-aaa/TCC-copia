@@ -1,9 +1,5 @@
 <?php
-$servidor = "localhost";
-$usuario = "root";
-$senha = "";
-$dbname = "gremio";
-$conn = mysqli_connect($servidor, $usuario, $senha, $dbname);
+include('../../../conexao.php');
 //Sempre iniciado com $, tipo de variável;
 $requestData = $_REQUEST;
 
@@ -14,14 +10,8 @@ $columns = array(
 	2 => 'assinatura_doc_port',
 	3 => 'data_registro_port'
 );
-//Verificação de quantas linhas tem a tabela para paginação
-/*$columns = array( 
-	0=> 'id_doc_port', 
-	1=>'titulo_doc_port', 
-	2=> 'data_registro_port',
-	3=> 'assinatura_doc_port'
-);*/
-$result_doc = "SELECT id_doc_port,titulo_doc_port, data_registro_port, assinatura_doc_port FROM documentos_port";
+
+$result_doc = "SELECT * FROM documentos_port";
 $resultado_doc = mysqli_query($conn, $result_doc);
 $linhas = mysqli_num_rows($resultado_doc);
 //pegar dados
@@ -35,11 +25,11 @@ if (!empty($requestData['search']['value'])) {   // se houver um parâmetro de p
 	$result_doc_port .= " OR data_registro_port LIKE '%" . $requestData['search']['value'] . "%' ";
 	$result_doc_port .= " OR assinatura_doc_port LIKE '%" . $requestData['search']['value'] . "%' )";
 }
+//Ordenar o resultado
+$result_doc_port .= " ORDER BY " . $columns[$requestData['order'][0]['column']] . "   " . $requestData['order'][0]['dir'] . "  LIMIT " . $requestData['start'] . " ," . $requestData['length'] . "   ";
 
 $resultado_doc_port = mysqli_query($conn, $result_doc_port);
 $totalFiltered = mysqli_num_rows($resultado_doc_port); // contar as linhas
-//Ordenar o resultado
-$result_doc_port .= " ORDER BY " . $columns[$requestData['order'][0]['column']] . "   " . $requestData['order'][0]['dir'] . "  LIMIT " . $requestData['start'] . " ," . $requestData['length'] . "   ";
 
 $resultado_doc_port = mysqli_query($conn, $result_doc_port);
 $row_doc_port = mysqli_fetch_array($resultado_doc_port);

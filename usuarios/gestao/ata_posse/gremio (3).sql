@@ -261,22 +261,22 @@ INSERT INTO `usuarios_desativados` (`id_des`, `nome_des`, `matricula_des`, `carg
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `usuarios_diretoria`
+-- Estrutura da tabela `usuarios_cargos`
 --
 
-CREATE TABLE `usuarios_diretoria` (
+CREATE TABLE `usuarios_cargos` (
   `id_diretoria` int(6) NOT NULL,
-  `cargo_diretoria` varchar(200) COLLATE utf8_swedish_ci NOT NULL COMMENT 'Nome da diretoria',
+  `nome_cargo` varchar(200) COLLATE utf8_swedish_ci NOT NULL COMMENT 'Nome da diretoria',
   `tipo_diretoria` varchar(200) COLLATE utf8_swedish_ci DEFAULT NULL COMMENT 'Tipo da diretoria: se é Executiva ou plena',
   `gremista_update` varchar(200) COLLATE utf8_swedish_ci NOT NULL,
   `data_update` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
 
 --
--- Extraindo dados da tabela `usuarios_diretoria`
+-- Extraindo dados da tabela `usuarios_cargos`
 --
 
-INSERT INTO `usuarios_diretoria` (`id_diretoria`, `cargo_diretoria`, `tipo_diretoria`, `gremista_update`, `data_update`) VALUES
+INSERT INTO `usuarios_cargos` (`id_diretoria`, `nome_cargo`, `tipo_diretoria`, `gremista_update`, `data_update`) VALUES
 (1, 'Presidente', 'Diretoria Executiva', 'Lucas Felipe Carlos do Nascimento', '2021-02-06 00:44:17'),
 (2, 'Vice-presidente', 'Diretoria Executiva', 'Lucas Felipe Carlos do Nascimento', '0000-00-00 00:00:00'),
 (3, 'Secretária-geral', 'Diretoria Executiva', '', '0000-00-00 00:00:00'),
@@ -366,11 +366,11 @@ ALTER TABLE `usuarios_desativados`
   ADD PRIMARY KEY (`id_des`);
 
 --
--- Índices para tabela `usuarios_diretoria`
+-- Índices para tabela `usuarios_cargos`
 --
-ALTER TABLE `usuarios_diretoria`
+ALTER TABLE `usuarios_cargos`
   ADD PRIMARY KEY (`id_diretoria`),
-  ADD UNIQUE KEY `cargo_diretoria` (`cargo_diretoria`);
+  ADD UNIQUE KEY `nome_cargo` (`nome_cargo`);
 
 --
 -- Índices para tabela `usuarios_gestao`
@@ -431,9 +431,9 @@ ALTER TABLE `usuarios_desativados`
   MODIFY `id_des` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT de tabela `usuarios_diretoria`
+-- AUTO_INCREMENT de tabela `usuarios_cargos`
 --
-ALTER TABLE `usuarios_diretoria`
+ALTER TABLE `usuarios_cargos`
   MODIFY `id_diretoria` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --

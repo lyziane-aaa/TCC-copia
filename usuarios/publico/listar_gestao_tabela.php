@@ -14,7 +14,7 @@ $requestData= $_REQUEST;
 	$columns = array( 
 		0=> 'nome_usuarios', 
 		1=> 'matricula_usuarios',
-		2=> 'usuarios_diretoria.cargo_diretoria',
+		2=> 'usuarios_cargos.nome_cargo',
 		3=> 'telefone',
 		4=> 'email',
 		
@@ -23,8 +23,8 @@ $requestData= $_REQUEST;
 
 //Verifica��o de quantas linhas tem a tabela para pagina��o
 $consulta_usuarios="select usuarios.nome_usuarios, 
-usuarios.matricula_usuarios, usuarios_diretoria.cargo_diretoria, usuarios.telefone, usuarios.email from usuarios
-JOIN usuarios_diretoria on usuarios.cargo = usuarios_diretoria.id_diretoria";
+usuarios.matricula_usuarios, usuarios_cargos.nome_cargo, usuarios.telefone, usuarios.email from usuarios
+JOIN usuarios_cargos on usuarios.cargo = usuarios_cargos.id_diretoria";
 $resultado_consulta_usuarios=mysqli_query($conn,$consulta_usuarios);
 $linhas=mysqli_num_rows($resultado_consulta_usuarios);
 
@@ -36,13 +36,13 @@ $linhas=mysqli_num_rows($resultado_consulta_usuarios);
 //Obter dados
 $result_usuarios="
 select usuarios.nome_usuarios, 
-usuarios.matricula_usuarios, usuarios_diretoria.cargo_diretoria, usuarios.telefone, usuarios.email from usuarios
-JOIN usuarios_diretoria on usuarios.cargo = usuarios_diretoria.id_diretoria WHERE 1=1";
+usuarios.matricula_usuarios, usuarios_cargos.nome_cargo, usuarios.telefone, usuarios.email from usuarios
+JOIN usuarios_cargos on usuarios.cargo = usuarios_cargos.id_diretoria WHERE 1=1";
 
 $dados=array();
 if(!empty($requestData['search']['value']) ) {   // se houver um par�metro de pesquisa, $requestData['search']['value'] cont�m o par�metro de pesquisa
 	$result_usuarios.=" AND ( usuarios.nome_usuarios LIKE '".$requestData['search']['value']."%' ";    
-	$result_usuarios.=" OR usuarios_diretoria.cargo_diretoria LIKE '".$requestData['search']['value']."%' ";
+	$result_usuarios.=" OR usuarios_cargos.nome_cargo LIKE '".$requestData['search']['value']."%' ";
 	$result_usuarios.=" OR usuarios.matricula_usuarios LIKE '".$requestData['search']['value']."%' )";
 }	
 $result_usuarios.=" ORDER BY ". $columns[$requestData['order'][0]['column']]."   ".$requestData['order'][0]['dir']."  LIMIT " . $requestData['start'] . " ,".$requestData['length']."   ";
@@ -61,7 +61,7 @@ $resultado_usuarios=mysqli_query($conn, $result_usuarios) or die ("erro " . mysq
 		$dado = array(); 
 		$dado[] = $row_usuarios["nome_usuarios"];
 		$dado[] = $row_usuarios["matricula_usuarios"];
-		$dado[] = $row_usuarios["cargo_diretoria"];
+		$dado[] = $row_usuarios["nome_cargo"];
 		$dado[] = $row_usuarios["telefone"];
 		$dado[] = $row_usuarios["email"];
 		$dados[] = $dado;}

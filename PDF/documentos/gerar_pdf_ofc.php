@@ -22,7 +22,6 @@ $array = mysqli_fetch_assoc($query1);
 
 
 $titulo_doc_ofc = $array['titulo_doc_ofc'];
-$titulo_doc_ofc = str_replace("/", "_", $titulo_doc_ofc);
 $num_doc_ofc = $array['num_doc_ofc'];
 $data_doc_ofc =  $array['data_doc_ofc'];
 $endrc_doc_ofc =  $array['endrc_doc_ofc'];
@@ -30,6 +29,7 @@ $assunto_doc_ofc =  $array['assunto_doc_ofc'];
 $corpo_doc_ofc = $array['corpo_doc_ofc'];
 $fecho_doc_ofc =  $array['fecho_doc_ofc'];
 $assinatura_doc_ofc =  $array['assinatura_doc_ofc'];
+$matricula_doc_ofc = $array['matricula_doc_ofc'];
 $cargo_doc_ofc =  $array['cargo_doc_ofc'];
 
 
@@ -63,7 +63,7 @@ $pdf->AddPage();
 $pdf->setCellHeightRatio(0.6);
 $html = '
 
-<b>' . $num_doc_ofc . '</b>
+<b>' . $titulo_doc_ofc . '</b>
 <p style="margin-top: 0px" align = "right">' . $data_doc_ofc . '</p>
 <p> </p> <!-- pula linha melhor que BR por causa do tamanho da célula -->';
 
@@ -75,7 +75,7 @@ $pdf->Ln(5);//pula 1cm
 $html = '<p align = "justify"><b> Assunto: ' . $assunto_doc_ofc . '</b></p>';
 $pdf->writeHTMLCell(168, '', 28, '', $html, 0, 0, 0, true, 'J', true);
 $pdf->Ln(10);//pula 1cm
-$pdf->writeHTMLCell(168, '', 29, '', $corpo_doc_ofc, 0, 0, 0, true, 'J', true);
+$pdf->writeHTMLCell(168, '', 29, '', $corpo_doc_ofc, 0, 2, 0, true, 'J', true);
 
 $pdf->SetFont('Liberation Serif', 'R', 12);
 $pdf->Ln(40);//pula 1cm
@@ -83,7 +83,7 @@ $pdf->lastPage(); // Coloca para a última página
 $pdf->MultiCell('', 6, '(assinado eletronicamente)', 0, 'C', 0, 1, 29, '', true, 0, false, true, 6, 'B');
 $pdf->MultiCell('', 6, $assinatura_doc_ofc, 0, 'C', 0, 1, 29, '', true, 0, false, true, 6, 'B');
 $pdf->MultiCell('', 6,  $cargo_doc_ofc, 0, 'C', 0, 1, 29, '', true, 0, false, true, 6, 'B');
-
+$titulo_doc_ofc = str_replace("/", "_", $titulo_doc_ofc);
 $titulo_doc_ofc = utf8_decode($titulo_doc_ofc);
 
 $pdf->Output($titulo_doc_ofc . '.pdf', 'I');

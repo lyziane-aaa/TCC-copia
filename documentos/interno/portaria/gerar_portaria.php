@@ -35,8 +35,13 @@
 	<?php
 	include_once("../../../menu.php");
 	include_once("../../../conexao.php");
+	include_once("../../../Funcs/numdoc.php");
 	if ($_SESSION['login'] != null) {
 		$login = $_SESSION['login'];
+		// Calcula a numeração da portaria
+		$titulo_doc_port = numdoc("port", $_SESSION['cargo']);
+		$num_doc_port = extrair('port', $titulo_doc_port);
+
 	?>
 		<script>
 			function Onlynumbers(e) {
@@ -62,7 +67,8 @@
 					</div>-->
 
 					<div id="titulo_doc_port">
-						<input name="titulo_doc_port" id="input-titulo_doc_port" type="text" placeholder="PORTARIA Nº <NÚMERO>/<ANO>, DE <DIA> DE <MÊS> DE <ANO>" value = "PORTARIA Nº <NÚMERO>/<ANO>, DE <DIA> DE <MÊS> DE <ANO>" required>
+						<input name="titulo_doc_port" id="input-titulo_doc_port" type="text" placeholder="PORTARIA Nº <NÚMERO>/<ANO>, DE <DIA> DE <MÊS> DE <ANO>" value="<?php echo $titulo_doc_port ?>" required>
+						<input hidden name="num_doc_port"  type="text" value="<?php echo $num_doc_port; ?>" required>
 					</div>
 
 					<div id="resumo-port">
@@ -74,12 +80,8 @@
 						<textarea name="texto_doc_port" required id="input-texto-port" type="text" placeholder="O Presidente, no uso de suas atribuições, resolve" spellcheck="true"></textarea>
 					</div>
 
-					<div id="fecho-port">
-						<input name="fecho_doc_port" required id="input-fecho-port" type="text" placeholder="<Atenciosamente>,"  spellcheck="true">
-					</div>
-
 					<div id="assinatura-port">
-						<input name="assinatura_doc_port" required id="input-assinatura-port" type="text" placeholder="<NOME DO GREMISTA>" value="<?php echo $_SESSION['nome_usuarios'] ?>" readonly>
+						<input name="assinatura_doc_port" required id="input-assinatura-port" type="text" placeholder="<NOME DO GREMISTA>" value="<?php echo strtoupper($_SESSION['nome_usuarios']) ?>" readonly>
 					</div>
 
 					<div id="cargo-port">
@@ -91,7 +93,7 @@
 					<div class="card border-danger mb-3" style="min-width:12rem;max-width: 18rem;" id="input-card-port">
 
 						<div class="card-body text-danger">
-							<h5 class="card-title">Terminou a  Portaria? </h5>
+							<h5 class="card-title">Terminou a Portaria? </h5>
 							<p class="card-text">Lembre-se:<br>Documentos só valem após assinados!</p>
 							<input type="submit" class="btn btn-danger" value="Salvar Portaria">
 						</div>
@@ -114,13 +116,12 @@
 
 
 		<script src="../../../ckeditor/ckeditor/ckeditor.js" charset="utf-8"></script><!-- Arquivos para o editor de texto opensource CKEditor-->
-	 <script src="../../../ckeditor/ckfinder/ckfinder.js"></script>
-	<script src="../../../ckeditor/js/javascript.js"></script>
+		<script src="../../../ckeditor/ckfinder/ckfinder.js"></script>
+		<script src="../../../ckeditor/js/javascript.js"></script>
 		<script>
 			CKEDITOR.replace('input-texto-port');
 			// Replace the <textarea id="editor1"> with a CKEditor 4
 			// instance, using default configuration.
-
 		</script>
 
 </body>
