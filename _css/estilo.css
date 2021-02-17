@@ -222,6 +222,7 @@ as classes quando o widht ficar menor ou igual a 900px */
 /* CADASTROS */
 .tema-escuro {
     background-color: #212529;
+   
 }
 
 .cadastro {
@@ -428,7 +429,7 @@ img {
     font-family: 'roboto';
     background-color: rgb(14, 14, 14) !important;;
     color: whitesmoke;
-}
+  }
 
 #rodape hr {
     border-color: whitesmoke;

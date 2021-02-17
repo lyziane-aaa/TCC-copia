@@ -15,55 +15,12 @@
 <?php
 include_once("../conexao.php"); 
 include_once("../menu.php"); 
-if(!isset($_SESSION['login'])){
+if(!isset($_SESSION)){
     session_start();
 }
 ?>
-<!-- A div do "Owl carousel" para configurar o Carrossel-->
-<div class="owl-carousel owl-theme extra">
-    <div class="item">
-		<img src="../imagens/teste1.jpg" >
-	</div>
-
-	<div class="item">
-		<img src="../imagens/teste2.jpg">
-	</div>
-
-	<div class="item">
-		<img src="../imagens/teste3.jpg" >
-	</div>
-    
-</div>
-<!-- Scripts do Owl Carousel -->
-<script src="../OwlCarousel2-2.3.4/docs/assets/vendors/jquery.min.js"></script>
-<script src="../OwlCarousel2-2.3.4/dist/owl.carousel.js"></script>
-<script type="text/javascript">
-	$('.owl-carousel').owlCarousel({
-        /* Configuração de responsividade entre outros atributos */
-    loop:true,
-    margin:10,
-    nav:true,
-	autoHeight:true,
-    responsive:{
-        0:{
-            items:1
-        },
-        600:{
-            items:1
-        },
-        1000:{
-            items:1
-        }
-    }
-})
-</script>
-
-
-<!-- Divs das regras -->
-<!-- Cada linha regra corresponde a duas regras -->
 
 <?php 
-    $_SESSION['listar'] = 2;
     if(isset($_SESSION['login']) && isset($_SESSION['nivel'])) {
 
 ?>
@@ -115,8 +72,8 @@ if(!isset($_SESSION['login'])){
 <?php }
     
     else{
-        //pensar no que colocar aqui
-    }
-include_once("../footer.php"); ?>
+        include_once("../footer.php");
+        }
+ ?>
 </body>
 </html>

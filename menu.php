@@ -6,13 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Nav bar do Menu</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" href="/TCC/_css/estilo.css">
+    <link rel="stylesheet" href="../../_css/estilo.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 </head>
 
 <body>
     <?php
- 
+
     define('ROOTPATH', dirname(__FILE__));
     if (!isset($_SESSION['login'])) {
         session_start();
@@ -29,24 +29,24 @@
 
 
         <!-- Inicio da Nav Bar -->
-        <nav class="menu" >
+        <nav class="menu">
             <ul>
                 <!-- A logo foi colocada em uma <li> com uma classe especifica para não
         atrapalhar a formatação -->
                 <li class="li_logo invi" onclick="window.location.assign('/TCC/Funcs/inicio.php');">
                     <img src="/TCC/imagens/gevp.png" class="logo">
                 </li>
-                <li><a href="#"> Bolsa Cópia </a>
-                    <ul>
-                        <li><a href="/TCC/bolsaCopia/listar_bolsacopia.php">Listar</a> </li>
-                        <li><a href="/TCC/bolsaCopia/cadastrar_bolsacopia.php">Cadastrar</a></li>
-                    </ul>
-                </li>
-
                 <li><a href="#"> Ac.Perdidos </a>
                     <ul>
                         <li><a href="/TCC/achados/listar_achados.php">Listar</a> </li>
                         <li><a href="/TCC/achados/cadastrar_achados.php">Cadastrar</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="#"> Bolsa Cópia </a>
+                    <ul>
+                        <li><a href="/TCC/bolsaCopia/listar_bolsacopia.php">Listar</a> </li>
+                        <li><a href="/TCC/bolsaCopia/cadastrar_bolsacopia.php">Cadastrar</a></li>
                     </ul>
                 </li>
 
@@ -127,23 +127,24 @@
                         <li><a href="/TCC/bolsaCopia/listar_bolsacopia.php">Atual Gestão</a> </li>
                         <li id="li_gestaopassada"><a href="/TCC/bolsaCopia/listar_bolsacopia.php">Gestões Passadas</a> </li>
                         <li><a href="/TCC/bolsaCopia/listar_bolsacopia.php">Estatuto</a> </li>
-
                     </ul>
-
                 </li>
 
                 <li id="li_doa"><a href="/TCC/bolsaCopia/listar_bolsacopia.php">Diário Oficial da Agremiação</a> </li>
 
-
                 <li><a href="#">Fale conosco</a></li>
+
+                <li><a href="/TCC/fardas/encomendar_farda.php">Fardas</a></li>
 
                 <li><a href="#">Serviços</a>
                     <ul>
                         <li><a href="/TCC/achados/listar_achados.php">Achados e Per.</a> </li>
                         <li><a href="/TCC/bolsacopia/listar_bolsacopia.php">Bolsa Cópia</a> </li>
-                        <li><a href="/TCC/emprestimos/listar_emprestimos.php">Empréstimos</a> </li>
+                        <li><a href="/TCC/emprestimo/listar_emprestimo.php">Empréstimos</a> </li>
                     </ul>
                 </li>
+            </ul>
+        </nav>
             <?php
         }
             ?>
