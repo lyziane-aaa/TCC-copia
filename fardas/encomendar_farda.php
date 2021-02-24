@@ -51,7 +51,6 @@ sair da sessão clicando no icone de usuário. -->
         <br>
         <label for="qnt_fardas_enc">Quantidade de Fardas</label>
         <input type="number" name="qnt_fardas_enc" id="qnt_fardas_enc" required>
-        <input type="datetime-local" name="data"  required>
         <br>
         <br>
         <input type="reset" class="botao" value="Limpar">

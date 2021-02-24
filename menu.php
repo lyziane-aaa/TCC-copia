@@ -49,29 +49,6 @@
                         <li><a href="/TCC/bolsaCopia/cadastrar_bolsacopia.php">Cadastrar</a></li>
                     </ul>
                 </li>
-
-                <li><a href="#"> Empréstimos </a>
-                    <ul>
-                        <li><a href="/TCC/emprestimo/listar_emprestimo.php">Listar</a> </li>
-                        <li><a href="/TCC/emprestimo/cadastrar_emprestimo.php">Cadastrar</a></li>
-                    </ul>
-                </li>
-
-                <li><a href="#"> Patrimônio </a>
-                    <ul>
-                        <li><a href="/TCC/patrimonio/listar_patrimonio.php">Listar</a> </li>
-                        <li><a href="/TCC/patrimonio/cadastrar_patrimonio.php">Cadastrar</a></li>
-                    </ul>
-                </li>
-
-                <li><a href="#"> Gestão </a>
-                    <ul>
-                        <li><a href="/TCC/usuarios/listar_usuarios.php">Listar</a> </li>
-                        <li><a href="/TCC/usuarios/gestao/listar_gestao.php">Gestão</a></li>
-                    </ul>
-                </li>
-
-
                 <li><a href="#"> Documentos </a>
                     <ul>
                         <li><a href="/TCC/documentos/interno/listar_documentos.php">Meus Documentos</a> </li>
@@ -81,6 +58,36 @@
                         <li><a href="/TCC/documentos/interno/ata/gerar_ata_ass.php">Nova Ata de Assembleia</a></li>
                     </ul>
                 </li>
+                <li><a href="#"> Empréstimos </a>
+                    <ul>
+                        <li><a href="/TCC/emprestimo/listar_emprestimo.php">Listar</a> </li>
+                        <li><a href="/TCC/emprestimo/cadastrar_emprestimo.php">Cadastrar</a></li>
+                    </ul>
+                </li>
+                <li><a href="#"> Gestão </a>
+                    <ul>
+                        <li><a href="/TCC/usuarios/listar_usuarios.php">Listar</a> </li>
+                        <li><a href="/TCC/usuarios/gestao/listar_gestao.php">Gestão</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="#">Fardas</a>
+                    <ul>
+                        <li><a href="/TCC/fardas/painel_fardas.php">Painel</a> </li>
+
+                    </ul>
+                </li>
+                <li><a href="#"> Patrimônio </a>
+                    <ul>
+                        <li><a href="/TCC/patrimonio/listar_patrimonio.php">Listar</a> </li>
+                        <li><a href="/TCC/patrimonio/cadastrar_patrimonio.php">Cadastrar</a></li>
+                    </ul>
+                </li>
+
+
+
+
+
 
                 <li class="reduzido"> <label for="bt_menu" class="label_menu espacamento">
                         &nbsp; &#9776;</label>
@@ -145,9 +152,9 @@
                 </li>
             </ul>
         </nav>
-            <?php
-        }
-            ?>
+    <?php
+    }
+    ?>
 
 
 </body>
