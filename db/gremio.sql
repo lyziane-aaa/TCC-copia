@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 17-Fev-2021 às 22:51
+-- Tempo de geração: 24-Fev-2021 às 15:38
 -- Versão do servidor: 10.4.6-MariaDB
 -- versão do PHP: 7.3.9
 
@@ -21,8 +21,6 @@ SET time_zone = "+00:00";
 --
 -- Banco de dados: `gremio`
 --
-CREATE DATABASE IF NOT EXISTS `gremio` DEFAULT CHARACTER SET utf8 COLLATE utf8_swedish_ci;
-USE `gremio`;
 
 DELIMITER $$
 --
@@ -284,6 +282,14 @@ CREATE TABLE `fardas_encomendas` (
   `data_encomenda` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
 
+--
+-- Extraindo dados da tabela `fardas_encomendas`
+--
+
+INSERT INTO `fardas_encomendas` (`id_fardas_enc`, `nome_fardas_enc`, `matricula_fardas_enc`, `telefone_fardas_enc`, `tamanho_fardas_enc`, `qnt_fardas_enc`, `data_encomenda`) VALUES
+(1, 'Lucas Felipe', '2020', '888', 'PP', 2, '2021-02-19 17:24:42'),
+(2, 'Lucas Felipe', '222222222222222', '123', 'PP', 3, '2021-02-19 17:38:05');
+
 -- --------------------------------------------------------
 
 --
@@ -316,6 +322,13 @@ CREATE TABLE `fardas_lote` (
   `encerramento_lote` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
 
+--
+-- Extraindo dados da tabela `fardas_lote`
+--
+
+INSERT INTO `fardas_lote` (`id_fardas_lote`, `fornecedor_lote`, `qnt_p_lote`, `qnt_m_lote`, `qnt_pp_lote`, `qnt_g_lote`, `qnt_gg_lote`, `data_receb_lote`, `gremista_cadastro_lote`, `preco_farda_lote`, `fornecedor_numero_lote`, `lucro_gremio`, `prestou_contas`, `data_prestou_contas`, `repasse_previsto_fornecedor`, `lucro_gremio_previsto_lote`, `lucro_gremio_total_lote`, `qnt_p_vend_lote`, `qnt_pp_vend_lote`, `qnt_m_vend_lote`, `qnt_g_vend_lote`, `qnt_gg_vend_lote`, `encerramento_lote`) VALUES
+(0, 'Lucas', 20, 20, 20, 20, 20, '2021-02-24 00:00:00', 'Lucas', 35, '99', 5, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -332,6 +345,13 @@ CREATE TABLE `fardas_vendidas` (
   `data_vendeu` varchar(200) COLLATE utf8_swedish_ci NOT NULL,
   `lote_fardas` int(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+
+--
+-- Extraindo dados da tabela `fardas_vendidas`
+--
+
+INSERT INTO `fardas_vendidas` (`id_fardas`, `tamanho_fardas`, `preco_farda`, `fornecedor_fardas`, `recibo_farda`, `gremista_vendeu`, `data_vendeu`, `lote_fardas`) VALUES
+(2, 'PP', 0, 0, '0', '0', '0', 0);
 
 -- --------------------------------------------------------
 
@@ -377,6 +397,54 @@ CREATE TABLE `patrimoniobaixa` (
   `obs_pat` text COLLATE utf8_swedish_ci DEFAULT NULL,
   `data_baixa` datetime NOT NULL DEFAULT current_timestamp(),
   `motivo_baixa` varchar(255) COLLATE utf8_swedish_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `tesouraria_balanco`
+--
+
+CREATE TABLE `tesouraria_balanco` (
+  `id_caixa` int(10) NOT NULL,
+  `total_caica` float NOT NULL,
+  `data_caixa` datetime NOT NULL,
+  `ultima_ent_caixa` int(10) NOT NULL,
+  `ultima_out_caixa` int(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `tesouraria_entradas`
+--
+
+CREATE TABLE `tesouraria_entradas` (
+  `id_tes_ent` int(10) NOT NULL,
+  `origem_tes_ent` varchar(200) COLLATE utf8_swedish_ci NOT NULL,
+  `motivo_test_ent` varchar(200) COLLATE utf8_swedish_ci NOT NULL,
+  `qnt_tes_ent` float NOT NULL,
+  `data_tes_ent` datetime NOT NULL,
+  `gremista_registro_tes_ent` varchar(200) COLLATE utf8_swedish_ci NOT NULL,
+  `tipo_tes_ent` varchar(45) COLLATE utf8_swedish_ci NOT NULL,
+  `recibo_tes_ent` varchar(200) COLLATE utf8_swedish_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `tesouraria_saidas`
+--
+
+CREATE TABLE `tesouraria_saidas` (
+  `id_tes_out` int(10) NOT NULL,
+  `destino_tes_out` varchar(200) COLLATE utf8_swedish_ci NOT NULL,
+  `creditado_test_out` varchar(200) COLLATE utf8_swedish_ci NOT NULL,
+  `qnt_tes_out` float NOT NULL,
+  `tipo_tes_out` varchar(45) COLLATE utf8_swedish_ci NOT NULL,
+  `data_tes_out` datetime NOT NULL,
+  `gremista_registro_tes_out` varchar(200) COLLATE utf8_swedish_ci NOT NULL,
+  `recibo_test_out` varchar(200) COLLATE utf8_swedish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
 
 -- --------------------------------------------------------
@@ -604,6 +672,26 @@ ALTER TABLE `patrimoniobaixa`
   ADD PRIMARY KEY (`id_pat`);
 
 --
+-- Índices para tabela `tesouraria_balanco`
+--
+ALTER TABLE `tesouraria_balanco`
+  ADD PRIMARY KEY (`id_caixa`),
+  ADD KEY `fk_ultima_ent_caixa` (`ultima_ent_caixa`),
+  ADD KEY `fk_ultima_out_caixa` (`ultima_out_caixa`);
+
+--
+-- Índices para tabela `tesouraria_entradas`
+--
+ALTER TABLE `tesouraria_entradas`
+  ADD PRIMARY KEY (`id_tes_ent`);
+
+--
+-- Índices para tabela `tesouraria_saidas`
+--
+ALTER TABLE `tesouraria_saidas`
+  ADD PRIMARY KEY (`id_tes_out`);
+
+--
 -- Índices para tabela `usuarios`
 --
 ALTER TABLE `usuarios`
@@ -692,10 +780,16 @@ ALTER TABLE `emprestimos`
   MODIFY `id_emp` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT de tabela `fardas_encomendas`
+--
+ALTER TABLE `fardas_encomendas`
+  MODIFY `id_fardas_enc` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT de tabela `fardas_vendidas`
 --
 ALTER TABLE `fardas_vendidas`
-  MODIFY `id_fardas` int(6) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_fardas` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de tabela `patrimonioativo`
@@ -750,6 +844,13 @@ ALTER TABLE `fardas_vendidas`
   ADD CONSTRAINT `fk_fornecedor_nome` FOREIGN KEY (`fornecedor_fardas`) REFERENCES `fardas_lote` (`id_fardas_lote`) ON DELETE NO ACTION,
   ADD CONSTRAINT `fk_lote` FOREIGN KEY (`lote_fardas`) REFERENCES `fardas_lote` (`id_fardas_lote`) ON DELETE NO ACTION,
   ADD CONSTRAINT `fk_preco_farda` FOREIGN KEY (`preco_farda`) REFERENCES `fardas_lote` (`id_fardas_lote`) ON DELETE NO ACTION;
+
+--
+-- Limitadores para a tabela `tesouraria_balanco`
+--
+ALTER TABLE `tesouraria_balanco`
+  ADD CONSTRAINT `fk_ultima_ent_caixa` FOREIGN KEY (`ultima_ent_caixa`) REFERENCES `tesouraria_entradas` (`id_tes_ent`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_ultima_out_caixa` FOREIGN KEY (`ultima_out_caixa`) REFERENCES `tesouraria_saidas` (`id_tes_out`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Limitadores para a tabela `usuarios`
