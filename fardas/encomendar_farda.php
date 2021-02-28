@@ -38,6 +38,7 @@ sair da sessão clicando no icone de usuário. -->
         <br>
 
         <label for="tamanho_fardas_enc">Tamanho da Farda</label>
+        <p>Atenção: é apenas UM recibo por compra, nele deverá constar o somatório dos preços de todas as fardas de uma venda</p>
         <select name = "tamanho_fardas_enc" required>
             <option value = "PP">PP</option>
             <option value = "PP-BL">PP Baby Look</option> <!-- "-BL" significa BabyLook-->

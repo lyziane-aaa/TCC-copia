@@ -12,8 +12,9 @@ $gremistaDevolveuAchados = filter_input(INPUT_POST, 'gremistaDevolveuAchados', F
 $postadoAchados = filter_input(INPUT_POST, 'postadoAchados', FILTER_SANITIZE_STRING);
 $statusAchados = filter_input(INPUT_POST, 'statusAchados', FILTER_SANITIZE_STRING);
     // configurar hora e data
-    $hoje = date('d/m/Y H:i:s');
-    date_default_timezone_set('America/Fortaleza');
+     date_default_timezone_set('America/Fortaleza');
+	 $hoje = date('d/m/Y H:i:s');
+   
 
 	$dir = "img_achados"; 
 	// recebendo o arquivo multipart 

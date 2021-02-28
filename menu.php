@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Nav bar do Menu</title>
+    <title>Menu</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="../../_css/estilo.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
@@ -74,6 +74,7 @@
                 <li><a href="#">Fardas</a>
                     <ul>
                         <li><a href="/TCC/fardas/painel_fardas.php">Painel</a> </li>
+                        <li><a href="/TCC/fardas/config_lote.php">Config. de lote</a> </li>
 
                     </ul>
                 </li>

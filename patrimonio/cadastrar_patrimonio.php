@@ -18,6 +18,7 @@ sair da sessão clicando no icone de usuário. -->
         include_once("../menu.php");
         include_once("../conexao.php"); 
         if(isset($_SESSION['login']) && isset($_SESSION['nivel'])) {
+            if ($_SESSION['nivel'] == 2) {
             $_SESSION['listar'] = 2;         
     ?>
     <form action="inserir_patrimonio.php" class = "cadastro" method="post">
@@ -86,7 +87,7 @@ sair da sessão clicando no icone de usuário. -->
         }
         else{
             header("location:../usuarios/login.php");	
-        }  
+        }}  
     ?>
 
 <!-- podemos implementar uma mensagem de confirmação no limpar -->
