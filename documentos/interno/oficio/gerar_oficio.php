@@ -137,8 +137,8 @@
 
 
 		<?php
-		include_once("../../../footer.php");
-	}
+		
+	}include_once("../../../footer.php");
 		?>
 		</div><!-- fim div #interface-->
 		<!--
@@ -157,6 +157,8 @@
 			CKEDITOR.config.width = '166mm';
 			CKEDITOR.config.height = '80mm';
 		</script>
-
+ <?php
+	include_once("../../../footer.php");
+ ?>
 </body>
 </html>

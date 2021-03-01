@@ -1,5 +1,6 @@
 <?php
 include_once("../conexao.php");
+include_once("../menu.php");
 $sql = "SELECT SUM(fardas_encomendas.qnt_fardas_enc) as encomendadas, COUNT(fardas_vendidas.id_fardas) as vendidas
  FROM  
      fardas_encomendas, fardas_vendidas";
@@ -150,13 +151,7 @@ $vendidas = intval($resultados['vendidas']);
 sair da sessão clicando no icone de usuário. -->
 
 <body class="tema-escuro">
-    <?php
-    include_once("../menu.php");
 
-
-
-
-    ?>
     <br><br><br><br>
 
     <div>

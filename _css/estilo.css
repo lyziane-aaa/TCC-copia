@@ -429,7 +429,7 @@ img {
     font-family: 'roboto';
     background-color: rgb(14, 14, 14) !important;;
     color: whitesmoke;
-  }
+}
 
 #rodape hr {
     border-color: whitesmoke;
@@ -698,7 +698,6 @@ div.fardas-ventidas-container{
     height:100%;
 }
 .contador-tamanho{
-   
     width: fit-content;
     max-height: 100px;
     background-color: crimson;

@@ -45,8 +45,8 @@ if ((isset($_POST['login'])) && (isset($_POST['senha']))) {
 	//exit();
 
 	$resultado_select = "SELECT login, senha, nivel, nome_usuarios, usuarios_cargos.nome_cargo, usuarios.matricula_usuarios FROM usuarios
-	join usuarios_cargos 
-	on usuarios.cargo = usuarios_cargos.id_cargo WHERE login='$login' and senha = '$senha'";
+	JOIN usuarios_cargos 
+	ON usuarios.cargo = usuarios_cargos.id_cargo WHERE login='$login' and senha = '$senha'";
 	$resultado_usuario = mysqli_query($conn, $resultado_select);
 	$resultado = mysqli_fetch_assoc($resultado_usuario);
 	//verifica se login e senha são iguais	
