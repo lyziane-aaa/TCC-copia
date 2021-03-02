@@ -15,9 +15,9 @@
 }
 
 
-
 /* ESTILIZAÇÃO DO MENU */
-body{
+
+body {
     background-color: rgb(14, 14, 14) !important;
 }
 
@@ -220,9 +220,9 @@ as classes quando o widht ficar menor ou igual a 900px */
 
 
 /* CADASTROS */
+
 .tema-escuro {
     background-color: #212529;
-   
 }
 
 .cadastro {
@@ -427,9 +427,10 @@ img {
     width: 100%;
     font-size: 18px;
     font-family: 'roboto';
-    background-color: rgb(14, 14, 14) !important;;
+    background-color: rgb(14, 14, 14) !important;
+    ;
     color: whitesmoke;
-  }
+}
 
 #rodape hr {
     border-color: whitesmoke;
@@ -506,7 +507,7 @@ img {
     width: fit-content;
 }
 
-.table_bc .dataTables_wrapper{
+.table_bc .dataTables_wrapper {
     width: 100%;
 }
 
@@ -621,9 +622,10 @@ input[type="date"] {
     margin-left: 20px;
 }
 
-.cad-titulo img{
+.cad-titulo img {
     margin-top: -15px;
 }
+
 .divisor_bc {
     margin-top: 10px;
     width: 20%;
@@ -635,6 +637,7 @@ input[type="date"] {
     width: 120px !important;
 }
 
+
 /* Botões quando estão desativados */
 
 .bt-desativado {
@@ -645,70 +648,92 @@ input[type="date"] {
     color: gray !important;
 }
 
+
 /* Altera os inputs do H2 do Bolsa Cópia*/
-h6 input[type ="text"]{
+
+h6 input[type="text"] {
     padding: 5px;
     border: none;
     border-radius: 5px;
 }
 
+
 /* Configurando Tabelas que sejam muito grandes*/
 
-.panel-grande{
+.panel-grande {
     width: fit-content;
 }
+
 .container-grande {
     background-color: rgb(14, 14, 14) !important;
     width: fit-content;
     margin-left: 5%;
 }
+
+
 /* A tabela do Usuários precisava de um estilo diferente*/
-.container-grande-usu{
+
+.container-grande-usu {
     background-color: rgb(14, 14, 14) !important;
     width: fit-content;
 }
+
 @media screen and (max-width: 999px) {
-    .panel-grande{
+    .panel-grande {
         width: 100%;
     }
     .container-grande {
         background-color: rgb(14, 14, 14) !important;
         width: 100%;
     }
-    
 }
 
-#tabela_port_wrapper{
+#tabela_port_wrapper {
     width: 100%;
 }
 
-/* Painel de Fardas */
-.painel-dados {background:#333;
-    width:900px;
-    margin: auto;
-    padding:10px;
-    text-align:center;
-    -moz-border-radius:7px;
-    -webkit-border-radius:7px; 
-    border-radius:7px;
-    background-color: white;
 
+/* Painel de Fardas */
+
+.painel-dados {
+    background: #333;
+    width: 900px;
+    margin: auto;
+    padding: 10px;
+    text-align: center;
+    -moz-border-radius: 7px;
+    -webkit-border-radius: 7px;
+    border-radius: 7px;
+    background-color: white;
 }
-div.fardas-ventidas-container{
-    height:100%;
+
+div.fardas-ventidas-container {
+    height: 100%;
 }
-.contador-tamanho{
-   
+
+.contador-tamanho {
     width: fit-content;
     max-height: 100px;
     background-color: crimson;
-    -moz-border-radius:7px;
-    -webkit-border-radius:7px;
-    padding:2px;
-    float:right;
+    -moz-border-radius: 7px;
+    -webkit-border-radius: 7px;
+    padding: 2px;
+    float: right;
 }
-div#fardas_chart{
+
+div#fardas_chart {
     margin-left: 400px;
     position: relative;
     float: center;
+}
+
+
+/* Página configuraçoes de lote */
+
+#config-lote {
+    margin-top: 50px;
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-bottom: 50px;
+    padding: 0;
 }

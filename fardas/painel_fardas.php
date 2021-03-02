@@ -50,60 +50,68 @@ include_once("../menu.php");
         function drawTamanhosChart() {
             <?php
             $tamanhos = array(
-                "PP" => array("Tam" => "PP", 0 => 0, 1 => 0),
-                "P" => array("Tam" => "P", 0 => 0),
-                "M" => array("Tam" => "M", 0 => 0),
-                "G" => array("Tam" => "G", 0 => 0),
-                "GG" => array("Tam" => "GG", 0 => 0),
-                "PP-BL" => array("Tam" => "PP-BL", 0 => 0),
-                "P-BL" => array("Tam" => "P-BL", 0 => 0),
-                "M-BL" => array("Tam" => "M-BL", 0 => 0),
-                "G-BL" => array("Tam" => "G-BL", 0 => 0),
-                "GG-BL" => array("Tam" => "GG-BL", 0 => 0)
+                "PP" => array("Tam" => "PP", 0 => 0, 1 => 0, 2=> 0),
+                "P" => array("Tam" => "P", 0 => 0, 1 => 0 , 2=> 0),
+                "M" => array("Tam" => "M", 0 => 0, 1 => 0, 2=> 0),
+                "G" => array("Tam" => "G", 0 => 0, 1 => 0, 2=> 0),
+                "GG" => array("Tam" => "GG", 0 => 0, 1 => 0, 2=> 0),
+                "PP-BL" => array("Tam" => "PP-BL", 0 => 0, 1 => 0, 2=> 0),
+                "P-BL" => array("Tam" => "P-BL", 0 => 0, 1 => 0, 2=> 0),
+                "M-BL" => array("Tam" => "M-BL", 0 => 0, 1 => 0, 2=> 0),
+                "G-BL" => array("Tam" => "G-BL", 0 => 0, 1 => 0, 2=> 0),
+                "GG-BL" => array("Tam" => "GG-BL", 0 => 0, 1 => 0, 2=> 0)
 
             );
-            $aux = array(0 => "PP", 1 =>  "P", 2 =>  "M", 3 => "G", 5 => "GG", 5 => "PP-BL", 6 => "P-BL", 7 => "M-BL", 8 => "G-BL", 9 => "GG-BL");
+            $aux = array(0 => "PP", 1 =>  "P", 2 =>  "M", 3 => "G", 4 => "GG", 5 => "PP-BL", 6 => "P-BL", 7 => "M-BL", 8 => "G-BL", 9 => "GG-BL");
             foreach ($aux as $a) {
+                //Converte o nome do tamanho para como está nas colunas do BD
+                $b= strtolower(str_replace('-', '_', $a));
+
+                $sql = "SELECT qnt_$b"."_lote as disponiveis FROM fardas_lote WHERE vigente_lote = 1";
+                $res = mysqli_query($conn, $sql) or die("erro " . mysqli_error($conn));
+                $resultado =  mysqli_fetch_assoc($res);
+                
+                $tamanhos["$a"][0] = intval($resultado['disponiveis']);
 
                 $sql = "SELECT SUM(fardas_encomendas.qnt_fardas_enc) as tamanhos FROM 
                 fardas_encomendas WHERE fardas_encomendas.tamanho_fardas_enc = '$a'";
                 $res = mysqli_query($conn, $sql) or die("erro " . mysqli_error($conn));
                 $resultado =  mysqli_fetch_assoc($res);
-                $tamanhos["$a"][0] = intval($resultado['tamanhos']);
+
+                $tamanhos["$a"][1] = intval($resultado['tamanhos']);
 
 
-                $sql = "SELECT COUNT(fardas_vendidas.id_fardas) AS vendas from fardas_vendidas
-                WHERE fardas_vendidas.tamanho_fardas = '$a'";
-                $res = mysqli_query($conn, $sql) or die("erro " . mysqli_error($conn));
-                $resultado =  mysqli_fetch_assoc($res);
-                $tamanhos["$a"][1] = intval($resultado['vendas']);
+                $sqll = "SELECT qnt_$b"."_vend_lote as vendas FROM fardas_lote";
+                $ress = mysqli_query($conn, $sqll) or die("erro " . mysqli_error($conn));
+              
+                $resultadoo =  mysqli_fetch_assoc($ress);
+                
+                $tamanhos["$a"][2] = intval($resultadoo['vendas']);
+              
             }
 
             ?>
+
+
             // Criando o DataTable
             var data = google.visualization.arrayToDataTable([
-                ['Tamanho', 'Encomendadas', 'Vendidas'],
-                ['PP', <?php echo $tamanhos['PP'][0] . ',' . $tamanhos["$a"][1] ?>],
-                ['P', <?php echo $tamanhos['P'][0] . ',' . $tamanhos["$a"][1] ?>],
-                ['M', <?php echo $tamanhos['M'][0] . ',' . $tamanhos["$a"][1] ?>],
-                ['G', <?php echo $tamanhos['G'][0] . ',' . $tamanhos["$a"][1] ?>],
-                ['GG', <?php echo $tamanhos['GG'][0] . ',' . $tamanhos["$a"][1] ?>],
-                ['PP-BL', <?php echo $tamanhos['PP-BL'][0] . ',' . $tamanhos["$a"][1] ?>],
-                ['P-BL', <?php echo $tamanhos['P-BL'][0] . ',' . $tamanhos["$a"][1] ?>],
-                ['M-BL', <?php echo $tamanhos['M-BL'][0] . ',' . $tamanhos["$a"][1] ?>],
-                ['G-BL', <?php echo $tamanhos['G-BL'][0] . ',' . $tamanhos["$a"][1] ?>],
-                ['GG-BL', <?php echo $tamanhos['GG-BL'][0] . ',' . $tamanhos["$a"][1] ?>]
-
-
-
+                ['Tamanho', 'Disponíveis','Encomendadas', 'Vendidas'],
+<?php 
+            foreach ($aux as $a) {
+                if ($a != 'GG-BL') {
+                echo "['$a', {$tamanhos["$a"][0]}, {$tamanhos["$a"][1]}, {$tamanhos["$a"][2]}],";} else {
+                    echo "['$a', {$tamanhos["$a"][0]}, {$tamanhos["$a"][1]}, {$tamanhos["$a"][2]}]";}
+                }             
+    ?>
             ]);
             // Opções de customização
             var options = {
                 'legend': 'right',
-                'title': 'Fardas encomendadas vs Fardas vendidasaaaaa',
+                'title': 'Gráfico de nº de Fardas do Lote x Fardas Encomendadas x Fardas Vendidas',
                 'is3D': true,
-                'width': 800,
+                'width': 600,
                 'height': 600,
+                vAxis:{title: 'Número', titleTextStyle: {color: 'black'}},
                 seriesType: "bars",
                 series: {
                     4: {
@@ -170,6 +178,8 @@ sair da sessão clicando no icone de usuário. -->
                             <h5> (As encomendas vencem em três dias) </h5>
                             <hr class="divisor">
 
+                            <input type="number" hidden name="id_fardas_enc" value=<?= $row_fardas_enc['id_fardas_enc'] ?> required>
+   
                             <label for="nome_fardas_vend">Nome Completo do comprador:</label>
                             <input type="text" name="nome_fardas_vend" value=<?= $row_fardas_enc['nome_fardas_enc'] ?> required>
                             <br>
@@ -182,14 +192,15 @@ sair da sessão clicando no icone de usuário. -->
                             <label for="tamanho_fardas_enc">Tamanho da Farda:</label>
                             <select name="tamanho_fardas_vend" required>
                                 <option selected value="">Selecione o tamanho da Farda</option>
-                                <option value="PP">PP</option>
-                                <option value="PP-BL">PP Baby Look</option> <!-- "-BL" significa BabyLook-->
-                                <option value="P">P</option>
-                                <option value="P-BL">P Baby Look</option>
-                                <option value="M">M</option>
-                                <option value="M-BL">M Baby Look</option>
-                                <option value="G">G</option>
-                                <option value="G-BL">G Baby Look</option>
+                               <?php
+                               foreach ($aux as $a ){ 
+                                $b= str_replace('-BL', ' - Baby Look',$a);
+                                 echo "<option value='$a'>$b</option>";
+
+
+                               } ?>   
+                                
+                                
                             </select>
                             <br>
                             <label for="qnt_fardas_enc">Quantidade de Fardas:</label>
@@ -244,15 +255,11 @@ sair da sessão clicando no icone de usuário. -->
 
                             <label for="tamanho_fardas_enc">Tamanho da Farda:</label>
                             <select name="tamanho_fardas_vend" required>
-                                <option selected value="">Selecione o tamanho da Farda</option>
-                                <option value="PP">PP</option>
-                                <option value="PP-BL">PP Baby Look</option> <!-- "-BL" significa BabyLook-->
-                                <option value="P">P</option>
-                                <option value="P-BL">P Baby Look</option>
-                                <option value="M">M</option>
-                                <option value="M-BL">M Baby Look</option>
-                                <option value="G">G</option>
-                                <option value="G-BL">G Baby Look</option>
+                            <?php
+                               foreach ($aux as $a ){ 
+                                $b= str_replace('-BL', ' - Baby Look',$a);
+                                 echo "<option value='$a'>$b</option>";
+                               } ?>  
                             </select>
                             <br>
                             <label for="qnt_fardas_enc">Quantidade de Fardas:</label>

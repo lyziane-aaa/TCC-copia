@@ -2,7 +2,7 @@
 session_start();
 include_once("../conexao.php");
 
-
+$id_fardas_enc = filter_input(INPUT_POST, 'id_fardas_enc', FILTER_SANITIZE_NUMBER_INT);
 $qnt_fardas_vend = filter_input(INPUT_POST, 'qnt_fardas_vend', FILTER_SANITIZE_NUMBER_INT);
 $nome_fardas_vend = filter_input(INPUT_POST, 'nome_fardas_vend', FILTER_SANITIZE_STRING);
 $matricula_fardas_vend = filter_input(INPUT_POST, 'matricula_fardas_vend', FILTER_SANITIZE_STRING);
@@ -64,39 +64,52 @@ else {
         $extfinal = end(explode(".", $arquivo));
         $data =
             $nome_final = "Recibo Farda $tamanho_fardas_vend de $matricula_fardas_vend - $hoje.$extfinal";
-     
     }
-    
+
     //Verificar se é possivel mover o arquivo para a pasta escolhida
     if (move_uploaded_file($_FILES['recibo_fardas_vend']['tmp_name'], $_UP['pasta'] . $nome_final)) {
         //Upload efetuado com sucesso, exibe a mensagem
         //Verifica o lote atual e pega os dados
-        $sql = "SELECT id_fardas_lote FROM fardas_lote WHERE vigente_lote = 1";
-        $busca_lote = mysqli_query($conn, $sql) or die("erro " . mysqli_error($conn));
-
-        $lote = mysqli_fetch_all($busca_lote);
-
-        //Laço para transformar tudo que não for a 2ª posição do Array em int, já que a 2ª posição, neste caso, é o nome do fornecedor.
-        $lote = intval($lote[0][0]);
-
-        //Teste se não há recibo com o mesmo nome
-        $sql = "SELECT recibo_fardas FROM fardas_vendidas";
-        $res = mysqli_query($conn, $sql) or die("erro " . mysqli_error($conn));
-        $res_recibo = mysqli_fetch_assoc($res);
-        
-        // No banco de dados será salvo apenas o nome do arquivo.
         for ($i = 0; $i < $qnt_fardas_vend; $i++) {
-        $sql = "INSERT INTO fardas_vendidas (nome_fardas, matricula_fardas, tamanho_fardas, 
-    preco_fardas, fornecedor_fardas,lote_fardas, recibo_fardas, gremista_vendeu,data_vendeu)
-    VALUES ('$nome_fardas_vend', '$matricula_fardas_vend', '$tamanho_fardas_vend', '$lote',
+            $sql = "SELECT id_fardas_lote FROM fardas_lote WHERE vigente_lote = 1";
+            $busca_lote = mysqli_query($conn, $sql) or die("erro " . mysqli_error($conn));
 
-    '$lote', '$lote', '$nome_final', '{$_SESSION['nome_usuarios']}', NOW())";
+            $lote = mysqli_fetch_all($busca_lote);
+
+            //Laço para transformar tudo que não for a 2ª posição do Array em int, já que a 2ª posição, neste caso, é o nome do fornecedor.
+            $lote = intval($lote[0][0]);
+
+            //Teste se não há recibo com o mesmo nome
+            $sql = "SELECT recibo_fardas FROM fardas_vendidas";
+            $res = mysqli_query($conn, $sql) or die("erro " . mysqli_error($conn));
+            $res_recibo = mysqli_fetch_assoc($res);
+
+            // No banco de dados será salvo apenas o nome do arquivo.
+            // Insere os dados da farda vendida
+            $sql = "INSERT INTO fardas_vendidas (nome_fardas, matricula_fardas, tamanho_fardas, 
+              preco_fardas, fornecedor_fardas,lote_fardas, recibo_fardas, gremista_vendeu,data_vendeu)
+             VALUES ('$nome_fardas_vend', '$matricula_fardas_vend', '$tamanho_fardas_vend', '$lote','$lote', '$lote', '$nome_final', '{$_SESSION['nome_usuarios']}', NOW())";
+            $resultado_insert_fardas = mysqli_query($conn, $sql) or die("erro de $sql " . mysqli_error($conn));
+
+            //atualiza a quantidade de fardas vendidas no lote 
+            $a= strtolower(str_replace('-', '_', $tamanho_fardas_vend));
+            $sql = "UPDATE fardas_lote as fl SET fl.qnt_$a"."_vend_lote = ( SELECT COUNT(fv.tamanho_fardas) 
+            FROM fardas_vendidas as fv WHERE fv.tamanho_fardas = '$tamanho_fardas_vend' ) where fl.vigente_lote = 1 ;
+            ";
 
 
-        $resultado_insert_achado = mysqli_query($conn, $sql) or die("erro " . mysqli_error($conn));
+            $resultado_insert_fardas = mysqli_query($conn, $sql) or die("erro de $sql " . mysqli_error($conn));
 
-        echo "Imagem cadastrada com Sucesso.";
-    }} else {
+
+
+
+            echo "Imagem cadastrada com Sucesso.";
+        }
+        $delete = "DELETE FROM fardas_encomendas WHERE id_fardas_enc = '$id_fardas_enc'";
+
+
+        $resultado_insert_fardas = mysqli_query($conn, $delete) or die("Erro de $delete" . mysqli_error($conn));
+    } else {
         //Upload não efetuado com sucesso, exibe a mensagem
         echo "Imagem não foi cadastrada com Sucesso.";
     }
