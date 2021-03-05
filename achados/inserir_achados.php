@@ -12,9 +12,8 @@ $gremistaDevolveuAchados = filter_input(INPUT_POST, 'gremistaDevolveuAchados', F
 $postadoAchados = filter_input(INPUT_POST, 'postadoAchados', FILTER_SANITIZE_STRING);
 $statusAchados = filter_input(INPUT_POST, 'statusAchados', FILTER_SANITIZE_STRING);
     // configurar hora e data
-     date_default_timezone_set('America/Fortaleza');
-	 $hoje = date('d/m/Y H:i:s');
-   
+    $hoje = date('d/m/Y H:i:s');
+    date_default_timezone_set('America/Fortaleza');
 
 	$dir = "img_achados"; 
 	// recebendo o arquivo multipart 
@@ -35,7 +34,7 @@ VALUES ('$nomeAchados', '$descricaoAchados', '$gremistaRecebeuAchados', '$quando
 $stmt = $db->prepare($sql);
 try{
 	$stmt->execute();
-	header("location:cadastrar_achados.php");
+	header("location:cadastrar_achados.php?sucesso=1");
 
    }catch(PDOException $e){
 	echo 'Erro: ', $e->getMessage();
