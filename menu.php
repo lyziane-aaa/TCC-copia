@@ -8,6 +8,34 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="../../_css/estilo.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    </script>
+    <script>
+function confirmar(id){
+	Swal.fire({
+	title: 'Você tem certeza?',
+	text: "Não há como reverter a exclusão!",
+	icon: 'warning',
+	showCancelButton: true,
+	confirmButtonColor: '#3085d6',
+	cancelButtonColor: '#d33',
+	confirmButtonText: 'Excluir',
+	cancelButtonText: 'Cancelar'
+}).then((result) => {
+	if (result.isConfirmed) {
+		var hre = "<?= $hre?>"
+		Swal.fire(
+		'O Arquivo Excluido!',
+		'',
+		'success'
+		)
+		location.href= hre + id;
+	} 
+	})
+};
+    </script>
+
+    
+
 </head>
 
 <body>
@@ -67,7 +95,7 @@
                 <li><a href="#"> Gestão </a>
                     <ul>
                         <li><a href="/TCC/usuarios/listar_usuarios.php">Listar</a> </li>
-                        <li><a href="/TCC/usuarios/gestao/listar_gestao.php">Gestão</a></li>
+                        <li><a href="/TCC/usuarios/publico/listar_gestao.php">Gestão</a></li>
                     </ul>
                 </li>
 

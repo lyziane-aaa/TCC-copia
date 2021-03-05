@@ -1,3 +1,21 @@
+<?php 
+if (isset($_GET['sucesso'])){
+	if ($_GET['sucesso'] == 1){
+		echo" <script>
+        Swal.fire(
+            'Good job!',
+            'You clicked the button!',
+            'success'
+          )
+		    </script>";
+    }
+    else{
+            echo "<script> alert('deu errado);</script>";
+        }
+}else{
+	echo "teste";
+}
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -8,6 +26,10 @@
     <link rel="stylesheet" href="../css/estilo.css">
     <!-- SCRIPTS -->
     <script src="../js/scripts.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/8.11.8/sweetalert2.all.min.js"></script>>
+
+
 
 </head>
 
@@ -76,9 +98,8 @@ sair da sessão clicando no icone de usuário. -->
         <textarea name="descricaoAchados" id="descricao" 
         cols="10" rows="4" maxlength="800" placeholder="Descreva o Objeto"></textarea>
         <br>
-
-        <input type="submit" class="botao" onclick="msg()" value="Cadastrar">
-        <input type="reset" class="botao" value="Limpar">
+        <input type="submit" value="Enviar">
+        <input type="reset"  value="Limpar">
     </form>
     <?php 
     include_once("../footer.php");

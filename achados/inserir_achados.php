@@ -34,7 +34,7 @@ VALUES ('$nomeAchados', '$descricaoAchados', '$gremistaRecebeuAchados', '$quando
 $stmt = $db->prepare($sql);
 try{
 	$stmt->execute();
-	header("location:cadastrar_achados.php");
+	header("location:cadastrar_achados.php?sucesso=1");
 
    }catch(PDOException $e){
 	echo 'Erro: ', $e->getMessage();

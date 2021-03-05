@@ -49,7 +49,7 @@ while($row_bc =mysqli_fetch_array($resultado_bc) ) {
 	Editar
 	</button>';
 	//Botão de Excluir (Ele envia o id via Get)
-	$dado[] = ' <a href="excluir_bolsacopia.php?id_bc='.$row_bc["id_bc"].'"><button type="button" class="btn btn-primary">Excluir</button></a>';
+	$dado[] = ' <a href="javascript:confirmar('.$row_bc['id_bc'].')"><button type="button" class="btn btn-primary">Excluir</button></a>';
 	$dados[] = $dado;
 }
 // <?php echo $rows_bc['img_bc'];"';
