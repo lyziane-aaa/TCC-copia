@@ -36,7 +36,7 @@ sair da sessão clicando no icone de usuário. -->
         <input type="number" name="laudas_bc" id="laudas-bc" onKeyPress="return Onlynumbers(event);" min="0" max="20" required>
         <br>
 
-        <input type="submit" class="botao" onclick="msg()" value="Cadastrar">
+        <input type="submit" class="botao"  value="Cadastrar">
         <input type="reset" class="botao" value="Limpar">
     </form>
     <?php 

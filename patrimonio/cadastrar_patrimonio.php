@@ -77,7 +77,7 @@ sair da sessão clicando no icone de usuário. -->
 
         <input type="hidden" name="dataCadPat" value="<?php echo $hoje; ?>">
 
-        <input type="submit" class="botao" onclick="msg()" value="Cadastrar">
+        <input type="submit" class="botao"  value="Cadastrar">
         <input type="reset" class="botao" value="Limpar">
     </form>
 

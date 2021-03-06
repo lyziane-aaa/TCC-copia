@@ -56,7 +56,6 @@
 	cancelButtonText: 'Cancelar'
 }).then((result) => {
 	if (result.isConfirmed) {
-		var hre = "<?= $links?>"
 		Swal.fire(
 		'O Arquivo Excluido!',
 		'',

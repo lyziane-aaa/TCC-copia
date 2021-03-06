@@ -19,7 +19,7 @@
 	// 
 	$resultado_insertBC = mysqli_query($conn, $resultado_insert) or die("erro " . mysqli_error($conn));
 
-	header ("location: /TCC/documentos/interno/listar_documentos.php");
+	header ("location: /TCC/documentos/interno/listar_documentos.php?sucesso=1");
 	
 
 	 

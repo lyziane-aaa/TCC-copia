@@ -16,5 +16,5 @@ $resultado_insertdir= mysqli_query($conn, $resultado_insert) or die ("erro " . m
 
 
 
-header("location:../diretoria/cadastrar_diretoria.php");
+header("location:../diretoria/cadastrar_diretoria.php?sucesso=1");
 

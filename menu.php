@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="../../_css/estilo.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
     </script>
     <script>
 function confirmar(id){
@@ -34,7 +35,26 @@ function confirmar(id){
 };
     </script>
 
-    
+<?php 
+if (isset($_GET['sucesso'])){
+	if ($_GET['sucesso'] == 1){
+		echo" <script>
+        Swal.fire(
+            'Cadastro Realizado com Sucesso',
+            '',
+            'success'
+        );
+        
+		    </script>";
+
+    }
+    else{
+            echo "<script> alert('deu errado);</script>";
+        }
+}else{
+	echo "teste";
+}
+?>
 
 </head>
 

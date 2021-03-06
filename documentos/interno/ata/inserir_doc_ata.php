@@ -73,7 +73,7 @@ $sql = "INSERT INTO `documentos_ata`
 '$assinaturas_doc_ata');";
 $stmt = $db->prepare($sql);
 	$resultado_inser_ata = mysqli_query($conn, $sql ) or die("erro " . mysqli_error($conn));
-header("location: /TCC/documentos/interno/listar_documentos.php");
+header("location: /TCC/documentos/interno/listar_documentos.php?sucesso=1");
 
 
 			

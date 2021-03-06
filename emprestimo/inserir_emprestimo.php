@@ -20,5 +20,5 @@ $resultado_insert_pat = mysqli_query($conn, $resultado_insert) or die("erro " . 
 
 
 //	$resultado_insertEmp = mysqli_query($conn, $resultado_insert);
-header('location: cadastrar_emprestimo.php');
+header('location: cadastrar_emprestimo.php?sucesso=1');
 ?>

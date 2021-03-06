@@ -16,5 +16,5 @@ VALUES ('$nomePat', '$codBarrasPat', '$obtencaoPat', '$custoObt', '$obsPat','$st
 
 $resultado_insertPat = mysqli_query($conn, $resultado_insert);
 
-header('location: cadastrar_patrimonio.php');
+header('location: cadastrar_patrimonio.php?sucesso=1');
 ?>
