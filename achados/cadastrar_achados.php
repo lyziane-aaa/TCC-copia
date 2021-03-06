@@ -1,21 +1,4 @@
-<?php 
-if (isset($_GET['sucesso'])){
-	if ($_GET['sucesso'] == 1){
-		echo" <script>
-        Swal.fire(
-            'Good job!',
-            'You clicked the button!',
-            'success'
-          )
-		    </script>";
-    }
-    else{
-            echo "<script> alert('deu errado);</script>";
-        }
-}else{
-	echo "teste";
-}
-?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -29,7 +12,26 @@ if (isset($_GET['sucesso'])){
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/8.11.8/sweetalert2.all.min.js"></script>>
 
+<?php 
+if (isset($_GET['sucesso'])){
+	if ($_GET['sucesso'] == 1){
+		echo" <script>
+        Swal.fire(
+            'Cadastro Realizado com Sucesso',
+            '',
+            'success'
+        );
+        
+		    </script>";
 
+    }
+    else{
+            echo "<script> alert('deu errado);</script>";
+        }
+}else{
+	echo "teste";
+}
+?>
 
 </head>
 
