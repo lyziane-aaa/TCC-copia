@@ -99,7 +99,8 @@ if (isset($_GET['sucesso'])){
                 </li>
                 <li><a href="#"> Documentos </a>
                     <ul>
-                        <li><a href="/TCC/documentos/interno/meus_documentos.php">Meus Documentos</a> </li>
+                        <li><a href="/TCC/documentos/interno/listar_documentos.php">Meus Documentos</a> </li>
+                        <li><a href="/TCC/documentos/doa/diario_oficial.php">Diário Oficial</a> </li>
                         <li><a href="/TCC/documentos/interno/oficio/gerar_oficio.php">Novo Ofício</a></li>
                         <li><a href="/TCC/documentos/interno/portaria/gerar_portaria.php">Nova Portaria</a></li>
                         <li><a href="/TCC/documentos/interno/ata/gerar_ata.php">Nova Ata</a></li>
@@ -185,7 +186,7 @@ if (isset($_GET['sucesso'])){
                     </ul>
                 </li>
 
-                <li id="li_doa"><a href="/TCC/bolsaCopia/listar_bolsacopia.php">Diário Oficial da Agremiação</a> </li>
+                <li id="li_doa"><a href="/TCC/documentos/doa/diario_oficial.php">Diário Oficial</a> </li>
 
                 <li><a href="#">Fale conosco</a></li>
 

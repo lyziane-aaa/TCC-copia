@@ -737,3 +737,18 @@ div#fardas_chart {
     margin-bottom: 50px;
     padding: 0;
 }
+
+
+/* Diário Oficial do GEVP */
+
+#painel-diario {
+    background-color: #7DE9F6 !important;
+    color: white !important;
+    font-size: 18px !important;
+    text-align: center !important;
+    font-family: 'serif' !important;
+    padding: 10px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    margin-top: -30px;
+}

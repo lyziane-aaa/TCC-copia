@@ -36,10 +36,11 @@ if(!empty($requestData['search']['value']) ) {   // se houver um par�metro de 
 	$result_achados.=" AND ( nome_achados LIKE '".$requestData['search']['value']."%' ";    
 	$result_achados.=" OR gremista_recebeu_achados LIKE '".$requestData['search']['value']."%' ";
 	$result_achados.=" OR onde_achados LIKE '".$requestData['search']['value']."%' )";
-	$result_achados.=" ORDER BY ". $columns[$requestData['order'][0]['column']]."   ".$requestData['order'][0]['dir']."  LIMIT ".$requestData['start']." ,".$requestData['length']."   ";
 
 
 }
+$result_achados.=" ORDER BY ". $columns[$requestData['order'][0]['column']]."   ".$requestData['order'][0]['dir']."  LIMIT ".$requestData['start']." ,".$requestData['length']."   ";
+
 	$resultado_achados = mysqli_query($conn, $result_achados) ;
 	$totalFiltered = mysqli_num_rows($resultado_achados);
 

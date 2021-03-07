@@ -29,11 +29,9 @@ if(!empty($requestData['search']['value']) ) {   // se houver um par�metro de 
 	$result_bc.=" OR matricula_bc LIKE '".$requestData['search']['value']."%' ";
 	$result_bc.=" OR laudas_bc LIKE '".$requestData['search']['value']."%' )";
 }
-
-$resultado_bc= mysqli_query($conn, $result_bc);
-$totalFiltered = mysqli_num_rows($resultado_bc);
-//Ordenar o resultado
 $result_bc.=" ORDER BY ". $columns[$requestData['order'][0]['column']]."   ".$requestData['order'][0]['dir']."  LIMIT ".$requestData['start']." ,".$requestData['length']."   ";
+
+//Ordenar o resultado
 $resultado_bc=mysqli_query($conn, $result_bc);
 
 
@@ -57,7 +55,7 @@ while($row_bc =mysqli_fetch_array($resultado_bc) ) {
 $json_data = array(
 	"draw" => intval( $requestData['draw'] ),//para cada requisi��o � enviado um n�mero como par�metro
 	"recordsTotal" => intval( $linhas ),  //Quantidade que h� no banco de dados
-	"recordsFiltered" => intval( $totalFiltered ), //Total de registros quando houver pesquisa
+	"recordsFiltered" => intval( $linhas ), //Total de registros quando houver pesquisa
 	"data" => $dados   //Array de dados completo dos dados retornados da tabela 
 
 );

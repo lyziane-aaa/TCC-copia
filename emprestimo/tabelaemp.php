@@ -5,8 +5,7 @@ $senha = "";
 $dbname = "gremio";
 $conn = mysqli_connect($servidor, $usuario, $senha, $dbname);
 include_once('../Funcs/functions.php');
-//Sempre iniciado com $, tipo de vari�vel;
-//$requestData= $_REQUEST;
+
 $requestData= $_REQUEST;
 
 $columns = array( 
@@ -34,27 +33,23 @@ $linhas=mysqli_num_rows($resultado_consulta_emp);
 
 
 //Obter dados
-$result_emp="SELECT patrimonioativo.nome_pat, emp.id_emp ,emp.nome_emp, emp.matricula_emp, emp.gremista_emp, emp.condicao_emp ,emp.data_emp, emp.data_dev, emp.gremista_dev FROM emprestimos as emp
+$result_emp="SELECT patrimonioativo.nome_pat, emp.id_emp ,emp.nome_emp, emp.matricula_emp, emp.gremista_emp, emp.condicao_emp ,emp.data_emp, 
+emp.data_dev, emp.gremista_dev FROM emprestimos as emp
 join patrimonioativo 
-on emp.obj_emp = patrimonioativo.id_pat WHERE concluido_emp = 0;";
+on emp.obj_emp = patrimonioativo.id_pat WHERE emp.concluido_emp = 0;";
 
 $dados=array();
 if(!empty($requestData['search']['value']) ) {   // se houver um par�metro de pesquisa, $requestData['search']['value'] cont�m o par�metro de pesquisa
-	$result_emp.=" AND ( patrimonioativo.nome_pat LIKE '".$requestData['search']['value']."%' ";    
-	$result_emp.=" OR emp.matricula_emp LIKE '".$requestData['search']['value']."%' ";
-	$result_emp.=" OR emp.nome_emp LIKE '".$requestData['search']['value']."%' )";
-	$result_emp.=" ORDER BY ". $columns[$requestData['order'][0]['column']]."   ".$requestData['order'][0]['dir']."  LIMIT ".$requestData['start']." ,".$requestData['length']."   ";
-
+	$result_emp.=" AND ( patrimonioativo.nome_pat LIKE '%" . $requestData['search']['value']."%' ";    
+	$result_emp.=" OR emp.matricula_emp LIKE '%" . $requestData['search']['value']."%' ";
+	$result_emp.=" OR emp.nome_emp LIKE '%" . $requestData['search']['value']."%' )";
+	$result_emp.=" ORDER BY " . $columns[$requestData['order'][0]['column']] . "   " . $requestData['order'][0]['dir'] . "  LIMIT " . $requestData['start'] . " ," . $requestData['length'] . "   ";
 
 }
-//var_dump($result_emp); 
-//exit;
+
+
 $resultado_emp= mysqli_query($conn, $result_emp);
 $totalFiltered = mysqli_num_rows($resultado_emp);
-//Ordenar o resultado
-//$resultado_emp=mysqli_query($conn, $result_emp);
-
-
 
 while($row_emp =mysqli_fetch_array($resultado_emp) ) {  
 	$dado = array(); 
@@ -63,7 +58,6 @@ while($row_emp =mysqli_fetch_array($resultado_emp) ) {
 	$dado[] = $row_emp["matricula_emp"];
 	$dado[] = $row_emp["gremista_emp"];	
 	$dado[] = $row_emp["condicao_emp"];
-
 	$dado[] = databr($row_emp["data_emp"]);
 	$dado[] = $row_emp["data_dev"];
 	$dado[] = $row_emp["gremista_dev"];
@@ -77,9 +71,9 @@ while($row_emp =mysqli_fetch_array($resultado_emp) ) {
 // <?php echo $rows_emp['img_emp'];"';
 //Cria o array de informa��es a serem retornadas para o Javascript
 $json_data = array(
-	"draw" => intval( $requestData['draw'] ),//para cada requisi��o � enviado um n�mero como par�metro
-	"recordsTotal" => intval( $linhas ),  //Quantidade que h� no banco de dados
-	"recordsFiltered" => intval( $totalFiltered ), //Total de registros quando houver pesquisa
+	"draw" => intval(isset($requestData['draw'])),//para cada requisi��o � enviado um n�mero como par�metro
+	"recordsTotal" => intval($linhas),  //Quantidade que h� no banco de dados
+	"recordsFiltered" => intval($totalFiltered), //Total de registros quando houver pesquisa
 	"data" => $dados   //Array de dados completo dos dados retornados da tabela 
 
 );
