@@ -4,6 +4,7 @@ $usuario = "root";
 $senha = "";
 $dbname = "gremio";
 $conn = mysqli_connect($servidor, $usuario, $senha, $dbname);
+include_once('../Funcs/functions.php');
 //Sempre iniciado com $, tipo de vari�vel;
 //$requestData= $_REQUEST;
 $requestData= $_REQUEST;
@@ -62,8 +63,8 @@ while($row_emp =mysqli_fetch_array($resultado_emp) ) {
 	$dado[] = $row_emp["matricula_emp"];
 	$dado[] = $row_emp["gremista_emp"];	
 	$dado[] = $row_emp["condicao_emp"];
-	$dataemp = date('d/m/Y H:i:s',strtotime($row_emp["data_emp"]));
-	$dado[] = $dataemp;
+
+	$dado[] = databr($row_emp["data_emp"]);
 	$dado[] = $row_emp["data_dev"];
 	$dado[] = $row_emp["gremista_dev"];
 	//Botão de Editar

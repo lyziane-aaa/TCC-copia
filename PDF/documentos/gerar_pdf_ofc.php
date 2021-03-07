@@ -28,7 +28,7 @@ $endrc_doc_ofc =  $array['endrc_doc_ofc'];
 $assunto_doc_ofc =  $array['assunto_doc_ofc'];
 $corpo_doc_ofc = $array['corpo_doc_ofc'];
 $fecho_doc_ofc =  $array['fecho_doc_ofc'];
-$assinatura_doc_ofc =  $array['assinatura_doc_ofc'];
+$autor_doc_ofc =  $array['autor_doc_ofc'];
 $matricula_doc_ofc = $array['matricula_doc_ofc'];
 $cargo_doc_ofc =  $array['cargo_doc_ofc'];
 
@@ -40,7 +40,7 @@ $cargo_doc_ofc =  $array['cargo_doc_ofc'];
 $pdf = new oficioPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
 // set document information
 $pdf->SetCreator(PDF_CREATOR);
-$pdf->SetAuthor($assinatura_doc_ofc);
+$pdf->SetAuthor($autor_doc_ofc);
 $pdf->SetTitle($titulo_doc_ofc);
 $pdf->SetSubject($assunto_doc_ofc);
 // Define margens
@@ -81,7 +81,7 @@ $pdf->SetFont('Liberation Serif', 'R', 12);
 $pdf->Ln(40);//pula 1cm
 $pdf->lastPage(); // Coloca para a última página
 $pdf->MultiCell('', 6, '(assinado eletronicamente)', 0, 'C', 0, 1, 29, '', true, 0, false, true, 6, 'B');
-$pdf->MultiCell('', 6, $assinatura_doc_ofc, 0, 'C', 0, 1, 29, '', true, 0, false, true, 6, 'B');
+$pdf->MultiCell('', 6, $autor_doc_ofc, 0, 'C', 0, 1, 29, '', true, 0, false, true, 6, 'B');
 $pdf->MultiCell('', 6,  $cargo_doc_ofc, 0, 'C', 0, 1, 29, '', true, 0, false, true, 6, 'B');
 $titulo_doc_ofc = str_replace("/", "_", $titulo_doc_ofc);
 $titulo_doc_ofc = utf8_decode($titulo_doc_ofc);

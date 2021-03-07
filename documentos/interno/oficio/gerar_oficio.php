@@ -37,7 +37,7 @@
 	<?php
 	include_once("../../../menu.php");
 	include_once("../../../conexao.php");
-	include_once("../../../Funcs/numdoc.php");
+	include_once("../../../Funcs/functions.php");
 
 
 
@@ -46,8 +46,8 @@
 	if ($_SESSION['login'] != null) {
 		$login = $_SESSION['login'];
 
-		$titulo_doc_ofc = numdoc("ofc",$_SESSION['cargo']);
-		$num_doc_ofc = extrair('ofc',$titulo_doc_ofc);
+		$titulo_doc_ofc = numdoc("ofc", $_SESSION['cargo']);
+		$num_doc_ofc = extrair('ofc', $titulo_doc_ofc);
 	?>
 		<script>
 			function Onlynumbers(e) {
@@ -76,15 +76,18 @@
 
 					<div id="numeracaoOficio">
 
-					<input readonly name="titulo_doc_ofc" id="input-numeracaoOficio" type="text" value="<?php echo $titulo_doc_ofc;?>" placeholder="OFÍCIO <ANO>.<NÚMERO>/<SIGLA DA DIRETORIA>/GEVP"  required>
-						<input readonly hidden name="num_doc_ofc"  type="text" value="<?php echo $num_doc_ofc?>"   required>
-					
+						<input readonly name="titulo_doc_ofc" id="input-numeracaoOficio" type="text" value="<?php echo $titulo_doc_ofc; ?>" placeholder="OFÍCIO <ANO>.<NÚMERO>/<SIGLA DA DIRETORIA>/GEVP" required>
+						<input readonly hidden name="num_doc_ofc" type="text" value="<?php echo $num_doc_ofc ?>" required>
+
 					</div>
 
 
 					<div id="dataOficio">
 						<input id="input-dataOficio" value="<cidade>, <?php setlocale(LC_TIME, 'portuguese');
-        date_default_timezone_set('America/Fortaleza'); $data = date('d-m-Y'); $data = strftime("%d de %B de %Y", strtotime($data)); echo "$data.";?>" type="text" placeholder="<Local>, <dia> de <mês> de <ano>." name="data_doc_ofc" required>
+																		date_default_timezone_set('America/Fortaleza');
+																		$data = date('d-m-Y');
+																		$data = strftime("%d de %B de %Y", strtotime($data));
+																		echo utf8_encode($data . "."); ?>" type="text" placeholder="<Local>, <dia> de <mês> de <ano>." name="data_doc_ofc" required>
 					</div>
 
 					<div id="enderecamentoOficio">
@@ -112,12 +115,12 @@
 					</div>
 
 					<div id="assinaturaOficio">
-						<input required id="input-assinaturaOficio" type="text" placeholder="<NOME DO GREMISTA>" value="<?php echo strtoupper($_SESSION['nome_usuarios']) ?>" name="assinatura_doc_ofc" readonly>
+						<input required id="input-assinaturaOficio" type="text" placeholder="<NOME DO GREMISTA>" value="<?php echo strtoupper($_SESSION['nome_usuarios']) ?>" name="autor_doc_ofc" readonly>
 
 					</div>
 
 					<div id="cargoOficio">
-						<input name="matricula_doc_ofc" id="input-matricula_doc_ofc" type="text" value="<?php echo $_SESSION['matricula'] ?>"readonly>
+						<input name="matricula_doc_ofc" id="input-matricula_doc_ofc" type="text" value="<?php echo $_SESSION['matricula'] ?>" readonly>
 						<input required id="input-cargoOficio" readonly type="text" value="<?php echo $_SESSION['cargo'] ?>" name="cargo_doc_ofc" spellcheck="true">
 
 					</div>
@@ -159,4 +162,5 @@
 		</script>
 
 </body>
+
 </html>

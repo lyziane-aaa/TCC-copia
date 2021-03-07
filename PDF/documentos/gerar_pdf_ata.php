@@ -25,7 +25,7 @@ $array = mysqli_fetch_assoc($query1);
 $pdf = new oficioPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
 // set document information
 $pdf->SetCreator(PDF_CREATOR);
-$pdf->SetAuthor($assinatura_doc_ata);
+$pdf->SetAuthor($autor_doc_ata);
 $pdf->SetTitle($titulo_doc_ata);
 $pdf->SetSubject($assunto_doc_ata);
 // Define margens
@@ -66,7 +66,7 @@ $pdf->SetFont('Liberation Serif', 'R', 12);
 $pdf->Ln(40);//pula 1cm
 $pdf->lastPage(); // Coloca para a última página
 $pdf->MultiCell('', 6, '(assinado eletronicamente)', 0, 'C', 0, 1, 29, '', true, 0, false, true, 6, 'B');
-$pdf->MultiCell('', 6, $assinatura_doc_ata, 0, 'C', 0, 1, 29, '', true, 0, false, true, 6, 'B');
+$pdf->MultiCell('', 6, $autor_doc_ata, 0, 'C', 0, 1, 29, '', true, 0, false, true, 6, 'B');
 $pdf->MultiCell('', 6,  $cargo_doc_ata, 0, 'C', 0, 1, 29, '', true, 0, false, true, 6, 'B');
 $titulo_doc_ata = str_replace("/", "_", $titulo_doc_ata);
 $titulo_doc_ata = utf8_decode($titulo_doc_ata);

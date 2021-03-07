@@ -3,16 +3,21 @@ session_start();
 include_once("../../../conexao.php");
 
 $num_doc_ata = filter_input(INPUT_POST, 'num_doc_ata', FILTER_SANITIZE_STRING);
+//Retira o "ata nº" da string
+$num_doc_ata = explode ('º ', $num_doc_ata);
+//Pega apenas a parte da numeração
+$num_doc_ata = $num_doc_ata[1];
+
+
 $titulo_doc_ata = filter_input(INPUT_POST, 'titulo_doc_ata', FILTER_SANITIZE_STRING);
 $data_reuniao_doc_ata = filter_input(INPUT_POST, 'data_reuniao_doc_ata', FILTER_SANITIZE_STRING);
-$conv_doc_ata= filter_input(INPUT_POST, 'convoc_doc_ata', FILTER_SANITIZE_STRING);
+$convoc_doc_ata= filter_input(INPUT_POST, 'convoc_doc_ata', FILTER_SANITIZE_STRING);
 $tipo_doc_ata= filter_input(INPUT_POST, 'tipo_doc_ata', FILTER_SANITIZE_STRING);
 $sec_doc_ata= filter_input(INPUT_POST, 'sec_doc_ata', FILTER_SANITIZE_STRING);
 
 $orgao_doc_ata = filter_input(INPUT_POST, 'orgao_doc_ata', FILTER_SANITIZE_STRING);
 $horario_doc_ata = filter_input(INPUT_POST, 'horario_doc_ata', FILTER_SANITIZE_STRING);
 $local_doc_ata = filter_input(INPUT_POST, 'local_doc_ata', FILTER_SANITIZE_STRING);
-$conv_doc_ata = filter_input(INPUT_POST, 'convoc_doc_ata', FILTER_SANITIZE_STRING);
 $pautas_doc_ata = filter_input(INPUT_POST, 'pautas_doc_ata');
 $enc_doc_ata = filter_input(INPUT_POST, 'enc_doc_ata');
 $presentes_doc_ata = filter_input(INPUT_POST, 'presentes_doc_ata');
@@ -42,18 +47,16 @@ if (move_uploaded_file($files["tmp_name"], "$dir/".$nome_arq)) {
 	
 	$assinaturas_doc_ata = "$dir/".$nome_arq;
 	
-$opcoes = array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
-
-$db = new PDO('mysql:host=localhost;dbname=gremio', 'root', '', $opcoes);	
 
 // Verificação se é assembleia apenas por questões linguísticas
 
 $sql = "INSERT INTO `documentos_ata`
-(`num_doc_ata`,	`titulo_doc_ata`,`convoc_doc_ata`,`tipo_doc_ata`,`sec_doc_ata`,	`orgao_doc_ata`,	`data_reuniao_doc_ata`,	`horario_doc_ata`,	`local_doc_ata`,	`pautas_doc_ata`,	`enc_doc_ata`,	`presentes_doc_ata`,	`corpo_doc_ata`,
+(`num_doc_ata`,	`titulo_doc_ata`,`convoc_doc_ata`,`tipo_doc_ata`,`sec_doc_ata`,	`orgao_doc_ata`,	`data_reuniao_doc_ata`,	`horario_doc_ata`,	`local_doc_ata`,	
+`pautas_doc_ata`,	`enc_doc_ata`,	`presentes_doc_ata`,	`corpo_doc_ata`,
 `autor_doc_ata`,	`matricula_doc_ata`,	`cargo_doc_ata`,	`data_registro_ata`,	`gremista_registro_ata`,	`assinaturas_doc_ata`)	VALUES
 (
 '$num_doc_ata',
-'$titulo_doc_ata'
+'$titulo_doc_ata',
 '$convoc_doc_ata',
 '$tipo_doc_ata',
 '$sec_doc_ata',
@@ -71,8 +74,8 @@ $sql = "INSERT INTO `documentos_ata`
 '$data_registro_ata',
 '$gremista_registro_ata',
 '$assinaturas_doc_ata');";
-$stmt = $db->prepare($sql);
-	$resultado_inser_ata = mysqli_query($conn, $sql ) or die("erro " . mysqli_error($conn));
+
+$insert= mysqli_query($conn, $sql) or die("Erro em $sql" . mysqli_error($conn));
 header("location: /TCC/documentos/interno/listar_documentos.php");
 
 

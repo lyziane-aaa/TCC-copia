@@ -24,7 +24,6 @@
     width: 106mm;
     height: 5mm;
     background-color: red;
-    
 }
 
 #input-numeracaoOficio {
@@ -119,13 +118,14 @@
 #input-assinaturaOficio {
     width: 80mm;
     height: 5mm;
-    text-align: center;}
+    text-align: center;
+}
 
-    #input-matricula_doc_ofc{
-        width: 65mm;
-        height: 6mm;
-        text-align: center;
-    }
+#input-matricula_doc_ofc {
+    width: 65mm;
+    height: 6mm;
+    text-align: center;
+}
 
 #cargoOficio {
     margin-top: 0mm;
@@ -155,8 +155,6 @@
 
 .divoficio {
     margin-left: 20mm;
-  
-   
     border-radius: 15px;
     height: 297mm;
     display: relative;
@@ -185,6 +183,7 @@
 #input-titulo_doc_port {
     width: 130mm;
     height: 5mm;
+    font-weight: bold;
 }
 
 #resumo-port {
@@ -229,8 +228,8 @@
 }
 
 #assinatura-port {
-    margin-top: 12mm;
-    margin-left: 91mm;
+    margin-top: 35mm;
+    margin-left: 72mm;
     margin-right: 15mm;
     width: 43mm;
     height: 5mm;
@@ -238,13 +237,14 @@
 }
 
 #input-assinatura-port {
-    width: 45mm;
+    width: 81mm;
     height: 5mm;
+    text-align: center;
 }
 
 #cargo-port {
     margin-top: 0mm;
-    margin-left: 91mm;
+    margin-left: 80mm;
     margin-right: 15mm;
     width: 43mm;
     height: 5mm;
@@ -252,8 +252,9 @@
 }
 
 #input-cargo-port {
-    width: 45mm;
+    width: 65mm;
     height: 5mm;
+    text-align: center;
 }
 
 #input-card-port {
@@ -278,7 +279,7 @@
 
 #titulo_doc_ata {
     margin-top: 50mm;
-    margin-left: 99mm;
+    margin-left: 96.5mm;
     margin-right: 15mm;
     width: 29mm;
     height: 6mm;
@@ -286,9 +287,10 @@
 }
 
 #input-num_doc_ata {
-    width: 20mm;
+    width: 25mm;
     height: 5mm;
     margin-top: 1mm;
+    text-align: center;
 }
 
 #data_doc_ata {
@@ -317,7 +319,6 @@
     width: 88mm;
     height: 6mm;
     transform: scale(0.8);
-    
 }
 
 .select-convoc_doc_ata {
@@ -336,31 +337,31 @@
     margin-left: -7mm;
     margin-top: -1mm;
 }
+
 #input-pautas_doc_ata {
     margin-left: 30mm;
-    margin-top:22mm;
-    height:30mm;
+    margin-top: 22mm;
+    height: 30mm;
 }
 
-#input-enc_doc_ata{
+#input-enc_doc_ata {
     margin-left: 30mm;
-    margin-top:11mm;
-    height:60mm;
+    margin-top: 11mm;
+    height: 60mm;
     width: 160mm;
-
 }
-#input-presentes_doc_ata{
+
+#input-presentes_doc_ata {
     margin-left: 30mm;
-    margin-top:16mm;
-    height:60mm;
+    margin-top: 16mm;
+    height: 60mm;
     width: 160mm;
-
 }
-
 
 
 /* Gerar ata - Segunda página */
-#fundo_doc_ata_dois{
+
+#fundo_doc_ata_dois {
     background-image: url("/TCC/documentos/interno/elementos/img/foto_ata_2.jpg") !important;
     background-repeat: no-repeat;
     background-size: 100%;
@@ -370,6 +371,7 @@
     width: 210mm;
     margin-top: 1mm;
 }
+
 #texto_doc_ata {
     margin-top: 40mm;
     margin-left: 30mm;
@@ -384,7 +386,6 @@
 }
 
 #matricula_doc_ata {
-   
     margin-left: 85mm;
     margin-right: 15mm;
     width: 65mm;
@@ -399,8 +400,7 @@
     text-align: center;
 }
 
-#assinatura_doc_ata {
-    
+#autor_doc_ata {
     margin-left: 75mm;
     margin-right: 15mm;
     width: 65mm;
@@ -409,7 +409,7 @@
     text-align: center;
 }
 
-#input-assinatura_doc_ata {
+#input-autor_doc_ata {
     width: 80mm;
     height: 5mm;
     text-align: center;
@@ -421,8 +421,6 @@
     margin-right: 15mm;
     width: 65mm;
     height: 5mm;
-    
-   
 }
 
 #input-cargo_doc_ata {

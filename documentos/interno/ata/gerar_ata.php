@@ -35,7 +35,7 @@
 	<?php
 	include_once("../../../menu.php");
 	include_once("../../../conexao.php");
-	include_once("../../../Funcs/numdoc.php");
+	include_once("../../../Funcs/functions.php");
 
 	if ($_SESSION['login'] != null) {
 		$login = $_SESSION['login'];
@@ -65,7 +65,7 @@
 
 
 					<div id="titulo_doc_ata">
-						<input name="num_doc_ata" required id="input-num_doc_ata" type="text" placeholder="<NOME DO GREMISTA>" value="<?php echo numdoc("ata", $_SESSION['cargo']); ?>" readonly>
+						<input name="num_doc_ata" required id="input-num_doc_ata" type="text" placeholder="<NOME DO GREMISTA>" value="<?php echo "Ata nº ". numdoc("ata", $_SESSION['cargo']); ?>" readonly>
 					</div>
 					<div id="data_doc_ata">
 						<input name="data_reuniao_doc_ata" class="input-data_doc_ata" type="text" placeholder="Mossoró, 08 de maio de 2021.">
@@ -109,8 +109,8 @@
 					</select>
 					<textarea name="corpo_doc_ata" required id="input-texto_doc_ata" type="text" spellcheck="true"></textarea>
 				</div>
-				<div id="assinatura_doc_ata">
-					<input name="assinatura_doc_ata" required id="input-assinatura_doc_ata" type="text" placeholder="<NOME DO GREMISTA>" value="<?php echo strtoupper($_SESSION['nome_usuarios']); ?>" readonly>
+				<div id="autor_doc_ata">
+					<input name="autor_doc_ata" required id="input-autor_doc_ata" type="text" placeholder="<NOME DO GREMISTA>" value="<?php echo strtoupper($_SESSION['nome_usuarios']); ?>" readonly>
 				</div>
 				<div id="matricula_doc_ata">
 					<input name="matricula_doc_ata" id="input-matricula_doc_ata" type="text" value="<?php echo $_SESSION['matricula'] ?>" readonly>

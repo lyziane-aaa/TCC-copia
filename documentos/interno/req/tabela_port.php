@@ -7,7 +7,7 @@ $requestData = $_REQUEST;
 $columns = array(
 	0 => 'id_doc_port',
 	1 => 'titulo_doc_port',
-	2 => 'assinatura_doc_port',
+	2 => 'autor_doc_port',
 	3 => 'data_registro_port'
 );
 
@@ -17,13 +17,13 @@ $linhas = mysqli_num_rows($resultado_doc);
 //pegar dados
 
 //Obter dados
-$result_doc_port = "SELECT id_doc_port, titulo_doc_port,data_registro_port,assinatura_doc_port FROM documentos_port WHERE 1=1";
+$result_doc_port = "SELECT id_doc_port, titulo_doc_port,data_registro_port,autor_doc_port FROM documentos_port WHERE 1=1";
 
 
 if (!empty($requestData['search']['value'])) {   // se houver um parâmetro de pesquisa, $requestData['search']['value'] contém o parâmetro de pesquisa
 	$result_doc_port .= " AND ( titulo_doc_port LIKE '%" . $requestData['search']['value'] . "%' ";
 	$result_doc_port .= " OR data_registro_port LIKE '%" . $requestData['search']['value'] . "%' ";
-	$result_doc_port .= " OR assinatura_doc_port LIKE '%" . $requestData['search']['value'] . "%' )";
+	$result_doc_port .= " OR autor_doc_port LIKE '%" . $requestData['search']['value'] . "%' )";
 }
 //Ordenar o resultado
 $result_doc_port .= " ORDER BY " . $columns[$requestData['order'][0]['column']] . "   " . $requestData['order'][0]['dir'] . "  LIMIT " . $requestData['start'] . " ," . $requestData['length'] . "   ";
@@ -39,7 +39,7 @@ $dados = array();
 while ($row_doc_port = mysqli_fetch_array($resultado_doc_port)) {
 	$dado = array();
 	$dado[] = $row_doc_port["titulo_doc_port"];
-	$dado[] = $row_doc_port["assinatura_doc_port"];
+	$dado[] = $row_doc_port["autor_doc_port"];
 	$dado[] = $row_doc_port["data_registro_port"];
 	$dado[] = "<a href='/tcc/PDF/documentos/gerar_pdf_port.php?id_doc_port=" . $row_doc_port['id_doc_port'] . "' style= 'filter: invert(100%);'><img src='/tcc/imagens/salvarpdf.png' width='20' height='20'/>";
 	$dado[] = ' <a href="../interno/req/excluir_documentos.php?id_doc_port='. $row_doc_port["id_doc_port"].'"> <button type="button" class="btn btn-primary">Excluir</button></a>';

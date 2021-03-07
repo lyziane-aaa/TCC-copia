@@ -1,7 +1,7 @@
 <?php
 include_once("../conexao.php");
 session_start();
-
+if (!isset($_SESSION['login']) && !isset($_SESSION['senha'])){
 
 ?>
 <!DOCTYPE HTML>
@@ -89,7 +89,12 @@ if ((isset($_POST['login'])) && (isset($_POST['senha']))) {
 		<?= $mensg1 ?>
 	</form>
 </div>
-
+<?php
+} else { 
+	//redireciona para o início caso esteja logado
+	header ("Location: /Funcs/inicio.php");
+}
+?>
 </body>
 
 </html>

@@ -238,7 +238,7 @@ sair da sessão clicando no icone de usuário. -->
                         </form>
                     </div>
                 </div>
-            </div>
+            </div><!-- acordeão 3 caso precise 
             <div class="card">
                 <div class="card-header" id="headingThree">
                     <h5 class="mb-0">
@@ -253,28 +253,12 @@ sair da sessão clicando no icone de usuário. -->
                     </div>
                 </div>
             </div>
-        </div>
+        </div>-->
 
 
 
 
-        <div class="row">
-            <div class="col">
-                <div class="collapse multi-collapse" id="collapse-gerenciar-lote">
-                    <div class="card card-body" id="collapse-gerenciar-lote-body">
-
-
-
-
-
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="collapse multi-collapse" id="collapse-add-lote">
-                    <div class="card card-body" id="collapse-add-lote-body">
-                        <h3 class="cad-titulo">Adicionar lote</h3>
-
+      
 
                     </div>
                 </div>

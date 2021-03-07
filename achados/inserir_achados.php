@@ -24,14 +24,17 @@ $statusAchados = filter_input(INPUT_POST, 'statusAchados', FILTER_SANITIZE_STRIN
 		
 		
 		$imgAchados = "$dir/".$file["name"];
-		
+
+
+		//teste 
+		for ($i = 0; $i<30; $i++){ 
 $opcoes = array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
 $db = new PDO('mysql:host=localhost;dbname=gremio', 'root', '', $opcoes);	
 
 $sql = "INSERT INTO achados (nome_achados, descricao_achados, gremista_recebeu_achados, quando_achados, 
 onde_achados,quem_reivindicou_achados,cpf_matricula_achados,gremista_devolveu_achados,postado_achados, status_achados, img_achados)
-VALUES ('$nomeAchados', '$descricaoAchados', '$gremistaRecebeuAchados', '$quandoAchados', '$ondeAchados', '$quemReivindicouAchados', 
-'$cpfMatriculaAchados','$gremistaDevolveuAchados', '$postadoAchados', '$statusAchados', '$imgAchados')";
+VALUES ('$nomeAchados - $i', '$i $descricaoAchados', '$gremistaRecebeuAchados', '$quandoAchados', '$ondeAchados', '$quemReivindicouAchados', 
+'$i - $cpfMatriculaAchados','$gremistaDevolveuAchados', '$postadoAchados', '$statusAchados', '$imgAchados')";
 $stmt = $db->prepare($sql);
 try{
 	$stmt->execute();
@@ -44,4 +47,4 @@ try{
 				
 
 
-	}
+	}}

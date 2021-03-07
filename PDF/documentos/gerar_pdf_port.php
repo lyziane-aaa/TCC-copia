@@ -24,7 +24,7 @@ $array = mysqli_fetch_assoc($query_a);
 /*$array['resumo_doc_port'];
 $array['texto_doc_port'];
 $array['fecho_doc_port'];
-$array['assinatura_doc_port'];
+$array['autor_doc_port'];
 $array['cargo_doc_port'];
 */
 
@@ -36,7 +36,7 @@ $array['cargo_doc_port'];
 $pdf = new oficioPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
 // set document information
 $pdf->SetCreator(PDF_CREATOR);
-$pdf->SetAuthor(strtolower($array['assinatura_doc_port']));
+$pdf->SetAuthor(strtolower($array['autor_doc_port']));
 $pdf->SetTitle($array['titulo_doc_port']);
 $pdf->SetSubject($array['resumo_doc_port']);
 // Define margens
@@ -75,7 +75,7 @@ $pdf->SetFont('Liberation Serif', 'R', 12);
 $pdf->Ln(20);//pula 2cm
 $pdf->lastPage(); // Coloca para a última página
 $pdf->MultiCell('', 6, '(assinado eletronicamente)', 0, 'C', 0, 1, 29, '', true, 0, false, true, 6, 'B');
-$pdf->MultiCell('', 6, strtoupper($array['assinatura_doc_port']), 0, 'C', 0, 1, 29, '', true, 0, false, true, 6, 'B');
+$pdf->MultiCell('', 6, strtoupper($array['autor_doc_port']), 0, 'C', 0, 1, 29, '', true, 0, false, true, 6, 'B');
 $pdf->MultiCell('', 6,  $array['cargo_doc_port'], 0, 'C', 0, 1, 29, '', true, 0, false, true, 6, 'B');
 
 $array['titulo_doc_port'] = str_replace("/", "_", $array['titulo_doc_port']);

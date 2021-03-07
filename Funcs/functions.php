@@ -1,21 +1,25 @@
 <?php
-function extrair($doc,$text)
+
+//Funções de numeração de documentos
+function extrair($doc, $text)
 {
     if ($doc == 'port') {
 
-    
-    $pos1 = strpos($text, 'º ');
-    if (false === $pos1) return 'Não encontrado';
-    $pos1 += strlen('º ');
-    $pos2 = strpos($text, ',', $pos1);
-    return trim(substr($text, $pos1, $pos2 - $pos1));
-}
+
+        $pos1 = strpos($text, 'º ');
+        if (false === $pos1) return 'Não encontrado';
+        $pos1 += strlen('º ');
+        $pos2 = strpos($text, ',', $pos1);
+        return trim(substr($text, $pos1, $pos2 - $pos1));
+    }
     if ($doc == 'ofc') {
         $pos1 = strpos($text, 'º ');
         if (false === $pos1) return 'Não encontrado';
         $pos1 += strlen('º ');
         $pos2 = strpos($text, '/D', $pos1);
-        return trim(substr($text, $pos1, $pos2 - $pos1));}
+        return trim(substr($text, $pos1, $pos2 - $pos1));
+    }
+   
 }
 function numdoc($doc, $cargo)
 {
@@ -30,11 +34,11 @@ function numdoc($doc, $cargo)
         $query_a = mysqli_query($conn, $query);
         $num = mysqli_fetch_assoc($query_a);
         if (isset($num)) {
-           // Configurar a numeração 
+            // Configurar a numeração 
 
             if (isset($num["num_doc_$doclow"])) {
                 $num_exp = explode("/", $num["num_doc_$doclow"]);
-             
+
                 $num_a = intval($num_exp['0']);
 
                 if ($num_exp['1'] == date('Y')) {
@@ -83,8 +87,37 @@ function numdoc($doc, $cargo)
         setlocale(LC_TIME, 'portuguese');
         date_default_timezone_set('America/Fortaleza');
         $data = date('d-m-Y');
-
         $data = strftime("%d de %B de %Y", strtotime($data));
+
+        //Caso for março, colocar o Ç normalmente
+        $pos1 = strpos($data, ' de ');
+        if (false === $pos1) return 'Não encontrado';
+        $pos1 += strlen(' de ');
+        $pos2 = strpos($data, ' de ', $pos1);
+
+        $marco = utf8_encode(trim(substr($data, $pos1, $pos2 - $pos1)));
+        if ($marco == 'março') {
+            $y = date('Y');
+            $data = date('d-m-Y');
+            // Por algum motivo a função strftime retorna ç apenas em minúsculo, o que é um problema, porque o texto deve ser em maiúsculo
+            $data = strftime("%d de MARÇO ", strtotime($data)) . "de $y";
+        }
         return strtoupper('PORTARIA Nº ' . num($doc) . ', de ' . $data . '.');
     }
+}
+
+// Funções de formatação de data para o padrão br
+function databr ($data) {
+    //Verifica se tem 19 caracteres, ou seja, se a data e o horário estão como "2021-02-15 15:48:48"
+    if (strlen($data)== 19){
+
+       $data = date('d/m/Y à\s h\hi\m\i\ns\s',strtotime($data));
+        return $data;
+        
+    } //Verifica se tem 10 caracteres, ou seja, apenas a data, como em  "2021-02-15" 
+    if (strlen($data)== 10) {
+       $data = date('d/m/Y',strtotime($data));
+        return $data;
+    }
+ 
 }

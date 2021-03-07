@@ -1,8 +1,9 @@
-<html lang="pt-br">
+<?php header('Content-Type: text/html; charset=utf-8');
+?><html lang="pt-br">
 
 <head>
 
-	<meta charset="utf-8">
+<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<title>Gerar Nova Portaria</title>
 
@@ -35,7 +36,7 @@
 	<?php
 	include_once("../../../menu.php");
 	include_once("../../../conexao.php");
-	include_once("../../../Funcs/numdoc.php");
+	include_once("../../../Funcs/functions.php");
 	if ($_SESSION['login'] != null) {
 		$login = $_SESSION['login'];
 		// Calcula a numeração da portaria
@@ -81,7 +82,7 @@
 					</div>
 
 					<div id="assinatura-port">
-						<input name="assinatura_doc_port" required id="input-assinatura-port" type="text" placeholder="<NOME DO GREMISTA>" value="<?php echo strtoupper($_SESSION['nome_usuarios']) ?>" readonly>
+						<input name="autor_doc_port" required id="input-assinatura-port" type="text" placeholder="<NOME DO GREMISTA>" value="<?php echo strtoupper($_SESSION['nome_usuarios']) ?>" readonly>
 					</div>
 
 					<div id="cargo-port">

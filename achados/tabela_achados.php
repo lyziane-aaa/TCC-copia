@@ -4,6 +4,7 @@ $usuario = "root";
 $senha = "";
 $dbname = "gremio";
 $conn = mysqli_connect($servidor, $usuario, $senha, $dbname);
+include_once('../Funcs/functions.php');
 //Sempre iniciado com $, tipo de vari�vel;
 //$requestData= $_REQUEST;
 $requestData= $_REQUEST;
@@ -22,30 +23,28 @@ $columns = array(
 	10=> 'img_achados'
 );
 //Verificação de quantas linhas tem a tabela para pagina��o
-$consulta_achados="SELECT * FROM achados";
+$consulta_achados="SELECT id_achados,nome_achados,descricao_achados,gremista_recebeu_achados,quando_achados,onde_achados,quem_reivindicou_achados,cpf_matricula_achados,gremista_devolveu_achados,postado_achados, status_achados, img_achados FROM achados WHERE 1=1";
 $resultado_consulta_achados=mysqli_query($conn,$consulta_achados);
 $linhas=mysqli_num_rows($resultado_consulta_achados);
-//pegar dados
 
-// nome_achados,descricao_achados,gremista_recebeu_achados,quando_achados,onde_achados,quem_reivindicou_achados,cpf_matricula_achados,gremista_devolveu_achados,postado_achados, status_achados, img_achados
-
-//
 
 //Obter dados
 $result_achados="SELECT id_achados,nome_achados,descricao_achados,gremista_recebeu_achados,quando_achados,onde_achados,quem_reivindicou_achados,cpf_matricula_achados,gremista_devolveu_achados,postado_achados, status_achados, img_achados FROM achados WHERE 1=1";
-
+$resultado_achados = mysqli_query($conn, $result_achados) ;
 $dados=array();
 if(!empty($requestData['search']['value']) ) {   // se houver um par�metro de pesquisa, $requestData['search']['value'] cont�m o par�metro de pesquisa
 	$result_achados.=" AND ( nome_achados LIKE '".$requestData['search']['value']."%' ";    
 	$result_achados.=" OR gremista_recebeu_achados LIKE '".$requestData['search']['value']."%' ";
 	$result_achados.=" OR onde_achados LIKE '".$requestData['search']['value']."%' )";
+	$result_achados.=" ORDER BY ". $columns[$requestData['order'][0]['column']]."   ".$requestData['order'][0]['dir']."  LIMIT ".$requestData['start']." ,".$requestData['length']."   ";
+
+
 }
-$result_achados.=" ORDER BY ". $columns[$requestData['order'][0]['column']]."   ".$requestData['order'][0]['dir']."  LIMIT ".$requestData['start']." ,".$requestData['length']."   ";
+	$resultado_achados = mysqli_query($conn, $result_achados) ;
+	$totalFiltered = mysqli_num_rows($resultado_achados);
 
-$resultado_achados= mysqli_query($conn, $result_achados);
-$totalFiltered = mysqli_num_rows($resultado_achados);
+
 //Ordenar o resultado
-
 
 
 
@@ -54,7 +53,7 @@ while($row_achados =mysqli_fetch_array($resultado_achados) ) {
 	$dado[] = $row_achados["nome_achados"];
 	$dado[] = $row_achados["descricao_achados"];
 	$dado[] = $row_achados["gremista_recebeu_achados"];
-	$dado[] = $row_achados["quando_achados"];
+	$dado[] =databr($row_achados["quando_achados"]);
 	$dado[] = $row_achados["onde_achados"];
 	$dado[] = $row_achados["quem_reivindicou_achados"];
 	$dado[] = $row_achados["cpf_matricula_achados"];
@@ -80,31 +79,10 @@ Editar
 //Cria o array de informa��es a serem retornadas para o Javascript
 $json_data = array(
 	"draw" => intval( $requestData['draw'] ),//para cada requisi��o � enviado um n�mero como par�metro
-	"recordsTotal" => intval( $linhas ),  //Quantidade que h� no banco de dados
-	"recordsFiltered" => intval( $totalFiltered ), //Total de registros quando houver pesquisa
+	"iTotalRecords" => intval( $linhas ),  //Quantidade que h� no banco de dados
+	"iTotalDisplayRecords" => intval($linhas), //Total de registros quando houver pesquisa
 	"data" => $dados   //Array de dados completo dos dados retornados da tabela 
 
 );
 
 echo json_encode($json_data);  //enviar dados como formato json
-
-
-//Criar a conexao. A vari�ven $conn recebe a conex�o
-
- /* $grupo ="";
-function abrirBanco(){
-    $conexao = new mysqli("localhost", "root", "", "gremio");
-    return $conexao;}
-
-function selectAllUsu(){
-    $banco = abrirBanco();
-    $sql = "SELECT * FROM usuarios ORDER BY login";
-    $resultado = $banco->query($sql);
-    $banco->close();
-    while ($row = mysqli_fetch_array($resultado)) {
-        $grupo[] = $row;
-    }}
-	return $grupo;
-	
-	*/
-?>

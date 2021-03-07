@@ -197,7 +197,7 @@ CREATE TABLE `documentos_ofc` (
   `assunto_doc_ofc` varchar(200) COLLATE utf8_swedish_ci NOT NULL,
   `corpo_doc_ofc` mediumtext COLLATE utf8_swedish_ci NOT NULL COMMENT 'Texto em si, pode conter mais de uma página',
   `fecho_doc_ofc` varchar(100) COLLATE utf8_swedish_ci NOT NULL,
-  `assinatura_doc_ofc` varchar(100) COLLATE utf8_swedish_ci NOT NULL,
+  `autor_doc_ofc` varchar(100) COLLATE utf8_swedish_ci NOT NULL,
   `matricula_doc_ofc` varchar(200) COLLATE utf8_swedish_ci NOT NULL,
   `cargo_doc_ofc` varchar(100) COLLATE utf8_swedish_ci NOT NULL,
   `data_registro_ofc` timestamp NOT NULL DEFAULT current_timestamp() COMMENT 'Data de registro do campo',
@@ -208,7 +208,7 @@ CREATE TABLE `documentos_ofc` (
 -- Extraindo dados da tabela `documentos_ofc`
 --
 
-INSERT INTO `documentos_ofc` (`id_doc_ofc`, `titulo_doc_ofc`, `num_doc_ofc`, `data_doc_ofc`, `endrc_doc_ofc`, `assunto_doc_ofc`, `corpo_doc_ofc`, `fecho_doc_ofc`, `assinatura_doc_ofc`, `matricula_doc_ofc`, `cargo_doc_ofc`, `data_registro_ofc`, `gremista_registro_ofc`) VALUES
+INSERT INTO `documentos_ofc` (`id_doc_ofc`, `titulo_doc_ofc`, `num_doc_ofc`, `data_doc_ofc`, `endrc_doc_ofc`, `assunto_doc_ofc`, `corpo_doc_ofc`, `fecho_doc_ofc`, `autor_doc_ofc`, `matricula_doc_ofc`, `cargo_doc_ofc`, `data_registro_ofc`, `gremista_registro_ofc`) VALUES
 (2, 'Ofício 20201.0202 - Não dá c', '2/2021', 'aaaaaa', 'aaaaaaaa', 'aaaaaaaaaaa', '<p>aaaaaaa</p>\r\n', 'Atenciosamente,', 'LUCAS FELIPE CARLOS DO NASCIMENTO', '', 'Secretário-geral', '2021-02-14 21:08:42', 'lucas'),
 (7, 'OFÍCIO Nº 3/2021/DIEXE/GEVP', '3/2021', 'Mossoró, 15 de fevereiro de 2021.', 'Ao Senhor\r\nEduardo\r\nda Morte', 'Teste', '<p>dgsfds</p>\r\n\r\n<p>f</p>\r\n\r\n<p>dsf</p>\r\n\r\n<p>dsf</p>\r\n\r\n<p>sd</p>\r\n', 'Atenciosamente,', 'LUCAS FELIPE CARLOS DO NASCIMENTO', '20171024010009', 'Secretário-geral', '2021-02-15 18:39:16', 'lucas');
 
@@ -224,7 +224,7 @@ CREATE TABLE `documentos_port` (
   `titulo_doc_port` varchar(200) COLLATE utf8_swedish_ci NOT NULL COMMENT 'Título da Portaria',
   `resumo_doc_port` text COLLATE utf8_swedish_ci NOT NULL COMMENT 'Resumo da Portari',
   `texto_doc_port` varchar(200) COLLATE utf8_swedish_ci NOT NULL,
-  `assinatura_doc_port` varchar(200) COLLATE utf8_swedish_ci NOT NULL COMMENT 'Assinatura de quem criou a portaria. Não é chave estrangeira porque a Portaria continuará a existir depois que a tabela usuarios for truncada em razão da troca de gestão',
+  `autor_doc_port` varchar(200) COLLATE utf8_swedish_ci NOT NULL COMMENT 'Assinatura de quem criou a portaria. Não é chave estrangeira porque a Portaria continuará a existir depois que a tabela usuarios for truncada em razão da troca de gestão',
   `cargo_doc_port` varchar(200) COLLATE utf8_swedish_ci NOT NULL COMMENT 'Não é chave estrangeira porque a Portaria continuará a existir depois que a tabela usuarios for truncada em razão da troca de gestão',
   `data_registro_port` datetime NOT NULL DEFAULT current_timestamp() COMMENT 'Data de geração do documento',
   `gremista_registro_port` varchar(200) COLLATE utf8_swedish_ci NOT NULL,
@@ -235,7 +235,7 @@ CREATE TABLE `documentos_port` (
 -- Extraindo dados da tabela `documentos_port`
 --
 
-INSERT INTO `documentos_port` (`id_doc_port`, `num_doc_port`, `titulo_doc_port`, `resumo_doc_port`, `texto_doc_port`, `assinatura_doc_port`, `cargo_doc_port`, `data_registro_port`, `gremista_registro_port`, `assinada_doc_port`) VALUES
+INSERT INTO `documentos_port` (`id_doc_port`, `num_doc_port`, `titulo_doc_port`, `resumo_doc_port`, `texto_doc_port`, `autor_doc_port`, `cargo_doc_port`, `data_registro_port`, `gremista_registro_port`, `assinada_doc_port`) VALUES
 (1, '1/2021', 'PORTARIA Nº 01/2021, de 14 de março de 2021', 'Lucas\r\nfelipe\r\n', '<p>&nbsp;</p>\r\n\r\n<p>Lucas</p>\r\n\r\n<p>Felipe</p>\r\n', 'Lucas Felipe Carlos do Nascimento', 'Secretário-geral', '2021-02-14 18:29:17', 'lucas', 0),
 (3, '2/2021', 'PORTARIA Nº 2/2021, DE 15 DE FEVEREIRO DE 2021.', 'e\r\ne\r\ne\r\ne\r\n', '<p>ss</p>\r\n\r\n<p>s</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>s</p>\r\n\r\n<p>s</p>\r\n\r\n<p>s</p>\r\n', 'Lucas Felipe Carlos do Nascimento', 'Secretário-geral', '2021-02-15 15:48:48', 'lucas', 0),
 (4, '3/2021', 'PORTARIA Nº 3/2021, DE 15 DE FEVEREIRO DE 2021.', 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\r\naaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\r\naaaaaaaaaaaa', '<p>aa</p>\r\n\r\n<p>a</p>\r\n\r\n<p>a</p>\r\n\r\n<p>a</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>a</p>\r\n', 'Lucas Felipe Carlos do Nascimento', 'Secretário-geral', '2021-02-15 16:28:02', 'lucas', 0);
