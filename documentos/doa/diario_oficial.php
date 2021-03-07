@@ -32,7 +32,7 @@
 		//Tabela dos ofícios
 		$(document).ready(function() {
 			$('#tabela_ofc').DataTable({
-				"Processando": true,
+				"Processing":true,
 				"lengthMenu": [
 					[10, 25, 50, -1],
 					[10, 25, 50, "All"]
@@ -51,7 +51,7 @@
 		$(document).ready(function() {
 
 			$('#tabela_port').DataTable({
-				"Processando": true,
+				"Processing":true,
 				"serverSide": true,
 				"language": {
 					"url": "https://cdn.datatables.net/plug-ins/1.10.22/i18n/Portuguese-Brasil.json"

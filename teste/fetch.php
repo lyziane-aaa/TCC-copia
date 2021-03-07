@@ -1,9 +1,5 @@
 <?php
-$servidor = "localhost";
-$usuario = "root";
-$senha = "";
-$dbname = "gremio";
-$conn = mysqli_connect($servidor, $usuario, $senha, $dbname);
+require_once("../conexao.php");
 //Sempre iniciado com $, tipo de variável;
 $requestData= $_REQUEST;
 

@@ -100,15 +100,12 @@ else {
 
             $resultado_insert_fardas = mysqli_query($conn, $sql) or die("erro de $sql " . mysqli_error($conn));
 
-
-
-
             echo "Imagem cadastrada com Sucesso.";
         }
         $delete = "DELETE FROM fardas_encomendas WHERE id_fardas_enc = '$id_fardas_enc'";
 
 
-        $resultado_insert_fardas = mysqli_query($conn, $delete) or die("Erro de $delete" . mysqli_error($conn));
+        $resultado_del_fardas = mysqli_query($conn, $delete) or die("Erro de $delete" . mysqli_error($conn));
     } else {
         //Upload não efetuado com sucesso, exibe a mensagem
         echo "Imagem não foi cadastrada com Sucesso.";

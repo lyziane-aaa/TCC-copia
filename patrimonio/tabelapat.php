@@ -1,9 +1,5 @@
 <?php
-$servidor = "localhost";
-$usuario = "root";
-$senha = "";
-$dbname = "gremio";
-$conn = mysqli_connect($servidor, $usuario, $senha, $dbname);
+require_once("../conexao.php");
 //Sempre iniciado com $, tipo de vari�vel;
 //$requestData= $_REQUEST;
 $requestData= $_REQUEST;
@@ -69,7 +65,7 @@ while($row_pat =mysqli_fetch_array($resultado_pat) ) {
 	</button>';
 	//Botão de Excluir (Ele envia o id via Get)
 	$dado[] = ' <a href="excluir_patrimonio.php?id_pat='. $row_pat["id_pat"].'" data-confirm="Tem certeza que deseja prosseguir com a exclusão desse registro ?"> <button type="button" class="btn btn-primary">Excluir</button></a>';
-	$dados[] = $dado;
+		$dados[] = $dado;
 }
 // <?php echo $rows_pat['img_pat'];"';
 //Cria o array de informa��es a serem retornadas para o Javascript

@@ -11,34 +11,34 @@
 
     </script>
     <script>
-function confirmar(id){
-	Swal.fire({
-	title: 'Você tem certeza?',
-	text: "Não há como reverter a exclusão!",
-	icon: 'warning',
-	showCancelButton: true,
-	confirmButtonColor: '#3085d6',
-	cancelButtonColor: '#d33',
-	confirmButtonText: 'Excluir',
-	cancelButtonText: 'Cancelar'
-}).then((result) => {
-	if (result.isConfirmed) {
-		var hre = "<?= $hre?>"
-		Swal.fire(
-		'O Arquivo Excluido!',
-		'',
-		'success'
-		)
-		location.href= hre + id;
-	} 
-	})
-};
+        function confirmar(id) {
+            Swal.fire({
+                title: 'Você tem certeza?',
+                text: "Não há como reverter a exclusão!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Excluir',
+                cancelButtonText: 'Cancelar'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    var hre = "<?= $hre ?>"
+                    Swal.fire(
+                        'O Arquivo Excluido!',
+                        '',
+                        'success'
+                    )
+                    location.href = hre + id;
+                }
+            })
+        };
     </script>
 
-<?php 
-if (isset($_GET['sucesso'])){
-	if ($_GET['sucesso'] == 1){
-		echo" <script>
+    <?php
+    if (isset($_GET['sucesso'])) {
+        if ($_GET['sucesso'] == 1) {
+            echo " <script>
         Swal.fire(
             'Cadastro Realizado com Sucesso',
             '',
@@ -46,15 +46,13 @@ if (isset($_GET['sucesso'])){
         );
         
 		    </script>";
-
-    }
-    else{
+        } else {
             echo "<script> alert('deu errado);</script>";
         }
-}else{
-	echo "teste";
-}
-?>
+    } else {
+        echo "teste";
+    }
+    ?>
 
 </head>
 
@@ -128,8 +126,9 @@ if (isset($_GET['sucesso'])){
                 </li>
                 <li><a href="#"> Patrimônio </a>
                     <ul>
-                        <li><a href="/TCC/patrimonio/listar_patrimonio.php">Listar</a> </li>
                         <li><a href="/TCC/patrimonio/cadastrar_patrimonio.php">Cadastrar</a></li>
+                        <li><a href="/TCC/patrimonio/listar_patrimonio.php">Patrimônio Ativo</a></li>
+                        <li><a href="/TCC/patrimonio/patrimonio_baixa/listar_patrimonio_baixa.php">Patrimônio baixado</a></li>
                     </ul>
                 </li>
 
