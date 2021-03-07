@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -8,7 +9,6 @@
     <link rel="stylesheet" href="../css/estilo.css">
     <!-- SCRIPTS -->
     <script src="../js/scripts.js"></script>
-
 </head>
 
 <!-- Analisar possibilidade de uma segunda logo e de colocar novamente a o local onde podiamos 
@@ -76,9 +76,8 @@ sair da sessão clicando no icone de usuário. -->
         <textarea name="descricaoAchados" id="descricao" 
         cols="10" rows="4" maxlength="800" placeholder="Descreva o Objeto"></textarea>
         <br>
-
-        <input type="submit" class="botao" onclick="msg()" value="Cadastrar">
-        <input type="reset" class="botao" value="Limpar">
+        <input type="submit" value="Enviar">
+        <input type="reset"  value="Limpar">
     </form>
     <?php 
     include_once("../footer.php");

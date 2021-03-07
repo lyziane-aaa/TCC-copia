@@ -63,7 +63,7 @@ while($row_usuarios =mysqli_fetch_array($resultado_usuarios) ) {
 	Editar
 	</button>';
 	//Botão de Excluir (Ele envia o id via Get)
-	$dado[] = ' <a href="excluir_usuarios.php?id_usuarios='. $row_usuarios["id_usuarios"].'"> <button type="button" class="btn btn-primary">Excluir</button></a>';
+	$dado[] = ' <a href="javascript:confirmar('.$row_usuarios['id_usuarios'].')"> <button type="button" class="btn btn-primary">Excluir</button></a>';
 	$dados[] = $dado;
 }
 // <?php echo $rows_usuarios['img_usuarios'];"';

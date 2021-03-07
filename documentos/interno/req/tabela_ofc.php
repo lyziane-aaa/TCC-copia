@@ -2,6 +2,7 @@
 include('../../../conexao.php');
 $requestData = $_REQUEST;
 
+$links= "../interno/req/excluir_documentos.php?id_doc_ofc=";
 
 $columns = array(
 	0 =>  'titulo_doc_ofc',
@@ -43,7 +44,7 @@ while ($row_doc_ofc = mysqli_fetch_array($resultado_doc_ofc)) {
 	$dado[] = $row_doc_ofc["autor_doc_ofc"];
 	$dado[] = $row_doc_ofc["data_registro_ofc"];
 	$dado[] = "<a href='/tcc/PDF/documentos/gerar_pdf_ofc.php?id_doc_ofc=" . $row_doc_ofc['id_doc_ofc'] . "' style= 'filter: invert(100%);'><img src='/tcc/imagens/salvarpdf.png' width='20' height='20'/>";
-	$dado[] = '<a href="../interno/req/excluir_documentos.php?id_doc_ofc=' . $row_doc_ofc["id_doc_ofc"] . '"> <button type="button" class="btn btn-primary">Excluir</button></a>';
+	$dado[] = '<a href="javascript:confirmar('.$row_doc_ofc['id_doc_ofc'].'),2"> <button type="button" class="btn btn-primary">Excluir</button></a>';
 	$dados[] = $dado;
 }
 

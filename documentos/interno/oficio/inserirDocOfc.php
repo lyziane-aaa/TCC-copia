@@ -26,7 +26,7 @@
 	// 
 	$resultado_insertBC = mysqli_query($conn, $resultado_insert);
 
-	header ("Location: gerar_oficio.php");
+	header ("Location: gerar_oficio.php?sucesso=1");
 	
 
 	 

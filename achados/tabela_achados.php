@@ -70,7 +70,7 @@ Visualizar
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-editar-' . $row_achados["id_achados"] . '">
 Editar
 </button>';
-	$dado[] = '<a href="excluir_achados.php?id_achados='.$row_achados["id_achados"].'"><button type="button" class="btn btn-primary">Excluir</button></a>';
+	$dado[] = '<a href="javascript:confirmar('.$row_achados['id_achados'].')"><button type="button" class="btn btn-primary">Excluir</button></a>';
 
 
 	$dados[] = $dado;

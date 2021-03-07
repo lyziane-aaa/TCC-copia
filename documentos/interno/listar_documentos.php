@@ -12,17 +12,9 @@
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 	<link rel="stylesheet" type="text/css" href="/TCC/_css/estilo.css">
 	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+	<script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 	<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 	<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-	<script type="text/javascript">
-		setTimeout(function() {
-			var msg = document.getElementsByClassName("alertaDeErro");
-			while (msg.length > 0) {
-				msg[0].parentNode.removeChild(msg[0]);
-			}
-		}, 5000);
-	</script>
-
 	<script>
 		//Tabela dos ofícios
 		$(document).ready(function() {
@@ -57,6 +49,34 @@
 				},
 			});
 		});
+	</script>
+	<script>
+		function confirmar(id,link){
+	Swal.fire({
+	title: 'Você tem certeza?',
+	text: "Não há como reverter a exclusão!",
+	icon: 'warning',
+	showCancelButton: true,
+	confirmButtonColor: '#3085d6',
+	cancelButtonColor: '#d33',
+	confirmButtonText: 'Excluir',
+	cancelButtonText: 'Cancelar'
+}).then((result) => {
+	if (result.isConfirmed) {
+		Swal.fire(
+		'O Arquivo Excluido!',
+		'',
+		'success'
+		)
+		if (link == 1){
+		location.href= "../interno/req/excluir_documentos.php?id_doc_port=;" + id;
+	}
+	else{
+		location.href = "../interno/req/excluir_documentos.php?id_doc_ofc=;" + id;
+	}
+	} 
+	})
+};
 	</script>
 </head>
 
@@ -131,4 +151,11 @@
 
 </body>
 
+<?php 
+	
+include_once("../../footer.php");
+?>
+
+				
+	</body>
 </html>

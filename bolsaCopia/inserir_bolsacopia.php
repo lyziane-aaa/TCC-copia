@@ -14,7 +14,7 @@
 	VALUES ('$nome_bc', '$matricula_bc', '$laudas_bc', NOW())";
 	// 
 	$resultado_insert_bc = mysqli_query($conn, $resultado_insert);
-	header("location:cadastrar_bolsaCopia.php");
+	header("location:cadastrar_bolsaCopia.php?sucesso=1");
 	
 
 	 ?>

@@ -4,10 +4,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menu</title>
+    <title> Nav bar do Menu</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="../../_css/estilo.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+    </script>
+    <script>
+function confirmar(id){
+	Swal.fire({
+	title: 'Você tem certeza?',
+	text: "Não há como reverter a exclusão!",
+	icon: 'warning',
+	showCancelButton: true,
+	confirmButtonColor: '#3085d6',
+	cancelButtonColor: '#d33',
+	confirmButtonText: 'Excluir',
+	cancelButtonText: 'Cancelar'
+}).then((result) => {
+	if (result.isConfirmed) {
+		var hre = "<?= $hre?>"
+		Swal.fire(
+		'O Arquivo Excluido!',
+		'',
+		'success'
+		)
+		location.href= hre + id;
+	} 
+	})
+};
+    </script>
+
+<?php 
+if (isset($_GET['sucesso'])){
+	if ($_GET['sucesso'] == 1){
+		echo" <script>
+        Swal.fire(
+            'Cadastro Realizado com Sucesso',
+            '',
+            'success'
+        );
+        
+		    </script>";
+
+    }
+    else{
+            echo "<script> alert('deu errado);</script>";
+        }
+}else{
+	echo "teste";
+}
+?>
+
 </head>
 
 <body>
@@ -67,14 +115,13 @@
                 <li><a href="#"> Gestão </a>
                     <ul>
                         <li><a href="/TCC/usuarios/listar_usuarios.php">Listar</a> </li>
-                        <li><a href="/TCC/usuarios/gestao/listar_gestao.php">Gestão</a></li>
+                        <li><a href="/TCC/usuarios/publico/listar_gestao.php">Gestão</a></li>
                     </ul>
                 </li>
 
                 <li><a href="#">Fardas</a>
                     <ul>
                         <li><a href="/TCC/fardas/painel_fardas.php">Painel</a> </li>
-                        <li><a href="/TCC/fardas/config_lote.php">Config. de lote</a> </li>
 
                     </ul>
                 </li>

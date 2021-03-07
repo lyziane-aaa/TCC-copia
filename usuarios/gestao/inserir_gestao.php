@@ -110,7 +110,7 @@ try{
 
 }
 
-header("location:/TCC/sair.php");
+header("location:/TCC/sair.php?sucesso=1");
 
 	} 
 	else { 
