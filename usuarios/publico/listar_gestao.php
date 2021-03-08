@@ -80,7 +80,7 @@
 
 <?php
 //}	
-include_once("/TCC/footer.php"); 
+include_once("../../footer.php"); 
 ?>
 	</body>
 </html>

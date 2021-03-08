@@ -1,5 +1,5 @@
 <?php
-require_once("../conexao.php");
+require_once("../../conexao.php");
 
  
 //Sempre iniciado com $, tipo de vari�vel;
@@ -21,8 +21,8 @@ $requestData= $_REQUEST;
 $consulta_usuarios="select usuarios.nome_usuarios, 
 usuarios.matricula_usuarios, usuarios_cargos.nome_cargo, usuarios.telefone, usuarios.email from usuarios
 JOIN usuarios_cargos on usuarios.cargo = usuarios_cargos.id_diretoria";
-$resultado_consulta_usuarios=mysqli_query($conn,$consulta_usuarios);
-$linhas=mysqli_num_rows($resultado_consulta_usuarios);
+$resultado_consulta_usuarios = mysqli_query($conn,$consulta_usuarios);
+$linhas= mysqli_num_rows($resultado_consulta_usuarios);
 
 
 
@@ -74,5 +74,3 @@ $json_data = array(
 
 echo json_encode($json_data);  //enviar dados como formato json
 
-
-?>
