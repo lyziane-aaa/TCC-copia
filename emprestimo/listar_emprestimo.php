@@ -78,8 +78,10 @@
 									<th>Data do Emprestimo</th>
 									<th>Data Devolução</th>
 									<th>Gremista que Recebeu</th>
-									<th>Editar</th>
-									<th>Excluir</th>
+									<?php if($_SESSION['nivel'] == 2) {?>
+										<th>Editar</th>
+										<th>Excluir</th>
+									<?php }?>
 								</tr>
 							</thead>
 							<tbody>

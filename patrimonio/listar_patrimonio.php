@@ -82,8 +82,10 @@
 				<th >Data de Aquisição</th>
 				<th>Cadastrado Por</th>
 				<th>Emprestável</th>
-				<th>Editar</th>
-				<th>Excluir</th>
+				<?php if($_SESSION['nivel'] == 2) {?>
+					<th>Editar</th>
+					<th>Excluir</th>
+                <?php }?>
             </tr>
         </thead>
         <tbody>

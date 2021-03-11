@@ -42,13 +42,32 @@
             'success'
         );
         
-		    </script>";
-        } else {
-            echo "<script> alert('deu errado);</script>";
+            </script>";
+        } else if($_GET['sucesso'] == 3){
+            echo " <script>
+            Swal.fire(
+                'Registro Atualizado com Sucesso',
+                '',
+                'success'
+            );
+            
+                </script>";
         }
-    } else {
-        echo "teste";
+        else if($_GET['sucesso'] == 4){
+            echo " <script>
+            Swal.fire(
+                'Bimestre atualizado com sucesso',
+                '',
+                'success'
+            );
+            
+                </script>";
+        }
+        else{
+            echo "Deu ERRADO!";
+        }
     }
+    
     ?>
 
 </head>

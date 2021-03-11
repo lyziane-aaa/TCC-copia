@@ -12,7 +12,7 @@
 	$truncate_bolsacopiaB = "TRUNCATE TABLE bolsacopia";
 	$truncate_bolsacopiaB = mysqli_query($conn, $truncate_bolsacopiaB) or die ("Erro ao tentar cadastrar registro:  ". mysqli_error($conn));
 
-	header('location: ../listar_bolsacopia.php');
+	header('location: ../listar_bolsacopia.php?sucesso=4');
 
 
 

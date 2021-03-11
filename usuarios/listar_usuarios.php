@@ -73,8 +73,10 @@
 							<th>E-mail</th>
 							<th>Nível de Acesso</th>
 							<th>Data de Registro</th>
-							<th>Editar</th>
-							<th>Excluir</th>
+							<?php if($_SESSION['nivel'] == 2) {?>
+								<th>Editar</th>
+								<th>Excluir</th>
+							<?php }?>
 						</tr>
 					</thead>
 					<tbody>
