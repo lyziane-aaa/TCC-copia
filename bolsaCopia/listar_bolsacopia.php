@@ -180,8 +180,10 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			<h5 class="modal-title" id="TituloModalCentralizado">Editar Registro:</h5>
+			<button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+				<span aria-hidden="true">&times;</span>
+			</button>
       </div>
       <div class="modal-body">
         <form method="post" action="inserir_bolsacopia.php" class="cadastro">

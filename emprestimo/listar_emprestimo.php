@@ -7,15 +7,13 @@
 	<title>Listar Empréstimo</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 	<link rel="stylesheet" type="text/css" href="../_css/estilo.css">
 
 <!-- Datatables-->
 <script src="../js/jquery-3.6.0.min.js"></script>
-
 <link rel="stylesheet" type="text/css" href="../DataTables/datatables.css" />
-
 <script type="text/javascript" src="../DataTables/datatables.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
 
 
@@ -93,13 +91,77 @@
 			</div>
 		</div>
 
-		<?php
-		include_once("../footer.php");
-		//}
+		<?php 
+			$result_emp = "SELECT * FROM emprestimos WHERE 1=1";
+			$resultado_emp = mysqli_query($conn, $result_emp);
+			while ($row_emp = mysqli_fetch_array($resultado_emp)) {
+		?>
+<!-- Modal Editar-->
+<div class="modal fade" id="modal-editar-<?=$row_emp["id_emp"]?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+			<h5 class="modal-title" id="TituloModalCentralizado">Atualizar registro do empréstimo</h5>
+			<button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+				<span aria-hidden="true">&times;</span>
+			</button>
+      </div>
+      <div class="modal-body" style="overflow-y:auto;">
+        <form method="post" action="inserir_emprestimo.php" class="cadastro">
 
-		//else{
-		//	header("location:../usuarios/login.php");	
-		//}
+				<label for="nome_emp">Nome do objeto:</label>
+				<input type="text" readonly value="<?= $row_emp['obj_emp']?>" name="objeto_emp" required>
+                <br>
+
+				<label for="nome_emp">Nome completo do aluno:</label>
+				<input type="text" placeholder="<?= $row_emp['nome_emp']?>" name="nome_emp" id="nome-usuarios" required>
+                <br>
+
+                <label for="matricula_emp">Matrícula ou CPF:</label>
+                <input type="text" placeholder="<?= $row_emp['matricula_emp']?>" name="matricula_emp" required>
+                <br>
+
+                <label for="gremista_emp">Gremista que emprestou:</label>
+                <input type="text" name="gremista_emp" required readonly value="<?= $row_emp['gremista_emp']?>">
+                <br>
+
+                <label for="condicao" id="post">Condição:</label>
+                <select placeholder="<?= $row_emp['condicao_emp']?>" name="condicao_emp" id="condicao">
+                    <option value="Novo">Novo</option>
+                    <option selected value="Normal">Normal</option>
+                    <option value="Desgastado">Desgastado</option>
+                </select>
+
+				<label for="data_emp">Data de Devolução:</label>
+                <input type="text" name="devolucao_emp" required readonly value="<?php $data = date('d/m/Y - H:i:s'); echo $data; ?>">
+
+				<label for="gremista_emp">Gremista que Recebeu:</label>
+                <input type="text" readonly value="<?= $_SESSION['nome_usuarios']?>" name="gremista_recebeu_emp" required>
+                <br>
+
+			<input type="hidden" value ="<?= $row_emp['id_emp'] ?>" name="id">
+			<input type="hidden" value="listar" name="pagina"> <!-- Indica ao Inserir de qual página veio os dados -->
+			<input type="submit" value="Enviar">
+			<input type="reset" value="Limpar">
+			<br> 
+			<br>
+		</form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+		<?php
+			}
+			include_once("../footer.php");
+			//}
+
+			//else{
+			//	header("location:../usuarios/login.php");	
+			//}
 		?>
 
 
