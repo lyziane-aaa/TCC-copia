@@ -96,8 +96,97 @@
     </div>
 </div>
 
+<!-- Modal Editar -->
 <?php 
-include_once("../footer.php"); 
+			$result_pat= "SELECT * FROM patrimonioativo WHERE 1=1";
+			$resultado_pat = mysqli_query($conn, $result_pat);
+			while ($row_pat = mysqli_fetch_array($resultado_pat)) {
+		?>
+<!-- Modal Editar-->
+<div class="modal fade" id="modal-editar-<?=$row_pat["id_pat"]?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+			<h5 class="modal-title" id="TituloModalCentralizado">Atualizar registro do empréstimo</h5>
+			<button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+				<span aria-hidden="true">&times;</span>
+			</button>
+      </div>
+      <div class="modal-body" style="overflow-y:auto;">
+        <form method="post" action="inserir_emprestimo.php" class="cadastro">
+
+		<label for="nome-objeto">Nome do Objeto:</label>
+        <input type="text" name="nomePat" id="nome-objeto" required>
+        <br>
+
+        <label for="codigo-barras">Código de Barras</label>
+        <input type="text" name="codBarrasPat" id="codigo-barras" onKeyPress="return Onlynumbers(event);" required>
+        <br>
+
+        <div class="linha">
+            <label for="obtencao" class="post" >Forma de Obtenção:</label>
+            <select name="obtencaoPat" id="obtencao">
+                <option value="Compra">Compra</option>
+                <option selected value="Doação">Doação</option>
+            </select>
+            <br>
+
+            <label for="status" class="post" >Condição:</label>
+            <select name="statusPat" id="status">
+                <option value="Novo">Novo</option>
+                <option selected value="Normal">Normal</option>
+                <option value="Desgastado">Desgastado</option>
+            </select>
+            <br>
+        </div>
+        <br>
+
+        <label for="custo">Custo:</label>
+        <input type="number" name="custoPat" id="custo" onKeyPress="return Onlynumbers(event);" >
+        <br>
+        <br>
+
+        <label for="nome-gresmista">Cadastrado por</label>
+        <input type="text" name="gremista_cadastro_pat" id="nome-gremista" value="<?= $_SESSION['nome_usuarios'] ?> ." required readonly>
+        <br>
+        <br>
+
+        <label for="emprestavel" class="post" >Pode ser emprestado:</label>
+            <select name="emprestavel" id="emprestavel">
+                <option value="1">Sim</option>
+                <option selected value="0">Não</option>
+            </select>
+
+        <label for="descricao">Descrição:</label> 
+        <textarea name="obsPat" id="descricao" 
+        cols="10" rows="4" maxlength="800" placeholder="Descreva o Objeto"></textarea>
+        <br>
+
+        <?php 
+            $hoje = date('d/m/Y');
+        ?>
+
+        <input type="hidden" name="dataCadPat" value="<?php echo $hoje; ?>">
+
+			<input type="hidden" value ="<?= $row_emp['id_emp'] ?>" name="id">
+			<input type="hidden" value="listar" name="pagina"> <!-- Indica ao Inserir de qual página veio os dados -->
+			<input type="submit" value="Enviar">
+			<input type="reset" value="Limpar">
+			<br> 
+			<br>
+		</form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+	
+<?php 
+	}
+	include_once("../footer.php"); 
 ?>
 </body>
 </html>

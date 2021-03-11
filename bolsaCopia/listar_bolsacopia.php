@@ -195,6 +195,7 @@
 			<input type="number" placeholder="<?= $row_bc['laudas_bc'] ?>" required max="20" min="1" name="laudas_bc">
 			<input type="hidden" value ="<?= $row_bc['id_bc'] ?>" name="id">
 			<input type="hidden" value="listar" name="pagina"> <!-- Indica ao Inserir de qual página veio os dados -->
+			<br> <br> <br>
 			<input type="submit" value="Enviar">
 			<input type="reset" value="Limpar">
 		</form>
