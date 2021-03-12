@@ -34,15 +34,15 @@ sair da sessão clicando no icone de usuário. -->
 
                 $resultado_pat = mysqli_query($conn, "SELECT * FROM patrimonioativo WHERE emprestado_pat = 0 && emprestavel = 1") or die("erro " . mysqli_error($conn));
                 $row_pat = mysqli_fetch_array($resultado_pat);
-
+                
                 if (isset($row_pat)) {
-                    echo '  <label for="obj_emp">Objetos disponíveis para empréstimo</label>
+                    echo ' <label for="obj_emp">Objetos disponíveis para empréstimo</label>
                     <select name="obj_emp" id="nome-objeto">';
                     while ($row_pat = mysqli_fetch_array($resultado_pat)) {
-                        echo '<option value="' . $row_pat["id_pat"] . '">' . $row_pat["nome_pat"] . '</option>';
+                        echo '<option value="'.$row_pat['id_pat'].'">'.$row_pat['nome_pat'].'</option>';
                     }
                     echo '</select>';
-                } else {
+                }else {
                     echo '<label for="obj_emp">Objetos disponíveis para empréstimo</label>
                         <select  name="" readonly ="readonly" class="bt-desativado">
                         <option value="">Não há objetos disponíveis para empréstimos</option>

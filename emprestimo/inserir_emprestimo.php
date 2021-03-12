@@ -15,7 +15,7 @@ $id = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_NUMBER_INT);
 $pagina= filter_input(INPUT_POST, 'pagina', FILTER_SANITIZE_STRING);
 
 if($pagina == "listar"){
-    $resultado_insert = "UPDATE emprestimos SET  obj_emp='$obj_emp' nome_emp = '$nome_emp', matricula_emp = '$matricula_emp', condicao_emp = '$condicao_emp' data_dev = '$devolucao'  gremista_dev = '$gremista_recebeu' WHERE id_emp= '$id' ";
+    $resultado_insert = "UPDATE emprestimos SET  obj_emp='$obj_emp' nome_emp = '$nome_emp', matricula_emp = '$matricula_emp', condicao_emp = '$condicao_emp', data_dev = '$devolucao', gremista_dev = '$gremista_recebeu' WHERE id_emp= '$id' ";
     $resultado_insert_emp = mysqli_query($conn, $resultado_insert);
     header("location:listar_emprestimo.php?sucesso=3");
 }

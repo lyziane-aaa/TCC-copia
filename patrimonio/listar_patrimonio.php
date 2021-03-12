@@ -43,7 +43,7 @@
 				"Processando": true,
 				"serverSide": true,
 				"language": {
-   								 "url": "https://cdn.datatables.net/plug-ins/1.10.22/i18n/Portuguese-Brasil.json"
+								"url": "https://cdn.datatables.net/plug-ins/1.10.22/i18n/Portuguese-Brasil.json"
 						},
 				"ajax": {
 					"url": "tabelapat.php",
@@ -107,20 +107,20 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-			<h5 class="modal-title" id="TituloModalCentralizado">Atualizar registro do empréstimo</h5>
+			<h5 class="modal-title" id="TituloModalCentralizado">Atualizar registro do Patrimônio</h5>
 			<button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
 				<span aria-hidden="true">&times;</span>
 			</button>
       </div>
       <div class="modal-body" style="overflow-y:auto;">
-        <form method="post" action="inserir_emprestimo.php" class="cadastro">
+        <form method="post" action="inserir_patrimonio.php" class="cadastro">
 
 		<label for="nome-objeto">Nome do Objeto:</label>
-        <input type="text" name="nomePat" id="nome-objeto" required>
+        <input type="text" name="nomePat" id="nome-objeto" value="<?=$row_pat['nome_pat']?>" required>
         <br>
 
         <label for="codigo-barras">Código de Barras</label>
-        <input type="text" name="codBarrasPat" id="codigo-barras" onKeyPress="return Onlynumbers(event);" required>
+        <input type="text" name="codBarrasPat" id="codigo-barras" onKeyPress="return Onlynumbers(event);" value="<?=$row_pat['cod_barras_pat']?>" required>
         <br>
 
         <div class="linha">
@@ -132,7 +132,7 @@
             <br>
 
             <label for="status" class="post" >Condição:</label>
-            <select name="statusPat" id="status">
+            <select name="statusPat" id="status" >
                 <option value="Novo">Novo</option>
                 <option selected value="Normal">Normal</option>
                 <option value="Desgastado">Desgastado</option>
@@ -142,12 +142,12 @@
         <br>
 
         <label for="custo">Custo:</label>
-        <input type="number" name="custoPat" id="custo" onKeyPress="return Onlynumbers(event);" >
+        <input type="number" name="custoPat" id="custo" onKeyPress="return Onlynumbers(event);" value="<?=$row_pat['custo_obt']?>" >
         <br>
         <br>
 
         <label for="nome-gresmista">Cadastrado por</label>
-        <input type="text" name="gremista_cadastro_pat" id="nome-gremista" value="<?= $_SESSION['nome_usuarios'] ?> ." required readonly>
+        <input type="text" name="gremista_cadastro_pat" id="nome-gremista" value="<?= $row_pat['gremista_cadastro_pat'] ?> ." required readonly>
         <br>
         <br>
 
@@ -159,16 +159,11 @@
 
         <label for="descricao">Descrição:</label> 
         <textarea name="obsPat" id="descricao" 
-        cols="10" rows="4" maxlength="800" placeholder="Descreva o Objeto"></textarea>
+        cols="10" rows="4" maxlength="800" placeholder="Descreva o objeto aqui"></textarea>
         <br>
 
-        <?php 
-            $hoje = date('d/m/Y');
-        ?>
 
-        <input type="hidden" name="dataCadPat" value="<?php echo $hoje; ?>">
-
-			<input type="hidden" value ="<?= $row_emp['id_emp'] ?>" name="id">
+			<input type="hidden" value ="<?= $row_pat['id_pat'] ?>" name="id">
 			<input type="hidden" value="listar" name="pagina"> <!-- Indica ao Inserir de qual página veio os dados -->
 			<input type="submit" value="Enviar">
 			<input type="reset" value="Limpar">
