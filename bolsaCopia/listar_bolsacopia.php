@@ -8,7 +8,6 @@
 		
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 	<link rel="stylesheet" type="text/css" href="../_css/estilo.css">
 	
   <!-- Data Tables-->
@@ -16,17 +15,8 @@
   <link rel="stylesheet" type="text/css" href="../DataTables/datatables.css" />
   <script type="text/javascript" src="../DataTables/datatables.js"></script>
   <script type="text/javascript"></script>
-
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 	<script src="../js/scripts.js"></script>
-	<script type="text/javascript">
-    setTimeout(function(){ 
-        var msg = document.getElementsByClassName("alertaDeErro");
-            while(msg.length > 0){
-                msg[0].parentNode.removeChild(msg[0]);
-                }
-            }, 5000);
-	</script>
-	
 	<script>
 		$(document).ready(function() {
 			$('#tabelabc').DataTable( {
@@ -67,10 +57,14 @@
 			<h6> Bimestre atual: <input type="text" readonly value = "<?php echo $row_bc['nome_bim_bc']?>"> </h6>
 			<h6> Início do bimestre: <input type="text" readonly value = "<?php echo $bim_inicio ?>"> </h6>
 			<h6> Término do bimestre: <input type="text" readonly value = "<?php echo $bim_fim ?>"> </h6>
+
+			<?php if($_SESSION['nivel'] == 2) {?>
+					
 			<!-- Botão para acionar modal de configuração de bimestre -->
 			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-bimestre"> Configurar Bimestre </button>
 			<!-- Botão para acionar modal de escolha do bimestre vigente-->
 			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-vigor"> Alterar Bimestre </button>
+			<?php } ?>
 		</div>
         <div class="panel-body">
 		<!-- Painel de Controle de Bimestre, visível apenas para gremistas -->
@@ -118,7 +112,7 @@
 				<div class="modal-footer">
 					<button type="button" class="botao" data-dismiss="modal">Fechar</button>
 					<input type="reset" class="botao" value="Limpar">
-					<input type="submit" class="botao" onclick="msg()" value="Cadastrar">
+					<input type="submit" class="botao" value="Cadastrar">
 				
 					</form>
 				
@@ -161,7 +155,7 @@
 				<div class="modal-footer">
 					<button type="button" class="botao" data-dismiss="modal">Fechar</button>
 					<input type="reset" class="botao" value="Limpar">
-					<input type="submit" class="botao" onclick="msg()" value="Atualizar"> <!-- botar aviso aqui-->
+					<input type="submit" class="botao" value="Atualizar"> <!-- botar aviso aqui-->
 				</form>
 			</div>
 			</div> <!-- fim do modal de cadastro do bimestre -->
@@ -175,8 +169,44 @@
 
 		</div>
 
+		<?php 
+		$result_bc = "SELECT * FROM bolsacopia WHERE 1=1";
+  $resultado_bc = mysqli_query($conn, $result_bc);
+
+  while ($row_bc = mysqli_fetch_array($resultado_bc)) {
+  ?>
+<!-- Modal Editar-->
+<div class="modal fade" id="modal-editar-<?= $row_bc["id_bc"] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+			<h5 class="modal-title" id="TituloModalCentralizado">Editar Registro:</h5>
+			<button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+				<span aria-hidden="true">&times;</span>
+			</button>
+      </div>
+      <div class="modal-body">
+        <form method="post" action="inserir_bolsacopia.php" class="cadastro">
+			<label>Nome:</label>
+			<input type="text" placeholder="<?= $row_bc['nome_bc'] ?>" required name="nome_bc">
+			<label>Matrícula:</label>
+			<input type="number" placeholder="<?= $row_bc['matricula_bc'] ?>" onKeyPress="return Onlynumbers(event);" required name="matricula_bc">
+			<label>Laudas:</label>
+			<input type="number" placeholder="<?= $row_bc['laudas_bc'] ?>" required max="20" min="1" name="laudas_bc">
+			<input type="hidden" value ="<?= $row_bc['id_bc'] ?>" name="id">
+			<input type="hidden" value="listar" name="pagina"> <!-- Indica ao Inserir de qual página veio os dados -->
+			<br> <br> <br>
+			<input type="submit" value="Enviar">
+			<input type="reset" value="Limpar">
+		</form>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 		<?php
+  		} //While 
 		} // if para administradores
 		?>
 		<div class="table-responsive table_bc">
@@ -187,8 +217,10 @@
                 <th>Matrícula</th>
                 <th>Laudas:</th>
 				<th>Última impressão em:</th>
-				<th>Editar</th>
-				<th>Excluir</th>
+				<?php if($_SESSION['nivel'] == 2) {?>
+					<th>Editar</th>
+					<th>Excluir</th>
+                <?php }?>
 			</tr>
         </thead>
         <tbody>
@@ -210,7 +242,6 @@ $('#modal-bimestre').on('show.bs.modal', function (event) {
   // Se necessário, você pode iniciar uma requisição AJAX aqui e, então, fazer a atualização em um callback.
   // Atualiza o conteúdo do modal. Nós vamos usar jQuery, aqui. No entanto, você poderia usar uma biblioteca de data binding ou outros métodos.
   var modal = $(this)
-  modal.find('.modal-title').text('Nova mensagem para ' + recipient)
   modal.find('.modal-body input').val(recipient)
 })
 
@@ -220,7 +251,6 @@ $('#modal-vigor').on('show.bs.modal', function (event) {
   // Se necessário, você pode iniciar uma requisição AJAX aqui e, então, fazer a atualização em um callback.
   // Atualiza o conteúdo do modal. Nós vamos usar jQuery, aqui. No entanto, você poderia usar uma biblioteca de data binding ou outros métodos.
   var modal = $(this)
-  modal.find('.modal-title').text('Nova mensagem para ' + recipient)
   modal.find('.modal-body input').val(recipient)
 })
 </script>

@@ -113,7 +113,9 @@
 								<th>Autor</th>
 								<th>Data de emissão</th>
 								<th>Gerar PDF</th>
-								<th>Excluir</th>
+								<?php if($_SESSION['nivel'] == 2) {?>
+									<th>Excluir</th>
+								<?php }?>
 							</tr>
 						</thead>
 						<tbody>
@@ -134,7 +136,9 @@
 								<th>Autor</th>
 								<th>Data de emissão</th>
 								<th>Gerar PDF</th>
-								<th>Excluir</th>
+								<?php if($_SESSION['nivel'] == 2) {?>
+									<th>Excluir</th>
+								<?php }?>
 							</tr>
 						</thead>
 						<tbody>

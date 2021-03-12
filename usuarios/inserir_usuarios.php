@@ -15,18 +15,31 @@ include_once("../conexao.php");
 	$nivel = filter_input(INPUT_POST, 'nivel', FILTER_SANITIZE_NUMBER_FLOAT);
 	$data_registro= filter_input(INPUT_POST, 'data_registro');
 	$gremista_registro= filter_input(INPUT_POST, 'gremista_registro', FILTER_SANITIZE_STRING);
+	$gremista_update = filter_input(INPUT_POST, 'gremista_update', FILTER_SANITIZE_STRING);
+	$data_update = filter_input(INPUT_POST, 'data_update', FILTER_SANITIZE_STRING);
+	$id = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_NUMBER_INT);
+	$pagina = filter_input(INPUT_POST, 'pagina', FILTER_SANITIZE_STRING);
 
 
 	
 $opcoes = array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
 $db = new PDO('mysql:host=localhost;dbname=gremio', 'root', '', $opcoes);
 
-$sql = "INSERT INTO usuarios (login,nome_usuarios,senha,cargo, matricula_usuarios, telefone, email,nivel, data_registro, gremista_registro) 
-VALUES ('$login','$nome_usuarios','$senha','$cargo','$matricula_usuarios','$telefone','$email','$nivel','$data_registro','$gremista_registro')";
-$stmt = $db->prepare($sql);
+if($pagina == "listar"){
+	$resultado_insert = "UPDATE usuarios SET login='$login', nome_usuarios='$nome_usuarios', senha='$senha', cargo='$cargo', matricula_usuarios='$matricula_usuarios', telefone='$telefone', nivel='$nivel', gremista_update='$gremista_update', data_update='$data_update' WHERE id_usuarios ='$id'";
+    $resultado_insertUsu = mysqli_query($conn, $resultado_insert);
+    header('location: listar_usuarios.php?sucesso=3'); 
 
-try{
-    $stmt->execute();
-}catch(PDOException $e){
-    echo 'Erro: ', $e->getMessage();
+}
+else{
+	$sql = "INSERT INTO usuarios (login,nome_usuarios,senha,cargo, matricula_usuarios, telefone, email,nivel, data_registro, gremista_registro) 
+	VALUES ('$login','$nome_usuarios','$senha','$cargo','$matricula_usuarios','$telefone','$email','$nivel','$data_registro','$gremista_registro')";
+	$stmt = $db->prepare($sql);
+
+	try{
+		$stmt->execute();
+		header("location: cadastrar_usuarios.php?sucesso=1");
+	}catch(PDOException $e){
+		echo 'Erro: ', $e->getMessage();
+	}
 }

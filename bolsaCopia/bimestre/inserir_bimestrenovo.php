@@ -14,7 +14,7 @@
 	// 
 	$resultado_insertBC = mysqli_query($conn, $resultado_insert) or die ("Erro ao tentar cadastrar registro:  ". mysqli_error($conn));
 	
-	header("location:../listar_bolsacopia.php");
+	header("location:../listar_bolsacopia.php?sucesso=4");
 	
 	
 

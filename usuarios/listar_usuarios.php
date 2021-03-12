@@ -73,8 +73,10 @@
 							<th>E-mail</th>
 							<th>Nível de Acesso</th>
 							<th>Data de Registro</th>
-							<th>Editar</th>
-							<th>Excluir</th>
+							<?php if($_SESSION['nivel'] == 2) {?>
+								<th>Editar</th>
+								<th>Excluir</th>
+							<?php }?>
 						</tr>
 					</thead>
 					<tbody>
@@ -85,7 +87,82 @@
     </div>
 </div>
 
+
+<?php 
+			$result_usu= "SELECT * FROM usuarios WHERE 1=1";
+			$resultado_usu = mysqli_query($conn, $result_usu);
+			while ($row_usu = mysqli_fetch_array($resultado_usu)) {
+		?>
+<!-- Modal Editar-->
+<div class="modal fade" id="modal-editar-<?=$row_usu["id_usuarios"]?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+			<h5 class="modal-title" id="TituloModalCentralizado">Atualizar Usuários</h5>
+			<button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+				<span aria-hidden="true">&times;</span>
+			</button>
+      </div>
+      <div class="modal-body" style="overflow-y:auto;">
+        <form method="post" action="inserir_usuarios.php" class="cadastro">
+
+			<label for="login">Nome de usuário:</label>
+			<input type="text" name="login" id="nome" maxlength="11" required value="<?=$row_usu['login']?>">
+			<br>
+
+			<label for="nome-usuarios">Nome completo:</label>
+			<input type="text" name="nome_usuarios" id="nome-usuarios" required value="<?=$row_usu['nome_usuarios']?>">
+			<br>
+
+			<label for="senha">Senha:</label>
+			<input type="password" name="senha" id="senha"required value="<?=$row_usu['senha']?>">
+			<br>
+
+			<select name = "cargo">
+				<?php  $resultado_car=mysqli_query($conn, "SELECT * FROM usuarios_cargos");
+						while($row_car = mysqli_fetch_array($resultado_car))
+						{
+							echo '<option value="' . $row_car["id_diretoria"].'">' . $row_car["nome_cargo"] . '</option>';    
+						}
+				?>
+			</select>   
+
+			<label for="matricula">Matrícula:</label>
+			<input type="text" name="matricula_usuarios" id="matricula" onKeyPress="return Onlynumbers(event);" required value="<?=$row_usu['matricula_usuarios']?>">
+			<br>
+
+			<label for="telefone">Telefone:</label>
+			<input type="text" name="telefone" id="telefone" onKeyPress="return Onlynumbers(event);" required value="<?=$row_usu['telefone']?>">
+			<br>
+			
+			<label for="email">Email:</label>
+			<input type="email" name="email" id="email" required value="<?=$row_usu['email']?>">
+			<br>
+
+			<label for="nivel" id="post">Nível:</label>
+			<select name="nivel" id="nivel">
+				<option value="1">1</option>
+				<option selected value="2">2</option>
+			</select>    
+			<br>
+			<?php 
+				$hoje = date('d/m/Y')
+			?>
+			<input type="hidden" value="<?= $_SESSION['nome_usuarios']?>" name="gremista_update">
+			<input type="hidden" value="<?= $hoje ?>" name="data_update">
+			<input type="hidden" value ="<?= $row_usu['id_usuarios'] ?>" name="id">
+			<input type="hidden" value="listar" name="pagina"> <!-- Indica ao Inserir de qual página veio os dados -->
+			<input type="submit" value="Enviar">
+			<input type="reset" value="Limpar">
+			<br> 
+			<br>
+		</form>
+      </div>
+    </div>
+  </div>
+</div>
 <?php
+			}//Final Modal Editar 
 }	
 include_once("../footer.php"); 
 ?>
