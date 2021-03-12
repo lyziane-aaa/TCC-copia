@@ -1,7 +1,11 @@
 body {
     background-color: #eaeef4;
+    padding-bottom: 0px;
 }
-
+html{
+   height: 100%;
+   width:100%
+}
 .menu-header {
     color: #FFF !important;
 }
@@ -37,6 +41,14 @@ body {
     color: #c7cace;
     text-decoration: none;
 }
+
+.main-sidebar ul li ul li ul li a{
+    display: block;
+     padding-left: 3.85rem ;
+    color: #c7cace; 
+    text-decoration: none;
+}
+
 
 
 /*Define o hover do menu lateral e também ilumina quando está na página do link*/
@@ -80,10 +92,10 @@ body {
         margin-left: 0px;
     }
     .container-fluid {
-        grid-template-columns: -250px repeat(12, 1fr);
+        grid-template-columns: -250px repeat(11, 1fr);
     }
     .container-fluid.muda {
-        grid-template-columns: 0px repeat(12, 1fr);
+        grid-template-columns: 0px repeat(11, 1fr);
     }
     .main-sidebar [data-toggle="collapse"]:before {
         content: "\f0d7";
@@ -163,9 +175,9 @@ body {
 }
 
 
-/* 
-.content .p-1 {
-    margin-left: 250px !important;
+
+/* .content .p-1 {
+    padding-top: 2000000px !important;
 } */
 
 
@@ -174,7 +186,7 @@ body {
 .container-fluid {
     display: grid;
     grid-template-columns: 250px repeat(12, 1fr);
-    grid-template-rows: 10vh 80vh 10vh;
+    grid-template-rows: 10vh 2vh 78vh 10vh;
     margin-left: 0;
     padding-left: 0;
     margin-right: 0;
@@ -195,14 +207,31 @@ header {
 
 .content {
     grid-column: 2/14;
-    grid-row: 2/2;
+    grid-row: 3/4;
     width: 100%;
     height: 100%;
+    padding:10px;
+    justify-content:center;
+    -moz-border-radius:7px;-webkit-border-radius:7px; border-radius:7px;
+    background-color: ivory;
 }
 
+
 .main-sidebar {
+
     float: left;
     grid-column-start: 1;
     grid-column-end: 1;
+    grid-row: 1/1;
     height: 100vh;
+}
+/* Menu superior */
+#menusup {
+    margin-bottom: 20px;
+}
+
+
+footer{
+    grid-column: 2/14;
+    grid-row: 4/4;
 }

@@ -1,3 +1,4 @@
+
 $(document).ready(function() {
     //Apresentar ou ocultar menu
     $('.sidebar-toggle').on('click', function() {

@@ -41,7 +41,7 @@
   </script>
 </head>
 
-<body class="temaescuro">
+<body class="bg-dark">
 
   <?php
   include_once("../menu.php");
@@ -52,7 +52,7 @@
   include_once("../conexao.php");
   ?>
 
-  <div class="container container-grande">
+  <!--<div class="container container-grande"> -->
     <br />
     <div class="panel panel-default listar-escuro panel-grande">
       <div class="panel-heading">Achados e Perdidos</div>
@@ -189,11 +189,11 @@
             </div>
           </div>
         </div>
-      </div>
+      <!--</div>-->
     </div>
   <?php
   }
-  include_once("../footer.php");
+  include_once("../funcs/footer.php");
   ?>
 
 </body>

@@ -483,11 +483,21 @@ img {
 }
 
 .panel {
-    background-color: rgb(14, 14, 14);
+    /* background-color: rgb(14, 14, 14); */
     color: white;
-    margin-top: 100px;
+width: auto;
 }
 
+.panel {
+    /* background-color: rgb(14, 14, 14); */
+    color: white;
+width: auto;
+}
+
+.panel-body {
+    /* background-color: rgb(14, 14, 14); */
+    color: white;
+object-fit: fill;}
 .panel-heading {
     background-color: rgb(187, 20, 20) !important;
     color: white !important;
@@ -497,14 +507,14 @@ img {
     padding: 10px;
     border-radius: 20px;
     margin-bottom: 10px;
-    margin-top: -40px;
+    /* margin-top: -40px; */
 }
 
 .dataTables_wrapper {
     background-color: #474444;
     padding: 5px;
     border-radius: 20px;
-    width: fit-content;
+    width: fit-content
 }
 
 .table_bc .dataTables_wrapper {
@@ -528,6 +538,7 @@ img {
 
 .table {
     border: none;
+    
 }
 
 
