@@ -1,5 +1,5 @@
 	<?php
-		include_once("../conexao.php");
+		include_once("../funcs/conexao.php");
 		$nome_bc = filter_input(INPUT_POST, 'nome_bc', FILTER_SANITIZE_STRING);
 		$matricula_bc = filter_input(INPUT_POST, 'matricula_bc', FILTER_SANITIZE_STRING);
 		$laudas_bc = filter_input(INPUT_POST, 'laudas_bc', FILTER_SANITIZE_NUMBER_FLOAT);

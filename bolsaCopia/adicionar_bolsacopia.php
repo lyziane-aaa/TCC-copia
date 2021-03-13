@@ -1,6 +1,6 @@
 <?php
 session_start();
-include_once("../conexao.php");
+include_once("../funcs/conexao.php");
 $idBC = filter_input(INPUT_GET, 'idBC', FILTER_SANITIZE_NUMBER_INT);
 // $resultado_select  = "SELECT id,nome,nivel FROM log WHERE id = '$id'";
 $resultado_select  = "SELECT * FROM bolsacopia WHERE idBC = '$idBC'";
@@ -42,8 +42,8 @@ function Onlynumbers(e)
 	<body>
 	<?php
 
- include("../menu.php"); 
- include_once("../conexao.php");
+ include("../funcs/menu.php"); 
+ include_once("../funcs/conexao.php");
 
 $nomeBC = filter_input(INPUT_POST, 'nomeBC', FILTER_SANITIZE_STRING);
 $matriculaBC = filter_input(INPUT_POST, 'matriculaBC', FILTER_SANITIZE_STRING);

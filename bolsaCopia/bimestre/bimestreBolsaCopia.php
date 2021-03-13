@@ -1,5 +1,5 @@
 	<?php
-	include_once("../conexao.php");
+	include_once("../funcs/conexao.php");
 	
 	$nomebimestreBC = filter_input(INPUT_POST, 'nomebimestreBC', FILTER_SANITIZE_STRING);
 	$bimestreinicioBC = filter_input(INPUT_POST, 'bimestreinicioBC',FILTER_SANITIZE_STRING);

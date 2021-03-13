@@ -1,5 +1,5 @@
 <?php
-require_once("../conexao.php");
+require_once("../funcs/conexao.php");
 include_once('../Funcs/functions.php');
 
 $requestData= $_REQUEST;

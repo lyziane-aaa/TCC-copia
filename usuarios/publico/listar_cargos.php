@@ -1,18 +1,5 @@
-<!DOCTYPE html>
-<html>
-<head>	
-	<meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<title>Cargos do GEVP</title>
-		
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-	<script src="../../js/jquery-3.6.0.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-	<link rel="stylesheet" type="text/css" href="../_css/estilo.css">
-	<link rel="stylesheet" type="text/css" href="../../DataTables/datatables.css" />
-	
-	<script type="text/javascript" src="../../DataTables/datatables.js"></script>
+<?php include_once("../../../TCC/funcs/header.php"); ?>
+
 	<script type="text/javascript">
     setTimeout(function(){ 
         var msg = document.getElementsByClassName("alertaDeErro");
@@ -39,14 +26,14 @@
 	</script>
 </head>
 
-<body class="tema-escuro">	
+<body class="bg-dark">	
 	<?php
 		if(!isset($_SESSION['login'])) {session_start();}
-		include_once("../menu.php");
+		include_once(SITE_ROOT . "funcs/menu.php");
 	?>
 	<?php 
 		$nivel_necessario = 2;
-		include_once("../conexao.php");
+		include_once("../funcs/conexao.php");
 		if(isset($_SESSION['login']) && isset($_SESSION['nivel']) || isset($_SESSION['aluno'])) {
 			$_SESSION['listar'] = 1;
 			/* Aparentemente a presença do Bootstrap altera o tamanho da imagem no menu,
@@ -83,7 +70,7 @@
 
 <?php
 }	
-include_once("../footer.php"); 
+include_once(SITE_ROOT . "funcs/footer.php"); 
 ?>
 	</body>
 </html>

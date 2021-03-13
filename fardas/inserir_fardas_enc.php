@@ -1,6 +1,6 @@
 <?php 
 session_start();
-include_once("../conexao.php");
+include_once("../funcs/conexao.php");
 $nome_fardas_enc = filter_input(INPUT_POST, 'nome_fardas_enc', FILTER_SANITIZE_STRING);
 $matricula_fardas_enc = filter_input(INPUT_POST, 'matricula_fardas_enc', FILTER_SANITIZE_STRING);
 $telefone_fardas_enc = filter_input(INPUT_POST, 'telefone_fardas_enc', FILTER_SANITIZE_STRING);

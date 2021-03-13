@@ -1,6 +1,6 @@
 <?php
 session_start();
-include_once("../conexao.php");
+include_once("../funcs/conexao.php");
 $idAchados = filter_input(INPUT_GET, 'idAchados', FILTER_SANITIZE_NUMBER_INT);
 
 $resultado_select  = "SELECT * FROM achados WHERE idAchados = '$idAchados'";
@@ -36,7 +36,7 @@ function Onlynumbers(e)
 
 	<main><?php
 	
-	 include("../menu.php"); 
+	 include("../funcs/menu.php"); 
 	 
 	
 	

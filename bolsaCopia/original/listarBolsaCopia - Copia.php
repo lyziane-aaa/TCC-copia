@@ -21,10 +21,10 @@
         </script>
 	</head>
 
-	<body class="temaescuro">
+	<body class="bg-dark">
 		<?php
-		include_once("../menu.php");
-		include_once("../conexao.php");
+		include_once(SITE_ROOT . "funcs/menu.php");
+		include_once("../funcs/conexao.php");
 if($_SESSION['login'] != null) {
 			$login = $_SESSION['login']; 
 			// Pega os dados do Bimestre

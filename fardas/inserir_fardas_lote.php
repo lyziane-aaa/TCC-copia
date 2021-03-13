@@ -1,6 +1,6 @@
 <?php 
 session_start();
-include_once("../conexao.php");
+include_once("../funcs/conexao.php");
 $fornecedor_lote = filter_input(INPUT_POST, 'fornecedor_lote', FILTER_SANITIZE_STRING);
 $data_receb_lote = filter_input(INPUT_POST, 'data_receb_lote', FILTER_SANITIZE_STRING);
 

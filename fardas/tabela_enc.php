@@ -1,5 +1,5 @@
 <?php
-require_once("../conexao.php");
+require_once("../funcs/conexao.php");
 $requestData= $_REQUEST;
 
 $columns = array( 

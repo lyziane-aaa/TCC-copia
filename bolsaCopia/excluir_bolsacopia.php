@@ -1,6 +1,6 @@
 <?php
 session_start();
-include_once("../conexao.php");
+include_once("../funcs/conexao.php");
 $idBC = filter_input(INPUT_GET, 'id_bc', FILTER_SANITIZE_NUMBER_INT);
 if(!empty($idBC)){
 	$deletar_cliente = "DELETE FROM bolsacopia WHERE id_bc='$idBC'";

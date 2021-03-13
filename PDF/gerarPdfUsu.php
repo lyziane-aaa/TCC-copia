@@ -1,6 +1,6 @@
 <?php 
 include_once("../fpdf/fpdf.php");
-include_once("../conexao.php");
+include_once("../funcs/conexao.php");
 $resultado_insertUsu = "SELECT * FROM usuarios"; 
 $resultado_Usu = mysqli_query($conn, $resultado_insertUsu);
 $pdf = new FPDF();

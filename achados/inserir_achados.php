@@ -1,6 +1,6 @@
 <?php 
 session_start();
-include_once("../conexao.php");
+include_once("../funcs/conexao.php");
 $nomeAchados = filter_input(INPUT_POST, 'nomeAchados', FILTER_SANITIZE_STRING);
 $descricaoAchados = filter_input(INPUT_POST, 'descricaoAchados', FILTER_SANITIZE_STRING);
 $gremistaRecebeuAchados = filter_input(INPUT_POST, 'gremistaRecebeuAchados', FILTER_SANITIZE_STRING);

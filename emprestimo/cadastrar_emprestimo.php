@@ -1,6 +1,6 @@
 <?php
 if (!isset($_SESSION)) {
-    session_start();
+    include_once("../../TCC/funcs/header.php"); 
 ?>
     <!DOCTYPE html>
     <html lang="pt-br">
@@ -16,12 +16,11 @@ if (!isset($_SESSION)) {
 
     </head>
 
-    <!-- Analisar possibilidade de uma segunda logo e de colocar novamente a o local onde podiamos 
-sair da sessão clicando no icone de usuário. -->
+   
 
-    <body class="tema-escuro">
-        <?php include_once("../conexao.php");
-        include_once("../menu.php");
+    <body class="bg-dark">
+        <?php include_once("../funcs/conexao.php");
+        include_once(SITE_ROOT . "funcs/menu.php");
 
 
         if (isset($_SESSION['login']) && isset($_SESSION['nivel'])) {
@@ -88,7 +87,7 @@ sair da sessão clicando no icone de usuário. -->
 
             </form>
     <?php
-            include_once("../footer.php");
+            include_once(SITE_ROOT . "funcs/footer.php");
         }
     } else {
         header("location:../usuarios/login.php");

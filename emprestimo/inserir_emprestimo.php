@@ -1,6 +1,6 @@
 <?php
 session_start();
-include_once("../conexao.php"); 
+include_once("../funcs/conexao.php"); 
 
 $obj_emp = filter_input(INPUT_POST, 'obj_emp', FILTER_SANITIZE_NUMBER_INT);
 $nome_emp = filter_input(INPUT_POST, 'nome_emp', FILTER_SANITIZE_STRING);

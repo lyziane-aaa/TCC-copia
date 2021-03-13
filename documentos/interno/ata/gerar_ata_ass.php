@@ -1,44 +1,17 @@
-<html lang="pt-br">
-
-<head>
-
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<title>Nova Ata de Assembleia</title>
-
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-
-	<script src="../../js/jquery-3.6.0.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-	<link rel="stylesheet" type="text/css" href="/TCC/_css/documentos.css">
-	<link rel="stylesheet" type="text/css" href="/TCC/_css/listar.css">
-	<link rel="stylesheet" type="text/css" href="/TCC/_css/estilo.css">
-
-
-	<script type="text/javascript">
-		setTimeout(function() {
-			var msg = document.getElementsByClassName("alertaDeErro");
-			while (msg.length > 0) {
-				msg[0].parentNode.removeChild(msg[0]);
-			}
-		}, 5000);
-	</script>
-
-	<!-- Teste de Tab-->
-
+<?php include_once("../../../funcs/header.php"); ?>
 
 
 </head>
 
-<body class="temaescuro">
+<body class="bg-dark">
 	<?php
-	include_once("../../../menu.php");
-	include_once("../../../conexao.php");
-	include_once("../../../Funcs/functions.php");
+	
 
 	if ($_SESSION['login'] != null) {
 		$login = $_SESSION['login'];
+
+		include_once(SITE_ROOT . "/funcs/menu.php");
+
 	?>
 		<script>
 			function Onlynumbers(e) {
@@ -136,11 +109,12 @@
 
 
 		<?php
-		include_once("../../../footer.php");
 	}
 		?>
 		</div><!-- fim div #interface-->
-
+<?php 
+		include_once(SITE_ROOT . "/funcs/footer.php");
+?>
 
 		<script src="../../../ckeditor/ckeditor/ckeditor.js" charset="utf-8"></script><!-- Arquivos para o editor de texto opensource CKEditor-->
 		<script src="../../../ckeditor/ckfinder/ckfinder.js"></script>

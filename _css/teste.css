@@ -2,22 +2,15 @@ body {
     background-color: #eaeef4;
     padding-bottom: 0px;
 }
-html{
-   height: 100%;
-   width:100%
+
+html {
+    height: 100%;
+    width: 100%
 }
+
 .menu-header {
     color: #FFF !important;
 }
-
-
-/* .main-sidebar {
-    background-color: #222c3c;
-    min-width: 250px;
-    max-width: 250px;
-    min-height: calc(100vh - 56px);
-    transition: all 0.3s;
-} */
 
 .main-sidebar {
     background-color: #222c3c;
@@ -30,6 +23,7 @@ html{
     float: top;
     height: 100vh;
     box-shadow: 0 14px 28px rgba(0, 0, 0, .25), 0 10px 10px rgba(0, 0, 0, .22)!important;
+    overflow: auto;
 }
 
 
@@ -42,13 +36,12 @@ html{
     text-decoration: none;
 }
 
-.main-sidebar ul li ul li ul li a{
+.main-sidebar ul li ul li ul li a {
     display: block;
-     padding-left: 3.85rem ;
-    color: #c7cace; 
+    padding-left: 3.85rem;
+    color: #c7cace;
     text-decoration: none;
 }
-
 
 
 /*Define o hover do menu lateral e também ilumina quando está na página do link*/
@@ -65,20 +58,6 @@ html{
 .main-sidebar.toggled {
     margin-left: -250px;
 }
-
-
-/* 
-.main-main-sidebar {
-    bottom: 0;
-    float: none;
-    height: 100vh;
-    left: 0;
-    position: fixed;
-    top: 0;
-} */
-
-
-/*Configurações para mudar o padding*/
 
 
 /*Configurações para tornar responsivo */
@@ -174,19 +153,10 @@ html{
     font-size: 2.0rem !important;
 }
 
-
-
-/* .content .p-1 {
-    padding-top: 2000000px !important;
-} */
-
-
-/*Teste Grid*/
-
 .container-fluid {
     display: grid;
     grid-template-columns: 250px repeat(12, 1fr);
-    grid-template-rows: 10vh 2vh 78vh 10vh;
+    grid-template-rows: 70px 1fr 50px;
     margin-left: 0;
     padding-left: 0;
     margin-right: 0;
@@ -201,37 +171,88 @@ html{
 
 header {
     grid-column: 2/14;
-    grid-row-start: 1;
-    grid-row-end: 1;
+    grid-row: 1/1
 }
 
 .content {
     grid-column: 2/14;
-    grid-row: 3/4;
-    width: 100%;
+    grid-row: 2;
+    width: 95%;
     height: 100%;
-    padding:10px;
-    justify-content:center;
-    -moz-border-radius:7px;-webkit-border-radius:7px; border-radius:7px;
+    padding-top: 20;
+    padding-right: 10px;
+    padding-left: 20px;
+    justify-content: center;
+    -moz-border-radius: 7px;
+    -webkit-border-radius: 7px;
+    border-radius: 7px;
     background-color: ivory;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5px;
+    overflow-x: auto;
 }
 
-
 .main-sidebar {
-
     float: left;
     grid-column-start: 1;
     grid-column-end: 1;
     grid-row: 1/1;
     height: 100vh;
 }
+
+
 /* Menu superior */
-#menusup {
-    margin-bottom: 20px;
+
+footer {
+    margin-top: 10px;
+    grid-column: 2/14;
+    grid-row-start: 3;
+    grid-row-end: 3;
 }
 
 
-footer{
-    grid-column: 2/14;
-    grid-row: 4/4;
+/*Fundo branco do menu dropdown de usuário*/
+
+#menusup {
+    background-color: rgb(205, 20, 20) !important;
+}
+
+#navbarDropdownMenuLink {
+    background-color: #fff !important;
+    justify-content: center;
+    -moz-border-radius: 7px;
+    -webkit-border-radius: 7px;
+    border-radius: 7px;
+    color: #212529 !important;
+}
+
+#dropdownusuarios {
+    margin-top: -3px;
+}
+
+
+/* ---------------- Barra de rolagem---------------- */
+
+::-webkit-scrollbar {
+    width: 5px;
+    height: 10px;
+}
+
+ ::-webkit-scrollbar-track-piece {
+    background: #aebcbf;
+}
+
+ ::-webkit-scrollbar-thumb:vertical {
+    height: 5px;
+    background: rgba(226, 10, 10, 0.803);
+    -moz-border-radius: 7px;
+    -webkit-border-radius: 7px;
+}
+
+ ::-webkit-scrollbar-thumb:horizontal {
+    width: 2px;
+    background-color: rgba(226, 10, 10, 0.803);
+    -moz-border-radius: 7px;
+    -webkit-border-radius: 7px;
 }

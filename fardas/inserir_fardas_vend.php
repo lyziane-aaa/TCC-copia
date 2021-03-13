@@ -1,6 +1,6 @@
 <?php
 session_start();
-include_once("../conexao.php");
+include_once("../funcs/conexao.php");
 
 $id_fardas_enc = filter_input(INPUT_POST, 'id_fardas_enc', FILTER_SANITIZE_NUMBER_INT);
 $qnt_fardas_vend = filter_input(INPUT_POST, 'qnt_fardas_vend', FILTER_SANITIZE_NUMBER_INT);

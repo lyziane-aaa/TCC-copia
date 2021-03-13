@@ -1,6 +1,6 @@
 <?php 
 session_start();
-include_once("../conexao.php");
+include_once("../funcs/conexao.php");
 
 $nomePat = filter_input(INPUT_POST, 'nomePat', FILTER_SANITIZE_STRING);
 $codBarrasPat = filter_input(INPUT_POST, 'codBarrasPat', FILTER_SANITIZE_STRING);

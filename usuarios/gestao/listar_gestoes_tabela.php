@@ -18,9 +18,7 @@ $requestData= $_REQUEST;
 	);
 
 //Verifica��o de quantas linhas tem a tabela para pagina��o
-$consulta_usuarios="select usuarios.nome_usuarios, 
-usuarios.matricula_usuarios, usuarios_cargos.nome_cargo, usuarios.telefone, usuarios.email from usuarios
-JOIN usuarios_cargos on usuarios.cargo = usuarios_cargos.id_cargo";
+$consulta_usuarios="SELECT nome_gestao, inicio_gestao, vencimento_gestao, ata_posse_gestao FROM usuarios_gestao";
 $resultado_consulta_usuarios = mysqli_query($conn,$consulta_usuarios);
 $linhas= mysqli_num_rows($resultado_consulta_usuarios);
 
@@ -30,10 +28,7 @@ $linhas= mysqli_num_rows($resultado_consulta_usuarios);
 
 
 //Obter dados
-$result_usuarios="
-select usuarios.nome_usuarios, 
-usuarios.matricula_usuarios, usuarios_cargos.nome_cargo, usuarios.telefone, usuarios.email from usuarios
-JOIN usuarios_cargos on usuarios.cargo = usuarios_cargos.id_cargo WHERE 1=1";
+$result_usuarios="SELECT nome_gestao, inicio_gestao, vencimento_gestao, ata_posse_gestao FROM usuarios_gestao";
 
 $dados=array();
 if(!empty($requestData['search']['value']) ) {   // se houver um par�metro de pesquisa, $requestData['search']['value'] cont�m o par�metro de pesquisa

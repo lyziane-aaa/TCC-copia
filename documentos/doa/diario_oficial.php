@@ -65,12 +65,12 @@
 	</script>
 </head>
 
-<body class="tema-escuro">
+<body class="bg-dark">
 	<?php
 	if (!isset($_SESSION['login'])) {
 		session_start();
 	}
-	include_once("../../menu.php");
+	include_once(SITE_ROOT . "funcs/menu.php");
 	?>
 	<?php
 	$nivel_necessario = 2;
@@ -153,7 +153,7 @@
 
 	<?php
 
-	include_once("../../footer.php");
+	include_once(SITE_ROOT . "funcs/footer.php");
 	?>
 
 </body>

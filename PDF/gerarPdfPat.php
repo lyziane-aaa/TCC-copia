@@ -1,6 +1,6 @@
 <?php 
 include_once("../fpdf/fpdf.php");
-include_once("../conexao.php");
+include_once("../funcs/conexao.php");
 $resultado_insertPat = "SELECT * FROM patrimonioativo"; 
 $resultado_Pat = mysqli_query($conn, $resultado_insertPat);
 

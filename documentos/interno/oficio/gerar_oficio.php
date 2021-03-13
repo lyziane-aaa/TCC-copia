@@ -1,21 +1,5 @@
-<html lang="pt-br">
-
-<head>
-
-	<meta charset="utf-8">
-
-
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<title>Gerar Novo Ofício</title>
-
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-
-	<script src="../../js/jquery-3.6.0.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-	<link rel="stylesheet" type="text/css" href="../../../_css/documentos.css">
-	<link rel="stylesheet" type="text/css" href="../../../_css/listar.css">
-	<link rel="stylesheet" type="text/css" href="../../../_css/estilo.css">
+<?php include_once("../../../funcs/header.php");
+?>
 
 
 	<script type="text/javascript">
@@ -33,11 +17,10 @@
 
 </head>
 
-<body class="temaescuro">
+<body class="bg-dark">
 	<?php
-	include_once("../../../menu.php");
-	include_once("../../../conexao.php");
-	include_once("../../../Funcs/functions.php");
+	include_once(SITE_ROOT . "funcs/menu.php");
+	
 
 
 
@@ -138,19 +121,13 @@
 			</div>
 			</form>
 
-
+			</div><!-- fim div #interface-->
 		<?php
 		
-	}include_once("../../../footer.php");
+	}include_once(SITE_ROOT . "funcs/footer.php");
 		?>
-		</div><!-- fim div #interface-->
-		<!--
-	<script src="../../../ckeditor/ckeditor5/webpack.config.js">
-		Editor.create(document.getElementById('input-corpoOficio'));
-		</script>	-->
-		<script src="../../../ckeditor/ckeditor/ckeditor.js" charset="utf-8"></script><!-- Arquivos para o editor de texto opensource CKEditor-->
-		<script src="../../../ckeditor/ckfinder/ckfinder.js"></script>
-		<script src="../../../ckeditor/js/javascript.js"></script>
+		
+	
 		<script>
 			// Replace the <textarea id="editor1"> with a CKEditor 4
 			// instance, using default configuration.
@@ -161,7 +138,7 @@
 			CKEDITOR.config.height = '80mm';
 		</script>
  <?php
-	include_once("../../../footer.php");
+	include_once(SITE_ROOT . "funcs/footer.php");
  ?>
 </body>
 

@@ -227,7 +227,7 @@ as classes quando o widht ficar menor ou igual a 900px */
 
 .cadastro {
     /*     background-color: darksalmon; */
-    width: 42%;
+    width: 80%;
     position: relative;
     padding: 10px;
     color: whitesmoke;
@@ -455,7 +455,7 @@ img {
 /* ESTILO DO LISTAR */
 
 .container {
-    background-color: rgb(14, 14, 14) !important;
+    /* background-color: rgb(14, 14, 14) !important; */
 }
 
 .listar-escuro th {
@@ -483,21 +483,14 @@ img {
 }
 
 .panel {
-    /* background-color: rgb(14, 14, 14); */
     color: white;
-width: auto;
-}
-
-.panel {
-    /* background-color: rgb(14, 14, 14); */
-    color: white;
-width: auto;
 }
 
 .panel-body {
-    /* background-color: rgb(14, 14, 14); */
     color: white;
-object-fit: fill;}
+    width: fit-content;
+}
+
 .panel-heading {
     background-color: rgb(187, 20, 20) !important;
     color: white !important;
@@ -507,7 +500,7 @@ object-fit: fill;}
     padding: 10px;
     border-radius: 20px;
     margin-bottom: 10px;
-    /* margin-top: -40px; */
+    width: 100%;
 }
 
 .dataTables_wrapper {
@@ -538,7 +531,6 @@ object-fit: fill;}
 
 .table {
     border: none;
-    
 }
 
 
@@ -762,4 +754,8 @@ div#fardas_chart {
     border-radius: 20px;
     margin-bottom: 10px;
     margin-top: -30px;
+}
+
+.fas .fa-feather-alt {
+    color: red;
 }

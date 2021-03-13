@@ -19,7 +19,7 @@
 						},
 				"order": [[ 2, 'desc' ]],		
 				"ajax": {
-					"url": "listar_gestao_tabela.php",
+					"url": "listar_gestoes_tabela.php",
 					"type": "POST"
 						},
 					} );
@@ -32,11 +32,6 @@
 		if(!isset($_SESSION['login'])) {session_start();}
 		include_once("../../../TCC/funcs/menu.php");
 		
-	
-
-		
-		$nivel_necessario = 2;
-		include_once("../../../TCC/funcs/conexao.php");
 		/*if(isset($_SESSION['login']) && isset($_SESSION['nivel'])) {
 			$_SESSION['listar'] = 1;
 			*/

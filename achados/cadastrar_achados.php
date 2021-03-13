@@ -1,26 +1,17 @@
+<?php include_once("../../TCC/funcs/header.php"); ?>
 
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastrar Achados e Perdidos</title>
-    <!-- Links CSS -->
-    <link rel="stylesheet" href="../css/estilo.css">
-    <!-- SCRIPTS -->
-    <script src="../js/scripts.js"></script>
-</head>
 
 <!-- Analisar possibilidade de uma segunda logo e de colocar novamente a o local onde podiamos 
 sair da sessão clicando no icone de usuário. -->
-<body class="tema-escuro">
+<body class="bg-dark">
     <?php 
-        include_once("../menu.php");
-        include_once("../conexao.php");
-        if(isset($_SESSION['login']) && isset($_SESSION['nivel'])) { 
+                if(isset($_SESSION['login']) && isset($_SESSION['nivel'])) { 
             $_SESSION['listar'] = 2; 
+
+    include_once("../include.php");
+  
     ?>
-    <form action="inserir_achados.php" class = "cadastro" method="post" enctype="multipart/form-data">
+    <form action="inserir_achados.php" class = "cadastro bg-dark" method="post" enctype="multipart/form-data">
         <h2 class="cad-titulo"><img src="../imagens/achados.png"> Cadastro Achados e Perdidos</h2>
         <hr class="divisor"> 
 
@@ -80,7 +71,7 @@ sair da sessão clicando no icone de usuário. -->
         <input type="reset"  value="Limpar">
     </form>
     <?php 
-    include_once("../footer.php");
+    include_once(SITE_ROOT . "funcs/footer.php");
 }
 
 else{

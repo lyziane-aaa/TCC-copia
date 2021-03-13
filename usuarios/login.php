@@ -1,5 +1,5 @@
 <?php
-include_once("../conexao.php");
+include_once("../funcs/conexao.php");
 session_start();
 if (!isset($_SESSION['login']) && !isset($_SESSION['senha'])){
 
@@ -13,7 +13,7 @@ if (!isset($_SESSION['login']) && !isset($_SESSION['senha'])){
 	<title>Login</title>
 	<link rel="stylesheet" type="text/css" href="/TCC/_css/estilo.css">
 	<link rel="stylesheet" type="text/css" href="/TCC/_css/login.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
 
 <script type=" text/javascript">
 	setTimeout(function(){
@@ -44,7 +44,7 @@ if ((isset($_POST['login'])) && (isset($_POST['senha']))) {
 	//print ($_POST['senha']);
 	//exit();
 
-	$resultado_select = "SELECT login, senha, nivel, nome_usuarios, usuarios_cargos.nome_cargo, usuarios.matricula_usuarios FROM usuarios
+	$resultado_select = "SELECT login, senha, nivel, nome_usuarios, usuarios_cargos.nome_cargo, usuarios.matricula_usuarios, usuarios_cargos.permissao_doc FROM usuarios
 	JOIN usuarios_cargos 
 	ON usuarios.cargo = usuarios_cargos.id_cargo WHERE login='$login' and senha = '$senha'";
 	$resultado_usuario = mysqli_query($conn, $resultado_select);
@@ -55,13 +55,15 @@ if ((isset($_POST['login'])) && (isset($_POST['senha']))) {
 		$_SESSION['senha'] = $resultado['senha'];
 		$_SESSION['nivel'] = $resultado['nivel'];
 		$_SESSION['cargo'] = $resultado['nome_cargo'];
+		$_SESSION['permissao_doc'] = $resultado['permissao_doc'];
 		$_SESSION['nome_usuarios'] = $resultado['nome_usuarios'];
 		$_SESSION['matricula'] = $resultado['matricula_usuarios'];
+		
 
 
 
 		//estou redirecionando ao realizar o login        
-		header("Location: /TCC/Funcs/inicio.php");
+		header("Location: /TCC/emprestimo/listar_emprestimo.php");
 		//se não forem iguais, exibe a mensagem
 	} else {
 		$mensg1 = '<div class="alert alert-danger preto alertaDeErro" role="alert">Usuário ou senha incorreto!

@@ -34,11 +34,11 @@
 
 <!-- Analisar possibilidade de uma segunda logo e de colocar novamente a o local onde podiamos 
 sair da sessão clicando no icone de usuário. -->
-<body class="tema-escuro">
+<body class="bg-dark">
     <?php 
         
         include_once("../../conexao.php");
-        include_once("../../menu.php");
+        include_once(SITE_ROOT . "funcs/menu.php");
         if(isset($_SESSION['login'])) {
             if ($_SESSION['nivel'] = 2) {
             $_SESSION['listar'] = 2; 		   
@@ -102,7 +102,7 @@ O Sistema já possui cargos padrão que podem ser alterados segundo o disposto n
 
 
     <?php 
-        include_once("../../footer.php");
+        include_once(SITE_ROOT . "funcs/footer.php");
         }
         else{
             header("location:/TCC/usuarios/login.php");	

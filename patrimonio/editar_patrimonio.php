@@ -1,6 +1,6 @@
 <?php
 session_start();
-include_once("../conexao.php");
+include_once("../funcs/conexao.php");
 $idPat = filter_input(INPUT_GET, 'idPat', FILTER_SANITIZE_NUMBER_INT);
 // $resultado_select  = "SELECT id,nome,nivel FROM log WHERE id = '$id'";
 $resultado_select  = "SELECT * FROM patrimonioativo WHERE idPat = '$idPat'";
@@ -35,8 +35,8 @@ function Onlynumbers(e)
 	<body>
 	<?php
 
- include("../menu.php"); 
- include_once("../conexao.php");
+ include("../funcs/menu.php"); 
+ include_once("../funcs/conexao.php");
 
 $idPat = filter_input(INPUT_POST, 'idPat', FILTER_SANITIZE_NUMBER_INT);
 $nomePat = filter_input(INPUT_POST, 'nomePat', FILTER_SANITIZE_STRING);

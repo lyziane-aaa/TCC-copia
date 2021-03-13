@@ -1,6 +1,6 @@
 <?php 
 session_start();
-include_once("../conexao.php");
+include_once("../funcs/conexao.php");
 
 $id_pat = filter_input(INPUT_POST, 'id_pat', FILTER_SANITIZE_NUMBER_INT);
 $motivo_pat = filter_input(INPUT_POST, 'motivo_pat', FILTER_SANITIZE_STRING);

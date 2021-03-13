@@ -1,6 +1,6 @@
 <?php
 session_start();
-include_once("../conexao.php");
+include_once("../funcs/conexao.php");
 $idPat= filter_input(INPUT_GET, 'id_pat', FILTER_SANITIZE_NUMBER_INT);
 if(!empty($idPat)){
 	$deletar_cliente = "DELETE FROM patrimonioativo WHERE id_pat='$idPat'";

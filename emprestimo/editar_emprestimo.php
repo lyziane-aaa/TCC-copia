@@ -1,6 +1,6 @@
 <?php
 session_start();
-include_once("../conexao.php");
+include_once("../funcs/conexao.php");
 $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
 // $resultado_select  = "SELECT id,nome,nivel FROM log WHERE id = '$id'";
 $resultado_select  = "SELECT * FROM emprestimos WHERE idEmp = '$id'";
@@ -35,8 +35,8 @@ function Onlynumbers(e)
 	<body>
 	<?php
 
- include("../menu.php"); 
- include_once("../conexao.php");
+ include("../funcs/menu.php"); 
+ include_once("../funcs/conexao.php");
 $id = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_NUMBER_INT);
 $nomeObjeto = filter_input(INPUT_POST, 'nomeDoObjeto', FILTER_SANITIZE_STRING);
 $disponibilidade = filter_input(INPUT_POST, 'disponibilidade', FILTER_SANITIZE_STRING);

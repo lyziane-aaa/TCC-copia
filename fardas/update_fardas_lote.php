@@ -1,6 +1,6 @@
 <?php
 session_start();
-include_once("../conexao.php");
+include_once("../funcs/conexao.php");
 
 $id_fardas_lote = filter_input(INPUT_POST, 'id_fardas_lote', FILTER_SANITIZE_NUMBER_INT);
 $encerramento_lote = filter_input(INPUT_POST, 'encerramento_lote', FILTER_SANITIZE_NUMBER_INT);

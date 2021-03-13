@@ -1,6 +1,6 @@
 <?php 
 include_once("../fpdf/fpdf.php");
-include_once("../conexao.php");
+include_once("../funcs/conexao.php");
 $resultado_insertBC = "SELECT * FROM bolsacopia"; 
 $resultado_BC = mysqli_query($conn, $resultado_insertBC);
 

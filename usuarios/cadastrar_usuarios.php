@@ -13,11 +13,11 @@
 
 <!-- Analisar possibilidade de uma segunda logo e de colocar novamente a o local onde podiamos 
 sair da sessão clicando no icone de usuário. -->
-<body class="tema-escuro">
+<body class="bg-dark">
     <?php 
         
-        include_once("../conexao.php");
-        include_once("../menu.php");
+        include_once("../funcs/conexao.php");
+        include_once(SITE_ROOT . "funcs/menu.php");
         if(isset($_SESSION['login']) && isset($_SESSION['nivel'])) {
             $_SESSION['listar'] = 2; 
 			/* Aparentemente a presença do Bootstrap altera o tamanho da imagem no menu,
@@ -83,7 +83,7 @@ sair da sessão clicando no icone de usuário. -->
     </form>
 
     <?php 
-        include_once("../footer.php");
+        include_once(SITE_ROOT . "funcs/footer.php");
         }
         else{
             header("location:../usuarios/login.php");	

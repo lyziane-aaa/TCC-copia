@@ -1,29 +1,7 @@
-<?php
-include_once("../conexao.php");
-include_once("../menu.php");
+<?php if (!isset($_SESSION)) {include_once("../../TCC/funcs/header.php");
+    include_once(SITE_ROOT . "funcs/menu.php");
+    include_once("../funcs/conexao.php"); ?>
 
-
-?>
-
-<!DOCTYPE html>
-<html lang="pt-br">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Painel Farda</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <script src="../../js/jquery-3.6.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-
-    <!-- Links DataTables -->
-    <link rel="stylesheet" type="text/css" href="../../DataTables/datatables.css" />
-    
-    <script type="text/javascript" src="../../DataTables/datatables.js"></script>
-    <!-- Links CSS -->
-    <link rel="stylesheet" href="../_css/estilo.css">
-    </script>
     <script>
         function lucro() {
 
@@ -80,7 +58,7 @@ include_once("../menu.php");
 <!-- Analisar possibilidade de uma segunda logo e de colocar novamente a o local onde podiamos 
 sair da sessão clicando no icone de usuário. -->
 
-<body class="tema-escuro">
+<body class="bg-dark">
     <h2 class="cad-titulo">Configurações de Lote</h2>
     <div id="config-lote">
         <div class="accordion" id="accordionExample">
@@ -273,7 +251,8 @@ sair da sessão clicando no icone de usuário. -->
 
     </div>
     <?php
-    include_once("../footer.php"); ?>
+}else {header("Location: /TCC");}
+    include_once(SITE_ROOT . "funcs/footer.php");  ?>
 </body>
 
 </html>
