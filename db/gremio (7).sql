@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 10-Mar-2021 às 18:17
+-- Tempo de geração: 13-Mar-2021 às 13:04
 -- Versão do servidor: 10.4.11-MariaDB
 -- versão do PHP: 7.2.27
 
@@ -95,29 +95,6 @@ INSERT INTO `achados` (`id_achados`, `nome_achados`, `descricao_achados`, `gremi
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `admin`
---
-
-CREATE TABLE `admin` (
-  `id` int(11) NOT NULL,
-  `username` varchar(50) NOT NULL,
-  `password` varchar(60) NOT NULL,
-  `firstname` varchar(50) NOT NULL,
-  `lastname` varchar(50) NOT NULL,
-  `photo` varchar(150) NOT NULL,
-  `created_on` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Extraindo dados da tabela `admin`
---
-
-INSERT INTO `admin` (`id`, `username`, `password`, `firstname`, `lastname`, `photo`, `created_on`) VALUES
-(1, 'nurhodelta', '$2y$10$fLK8s7ZDnM.1lE7XMP.J6OuPbQ.DPUVKBo7rENnQY7gYq0xAzsKJy', 'Neovic', 'Devierte', 'facebook-profile-image.jpeg', '2018-04-02');
-
--- --------------------------------------------------------
-
---
 -- Estrutura da tabela `bimestrebc`
 --
 
@@ -172,21 +149,6 @@ INSERT INTO `bolsacopia` (`id_bc`, `nome_bc`, `matricula_bc`, `laudas_bc`, `ulti
 (1, 'Lucas Felipe', '20171024010009', 2, '2021-03-04 20:07:29.000000'),
 (2, 'Lucas Felipe a', '222222', 6, '2021-03-04 20:07:41.000000'),
 (3, 'Lucas Felipeaaaa', '2222222', 2, '2021-03-04 20:07:51.000000');
-
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `candidates`
---
-
-CREATE TABLE `candidates` (
-  `id` int(11) NOT NULL,
-  `position_id` int(11) NOT NULL,
-  `firstname` varchar(30) NOT NULL,
-  `lastname` varchar(30) NOT NULL,
-  `photo` varchar(150) NOT NULL,
-  `platform` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -540,19 +502,6 @@ CREATE TABLE `patrimoniobaixa` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `positions`
---
-
-CREATE TABLE `positions` (
-  `id` int(11) NOT NULL,
-  `description` varchar(50) NOT NULL,
-  `max_vote` int(11) NOT NULL,
-  `priority` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
 -- Estrutura da tabela `tesouraria_balanco`
 --
 
@@ -643,6 +592,7 @@ CREATE TABLE `usuarios_cargos` (
   `id_cargo` int(6) NOT NULL,
   `nome_cargo` varchar(200) COLLATE utf8_swedish_ci NOT NULL COMMENT 'Nome da diretoria',
   `cargo_diretoria` int(6) DEFAULT NULL COMMENT 'Tipo da diretoria: se é Executiva ou plena',
+  `permissao_doc` int(1) NOT NULL DEFAULT 0 COMMENT 'Permissão para fazer documentos:\r\n0 - Atas e Atas de Assembleia\r\n1 - Ofícios \r\n2 - Portarias',
   `gremista_update` varchar(200) COLLATE utf8_swedish_ci NOT NULL,
   `data_update` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
@@ -651,14 +601,14 @@ CREATE TABLE `usuarios_cargos` (
 -- Extraindo dados da tabela `usuarios_cargos`
 --
 
-INSERT INTO `usuarios_cargos` (`id_cargo`, `nome_cargo`, `cargo_diretoria`, `gremista_update`, `data_update`) VALUES
-(1, 'Presidente', 0, 'Lyziane Nogueira', '2021-02-07 18:54:35'),
-(2, 'Vice-presidente', 0, 'Lucas Felipe Carlos do Nascimento', '0000-00-00 00:00:00'),
-(3, 'Secretária-geral', 0, 'Eduardo Marinho de Paiva', '2021-02-06 17:26:26'),
-(4, 'Secretário-geral', 0, '', '0000-00-00 00:00:00'),
-(5, 'Diretora de Assistência Estudantil', 1, '', '2021-02-06 00:44:36'),
-(6, 'Diretor de Assistência Estudantil', 1, '', '2021-02-06 00:45:00'),
-(7, 'Diretor de Lavagem de Dinheiro', 0, '', '2021-02-06 17:27:09');
+INSERT INTO `usuarios_cargos` (`id_cargo`, `nome_cargo`, `cargo_diretoria`, `permissao_doc`, `gremista_update`, `data_update`) VALUES
+(1, 'Presidente', 0, 2, 'Lyziane Nogueira', '2021-02-07 18:54:35'),
+(2, 'Vice-presidente', 0, 2, 'Lucas Felipe Carlos do Nascimento', '0000-00-00 00:00:00'),
+(3, 'Secretária-geral', 0, 1, 'Eduardo Marinho de Paiva', '2021-02-06 17:26:26'),
+(4, 'Secretário-geral', 0, 1, '', '0000-00-00 00:00:00'),
+(5, 'Diretora de Assistência Estudantil', 1, 0, '', '2021-02-06 00:44:36'),
+(6, 'Diretor de Assistência Estudantil', 1, 0, '', '2021-02-06 00:45:00'),
+(7, 'Diretor de Lavagem de Dinheiro', 0, 0, '', '2021-02-06 17:27:09');
 
 -- --------------------------------------------------------
 
@@ -787,34 +737,6 @@ INSERT INTO `usuarios_niveis` (`id`, `nome`, `cor`, `created`, `modified`) VALUE
 (3, 'Representante', 3, '2018-05-23 00:00:00', NULL),
 (4, 'Visitante', 2, '2018-05-23 00:00:00', NULL);
 
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `voters`
---
-
-CREATE TABLE `voters` (
-  `id` int(11) NOT NULL,
-  `voters_id` varchar(15) NOT NULL,
-  `password` varchar(60) NOT NULL,
-  `firstname` varchar(30) NOT NULL,
-  `lastname` varchar(30) NOT NULL,
-  `photo` varchar(150) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `votes`
---
-
-CREATE TABLE `votes` (
-  `id` int(11) NOT NULL,
-  `voters_id` int(11) NOT NULL,
-  `candidate_id` int(11) NOT NULL,
-  `position_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
 --
 -- Índices para tabelas despejadas
 --
@@ -824,12 +746,6 @@ CREATE TABLE `votes` (
 --
 ALTER TABLE `achados`
   ADD PRIMARY KEY (`id_achados`);
-
---
--- Índices para tabela `admin`
---
-ALTER TABLE `admin`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- Índices para tabela `bimestrebc`
@@ -843,12 +759,6 @@ ALTER TABLE `bimestrebc`
 ALTER TABLE `bolsacopia`
   ADD PRIMARY KEY (`id_bc`),
   ADD UNIQUE KEY `matriculaBC` (`matricula_bc`);
-
---
--- Índices para tabela `candidates`
---
-ALTER TABLE `candidates`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- Índices para tabela `documentos_ata`
@@ -915,12 +825,6 @@ ALTER TABLE `patrimoniobaixa`
   ADD PRIMARY KEY (`id_pat_baixa`);
 
 --
--- Índices para tabela `positions`
---
-ALTER TABLE `positions`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Índices para tabela `tesouraria_balanco`
 --
 ALTER TABLE `tesouraria_balanco`
@@ -955,8 +859,8 @@ ALTER TABLE `usuarios`
 --
 ALTER TABLE `usuarios_cargos`
   ADD PRIMARY KEY (`id_cargo`),
-  ADD UNIQUE KEY `cargo_diretoria` (`nome_cargo`),
-  ADD KEY `fk_cargo_diretoria` (`cargo_diretoria`);
+  ADD KEY `fk_cargo_diretoria` (`cargo_diretoria`),
+  ADD KEY `cargo_diretoria` (`nome_cargo`) USING BTREE;
 
 --
 -- Índices para tabela `usuarios_cores`
@@ -990,18 +894,6 @@ ALTER TABLE `usuarios_niveis`
   ADD KEY `fk_niveis_cores` (`cor`);
 
 --
--- Índices para tabela `voters`
---
-ALTER TABLE `voters`
-  ADD PRIMARY KEY (`id`);
-
---
--- Índices para tabela `votes`
---
-ALTER TABLE `votes`
-  ADD PRIMARY KEY (`id`);
-
---
 -- AUTO_INCREMENT de tabelas despejadas
 --
 
@@ -1010,12 +902,6 @@ ALTER TABLE `votes`
 --
 ALTER TABLE `achados`
   MODIFY `id_achados` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
-
---
--- AUTO_INCREMENT de tabela `admin`
---
-ALTER TABLE `admin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de tabela `bimestrebc`
@@ -1028,12 +914,6 @@ ALTER TABLE `bimestrebc`
 --
 ALTER TABLE `bolsacopia`
   MODIFY `id_bc` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT de tabela `candidates`
---
-ALTER TABLE `candidates`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT de tabela `documentos_ata`
@@ -1096,12 +976,6 @@ ALTER TABLE `patrimoniobaixa`
   MODIFY `id_pat_baixa` int(6) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de tabela `positions`
---
-ALTER TABLE `positions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
---
 -- AUTO_INCREMENT de tabela `usuarios`
 --
 ALTER TABLE `usuarios`
@@ -1111,7 +985,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de tabela `usuarios_cargos`
 --
 ALTER TABLE `usuarios_cargos`
-  MODIFY `id_cargo` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_cargo` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de tabela `usuarios_desativados`
@@ -1130,18 +1004,6 @@ ALTER TABLE `usuarios_gestao`
 --
 ALTER TABLE `usuarios_niveis`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
--- AUTO_INCREMENT de tabela `voters`
---
-ALTER TABLE `voters`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT de tabela `votes`
---
-ALTER TABLE `votes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
 
 --
 -- Restrições para despejos de tabelas
