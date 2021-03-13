@@ -1,11 +1,6 @@
-body {
-    background-color: #eaeef4;
-    padding-bottom: 0px;
-}
-
-html {
-    height: 100%;
-    width: 100%
+html,body{
+    padding: 0;
+    margin: 0;
 }
 
 .menu-header {
@@ -71,10 +66,10 @@ html {
         margin-left: 0px;
     }
     .container-fluid {
-        grid-template-columns: -250px repeat(11, 1fr);
+        grid-template-columns: -250px 3fr;
     }
     .container-fluid.muda {
-        grid-template-columns: 0px repeat(11, 1fr);
+        grid-template-columns: 0px 3fr;
     }
     .main-sidebar [data-toggle="collapse"]:before {
         content: "\f0d7";
@@ -155,34 +150,38 @@ html {
 
 .container-fluid {
     display: grid;
-    grid-template-columns: 250px repeat(12, 1fr);
-    grid-template-rows: 70px 1fr 50px;
+    grid-template-columns: 250px 3fr;
+    grid-template-rows: 10vh 80vh 10vh;
     margin-left: 0;
     padding-left: 0;
     margin-right: 0;
     padding: 0;
     transition: 0.3s;
+    grid-template-areas: 
+    "a h"
+    "a m"
+    "a f";
+    
 }
 
 .container-fluid.muda {
-    grid-template-columns: 0px 5fr;
+    grid-template-columns: 0px 3fr;
     transition: 0.3s;
 }
 
 header {
-    grid-column: 2/14;
-    grid-row: 1/1
+    grid-area: h;
 }
 
 .content {
-    grid-column: 2/14;
-    grid-row: 2;
+    grid-area: m;
     width: 95%;
     height: 100%;
     padding-top: 20;
     padding-right: 10px;
     padding-left: 20px;
-    justify-content: center;
+    justify-self: auto;
+    align-self: auto;
     -moz-border-radius: 7px;
     -webkit-border-radius: 7px;
     border-radius: 7px;
@@ -195,9 +194,7 @@ header {
 
 .main-sidebar {
     float: left;
-    grid-column-start: 1;
-    grid-column-end: 1;
-    grid-row: 1/1;
+    grid-area:a;
     height: 100vh;
 }
 
@@ -205,10 +202,7 @@ header {
 /* Menu superior */
 
 footer {
-    margin-top: 10px;
-    grid-column: 2/14;
-    grid-row-start: 3;
-    grid-row-end: 3;
+    grid-area: f;
 }
 
 

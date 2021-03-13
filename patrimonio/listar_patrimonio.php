@@ -45,11 +45,6 @@
 		if(!isset($_SESSION['login'])) {session_start();}
 		include_once(SITE_ROOT . "funcs/menu.php");
 	?>
-	<?php 
-	
-		include_once("../funcs/conexao.php");
-	
-			?>
 	<div class="container">
     <br/>
     <div class="panel panel-default listar-escuro">
@@ -82,6 +77,7 @@
     </div>
 </div>
 
+</div><!-- Final do content -->
 <!-- Modal Editar -->
 <?php 
 			$result_pat= "SELECT * FROM patrimonioativo WHERE 1=1";
@@ -162,12 +158,10 @@
 </div>
 
 
-
-
-	
 <?php 
 	}
 	include_once(SITE_ROOT . "funcs/footer.php"); 
 ?>
+
 </body>
 </html>
