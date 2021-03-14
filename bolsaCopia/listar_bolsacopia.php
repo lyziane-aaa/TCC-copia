@@ -49,11 +49,33 @@
 			<?php } ?>
 		</div>
         <div class="panel-body">
-		<!-- Painel de Controle de Bimestre, visível apenas para gremistas -->
 		
+
+		<!-- Painel de Controle de Bimestre, visível apenas para gremistas -->
+		<script>
+    $(document).ready(function() {
+      $(document).on('click', '.editar-bc', function() {
+        var id_bc = $(this).attr("id");
+        // alert(id_bc);
+        //Verificar se há valor na variável "id_bc".
+        if (id_bc !== '') {
+          var dados = {
+            id_bc: id_bc,
+            tipo: "editar-bc"
+          };
+          
+          $.post('../achados/visu_achados.php', dados, function(retorna) {
+            //Carregar o conteúdo para o usuário
+            $("#visul_bc").html(retorna);
+            $('#editar-bc').modal('show');
+          });
+        }
+      });
+    });
+	</script>
 		
 			<!-- Modal -->
-			<div class="modal fade" id="modal-bimestre" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true">
+			<!-- <!-- <div class="modal fade" id="modal-bimestre" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true">
 			<div class="modal-dialog modal-dialog-centered" role="document">
 				<div class="modal-content bg-dark">
 				<div class="modal-header">
@@ -78,7 +100,7 @@
 						<label for="laudas-bc">Data de término do bimestre</label>
 						<input type="date" name="bimestrefim_bim_bc" id="laudas-bc" onKeyPress="return Onlynumbers(event);" required>
 						<br>
-						<!-- inputs escondidas -->
+						<!-- inputs escondidas 
 						<?php 
 							/* Variáveis para registro */
 							
@@ -99,16 +121,16 @@
 					</form>
 				
 				
-				</div>
-				</div> <!-- fim do modal de cadastro do bimestre -->
+				</div> -->
+				<!-- </div> fim do modal de cadastro do bimestre -->
 				
 
-
+<!-- 
 			</div>
-			</div>
+			</div> --> -->
 
 			<!-- Modal -->
-			<div class="modal fade" id="modal-vigor" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true">
+			<!-- <div class="modal fade" id="modal-vigor" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true">
 			<div class="modal-dialog modal-dialog-centered" role="document">
 				<div class="modal-content bg-dark">
 				<div class="modal-header">
@@ -118,8 +140,8 @@
 					</button>
 				</div>
 				<div class="modal-body alt-bimestre">
-					
-					<form action="bimestre/inserir_bimestre_vigor.php" class = "cadastro" method="post">
+					 -->
+					<!-- <form action="bimestre/inserir_bimestre_vigor.php" class = "cadastro" method="post">
 						<h2 class="cad-titulo"> Alterar bimestre em vigor </h2>
 						<label>Alterar o Bimestre</label>
 						<hr class="divisor"> 
@@ -133,62 +155,37 @@
 								}
 							?>   
 						</select>
-			</div> 
-				<div class="modal-footer">
+			</div>  -->
+				<!-- <div class="modal-footer">
 					<button type="button" class="botao" data-dismiss="modal">Fechar</button>
 					<input type="reset" class="botao" value="Limpar">
 					<input type="submit" class="botao" value="Atualizar"> <!-- botar aviso aqui-->
 				</form>
-			</div>
+			<!-- </div>
 			</div> <!-- fim do modal de cadastro do bimestre -->
 				
 
-
+<!-- 
 			</div>
 			</div>
 
 
 
-		</div>
+		</div> --> --> -->
 
 		<?php 
-		$result_bc = "SELECT * FROM bolsacopia WHERE 1=1";
-  $resultado_bc = mysqli_query($conn, $result_bc);
+// 		$result_bc = "SELECT * FROM bolsacopia WHERE 1=1";
+//   $resultado_bc = mysqli_query($conn, $result_bc);
 
-  while ($row_bc = mysqli_fetch_array($resultado_bc)) {
-  ?>
-<!-- Modal Editar-->
-<div class="modal fade" id="modal-editar-<?= $row_bc["id_bc"] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-			<h5 class="modal-title" id="TituloModalCentralizado">Editar Registro:</h5>
-			<button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-				<span aria-hidden="true">&times;</span>
-			</button>
-      </div>
-      <div class="modal-body">
-        <form method="post" action="inserir_bolsacopia.php" class="cadastro">
-			<label>Nome:</label>
-			<input type="text" placeholder="<?= $row_bc['nome_bc'] ?>" required name="nome_bc">
-			<label>Matrícula:</label>
-			<input type="number" placeholder="<?= $row_bc['matricula_bc'] ?>" onKeyPress="return Onlynumbers(event);" required name="matricula_bc">
-			<label>Laudas:</label>
-			<input type="number" placeholder="<?= $row_bc['laudas_bc'] ?>" required max="20" min="1" name="laudas_bc">
-			<input type="hidden" value ="<?= $row_bc['id_bc'] ?>" name="id">
-			<input type="hidden" value="listar" name="pagina"> <!-- Indica ao Inserir de qual página veio os dados -->
-			<br> <br> <br>
-			<input type="submit" value="Enviar">
-			<input type="reset" value="Limpar">
-		</form>
-      </div>
-    </div>
-  </div>
-</div>
+//   while ($row_bc = mysqli_fetch_array($resultado_bc)) {
+//   ?>
+<!--Modal Editar-->
+
+
 
 
 		<?php
-  		} //While 
+  	//	} While 
 		} // if para administradores
 		?>
 		<div class="table-responsive table_bc">
@@ -209,6 +206,7 @@
         <tbody>
         </tbody>
     </table>
+	<?php echo modale("bc");?>
             </div> <!-- Panel-body !-->
         </div>
     </div>
@@ -219,23 +217,25 @@
 include_once(SITE_ROOT . "funcs/footer.php"); 
 ?>
 <script> 
-$('#modal-bimestre').on('show.bs.modal', function (event) {
-  var button = $(event.relatedTarget) // Botão que acionou o modal
-  var recipient = button.data('whatever') // Extrai informação dos atributos data-*
-  // Se necessário, você pode iniciar uma requisição AJAX aqui e, então, fazer a atualização em um callback.
-  // Atualiza o conteúdo do modal. Nós vamos usar jQuery, aqui. No entanto, você poderia usar uma biblioteca de data binding ou outros métodos.
-  var modal = $(this)
-  modal.find('.modal-body input').val(recipient)
-})
 
-$('#modal-vigor').on('show.bs.modal', function (event) {
-  var button = $(event.relatedTarget) // Botão que acionou o modal
-  var recipient = button.data('whatever') // Extrai informação dos atributos data-*
-  // Se necessário, você pode iniciar uma requisição AJAX aqui e, então, fazer a atualização em um callback.
-  // Atualiza o conteúdo do modal. Nós vamos usar jQuery, aqui. No entanto, você poderia usar uma biblioteca de data binding ou outros métodos.
-  var modal = $(this)
-  modal.find('.modal-body input').val(recipient)
-})
+
+// $('#modal-bimestre').on('show.bs.modal', function (event) {
+//   var button = $(event.relatedTarget) // Botão que acionou o modal
+//   var recipient = button.data('whatever') // Extrai informação dos atributos data-*
+//   // Se necessário, você pode iniciar uma requisição AJAX aqui e, então, fazer a atualização em um callback.
+//   // Atualiza o conteúdo do modal. Nós vamos usar jQuery, aqui. No entanto, você poderia usar uma biblioteca de data binding ou outros métodos.
+//   var modal = $(this)
+//   modal.find('.modal-body input').val(recipient)
+// })
+
+// $('#modal-vigor').on('show.bs.modal', function (event) {
+//   var button = $(event.relatedTarget) // Botão que acionou o modal
+//   var recipient = button.data('whatever') // Extrai informação dos atributos data-*
+//   // Se necessário, você pode iniciar uma requisição AJAX aqui e, então, fazer a atualização em um callback.
+//   // Atualiza o conteúdo do modal. Nós vamos usar jQuery, aqui. No entanto, você poderia usar uma biblioteca de data binding ou outros métodos.
+//   var modal = $(this)
+//   modal.find('.modal-body input').val(recipient)
+// })
 </script>
 		
 	</body>

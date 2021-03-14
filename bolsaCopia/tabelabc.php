@@ -39,7 +39,7 @@ while($row_bc =mysqli_fetch_array($resultado_bc) ) {
 	$dado[] = $row_bc["laudas_bc"];
 	$databr = date('d/m/Y H:i:s',strtotime($row_bc["ultima_data_bc"]));
 	$dado[] = $databr;
-	$dado[] = '<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-editar-'.$row_bc["id_bc"].'">
+	$dado[] = '<button type="button" class="btn btn-primary editar-bc" data-toggle="modal" id="'.$row_bc["id_bc"].'">
 	Editar
 	</button>';
 	//Botão de Excluir (Ele envia o id via Get)

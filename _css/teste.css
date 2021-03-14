@@ -1,4 +1,5 @@
-html,body{
+html,
+body {
     padding: 0;
     margin: 0;
 }
@@ -157,11 +158,7 @@ html,body{
     margin-right: 0;
     padding: 0;
     transition: 0.3s;
-    grid-template-areas: 
-    "a h"
-    "a m"
-    "a f";
-    
+    grid-template-areas: "a h" "a m" "a f";
 }
 
 .container-fluid.muda {
@@ -190,11 +187,12 @@ header {
     margin-right: auto;
     margin-bottom: 5px;
     overflow-x: auto;
+    padding-bottom: 10px
 }
 
 .main-sidebar {
     float: left;
-    grid-area:a;
+    grid-area: a;
     height: 100vh;
 }
 
@@ -250,3 +248,33 @@ footer {
     -moz-border-radius: 7px;
     -webkit-border-radius: 7px;
 }
+
+.modal {
+    position: absolute !important;
+    right: calc(100vh - 60%)
+}
+
+.modal-header,
+.modal-footer {
+    background-color: rgba(226, 10, 10, 0.803) !important;
+}
+
+.modal-body {
+    background-color: white !important;
+}
+
+.modal-body,
+.modal-content {
+    position: relative;
+    display: table;
+    justify-content: center;
+    /* This is important */
+    overflow-y: auto;
+    overflow-x: auto;
+    width: auto;
+    height: auto !important;
+    min-width: 100px;
+    max-height: 400px;
+}
+
+.modal-content {}

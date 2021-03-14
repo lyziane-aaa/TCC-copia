@@ -22,7 +22,7 @@
                 if (result.isConfirmed) {
                     var hre = "<?= $hre ?>"
                     Swal.fire(
-                        'O Arquivo Excluido!',
+                        'O Arquivo foi xcluido!',
                         '',
                         'success'
                     )

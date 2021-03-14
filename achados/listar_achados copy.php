@@ -19,15 +19,11 @@
 </head>
 
 <body class="bg-dark">
+
   <?php
   include_once("../funcs/include.php");
 
   ?>
-
-
-
-
-
 
   <!--<div class="container container-grande"> -->
   <br />
@@ -62,80 +58,19 @@
     </div>
 
   </div>
-
-  <!-- Modal -->
-  <div id="img_achados" tabindex="-1" class="modal hidden fade in" style="display:none !important; z-index: 90000 !important;" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <!-- <div  class="modal fade"  > -->
-    <div class="modal-dialog modal">
-      <div class="modal-content">
-                
-          <span id="visul_img"></span>
-        
-        <div class="modal-footer">
-          <button type="button" class="btn btn-primary " onclick="window.location.reload();" data-dismiss="modal">Fechar</button>
-        </div>
-      </div>
-    </div>
   </div>
-
-<?php 
-modal('achados');
-?>
-
-
-  <script>
-    $(document).ready(function() {
-      $(document).on('click', '.img_achados', function() {
-        var id_achados = $(this).attr("id");
-        // alert(id_achados);
-        //Verificar se há valor na variável "id_achados".
-        if (id_achados !== '') {
-          var dados = {
-            id_achados: id_achados,
-            tipo: "img_achados"
-          };
-          
-          $.post('visu_achados.php', dados, function(retorna) {
-            //Carregar o conteúdo para o usuário
-            $("#visul_img").html(retorna);
-            $('#img_achados').modal('show');
-          });
-        }
-      });
-    });
-    //Pega o id para editar
-    $(document).ready(function() {
-      $(document).on('click', '.editar_achados', function() {
-        var id_achados = $(this).attr("id");
-        // alert(id_achados);
-        //Verificar se há valor na variável "id_achados".
-        if (id_achados !== '') {
-          var dados = {
-            id_achados: id_achados,
-            tipo: "editar_achados"
-          };
-          
-          $.post('visu_achados.php', dados, function(retorna) {
-            //Carregar o conteúdo para o usuário
-            $("#visul_img").html(retorna);
-            $('#img_achados').modal('show');
-          });
-        }
-      });
-    });
-
-
-  </script>
   <?php
 
   include_once(SITE_ROOT . "funcs/footer.php");
 
 
+  $result_achados = "SELECT * FROM achados WHERE 1=1";
+  $resultado_achados = mysqli_query($conn, $result_achados);
 
-  //while ($row_achados = mysqli_fetch_array($resultado_achados)) {
+  while ($row_achados = mysqli_fetch_array($resultado_achados)) {
   ?>
-  <!-- Modal de exibir -->
-  <!-- <div class="modal fade" id="modal-img-<?= $row_achados["id_achados"] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <!-- Modal de exibir -->
+    <div class="modal fade" id="modal-img-<?= $row_achados["id_achados"] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
@@ -159,7 +94,7 @@ modal('achados');
       </div>
     </div>
 
-    Modal de editar 
+    <!-- Modal de editar -->
     <div class="modal fade" id="modal-editar-<?= $row_achados["id_achados"] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-scrollable">
         <div class="modal-content">
@@ -212,7 +147,7 @@ modal('achados');
                   <option value="Incorporado">Incorporado</option>
                 </select>
               </div>
-              <br> 
+              <br>
 
               <label for="descricao">Descrição</label>
               <textarea name="descricaoAchados" cols="10" rows="4" maxlength="800" placeholder="Descreva o Objeto" value="<?= $row_achados["descricao_achados"] ?>"></textarea>
@@ -221,19 +156,36 @@ modal('achados');
               <input type="submit" class="botao" onclick="msg()" value="Cadastrar">
               <input type="reset" class="botao" value="Limpar">
             </form>
-          </div> <!-- modal body 
+          </div> <!-- modal body -->
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
             <button type="button" class="btn btn-primary">Salvar mudanças</button>
           </div>
         </div>
-      </div>  
+      </div>
     </div>
-    <!--</div> -->
-
-  <?php
-  //  }
-  ?>
+    <!--</div>-->
+    < <?php
+    }
+      ?> <script>
+      $(document).ready(function(){
+      $(document).on('click','.view_data', function(){
+      var id_achados = $(this).attr("id");
+      alert(id_achados);
+      //Verificar se há valor na variável "id_achados".
+      if(id_achados !== ''){
+      var dados = {
+      id_achados: id_achados
+      };
+      $.post('visualizar.php', dados, function(retorna){
+      //Carregar o conteúdo para o usuário
+      $("#visul_usuario").html(retorna);
+      $('#visulUsuarioModal').modal('show');
+      });
+      }
+      });
+      });
+      </script>
 
 
 </body>

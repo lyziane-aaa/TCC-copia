@@ -44,7 +44,7 @@ $result_achados.=" ORDER BY ". $columns[$requestData['order'][0]['column']]."   
 //Ordenar o resultado
 
 
-
+//data-target="#modal-img-' . $row_achados["id_achados"] . '
 while($row_achados =mysqli_fetch_array($resultado_achados) ) {  
 	$dado = array(); 
 	$dado[] = $row_achados["nome_achados"];
@@ -59,12 +59,12 @@ while($row_achados =mysqli_fetch_array($resultado_achados) ) {
 	$dado[] = $row_achados["status_achados"];
 	$dado[] = '
 	<!-- Botão para acionar modal da imagem -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-img-' . $row_achados["id_achados"] . '">
+<button type="button" class="btn btn-primary img_achados" data-toggle="modal" id="'. $row_achados["id_achados"] .'" ">
 Visualizar
 </button>';
 	$dado[] = '
 	<!-- Botão para acionar modal de editar -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-editar-' . $row_achados["id_achados"] . '">
+<button type="button" class="btn btn-primary editar_achados" data-toggle="modal" id="' . $row_achados["id_achados"] . '">
 Editar
 </button>';
 	$dado[] = '<a href="javascript:confirmar('.$row_achados['id_achados'].')"><button type="button" class="btn btn-primary">Excluir</button></a>';
