@@ -16,7 +16,7 @@ sair da sessão clicando no icone de usuário. -->
 <body class="bg-dark">
     <?php 
         
-        include_once("../../conexao.php");
+        include_once("../../funcs/conexao.php");
         include_once(SITE_ROOT . "funcs/menu.php");
         if(isset($_SESSION['login'])) {
             if ($_SESSION['nivel'] = 2) {

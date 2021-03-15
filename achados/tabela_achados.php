@@ -64,7 +64,7 @@ Visualizar
 </button>';
 	$dado[] = '
 	<!-- Botão para acionar modal de editar -->
-<button type="button" class="btn btn-primary editar_achados" data-toggle="modal" id="' . $row_achados["id_achados"] . '">
+<button type="button" class="btn btn-primary editar_achados" data-toggle="modal" id="' . $row_achados["id_achados"] . '"">
 Editar
 </button>';
 	$dado[] = '<a href="javascript:confirmar('.$row_achados['id_achados'].')"><button type="button" class="btn btn-primary">Excluir</button></a>';

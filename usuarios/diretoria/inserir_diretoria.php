@@ -1,6 +1,6 @@
 <?php 
 session_start();
-include_once("../../conexao.php");
+include_once("../../funcs/conexao.php");
 $inserir_cargo = filter_input(INPUT_POST, 'inserir_cargo', FILTER_SANITIZE_STRING);
 $inserir_tipo_diretoria = filter_input(INPUT_POST, 'inserir_tipo_diretoria');
 $gremista_update = filter_input(INPUT_POST, 'gremista_update');

@@ -1,6 +1,6 @@
 <?php 
 session_start();
-include_once("../../conexao.php");
+include_once("../../funcs/conexao.php");
 $nome_gestao = filter_input(INPUT_POST, 'nome_gestao', FILTER_SANITIZE_STRING);
 $inicio_gestao = filter_input(INPUT_POST, 'inicio_gestao');
 $vencimento_gestao = filter_input(INPUT_POST, 'vencimento_gestao', FILTER_SANITIZE_STRING);

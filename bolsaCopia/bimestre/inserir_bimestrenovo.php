@@ -1,5 +1,5 @@
 	<?php
-	include_once("../../conexao.php");
+	include_once(""../../conexao.php");
 	
 	$nome_bim_bc = filter_input(INPUT_POST, 'nome_bim_bc', FILTER_SANITIZE_STRING);
 	$bimestreinicio_bim_bc = filter_input(INPUT_POST, 'bimestreinicio_bim_bc');

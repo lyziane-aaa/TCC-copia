@@ -1,7 +1,7 @@
 <?php
 session_start();
 include('../../../Funcs/functions.php');
-include('../../../conexao.php');
+include('../SITE_ROOT . "funcs/conexao.php");.php');
 //Sempre iniciado com $, tipo de variável;
 $requestData = $_REQUEST;
 

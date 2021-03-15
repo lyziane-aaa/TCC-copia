@@ -273,8 +273,8 @@ footer {
     overflow-x: auto;
     width: auto;
     height: auto !important;
-    min-width: 100px;
-    max-height: 400px;
+    min-width: 500px;
+    min-height: 400px;
 }
 
 .modal-content {}
