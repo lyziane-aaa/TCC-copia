@@ -140,7 +140,36 @@ sair da sessão clicando no icone de usuário. -->
     $result_fardas_enc = "SELECT * FROM fardas_encomendas WHERE 1=1";
     $resultado_fardas_enc = mysqli_query($conn, $result_fardas_enc) or die("erro " . mysqli_error($conn));
 
-    while ($row_fardas_enc = mysqli_fetch_array($resultado_fardas_enc)) {
+    ?>
+        <div class="painel-dados">
+            <div id="tamanhos_draw"></div>
+
+            <h4>Fardas Encomendadas:</h4>
+            <div id="fardas-vendidas-container">
+                <!-- Botão para acionar modal de de Encerrar a encomenda -->
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-vender">Vender Farda</button>
+
+                <table id="tabela_enc" class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Matrícula</th>
+                            <th>Telefone</th>
+                            <th>Tamanho</th>
+                            <th>Quantidade</th>
+                            <th>Data da Encomenda</th>
+                            <th>Confirmar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+</div> <!-- final content -->
+<?php
+while ($row_fardas_enc = mysqli_fetch_array($resultado_fardas_enc)) {
     ?>
         <!-- Modal da tabela -->
         <div class="modal fade" id="modal-<?= $row_fardas_enc['id_fardas_enc'] ?>" tabindex="-1" role="dialog" aria-labelledby="TituloModalLongoExemplo" aria-hidden="true">
@@ -259,38 +288,8 @@ sair da sessão clicando no icone de usuário. -->
                 </div>
             </div>
         </div>
-        <div class="painel-dados">
-            <div id="tamanhos_draw"></div>
-
-            <h4>Fardas Encomendadas:</h4>
-            <div id="fardas-vendidas-container">
-                <!-- Botão para acionar modal de de Encerrar a encomenda -->
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-vender">Vender Farda</button>
-
-                <table id="tabela_enc" class="table table-bordered table-striped">
-                    <thead>
-                        <tr>
-                            <th>Nome</th>
-                            <th>Matrícula</th>
-                            <th>Telefone</th>
-                            <th>Tamanho</th>
-                            <th>Quantidade</th>
-                            <th>Data da Encomenda</th>
-                            <th>Confirmar</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                </table>
-
-            </div>
-        </div>
         
         <?php
-
-
-
-
         include_once(SITE_ROOT . "funcs/footer.php"); ?>
 </body>
 
