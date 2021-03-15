@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	include_once("../../../conexao.php");
+	include_once("../SITE_ROOT . "funcs/conexao.php");.php");
 		
 	$titulo_doc_port = filter_input(INPUT_POST, 'titulo_doc_port', FILTER_SANITIZE_STRING);
 	$num_doc_port = filter_input(INPUT_POST, 'num_doc_port', FILTER_SANITIZE_STRING);

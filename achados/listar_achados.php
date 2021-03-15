@@ -64,13 +64,17 @@
   </div>
 
   <!-- Modal -->
-  <div id="img_achados" tabindex="-1" class="modal hidden fade in" style="display:none !important; z-index: 90000 !important;" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <!-- <div  class="modal fade"  > -->
-    <div class="modal-dialog modal">
+  <div class="modal fade" id="img_achados" data-backdrop="static" class="modal hidden fade in" style=" display:none !important; z-index: 90000 !important;" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
-                
-          <span id="visul_img"></span>
-        
+      <div class="modal-header">
+          <h5 class="modal-title" id="TituloModalCentralizado">Imagem</h5>
+          
+          </div>
+          <div class="modal-body">
+
+        <span id="visul_img"></span>
+</div>
         <div class="modal-footer">
           <button type="button" class="btn btn-primary " onclick="window.location.reload();" data-dismiss="modal">Fechar</button>
         </div>
@@ -78,9 +82,9 @@
     </div>
   </div>
 
-<?php 
-modal('achados');
-?>
+  <?php
+  echo modale('editar_achados');
+  ?>
 
 
   <script>
@@ -94,7 +98,7 @@ modal('achados');
             id_achados: id_achados,
             tipo: "img_achados"
           };
-          
+
           $.post('visu_achados.php', dados, function(retorna) {
             //Carregar o conteúdo para o usuário
             $("#visul_img").html(retorna);
@@ -114,17 +118,15 @@ modal('achados');
             id_achados: id_achados,
             tipo: "editar_achados"
           };
-          
+
           $.post('visu_achados.php', dados, function(retorna) {
             //Carregar o conteúdo para o usuário
-            $("#visul_img").html(retorna);
-            $('#img_achados').modal('show');
+            $("#visul_editar_achados").html(retorna);
+            $('#editar_achados').modal('show');
           });
         }
       });
     });
-
-
   </script>
   <?php
 

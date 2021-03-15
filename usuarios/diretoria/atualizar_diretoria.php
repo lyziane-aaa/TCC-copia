@@ -1,6 +1,6 @@
 <?php 
 session_start();
-include_once("../../conexao.php");
+include_once("../../funcs/conexao.php");
 $alterar_cargo_antigo = filter_input(INPUT_POST, 'alterar_cargo_antigo', FILTER_SANITIZE_STRING);
 $alterar_cargo_novo = filter_input(INPUT_POST, 'alterar_cargo_novo',FILTER_SANITIZE_STRING);
 $gremista_update = filter_input(INPUT_POST, 'gremista_update', FILTER_SANITIZE_STRING);

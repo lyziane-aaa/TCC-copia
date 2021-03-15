@@ -17,8 +17,8 @@
                         <div class="card bg-danger text-white">
                             <div class="card-body">
                                 <i class="fas fa-users fa-3x"></i>
-                                <h6 class="card-title">Usuáriosaa</h6>
-                                <h2 class="lead">150</h2>
+                                <h6 class="card-title">Usuários</h6>
+                                <h2 class="display-4">20</h2>
                             </div>
                         </div>
                     </div>

@@ -1,5 +1,5 @@
 <?php
-	include_once("../../../conexao.php");
+	include_once("../SITE_ROOT . "funcs/conexao.php");.php");
 	
 	
 	

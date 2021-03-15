@@ -1,5 +1,5 @@
 <?php
-include('../../../conexao.php');
+include('../SITE_ROOT . "funcs/conexao.php");.php');
 include('../../../Funcs/functions.php');
 
 session_start();

@@ -1,7 +1,7 @@
 <?php
 require_once('../../tcpdf/tcpdf.php');
 require_once('../../tcpdf/classes/oficio.class.php');
-include_once("../../conexao.php");
+include_once("../../funcs/conexao.php");
 
 
 

@@ -19,7 +19,6 @@ function extrair($doc, $text)
         $pos2 = strpos($text, '/D', $pos1);
         return trim(substr($text, $pos1, $pos2 - $pos1));
     }
-   
 }
 function numdoc($doc, $cargo)
 {
@@ -107,46 +106,50 @@ function numdoc($doc, $cargo)
 }
 
 // Funções de formatação de data para o padrão br
-function databr ($data) {
+function databr($data)
+{
     //Verifica se tem 19 caracteres, ou seja, se a data e o horário estão como "2021-02-15 15:48:48"
-    if (strlen($data)== 19){
+    if (strlen($data) == 19) {
 
-       $data = date('d/m/Y à\s h\hi\m\i\ns\s',strtotime($data));
+        $data = date('d/m/Y à\s h\hi\m\i\ns\s', strtotime($data));
         return $data;
-        
     } //Verifica se tem 10 caracteres, ou seja, apenas a data, como em  "2021-02-15" 
-    if (strlen($data)== 10) {
-       $data = date('d/m/Y',strtotime($data));
+    if (strlen($data) == 10) {
+        $data = date('d/m/Y', strtotime($data));
         return $data;
     }
- 
 }
 
-function modale($tipo){
-    if ($tipo == "achados") {
-$modal = '
+function modale($tipo)
+{
+    $modal = "";
+    if ($tipo == "editar_achados") {
+        $modal = '
 <!-- Modal -->
-<div id="editar-'. $tipo .'" tabindex="-1" class="modal hidden fade in" style="display:none !important; z-index: 90000 !important;" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div id="' . $tipo . '" tabindex="-1" data-backdrop="static" class="modal hidden fade in" style="display:none !important; z-index: 90000 !important;" aria-labelledby="exampleModalLabel" aria-hidden="true">
      <div  class="modal fade"  >
     <div class="modal-dialog modal">
       <div class="modal-content">
                 
-          <span id="visul_'.$tipo.'"></span>
+          <span id="visul_' . $tipo . '"></span>
         
         <div class="modal-footer">
           <button type="button" class="btn btn-primary " onclick="window.location.reload();" data-dismiss="modal">Fechar</button>
         </div>
       </div>
     </div>
-  </div>';} else
-  if ($tipo == "bc"){
+    </div>
 
-    $modal ='<!-- Modal -->
-    <div id="editar-'. $tipo .'" tabindex="-1" class="modal hidden fade in" style="display:none !important; z-index: 90000 !important;" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    </div>';
+    } else 
+  if ($tipo == "bc") {
+
+        $modal = '<!-- Modal -->
+    <div id="editar-' . $tipo . '" tabindex="-1" data-backdrop="static" class="modal hidden fade in" style="display:none !important; z-index: 90000 !important;" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
                     
-              <span id="visul_'.$tipo.'"></span>
+              <span id="visul_' . $tipo . '"></span>
             
             <div class="modal-footer">
               <button type="button" class="btn btn-primary " onclick="window.location.reload();" data-dismiss="modal">Fechar</button>
@@ -154,12 +157,8 @@ $modal = '
           </div>
         </div>
       </div>';
- 
- return $modal;
-  }
+    }
+  
 
-
-
-
-
+    return $modal;
 }

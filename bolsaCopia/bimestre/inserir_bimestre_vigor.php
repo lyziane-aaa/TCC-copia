@@ -1,6 +1,6 @@
 	<?php
 	session_start();
-	include_once("../../conexao.php");
+	include_once("../../funcs/conexao.php");
 
 	$bimestre_vigor_bim_bc = filter_input(INPUT_POST, 'bimestre_vigor_bim_bc');
 

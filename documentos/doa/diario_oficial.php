@@ -74,7 +74,7 @@
 	?>
 	<?php
 	$nivel_necessario = 2;
-	include_once("../../conexao.php");
+	include_once(""../../conexao.php");
 
 	?>
 	<div class="container">

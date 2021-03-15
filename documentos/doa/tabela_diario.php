@@ -1,6 +1,6 @@
 <?php
 session_start();
-include('../../conexao.php');
+include('SITE_ROOT . "funcs/conexao.php");.php');
 require_once('../../Funcs/functions.php');
 $requestData = $_REQUEST;
 

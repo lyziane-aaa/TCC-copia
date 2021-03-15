@@ -1,6 +1,6 @@
 <?php
 session_start();
-include_once("../../../conexao.php");
+include_once("../SITE_ROOT . "funcs/conexao.php");.php");
 $id = filter_input(INPUT_GET, 'id_doc_ofc', FILTER_SANITIZE_NUMBER_INT);
 $id_port = filter_input(INPUT_GET, 'id_doc_port', FILTER_SANITIZE_NUMBER_INT);
 
