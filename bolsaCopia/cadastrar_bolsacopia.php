@@ -15,6 +15,7 @@
 sair da sessão clicando no icone de usuário. -->
 <body class="bg-dark">
     <?php 
+        include_once("../../TCC/funcs/header.php");
         include_once(SITE_ROOT . "funcs/menu.php");
         include_once("../funcs/conexao.php"); 
         if(isset($_SESSION['login']) && isset($_SESSION['nivel'])) {

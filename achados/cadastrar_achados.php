@@ -8,7 +8,7 @@ sair da sessão clicando no icone de usuário. -->
                 if(isset($_SESSION['login']) && isset($_SESSION['nivel'])) { 
             $_SESSION['listar'] = 2; 
 
-    include_once("../include.php");
+    include_once("../Funcs/include.php");
   
     ?>
     <form action="inserir_achados.php" class = "cadastro bg-dark" method="post" enctype="multipart/form-data">
