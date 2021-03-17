@@ -1,6 +1,7 @@
 <?php
 session_start();
-include_once("../SITE_ROOT . "funcs/conexao.php");.php");
+include("../../../funcs/conexao.php");
+
 
 $num_doc_ata = filter_input(INPUT_POST, 'num_doc_ata', FILTER_SANITIZE_STRING);
 //Retira o "ata nº" da string
@@ -71,10 +72,9 @@ $sql = "INSERT INTO `documentos_ata`
 '$autor_doc_ata',
 '$matricula_doc_ata',
 '$cargo_doc_ata',
-'$data_registro_ata',
+NOW(),
 '$gremista_registro_ata',
 '$assinaturas_doc_ata');";
-$stmt = $db->prepare($sql);
 	$resultado_inser_ata = mysqli_query($conn, $sql ) or die("erro " . mysqli_error($conn));
 header("location: /TCC/documentos/interno/listar_documentos.php?sucesso=1");
 

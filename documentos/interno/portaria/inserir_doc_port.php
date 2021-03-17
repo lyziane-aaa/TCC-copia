@@ -1,13 +1,13 @@
 <?php
 	session_start();
-	include_once("../SITE_ROOT . "funcs/conexao.php");.php");
+	require_once("../../funcs/conexao.php");
 		
 	$titulo_doc_port = filter_input(INPUT_POST, 'titulo_doc_port', FILTER_SANITIZE_STRING);
 	$num_doc_port = filter_input(INPUT_POST, 'num_doc_port', FILTER_SANITIZE_STRING);
 	$resumo_doc_port = filter_input(INPUT_POST, 'resumo_doc_port', FILTER_SANITIZE_STRING);	
 	$texto_doc_port = filter_input(INPUT_POST, 'texto_doc_port');
 	
-	$autor_doc_port = strtoupper($_SESSION['nome_usuarios']);
+	$autor_doc_port =$_SESSION['nome_usuarios'];
 	$cargo_doc_port = $_SESSION['cargo'];
 	$gremista_registro_port = $_SESSION['login'];
 

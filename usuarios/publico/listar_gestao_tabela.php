@@ -1,5 +1,5 @@
 <?php
-require_once("../../conexao.php"); . "funcs/conexao.php");.php");
+require_once("../../funcs/conexao.php");
 
  
 //Sempre iniciado com $, tipo de vari�vel;
@@ -20,7 +20,7 @@ $requestData= $_REQUEST;
 //Verifica��o de quantas linhas tem a tabela para pagina��o
 $consulta_usuarios="select usuarios.nome_usuarios, 
 usuarios.matricula_usuarios, usuarios_cargos.nome_cargo, usuarios.telefone, usuarios.email from usuarios
-JOIN usuarios_cargos on usuarios.cargo = usuarios_cargos.id_cargo";
+JOIN usuarios_cargos on usuarios.cargo = usuarios_cargos.id_cargo WHERE 1=1";
 $resultado_consulta_usuarios = mysqli_query($conn,$consulta_usuarios);
 $linhas= mysqli_num_rows($resultado_consulta_usuarios);
 
@@ -40,8 +40,9 @@ if(!empty($requestData['search']['value']) ) {   // se houver um par�metro de 
 	$result_usuarios.=" AND ( usuarios.nome_usuarios LIKE '".$requestData['search']['value']."%' ";    
 	$result_usuarios.=" OR usuarios_cargos.nome_cargo LIKE '".$requestData['search']['value']."%' ";
 	$result_usuarios.=" OR usuarios.matricula_usuarios LIKE '".$requestData['search']['value']."%' )";
+	$result_usuarios.=" ORDER BY ". $columns[$requestData['order'][0]['column']]."   ".$requestData['order'][0]['dir']."  LIMIT ".$requestData['start']." ,".$requestData['length']."   ";
+
 }	
-$result_usuarios.=" ORDER BY ". $columns[$requestData['order'][0]['column']]."   ".$requestData['order'][0]['dir']."  LIMIT " . $requestData['start'] . " ,".$requestData['length']."   ";
 
 $resultado_usuarios= mysqli_query($conn, $result_usuarios);
 
@@ -67,7 +68,7 @@ $resultado_usuarios=mysqli_query($conn, $result_usuarios) or die ("erro " . mysq
 $json_data = array(
 	"draw" => intval( $requestData['draw'] ),//para cada requisi��o � enviado um n�mero como par�metro
 	"recordsTotal" => intval( $linhas ),  //Quantidade que h� no banco de dados
-	"recordsFiltered" => intval( $totalFiltered ), //Total de registros quando houver pesquisa
+	"recordsFiltered" => intval( $linhas ), //Total de registros quando houver pesquisa
 	"data" => $dados   //Array de dados completo dos dados retornados da tabela 
 
 );

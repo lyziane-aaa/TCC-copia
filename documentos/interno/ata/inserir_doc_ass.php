@@ -1,6 +1,6 @@
 <?php
 session_start();
-include_once("../SITE_ROOT . "funcs/conexao.php");.php");
+require_once("../../funcs/conexao.php");
 
 $num_doc_ata = filter_input(INPUT_POST, 'num_doc_ata', FILTER_SANITIZE_STRING);
 $titulo_doc_ata = filter_input(INPUT_POST, 'titulo_doc_ata', FILTER_SANITIZE_STRING);
