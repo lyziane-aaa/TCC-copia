@@ -59,7 +59,6 @@
 							<th>Nível de Acesso</th>
 							<th>Data de Registro</th>
 							<?php if($_SESSION['nivel'] == 2) {?>
-								<th>Editar</th>
 								<th>Excluir</th>
 							<?php }?>
 						</tr>
@@ -73,13 +72,11 @@
 </div>
 
 
-<?php 
-			$result_usu= "SELECT * FROM usuarios WHERE 1=1";
-			$resultado_usu = mysqli_query($conn, $result_usu);
-			while ($row_usu = mysqli_fetch_array($resultado_usu)) {
-		?>
-<!-- Modal Editar-->
-<div class="modal fade" id="modal-editar-<?=$row_usu["id_usuarios"]?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+
+
+<!-- Modal Editar
+ <div class="modal fade" id="modal-editar-<?=$row_usu["id_usuarios"]?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -136,7 +133,7 @@
 			<input type="hidden" value="<?= $_SESSION['nome_usuarios']?>" name="gremista_update">
 			<input type="hidden" value="<?= $hoje ?>" name="data_update">
 			<input type="hidden" value ="<?= $row_usu['id_usuarios'] ?>" name="id">
-			<input type="hidden" value="listar" name="pagina"> <!-- Indica ao Inserir de qual página veio os dados -->
+			<input type="hidden" value="listar" name="pagina"> 
 			<input type="submit" value="Enviar">
 			<input type="reset" value="Limpar">
 			<br> 
@@ -146,8 +143,9 @@
     </div>
   </div>
 </div>
+-->
+
 <?php
-			}//Final Modal Editar 
 }	
 include_once(SITE_ROOT . "funcs/footer.php"); 
 ?>

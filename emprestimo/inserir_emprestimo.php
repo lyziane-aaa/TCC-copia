@@ -16,17 +16,17 @@ $pagina= filter_input(INPUT_POST, 'pagina', FILTER_SANITIZE_STRING);
 
 if($pagina == "listar"){
     $resultado_insert = "UPDATE emprestimos SET  obj_emp='$obj_emp' nome_emp = '$nome_emp', matricula_emp = '$matricula_emp', condicao_emp = '$condicao_emp', data_dev = '$devolucao', gremista_dev = '$gremista_recebeu' WHERE id_emp= '$id' ";
-    $resultado_insert_emp = mysqli_query($conn, $resultado_insert);
+    $resultado_insert_emp = mysqli_query($conn, $resultado_insert) or die("erro " . mysqli_error($conn));
     header("location:listar_emprestimo.php?sucesso=3");
 }
 
 else{
     $resultado_insert = "INSERT INTO emprestimos (obj_emp,nome_emp,matricula_emp,gremista_emp,data_emp,condicao_emp) 
-VALUES ('$obj_emp','$nome_emp','$matricula_emp','$gremista_emp',NOW()),condicao_emp";
+VALUES ('$obj_emp','$nome_emp','$matricula_emp','$gremista_emp',NOW(),condicao_emp)";
 
-$resultado_insert_pat = mysqli_query($conn, $resultado_insert) or die("erro " . mysqli_error($conn));
+$resultado_insert_pat = mysqli_query($conn, $resultado_insert) or die("erro 1 " . mysqli_error($conn));
 $resultado_insert_pat = "UPDATE patrimonioativo SET emprestado_pat = '$emprestado_pat' WHERE id_pat = $obj_emp";
-$resultado_insert_pat = mysqli_query($conn, $resultado_insert) or die("erro " . mysqli_error($conn));
+$resultado_insert_pat = mysqli_query($conn, $resultado_insert) or die("erro 2 " . mysqli_error($conn));
 
 //	$resultado_insertEmp = mysqli_query($conn, $resultado_insert);
 header('location: cadastrar_emprestimo.php?sucesso=1');

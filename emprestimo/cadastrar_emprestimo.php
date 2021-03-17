@@ -11,8 +11,6 @@ if (!isset($_SESSION)) {
         <title>Cadastrar Empréstimo</title>
         <!-- Links CSS -->
         <link rel="stylesheet" href="../css/estilo.css">
-        <!-- SCRIPTS -->
-        <script src="../js/scripts.js"></script>
 
     </head>
 
@@ -30,25 +28,23 @@ if (!isset($_SESSION)) {
                 <hr class="divisor">
                 <br>
                 <?php
+                $result_pat = "SELECT * FROM patrimonioativo WHERE emprestado_pat = 0 && emprestavel = 1";
+                $resultado_pat = mysqli_query($conn, $result_pat) or die("erro " . mysqli_error($conn));
 
-                $resultado_pat = mysqli_query($conn, "SELECT * FROM patrimonioativo WHERE emprestado_pat = 0 && emprestavel = 1") or die("erro " . mysqli_error($conn));
-                $row_pat = mysqli_fetch_array($resultado_pat);
-                
-                if (isset($row_pat)) {
-                    echo ' <label for="obj_emp">Objetos disponíveis para empréstimo</label>
-                    <select name="obj_emp" id="nome-objeto">';
-                    while ($row_pat = mysqli_fetch_array($resultado_pat)) {
-                        echo '<option value="'.$row_pat['id_pat'].'">'.$row_pat['nome_pat'].'</option>';
+                    echo'
+                        <label> Objetos disponíveis para empréstimos:</label>
+                        <select name="obj_emp">
+                        <option value="" Selected> Selecione uma opção </option> '
+                        
+                    ;
+
+                    while ($row_pat = mysqli_fetch_array($resultado_pat)){
+                        echo"<option value='{$row_pat['id_pat']}'>{$row_pat['nome_pat']}</option>";
                     }
-                    echo '</select>';
-                }else {
-                    echo '<label for="obj_emp">Objetos disponíveis para empréstimo</label>
-                        <select  name="" readonly ="readonly" class="bt-desativado">
-                        <option value="">Não há objetos disponíveis para empréstimos</option>
-                        </select>';
-                }
+                echo'</select>';
+
+                
                 ?>
-                </select>
                 <br>
 
                 <label for="nome_emp">Nome completo:</label>
@@ -79,9 +75,9 @@ if (!isset($_SESSION)) {
 
                 <input type="reset" class="botao" value="Limpar">
                 <?php if (isset($row_pat)) {
-                    echo '<input type="submit" class="botao" onclick="msg()" value="Cadastrar">';
+                    echo '<input type="submit" class="botao" value="Cadastrar">';
                 } else {
-                    echo '<input type="submit" class="botao bt-desativado" onclick="msg()" value="Cadastrar">';
+                    echo '<input type="submit" class="botao bt-desativado" value="Cadastrar">';
                 }
                 ?>
 

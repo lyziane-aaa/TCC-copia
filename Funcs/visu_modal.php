@@ -1,4 +1,9 @@
 <?php
+  $reandoly="readonly";
+  if($_SESSION['nivel'] == 2){
+        $reandoly = ""; 
+      }
+    
 if (!empty($_POST)){ 
   session_start();
  include_once("../funcs/conexao.php");
@@ -25,7 +30,7 @@ if (!empty($_POST)){
     }  //fim if tipo img
     if ($_POST["tipo"] == "editar_achados") {
       $res= ' <div class="modal-header">
-<h5 class="modal-title" id="imgLabel">' . $row["nome_achados"] . '</h5>
+  <h5 class="modal-title" id="imgLabel">' . $row["nome_achados"] . '</h5>
           
         </div>
         <div class="modal-body">
@@ -38,15 +43,15 @@ if (!empty($_POST)){
               <br>
 
               <label for="gremista-recebe">Gremista que recebeu:</label>
-              <input type="text" name="gremistaRecebeuAchados" value="' . $row["gremista_recebeu_achados"] . '" required>
+              <input type="text" name="gremistaRecebeuAchados" value="' . $row["gremista_recebeu_achados"] . '" '.$reandoly.' required>
               <br>
 
               <label for="quando-achados">Quando foi achado:</label>
-              <input type="date" name="quandoAchados" value="' . $row["quando_achados"] . '" required>
+              <input type="date" name="quandoAchados" value="' . $row["quando_achados"] . '" required >
               <br>
 
               <label for="onde-achados">Onde foi achado:</label>
-              <input type="text" name="ondeAchados" value="' . $row["onde_achados"] . '" required>
+              <input type="text" name="ondeAchados" value="' . $row["onde_achados"] . '" '.$reandoly.' required>
               <br>
 
               <label for="dados-achados">CPF ou Matrícula de quem Reinvindicou:</label>
@@ -100,11 +105,11 @@ if (!empty($_POST)){
   </div>
 	<form method="post" action="inserir_bolsacopia.php" class="cadastro">
               <label>Nome:</label>
-              <input type="text" placeholder="' . $row['nome_bc'] . '" required name="nome_bc">
+              <input type="text" value="' . $row['nome_bc'] . '" required name="nome_bc" readonly >
               <label>Matrícula:</label>
-              <input type="number" placeholder="' . $row['matricula_bc'] . '" onKeyPress="return Onlynumbers(event);" required name="matricula_bc">
+              <input type="number" value="' . $row['matricula_bc'] . '" onKeyPress="return Onlynumbers(event);" readonly  required name="matricula_bc">
               <label>Laudas:</label>
-              <input type="number" placeholder="' . $row['laudas_bc'] . '" required max="20" min="1" name="laudas_bc">
+              <input type="number" value="' . $row['laudas_bc'] . '" required max="20" min="1" name="laudas_bc" >
               <input type="hidden" value ="' . $row['id_bc'] . ' name="id">
               <input type="hidden" value="listar" name="pagina"> <!-- Indica ao Inserir de qual página veio os dados -->
               <br> <br> <br>
@@ -156,7 +161,7 @@ if (!empty($_POST)){
   <form method="post" action="inserir_patrimonio.php" class="cadastro">
 
 		<label for="nome-objeto">Nome do Objeto:</label>
-        <input type="text" name="nomePat" id="nome-objeto" value="'.$row['nome_pat'].'" required>
+        <input type="text" name="nomePat" id="nome-objeto" value="'.$row['nome_pat'].'"  required>
         <br>
 
         <label for="codigo-barras">Código de Barras</label>

@@ -8,7 +8,7 @@
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
                 <span class="navbar-toggler-icon"></span>
             </button>
-
+    
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item dropdown">
@@ -56,9 +56,9 @@
                 </li>
                 <li><a href="#submenubc" data-toggle="collapse"><i class="fas fa-print"></i> Bolsa Cópia</a>
                     <ul class="list-unstyled collapse" id="submenubc">
-                        <li> <a href="/TCC/bolsacopia/listar_bolsacopia.php"><i class="fas fa-edit"></i> Listar</a></li>
+                        <li> <a href="/TCC/bolsacopia/listar_bolsacopia.php"><i class="fas fa-list-ul"></i> Listar</a></li>
 
-                        <li> <a href="/TCC/bolsacopia/cadastrar_bolsacopia.php"><i class="fas fa-list-ul"></i> Cadastrar</a></li>
+                        <li> <a href="/TCC/bolsacopia/cadastrar_bolsacopia.php"><i class="fas fa-edit"></i> Cadastrar</a></li>
                     </ul>
                 </li>
 
