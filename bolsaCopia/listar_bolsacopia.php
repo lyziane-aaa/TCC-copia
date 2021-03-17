@@ -85,10 +85,10 @@
 										tipo: "editar-bc"
 									};
 
-									$.post('../achados/visu_achados.php', dados, function(retorna) {
+									$.post('../funcs/visu_modal.php', dados, function(retorna) {
 										//Carregar o conteúdo para o usuário
 										$("#visul_bc").html(retorna);
-										$('#editar-bc').modal('show');
+										$('#bc').modal('show');
 									});
 								}
 							});
@@ -103,7 +103,7 @@
 									tipo: "configurar-bimestre"
 								};
 
-								$.post('../achados/visu_achados.php', dados, function(retorna) {
+								$.post('../funcs/visu_modal.php', dados, function(retorna) {
 									//Carregar o conteúdo para o usuário
 									$("#visul_configurar-bimestre").html(retorna);
 									$('#configurar-bimestre').modal('show');
@@ -121,7 +121,7 @@
 									tipo: "bimestre-vigor"
 								};
 
-								$.post('../achados/visu_achados.php', dados, function(retorna) {
+								$.post('../funcs/visu_modal.php', dados, function(retorna) {
 									//Carregar o conteúdo para o usuário
 									$("#visul_bimestre-vigor").html(retorna);
 									$('#bimestre-vigor').modal('show');

@@ -1,5 +1,5 @@
 <?php include_once("../../../TCC/funcs/header.php"); ?>
-
+<title> Gestões </title>
 	<script type="text/javascript">
     setTimeout(function(){ 
         var msg = document.getElementsByClassName("alertaDeErro");
@@ -46,10 +46,9 @@
 					<thead>
 						<tr>
 							<th>Nome</th>
-							<th>Matrícula</th>
-							<th>Cargo</th>
-							<th>Telefone</th>
-							<th>E-mail</th>
+							<th>Início</th>
+							<th>Término</th>
+							<th>Ata de Posse</th>
 						</tr>
 					</thead>
 					<tbody>

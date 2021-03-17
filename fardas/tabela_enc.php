@@ -47,7 +47,7 @@ while($row_fardas_enc =mysqli_fetch_array($resultado_fardas_enc) ) {
 	$dado[] = $row_fardas_enc["data_encomenda"];
 	$dado[] = '
 	<!-- Botão para acionar modal de de Encerrar a encomenda -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-' . $row_fardas_enc["id_fardas_enc"] . '">
+<button type="button" class="btn btn-primary venda-fardas-enc" data-toggle="modal" id="' . $row_fardas_enc["id_fardas_enc"] . '">
 Confirmar
 </button>';
 	$dados[] = $dado;

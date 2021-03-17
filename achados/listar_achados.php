@@ -64,20 +64,13 @@
   </div>
 
   <!-- Modal -->
-  <div class="modal fade" id="img_achados" data-backdrop="static" class="modal hidden fade in" style=" display:none !important; z-index: 90000 !important;" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
+  <div id="img_achados" data-backdrop="static" class="modal hidden fade in" style=" display:none !important; z-index: 90000 !important;" 
+  data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog   modal-dialog-centered" role="document">
       <div class="modal-content">
-      <div class="modal-header">
-          <h5 class="modal-title" id="TituloModalCentralizado">Imagem</h5>
-          
-          </div>
-          <div class="modal-body">
-
-        <span id="visul_img"></span>
-</div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-primary " onclick="window.location.reload();" data-dismiss="modal">Fechar</button>
-        </div>
+        
+          <span id="visul_img"></span>
+        
       </div>
     </div>
   </div>
@@ -89,24 +82,24 @@
 
   <script>
     $(document).ready(function() {
-      $(document).on('click', '.img_achados', function() {
+      $(document).on('click', '.img-achados', function() {
         var id_achados = $(this).attr("id");
-        // alert(id_achados);
+        
         //Verificar se há valor na variável "id_achados".
         if (id_achados !== '') {
           var dados = {
             id_achados: id_achados,
             tipo: "img_achados"
           };
-
-          $.post('visu_achados.php', dados, function(retorna) {
+          $.post('../funcs/visu_modal.php', dados, function(retorna) {
             //Carregar o conteúdo para o usuário
             $("#visul_img").html(retorna);
             $('#img_achados').modal('show');
           });
-        }
-      });
-    });
+					}
+				});
+			});
+
     //Pega o id para editar
     $(document).ready(function() {
       $(document).on('click', '.editar_achados', function() {
@@ -119,7 +112,7 @@
             tipo: "editar_achados"
           };
 
-          $.post('visu_achados.php', dados, function(retorna) {
+          $.post('../funcs/visu_modal.php', dados, function(retorna) {
             //Carregar o conteúdo para o usuário
             $("#visul_editar_achados").html(retorna);
             $('#editar_achados').modal('show');
@@ -136,30 +129,7 @@
 
   //while ($row_achados = mysqli_fetch_array($resultado_achados)) {
   ?>
-  <!-- Modal de exibir -->
-  <!-- <div class="modal fade" id="modal-img-<?= $row_achados["id_achados"] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="TituloModalCentralizado">Visualizar:</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <div style="overflow-y: hidden; height: calc(100vh - 15rem);">
-              <div class="px-2" style="overflow-y: auto; height: 100%;">
-                <img src="<?= $row_achados["img_achados"] ?> " alt="toto">
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                <button type="button" class="btn btn-primary">Salvar mudanças</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+  <!-- Modal de exibir 
 
     Modal de editar 
     <div class="modal fade" id="modal-editar-<?= $row_achados["id_achados"] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

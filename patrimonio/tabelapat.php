@@ -1,5 +1,7 @@
 <?php
 require_once("../funcs/conexao.php");
+require_once("../funcs/functions.php");
+
 //Sempre iniciado com $, tipo de vari�vel;
 //$requestData= $_REQUEST;
 $requestData= $_REQUEST;
@@ -51,7 +53,7 @@ while($row_pat =mysqli_fetch_array($resultado_pat) ) {
 	$dado[] = $row_pat["obtencao_pat"];
 	$dado[] = $row_pat["custo_obt"];
 	$dado[] = $row_pat["obs_pat"];
-	$datapat = date('d/m/Y H:i:s',strtotime($row_pat["data_cad_pat"]));
+	$datapat = databr($row_pat["data_cad_pat"]);
 	$dado[] = $datapat;
 	$dado[] = $row_pat["gremista_cadastro_pat"];
 	if($row_pat["emprestavel"]== 1){
@@ -60,7 +62,7 @@ while($row_pat =mysqli_fetch_array($resultado_pat) ) {
 		$data_emprestavel = "Não";
 	}
 	$dado[] = $data_emprestavel;
-	$dado[] = '<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-editar-'.$row_pat["id_pat"].'">
+	$dado[] = '<button type="button" class="btn btn-primary editar-pat" data-toggle="modal" id="'.$row_pat["id_pat"].'">
 	Editar
 	</button>';
 	//Botão de Excluir (Ele envia o id via Get)

@@ -1,5 +1,5 @@
 <?php
-require_once("../../conexao.php"); . "funcs/conexao.php");.php");
+require_once("../../funcs/conexao.php");
 //Sempre iniciado com $, tipo de vari�vel;
 //$requestData= $_REQUEST;
 $requestData= $_REQUEST;

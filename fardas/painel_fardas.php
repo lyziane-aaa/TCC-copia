@@ -147,7 +147,7 @@ sair da sessão clicando no icone de usuário. -->
             <h4>Fardas Encomendadas:</h4>
             <div id="fardas-vendidas-container">
                 <!-- Botão para acionar modal de de Encerrar a encomenda -->
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-vender">Vender Farda</button>
+                <button type="button" class="btn btn-primary venda-fardas" data-toggle="modal" data-target="#modal-vender">Vender Farda</button>
 
                 <table id="tabela_enc" class="table table-bordered table-striped">
                     <thead>
@@ -169,128 +169,53 @@ sair da sessão clicando no icone de usuário. -->
         </div>
 </div> <!-- final content -->
 <?php
-while ($row_fardas_enc = mysqli_fetch_array($resultado_fardas_enc)) {
-    ?>
-        <!-- Modal da tabela -->
-        <div class="modal fade" id="modal-<?= $row_fardas_enc['id_fardas_enc'] ?>" tabindex="-1" role="dialog" aria-labelledby="TituloModalLongoExemplo" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="TituloModalLongoExemplo" style="color: white;">Confirmar Encomenda de <?= $row_fardas_enc['nome_fardas_enc'] ?></h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body" style="height:fit-content;">
-                        <form action="inserir_fardas_vend.php" class="cadastro" method="post" enctype="multipart/form-data">
-                            <h5> (As encomendas vencem em três dias) </h5>
-                            <hr class="divisor">
-
-                            <input type="number" hidden name="id_fardas_enc" value=<?= $row_fardas_enc['id_fardas_enc'] ?> required>
-
-                            <label for="nome_fardas_vend">Nome Completo do comprador:</label>
-                            <input type="text" name="nome_fardas_vend" value=<?= $row_fardas_enc['nome_fardas_enc'] ?> required>
-                            <br>
-
-                            <label for="matricula_fardas_enc">Matrícula do comprador:</label>
-                            <input type="text" name="matricula_fardas_vend" value=<?= $row_fardas_enc['matricula_fardas_enc'] ?> required>
-                            <br>
+echo modale("venda-fardas-enc");
+echo modale("venda-fardas");
 
 
-                            <label for="tamanho_fardas_enc">Tamanho da Farda:</label>
-                            <select name="tamanho_fardas_vend" required>
-                                <option selected value="">Selecione o tamanho da Farda</option>
-                                <?php
-                                foreach ($aux as $a) {
-                                    $b = str_replace('-BL', ' - Baby Look', $a);
-                                    echo "<option value='$a'>$b</option>";
-                                } ?>
+?>
 
+<script>
+         //Verificar se há valor na variável "id_bc".
+        $(document).ready(function() {
+            $(document).on('click', '.venda-fardas-enc', function() {
+                var id_fardas_enc = $(this).attr("id");
+            
+                if (id_fardas_enc !== '') {
+                    var dados = {
+                       id_fardas_enc: id_fardas_enc,
+                        tipo: "venda-fardas-enc"
+                    };
 
-                            </select>
-                            <br>
-                            <label for="qnt_fardas_enc">Quantidade de Fardas:</label>
-                            <input type="number" value=<?= $row_fardas_enc['qnt_fardas_enc'] ?> name="qnt_fardas_vend" min="0" max="5" required>
-                            <br>
-                            <label for="qnt_fardas_enc">Recibo:</label>
-                            <p> Lembrete: é apenas UM recibo por compra, nele deverá constar o somatório dos preços de todas as fardas de uma venda</p>
-                            <input type="file" name="recibo_fardas_vend" min="0" max="5" required>
-                            <br>
-                            <label for="pagamento">Confirme o pagamento:</label>
-                            <select name="pagamento" required>
-                                <option value="pago">Pago</option>
-                                <option selected value="">Não pago</option>
+                    $.post('../funcs/visu_modal.php', dados, function(retorna) {
+                        
+                        $("#visul_venda-fardas-enc").html(retorna);
+                        $('#venda-fardas-enc').modal('show');
+                    });
+                }
+            });
+        });
 
+        $(document).ready(function() {
+            $(document).on('click', '.venda-fardas', function() {
+                           
+                    var dados = {
+                     tipo: "venda-fardas"
+                    };
+                    
+                    $.post('../funcs/visu_modal.php', dados, function(retorna) {
+                      
+                        $("#visul_venda-fardas").html(retorna);
+                        $('#venda-fardas').modal('show');
+                    });
+							});
+						});
 
+    </script>
 
-
-                    </div>
-                    <div class="modal-footer">
-                        <input type="reset" class="botao" value="Limpar">
-                        <input type="submit" class="botao" onclick="msg()" value="Confirmar encomenda">
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    <?php } ?>
     <div>
-        <h2 class="cad-titulo">Painel de Gerenciamento das Vendas de Fardas </h2>
-        <!-- Modal avulso -->
-        <div class="modal fade" id="modal-vender" tabindex="-1" role="dialog" aria-labelledby="TituloModalLongoExemplo" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="TituloModalLongoExemplo" style="color: white;">Realizar nova venda</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body" style="height:fit-content;">
-                        <form action="inserir_fardas_vend.php" class="cadastro" method="post" enctype="multipart/form-data">
-                            <hr class="divisor">
-
-                            <label for="nome_fardas_vend">Nome Completo do comprador:</label>
-                            <input type="text" name="nome_fardas_vend" required>
-                            <br>
-
-                            <label for="matricula_fardas_enc">Matrícula do comprador:</label>
-                            <input type="text" name="matricula_fardas_vend" required>
-                            <br>
-
-
-                            <label for="tamanho_fardas_enc">Tamanho da Farda:</label>
-                            <select name="tamanho_fardas_vend" required>
-                                <?php
-                                foreach ($aux as $a) {
-                                    $b = str_replace('-BL', ' - Baby Look', $a);
-                                    echo "<option value='$a'>$b</option>";
-                                } ?>
-                            </select>
-                            <br>
-                            <label for="qnt_fardas_enc">Quantidade de Fardas:</label>
-                            <input type="number" name="qnt_fardas_vend" min="0" max="5" required>
-                            <br>
-                            <label for="qnt_fardas_enc">Recibo:</label>
-                            <p> Lembrete: é apenas UM recibo por compra, nele deverá constar o somatório dos preços de todas as fardas de uma venda</p>
-                            <input type="file" name="recibo_fardas_vend" min="0" max="5" required>
-                            <br>
-                            <label for="pagamento">Confirme o pagamento:</label>
-                            <select name="pagamento" required>
-                                <option value="pago">Pago</option>
-                                <option selected value="">Não pago</option>
-                    </div>
-                    <div class="modal-footer">
-                        <input type="reset" class="botao" value="Limpar">
-                        <input type="submit" class="botao" onclick="msg()" value="Confirmar venda">
-                        </form>
-                    </div>
-                </div>
-            </div>
+        
         </div>
         
         <?php
         include_once(SITE_ROOT . "funcs/footer.php"); ?>
-</body>
-
-</html>
