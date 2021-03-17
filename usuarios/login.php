@@ -147,7 +147,6 @@ if (!isset($_SESSION['login']) && !isset($_SESSION['senha'])){
     }
 }
 </style>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.14.1/dist/sweetalert2.all.min.js"></script>
 <script type=" text/javascript">
 	setTimeout(function(){
 	var msg = document.getElementsByClassName("alerta-erro");
