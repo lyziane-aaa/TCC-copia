@@ -58,7 +58,7 @@ while($row_emp =mysqli_fetch_array($resultado_emp) ) {
 	$dado[] = $row_emp["data_dev"];
 	$dado[] = $row_emp["gremista_dev"];
 	//Botão de Editar
-	$dado[] = '<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-editar-'.$row_emp['id_emp'].'">Editar</button>';
+	$dado[] = '<button type="button" class="btn btn-primary editar-emp" data-toggle="modal" id="'.$row_emp['id_emp'].'">Editar</button>';
 	//Botão de Excluir (Ele envia o id via Get)
 	$dado[] = '<a href="javascript:confirmar('.$row_emp['id_emp'].')" data-confirm="Tem certeza que deseja prosseguir com a exclusão desse registro ?"> <button type="button" class="btn btn-primary">Excluir</button></a>';
 	$dados[] = $dado;

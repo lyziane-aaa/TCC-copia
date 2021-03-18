@@ -47,7 +47,7 @@ sair da sessão clicando no icone de usuário. -->
 Olá! Boas-vindas ao Painel de Gerenciamento de Diretoria! Aqui você poderá gerenciar os cargos administrativos da sua agremiação. 
 O Sistema já possui cargos padrão que podem ser alterados segundo o disposto no Estatuto do GEVP.
 </div>
-    <form action="atualizar_diretoria.php" class = "cadastro" method="post" name="Teste">
+    <form action="atualizar_diretoria.php" class = "cadastro bg-dark" method="post" name="Teste">
         <h2 class="cad-titulo"><img src="/TCC/imagens/renomear.png">Renomear Cargos</h2>
         <hr class="divisor"> 
         <label for ="alterar_cargo_antigo"> Selecione o cargo que deseja renomear </label>
@@ -97,6 +97,7 @@ O Sistema já possui cargos padrão que podem ser alterados segundo o disposto n
             
 
     </form>
+    </div>
 
 
 

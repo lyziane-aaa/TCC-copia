@@ -58,7 +58,7 @@
         </div>
     </div>
 </div>
-
+		</div>
 <?php
 //}	
 include_once("../../../TCC/funcs/footer.php"); 

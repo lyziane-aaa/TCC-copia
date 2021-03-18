@@ -8,13 +8,13 @@
 <!-- Analisar possibilidade de uma segunda logo e de colocar novamente a o local onde podiamos 
 sair da sessão clicando no icone de usuário. -->
 <body class="bg-dark">
-    <?php 
+    <?php  
         include_once(SITE_ROOT . "funcs/menu.php");
         include_once("../funcs/conexao.php"); 
         if(isset($_SESSION['login']) && isset($_SESSION['nivel'])) {
             $_SESSION['listar'] = 2;         
     ?>
-    <form action="inserir_patrimonio.php" class = "cadastro" method="post">
+    <form action="inserir_patrimonio.php" class = "cadastro bg-dark" method="post">
         <h2 class="cad-titulo"><img src="../imagens/patrimonio.png">Cadastrar Patrimônio</h2>
         <hr class="divisor"> 
 
@@ -74,6 +74,7 @@ sair da sessão clicando no icone de usuário. -->
         <input type="submit" class="botao"  value="Cadastrar">
         <input type="reset" class="botao" value="Limpar">
     </form>
+    </div>
 
     <?php 
         include_once(SITE_ROOT . "funcs/footer.php");

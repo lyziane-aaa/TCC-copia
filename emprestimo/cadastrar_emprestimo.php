@@ -23,7 +23,7 @@ if (!isset($_SESSION)) {
 
         if (isset($_SESSION['login']) && isset($_SESSION['nivel'])) {
         ?>
-            <form action="inserir_emprestimo.php" class="cadastro" method="post">
+            <form action="inserir_emprestimo.php" class="cadastro bg-dark" method="post">
                 <h2 class="cad-titulo"><img src="../imagens/emprestimos.png"> Cadastro Empréstimo</h2>
                 <hr class="divisor">
                 <br>
@@ -34,7 +34,7 @@ if (!isset($_SESSION)) {
                     echo'
                         <label> Objetos disponíveis para empréstimos:</label>
                         <select name="obj_emp">
-                        <option value="" Selected> Selecione uma opção </option> '
+                        <option value="0" Selected> Selecione uma opção </option> '
                         
                     ;
 
@@ -82,6 +82,7 @@ if (!isset($_SESSION)) {
                 ?>
 
             </form>
+            </div>
     <?php
             include_once(SITE_ROOT . "funcs/footer.php");
         }

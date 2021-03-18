@@ -70,6 +70,7 @@ sair da sessão clicando no icone de usuário. -->
         <input type="submit" value="Enviar">
         <input type="reset"  value="Limpar">
     </form>
+                </div>
     <?php 
     include_once(SITE_ROOT . "funcs/footer.php");
 }

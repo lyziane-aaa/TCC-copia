@@ -118,6 +118,7 @@ include_once(SITE_ROOT . "/funcs/menu.php");
 
 
 			</div><!-- fim div #interface-->
+		</div>
 		<?php
 	}
 	include_once(SITE_ROOT . "funcs/footer.php");

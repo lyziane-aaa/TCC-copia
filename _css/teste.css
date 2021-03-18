@@ -159,6 +159,7 @@ body {
     padding: 0;
     transition: 0.3s;
     grid-template-areas: "a h" "a m" "a f";
+    
 }
 
 .container-fluid.muda {
@@ -187,7 +188,8 @@ header {
     margin-right: auto;
     margin-bottom: 5px;
     overflow-x: auto;
-    padding-bottom: 10px
+    padding-bottom: 10px;
+    background-color: #343a40;
 }
 
 .main-sidebar {
@@ -260,7 +262,6 @@ footer {
 }
 
 .modal-body {
-    background-color: white !important;
     padding: auto;
 }
 
@@ -278,4 +279,3 @@ footer {
     min-height: 300px;
 }
 
-.modal-content {}

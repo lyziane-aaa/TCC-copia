@@ -128,12 +128,11 @@ function modale($tipo)
 <!-- Modal -->
 <div id="' . $tipo . '" tabindex="-1" data-backdrop="static" data-keyboard="false" class="modal hidden fade in" style="display:none !important; z-index: 90000 !important;" aria-labelledby="exampleModalLabel" aria-hidden="true">
 <div class="modal-dialog modal-dialog-scrollable">
-<div class="modal-content">
+<div class="modal-content" style="background-color:#161717;">
                 
           <span id="visul_' . $tipo . '"></span>
         
         <div class="modal-footer">
-          <button type="button" class="btn btn-primary " onclick="window.location.reload();" data-dismiss="modal">Fechar</button>
         </div>
       </div>
     </div>

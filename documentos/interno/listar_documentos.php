@@ -129,11 +129,7 @@
 			</div> <!-- panel body-->
 		</div>
 	</div>
-
-	<?php
-
-	include_once(SITE_ROOT . "funcs/footer.php");
-	?>
+								</div>
 
 </body>
 

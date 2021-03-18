@@ -26,7 +26,7 @@ sair da sessão clicando no icone de usuário. -->
 			 menu com o php */    
     ?>
 
-    <form action="inserir_usuarios.php" class = "cadastro" method="post">
+    <form action="inserir_usuarios.php" class = "cadastro bg-dark" method="post">
         <h2 class="cad-titulo"><img src="../imagens/usuarios.png"> Cadastro Usuários</h2>
         <hr class="divisor"> 
 
@@ -81,7 +81,7 @@ sair da sessão clicando no icone de usuário. -->
         <input type="submit" class="botao" onclick="msg()" value="Cadastrar">
         <input type="reset" class="botao" value="Limpar">
     </form>
-
+        </div>
     <?php 
         include_once(SITE_ROOT . "funcs/footer.php");
         }

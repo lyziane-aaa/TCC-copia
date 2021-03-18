@@ -28,7 +28,7 @@
 				}
 			}
 		</script>
-		<div id="interface">
+		<div id="interface" >
 			<div class="divoficio" id="fundo_doc_ata">
 				<!-- div de exibição do bimestre-->
 				<form action="inserir_doc_ata_ass.php" method="POST" enctype="multipart/form-data">
@@ -112,6 +112,7 @@
 	}
 		?>
 		</div><!-- fim div #interface-->
+</div>
 <?php 
 		include_once(SITE_ROOT . "/funcs/footer.php");
 ?>

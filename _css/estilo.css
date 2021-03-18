@@ -227,7 +227,7 @@ as classes quando o widht ficar menor ou igual a 900px */
 
 .cadastro {
     /*     background-color: darksalmon; */
-    width: 80%;
+    width: 70%;
     position: relative;
     padding: 10px;
     color: whitesmoke;
@@ -235,6 +235,7 @@ as classes quando o widht ficar menor ou igual a 900px */
     font-family: 'roboto';
     font-size: 18px;
     margin-top: 90px;
+    margin-top: 5px;
 }
 
 .cadastro input,
@@ -249,6 +250,8 @@ select {
     font-family: 'nasalization';
     color: whitesmoke;
     border-radius: 5px;
+    margin-left: 5%;
+
 }
 
 .cadastro hr {
@@ -256,6 +259,7 @@ select {
     width: 90%;
     border-color: white;
     margin-left: 5%;
+    text-align: center;
 }
 
 .cadastro input,
@@ -269,6 +273,7 @@ select {
     font-family: 'roboto';
     font-size: 17px;
     color: #1a1c1b;
+    margin-left: 12%;
 }
 
 .cadastro input[type="text"],
@@ -277,6 +282,7 @@ input[type="number"],
 input[type="password"],
 input[type="email"] {
     width: 75%;
+    margin-left: 12%;
 }
 
 .cadastro textarea {
@@ -292,7 +298,8 @@ input[type="email"] {
 
 .cadastro label {
     display: block;
-    margin-left: 5%;
+    margin-left: 12%;
+
 }
 
 .cadastro input[type="submit"],
@@ -300,10 +307,12 @@ input[type="email"] {
     background-color: #d66f33;
     color: white;
     padding: 5px;
-    width: 40%;
+    width: 32%;
     height: 40px;
     font-size: 16px;
     font-family: 'roboto';
+    margin-left: 11.5%;
+    margin-top: 30px;
 }
 
 .cadastro input[type="submit"]:hover {
@@ -457,10 +466,6 @@ img {
 
 /* ESTILO DO LISTAR */
 
-.container {
-    /* background-color: rgb(14, 14, 14) !important; */
-}
-
 .listar-escuro th {
     background-color: #262627 !important;
     color: white;
@@ -510,7 +515,7 @@ img {
     background-color: #474444;
     padding: 5px;
     border-radius: 20px;
-    width: fit-content
+    width: max-content;
 }
 
 .table_bc .dataTables_wrapper {
@@ -531,9 +536,17 @@ img {
     margin-right: 10px;
     margin-top: 10px;
 }
-
-.table {
+.table.dataTable{
     border: none;
+}
+
+#tabela_achados.table.dataTable, #tabela_emprestimo.table.dataTable, #tabela_patrimonio.table.dataTable, #tabela_usuarios.table.dataTable{
+    max-width: min-content !important;
+}
+
+.table-responsive{
+    overflow-x: inherit;
+    justify-content: center;
 }
 
 
@@ -762,3 +775,6 @@ div#fardas_chart {
 .fas .fa-feather-alt {
     color: red;
 }
+
+
+

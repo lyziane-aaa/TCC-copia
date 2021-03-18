@@ -66,7 +66,7 @@ while($row_pat =mysqli_fetch_array($resultado_pat) ) {
 	Editar
 	</button>';
 	//Botão de Excluir (Ele envia o id via Get)
-	$dado[] = ' <a href="excluir_patrimonio.php?id_pat='. $row_pat["id_pat"].'" data-confirm="Tem certeza que deseja prosseguir com a exclusão desse registro ?"> <button type="button" class="btn btn-primary">Excluir</button></a>';
+	$dado[] = ' <a href="javascript:confirmar('.$row_pat['id_pat'].')" class="btn btn-primary">Excluir</button></a>';
 		$dados[] = $dado;
 }
 // <?php echo $rows_pat['img_pat'];"';

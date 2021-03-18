@@ -50,7 +50,7 @@
 			?>
 	<div class="container">
     <br/>
-    <div class="panel panel-default listar-escuro">
+    <div class="panel panel-default listar-escuro" align="center">
         <div class="panel-heading">Patrimônio</div>
         <div class="panel-body">
             <div class="table-responsive">
@@ -77,6 +77,7 @@
         </div>
     </div>
 </div>
+			</div>
 
 <?php 
 include_once("../../funcs/footer.php"); 

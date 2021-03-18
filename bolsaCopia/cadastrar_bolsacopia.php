@@ -21,7 +21,7 @@ sair da sessão clicando no icone de usuário. -->
         if(isset($_SESSION['login']) && isset($_SESSION['nivel'])) {
             $_SESSION['listar'] = 2;  
     ?>
-    <form action="inserir_bolsacopia.php" class = "cadastro" method="post">
+    <form action="inserir_bolsacopia.php" class = "cadastro bg-dark" method="post">
         <h2 class="cad-titulo"><img src="../imagens/bc.png"> Cadastro Bolsa Cópia</h2>
         <hr class="divisor"> 
 
@@ -40,6 +40,7 @@ sair da sessão clicando no icone de usuário. -->
         <input type="submit" class="botao"  value="Cadastrar">
         <input type="reset" class="botao" value="Limpar">
     </form>
+        </div>
     <?php 
     include_once(SITE_ROOT . "funcs/footer.php"); 
 }

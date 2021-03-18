@@ -1,4 +1,5 @@
-<?php include_once("../../TCC/funcs/header.php"); ?>
+<?php include_once("../Funcs/header.php");
+$hre="excluir_achados.php?id="; ?>
 
 <!-- script que chama a tabela -->
 <script>
@@ -16,6 +17,8 @@
     });
   });
 </script>
+
+
 </head>
 
 <body class="bg-dark">
@@ -31,7 +34,7 @@
 
   <!--<div class="container container-grande"> -->
   <br />
-  <div class="panel panel-default listar-escuro panel-grande">
+  <div class="panel panel-default listar-escuro panel-grande" align="center">
     <div class="panel-heading">Achados e Perdidos</div>
     <div class="panel-body">
       <div class="table-responsive">
@@ -209,5 +212,4 @@
 
 
 </body>
-
 </html>

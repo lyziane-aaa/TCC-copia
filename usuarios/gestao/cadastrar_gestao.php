@@ -24,7 +24,7 @@ sair da sessão clicando no icone de usuário. -->
     ?>
 <p> O Cadastro de uma nova gestão necessariamente implicará no arquivamento de todos os usuários existentes para o módulo Histórico </p>
 
-    <form action="inserir_gestao.php" class = "cadastro" method="post" enctype="multipart/form-data">
+    <form action="inserir_gestao.php" class = "cadastro bg-dark" method="post" enctype="multipart/form-data">
         <h2 class="cad-titulo"><img src="/TCC/imagens/gestao.png"> Cadastro Gestão</h2>
         <hr class="divisor"> 
 
@@ -103,6 +103,7 @@ sair da sessão clicando no icone de usuário. -->
         <input type="submit" class="botao" onclick="msg()" value="Cadastrar">
         <input type="reset" class="botao" value="Limpar">
     </form>
+    </div>
 
     <?php 
         include_once(SITE_ROOT . "funcs/footer.php");

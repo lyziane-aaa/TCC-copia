@@ -1,11 +1,13 @@
 <?php
+    
+if (!empty($_POST)){ 
+  session_start();
+
   $reandoly="readonly";
   if($_SESSION['nivel'] == 2){
         $reandoly = ""; 
       }
-    
-if (!empty($_POST)){ 
-  session_start();
+      
  include_once("../funcs/conexao.php");
   if (isset($_POST["id_achados"]) && isset($_POST["tipo"])) {
     
@@ -17,7 +19,7 @@ if (!empty($_POST)){
       $res = '  <div class="modal-header">
       <h5 class="modal-title" id="TituloModalCentralizado">Imagem de '.$row["nome_achados"].'</h5>
     </div>
-    <div class="modal-body">
+    <div class="modal-body" style="background-color:#161717;">
             
                 <img width = "300px" height="300px" src="' . $row["img_achados"] . '" alt="toto">
            
@@ -30,14 +32,13 @@ if (!empty($_POST)){
     }  //fim if tipo img
     if ($_POST["tipo"] == "editar_achados") {
       $res= ' <div class="modal-header">
-  <h5 class="modal-title" id="imgLabel">' . $row["nome_achados"] . '</h5>
-          
+  <h5 class="modal-title" id="imgLabel"> Editar Registro de '. $row["nome_achados"] . '</h5>
+  <button type="button" class="close" onclick="window.location.reload();" data-dismiss="modal" aria-label="Close">
+  <span aria-hidden="true">&times;</span>
+</button>
         </div>
-        <div class="modal-body">
+        <div class="modal-body" style="background-color:#161717;">
 		<form action="inserir_achados.php" class="cadastro" method="post">
-              <h2 class="cad-titulo"> Editar Achados e Perdidos</h2>
-              <hr class="divisor">
-
               <label for="nome-objeto">Nome do Objeto:</label>
               <input type="text" name="nomeAchados" value="' . $row["nome_achados"] . '" required>
               <br>
@@ -102,6 +103,9 @@ if (!empty($_POST)){
     echo '
   <div class="modal-header">
   <h5 class="modal-title" id="TituloModalCentralizado">Editar Registro do Bolsa Cópia</h5>
+  <button type="button" class="close" onclick="window.location.reload();" data-dismiss="modal" aria-label="Close">
+  <span aria-hidden="true">&times;</span>
+</button>
   </div>
 	<form method="post" action="inserir_bolsacopia.php" class="cadastro">
               <label>Nome:</label>
@@ -110,26 +114,29 @@ if (!empty($_POST)){
               <input type="number" value="' . $row['matricula_bc'] . '" onKeyPress="return Onlynumbers(event);" readonly  required name="matricula_bc">
               <label>Laudas:</label>
               <input type="number" value="' . $row['laudas_bc'] . '" required max="20" min="1" name="laudas_bc" >
-              <input type="hidden" value ="' . $row['id_bc'] . ' name="id">
+              <input type="hidden" value ="' . $row['id_bc'] . '" name="id">
               <input type="hidden" value="listar" name="pagina"> <!-- Indica ao Inserir de qual página veio os dados -->
               <br> <br> <br>
               <input type="submit" value="Enviar">
               <input type="reset" value="Limpar">
           </form>';
   } //fim if editar-bc
+
+
+
   if ($_POST["tipo"] == "configurar-bimestre") {
 
 
     echo '
     <div class="modal-header">
   <h5 class="modal-title" id="TituloModalCentralizado">Cadastro de novo Bimestre</h5>
+  <button type="button" class="close" onclick="window.location.reload();" data-dismiss="modal" aria-label="Close">
+  <span aria-hidden="true">&times;</span>
+</button>
   </div>
 
 
   <form action="bimestre/inserir_bimestrenovo.php" class = "cadastro" method="post">
-    <h2 class="cad-titulo"><img class ="bimestre" src="https://img.icons8.com/android/24/000000/calendar.png"/> <p class ="bim">Configurar<br> Bimestre</p></h2>
-    <hr class="divisor"> 
-
     <label for="nome-bc">Número do novo bimestre</label>
     <input type="text" name="nome_bim_bc" id="nome-bc" required>
     <br>
@@ -149,6 +156,66 @@ if (!empty($_POST)){
     
     ';
   }
+
+  if ($_POST["tipo"] == "editar-emp") {
+    $query = "SELECT * FROM emprestimos WHERE id_emp = '" . $_POST["id_emp"] . "' LIMIT 1";
+    $resultado = mysqli_query($conn, $query);
+    $row = mysqli_fetch_assoc($resultado);
+    $data = date('d/m/Y - H:i:s');
+      
+    echo'
+            < class="modal-header">
+              <h5 class="modal-title" id="TituloModalCentralizado">Atualizar Empréstimo de '.$row['nome_emp'].'</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </>
+            <div class="modal-body" style="overflow-y:auto;">
+              <form method="post" action="inserir_emprestimo.php" class="cadastro">
+  
+                <label for="nome_emp">Nome do objeto:</label>
+                <input type="text" readonly value="'. $row['obj_emp'] .'" name="objeto_emp" required>
+                <br>
+  
+                <label for="nome_emp">Nome completo do aluno:</label>
+                <input type="text" placeholder="'. $row['nome_emp'] .'" name="nome_emp" id="nome-usuarios" required>
+                <br>
+  
+                <label for="matricula_emp">Matrícula ou CPF:</label>
+                <input type="text" placeholder="'. $row['matricula_emp'] .'" name="matricula_emp" required>
+                <br>
+  
+                <label for="gremista_emp">Gremista que emprestou:</label>
+                <input type="text" name="gremista_emp" required readonly value="'. $row['gremista_emp'] .'">
+                <br>
+  
+                <label for="condicao" id="post">Condição:</label>
+                <select placeholder="'. $row['condicao_emp'] .'" name="condicao_emp" id="condicao">
+                  <option value="Novo">Novo</option>
+                  <option selected value="Normal">Normal</option>
+                  <option value="Desgastado">Desgastado</option>
+                </select>
+  
+                <label for="data_emp">Data de Devolução:</label>
+                <input type="text" name="devolucao_emp" required readonly value="'. $data. '">
+  
+                <label for="gremista_emp">Gremista que Recebeu:</label>
+                <input type="text" readonly value="'. $_SESSION['nome_usuarios'] .'" name="gremista_recebeu_emp" required>
+                <br>
+  
+                <input type="hidden" value="'. $row['id_emp'] .'" name="id">
+                <input type="hidden" value="listar" name="pagina"> <!-- Indica ao Inserir de qual página veio os dados -->
+                <input type="submit" value="Enviar">
+                <input type="reset" value="Limpar">
+                <br>
+                <br>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>';
+    } 
+
   if ($_POST["tipo"] == "editar-pat" ){
         
     $query = 'SELECT * FROM patrimonioativo WHERE id_pat = "' . $_POST["id_pat"] . '" LIMIT 1';
@@ -157,6 +224,9 @@ if (!empty($_POST)){
     echo '
     <div class="modal-header">
     <h5 class="modal-title" id="TituloModalCentralizado">Editar registro do Patrimônio de ID '.$_POST["id_pat"] .'</h5>
+    <button type="button" class="close" onclick="window.location.reload();" data-dismiss="modal" aria-label="Close">
+  <span aria-hidden="true">&times;</span>
+</button>
     </div>
   <form method="post" action="inserir_patrimonio.php" class="cadastro">
 
@@ -235,9 +305,12 @@ if (!empty($_POST)){
 echo '
   <div class="modal-header">
   <h5 class="modal-title" id="TituloModalLongoExemplo" style="color: white;">Confirmar Encomenda de ' . $row['nome_fardas_enc'] .'</h5>
+  <button type="button" class="close" onclick="window.location.reload();" data-dismiss="modal" aria-label="Close">
+  <span aria-hidden="true">&times;</span>
+</button>
 
 </div>
-<div class="modal-body" style="height:fit-content;">
+<div class="modal-body " style="height:fit-content;">
   <form action="inserir_fardas_vend.php" class="cadastro" method="post" enctype="multipart/form-data">
       <h5> (As encomendas vencem em três dias) </h5>
       <hr class="divisor">
@@ -293,14 +366,12 @@ if ($_POST["tipo"] == "venda-fardas" ){
 echo '
 <div class="modal-header">
 <h5 class="modal-title" id="TituloModalLongoExemplo" style="color: white;">Realizar nova venda</h5>
-<button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-    <span aria-hidden="true">&times;</span>
+<button type="button" class="close" onclick="window.location.reload();" data-dismiss="modal" aria-label="Close">
+  <span aria-hidden="true">&times;</span>
 </button>
 </div>
-<div class="modal-body" style="height:fit-content;">
+<div class="modal-body " style="height:fit-content;">
 <form action="inserir_fardas_vend.php" class="cadastro" method="post" enctype="multipart/form-data">
-    <hr class="divisor">
-
     <label for="nome_fardas_vend">Nome Completo do comprador:</label>
     <input type="text" name="nome_fardas_vend" required>
     <br>
@@ -333,6 +404,9 @@ echo '
 </form>';
 
 }
+
+
+
 
 
 } else {
