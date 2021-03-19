@@ -58,9 +58,11 @@ $hre="excluir_usuarios.php?id_usuarios="; ?>
 							<th>E-mail</th>
 							<th>Nível de Acesso</th>
 							<th>Data de Registro</th>
-							<?php if($_SESSION['nivel'] == 2) {?>
-								<th>Excluir</th>
-							<?php }?>
+							<?php 
+								if(isset($_SESSION['login'])){
+									if ($_SESSION['nivel'] == 2) { ?>
+										<th>Excluir</th>
+							<?php }}?>
 						</tr>
 					</thead>
 					<tbody>

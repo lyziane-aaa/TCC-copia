@@ -71,10 +71,12 @@ $(document).ready(function() {
 								<th>Data do Emprestimo</th>
 								<th>Data Devolução</th>
 								<th>Gremista que Recebeu</th>
-								<?php if ($_SESSION['nivel'] == 2) { ?>
-									<th>Editar</th>
-									<th>Excluir</th>
-								<?php } ?>
+								<?php 
+									if(isset($_SESSION['login'])){
+										echo'<th>Editar</th>';
+										if ($_SESSION['nivel'] == 2) { ?>
+											<th>Excluir</th>
+								<?php }}?>
 							</tr>
 						</thead>
 						<tbody>

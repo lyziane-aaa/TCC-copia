@@ -52,10 +52,12 @@ $hre="excluir_achados.php?id="; ?>
               <th>Postado</th>
               <th>Situação</th>
               <th>Imagem</th>
-              <th>Editar</th>
-              <?php if ($_SESSION['nivel'] == 2 && isset($_SESSION['login'])) { ?>
-                <th>Excluir</th>
-              <?php } ?>
+              <?php 
+									if(isset($_SESSION['login'])){
+										echo'<th>Editar</th>';
+										if ($_SESSION['nivel'] == 2) { ?>
+											<th>Excluir</th>
+								<?php }}?>
             </tr>
           </thead>
           <tbody>

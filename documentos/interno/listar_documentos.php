@@ -92,9 +92,11 @@
 								<th>Autor</th>
 								<th>Data de emissão</th>
 								<th>Gerar PDF</th>
-								<?php if($_SESSION['nivel'] == 2) {?>
-									<th>Excluir</th>
-								<?php }?>
+								<?php 
+									if(isset($_SESSION['login'])){
+										if ($_SESSION['nivel'] == 2) { ?>
+											<th>Excluir</th>
+								<?php }}?>
 							</tr>
 						</thead>
 						<tbody>

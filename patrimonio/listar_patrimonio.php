@@ -51,10 +51,13 @@ $hre="excluir_patrimonio.php?id_pat="?>
                                 <th>Data de Aquisição</th>
                                 <th>Cadastrado Por</th>
                                 <th>Emprestável</th>
-                                <?php if ($_SESSION['nivel'] == 2) { ?>
-                                    <th>Editar</th>
-                                    <th>Excluir</th>
-                                <?php } ?>
+                                <?php 
+									if(isset($_SESSION['login'])){
+										
+										if ($_SESSION['nivel'] == 2) { ?>
+											<th>Editar</th>
+                                            <th>Excluir</th>
+								<?php }}?>
                             </tr>
                         </thead>
                         <tbody>
