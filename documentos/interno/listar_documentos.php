@@ -78,11 +78,9 @@
 	?>
 	<div class="container">
 		<br />
-		<div class="panel panel-default listar-escuro">
+		<div class="panel panel-default listar-escuro" align="center">
 			<div class="panel-heading">Meus Documentos: Ofícios</div>
 			<div class="panel-body">
-
-
 				<div class="table-responsive">
 					<!-- tabela ofícios -->
 					<table id="tabela_ofc" class="table table-bordered table-striped">
@@ -103,12 +101,15 @@
 						</tbody>
 					</table>
 				</div> <!-- tabela !-->
+				</div>
 
 				<br>
 				<br>
 				<br>
+
 				<div class="panel-heading">Meus Documentos: Portarias</div>
 				<div class="table-responsive">
+				<div class="panel-body">
 					<!-- tabela portaria -->
 					<table id="tabela_port" class="table table-bordered table-striped">
 						<thead>
@@ -126,8 +127,6 @@
 						</tbody>
 					</table>
 				</div> <!-- tabela !-->
-
-
 			</div> <!-- panel body-->
 		</div>
 	</div>

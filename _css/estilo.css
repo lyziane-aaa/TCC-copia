@@ -541,7 +541,7 @@ img {
 }
 
 #tabela_achados.table.dataTable, #tabela_emprestimo.table.dataTable, #tabela_patrimonio.table.dataTable, #tabela_usuarios.table.dataTable{
-    max-width: min-content !important;
+    max-width: 1000 !important;
 }
 
 .table-responsive{
@@ -556,6 +556,16 @@ img {
     background-color: #48D1CC !important;
 }
 
+/* Estilo do collapse do Listar Bolsa Cópia*/
+.collapse-bc{
+    text-decoration: none;
+    color: white;
+}
+
+.collapse-bc:hover{
+    text-decoration:none;
+    color: white;
+}
 
 /* Modal de Configuração do Bimestre do Listar Bolsa Cópia */
 

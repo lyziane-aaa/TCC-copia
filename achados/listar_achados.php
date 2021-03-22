@@ -34,7 +34,7 @@ $hre="excluir_achados.php?id="; ?>
 
   <!--<div class="container container-grande"> -->
   <br />
-  <div class="panel panel-default listar-escuro panel-grande" align="center">
+  <div class="panel panel-default listar-escuro" align="center">
     <div class="panel-heading">Achados e Perdidos</div>
     <div class="panel-body">
       <div class="table-responsive">

@@ -58,7 +58,7 @@ $(document).ready(function() {
 		<br/>
 		<div class="panel panel-default listar-escuro" align="center">
 			<div class="panel-heading">Histórico de Empréstimos</div>
-			<!-- <div class="panel-body"> -->
+			<div class="panel-body"> 
 				<div class="table-responsive">
 					<table id="tabela_emprestimo"  class="table table-bordered table-striped">
 						<thead>
@@ -84,7 +84,7 @@ $(document).ready(function() {
 						</tbody>
 					</table>
 				</div>
-			<!-- </div> -->
+			</div> 
 		</div>
 								</div>
 

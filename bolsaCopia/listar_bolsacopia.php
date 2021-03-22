@@ -13,6 +13,17 @@
 			},
 		});
 	});
+
+
+	$(document).ready(function () {
+                $('.collapse-bc').on('click', function () {
+                    if ($(this).find('.caret-icon').hasClass('fa-caret-down')) {
+                        $(this).find('.caret-icon').removeClass('fa-caret-down').addClass('fa-caret-up');
+                    } else {
+                        $(this).find('.caret-icon').removeClass('fa-caret-up').addClass('fa-caret-down');
+                    }
+                });
+            });
 </script>
 </head>
 <?php $hre = "excluir_bolsacopia.php?id_bc="; ?>
@@ -35,18 +46,23 @@
 		<div class="container">
 			<br />
 			<div class="panel panel-default listar-escuro">
-				<div class="panel-heading panel-heading_bc">Bolsa Cópia
+				<div class="panel-heading panel-heading_bc">
+					<a class="collapse-bc" data-toggle="collapse" href="#collapse-bc" role="button" aria-expanded="false" aria-controls="collapseExample">
+					Bolsa Cópia <i class="caret-icon fas fa-caret-down"></i>
+					</a>
 					<hr class="divisor_bc">
-					<h6> Bimestre atual: <input type="text" readonly value="<?php echo $row_bc['nome_bim_bc'] ?>"> </h6>
-					<h6> Início do bimestre: <input type="text" readonly value="<?php echo $bim_inicio ?>"> </h6>
-					<h6> Término do bimestre: <input type="text" readonly value="<?php echo $bim_fim ?>"> </h6>
-
-					<?php if ($_SESSION['nivel'] == 2) { ?>
+					<div class="collapse" id="collapse-bc">
+						<h6> Bimestre atual: <input type="text" readonly value="<?php echo $row_bc['nome_bim_bc'] ?>"> </h6>
+						<h6> Início do bimestre: <input type="text" readonly value="<?php echo $bim_inicio ?>"> </h6>
+						<h6> Término do bimestre: <input type="text" readonly value="<?php echo $bim_fim ?>"> </h6>
+					
+						<?php if ($_SESSION['nivel'] == 2) { ?>
 
 						<!-- Botão para acionar modal de configuração de bimestre -->
 						<button type="button" class="btn btn-primary configurar-bimestre" data-toggle="modal" data-target="#modal-bimestre"> Configurar Bimestre </button>
 						<!-- Botão para acionar modal de escolha do bimestre vigente-->
 						<button type="button" class="btn btn-primary bimestre-vigor" data-toggle="modal" data-target="#modal-vigor"> Alterar Bimestre </button>
+					</div>
 					<?php } ?>
 				</div>
 				<div class="panel-body">
