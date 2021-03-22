@@ -31,19 +31,10 @@ $hre="excluir_usuarios.php?id_usuarios="; ?>
 	<?php
 		if(!isset($_SESSION['login'])) {session_start();}
 		include_once(SITE_ROOT . "funcs/menu.php");
-	?>
-	<?php 
 		$nivel_necessario = 2;
-		include_once("../funcs/conexao.php");
-		if(isset($_SESSION['login']) && isset($_SESSION['nivel']) || isset($_SESSION['aluno'])) {
-			$_SESSION['listar'] = 1;
-			/* Aparentemente a presença do Bootstrap altera o tamanho da imagem no menu,
-			então essa variavel se encontrara em todos os listar e conterá o novo conteudo a ser colocado
-			como formartação da imagem, porém para isso dar certo terei de fazer um teste lógico dentro do
-			 menu com o php */
-			?>
+	?>
     <br/>
-    <div class="panel panel-default listar-escuro panel-grande" align="center">
+    <div class="panel panel-default listar-escuro " align="center">
         <div class="panel-heading">Usuários da Gestão</div>
         <div class="panel-body">
             <div class="table-responsive">
@@ -75,7 +66,6 @@ $hre="excluir_usuarios.php?id_usuarios="; ?>
 
 
 <?php
-}	
 include_once(SITE_ROOT . "funcs/footer.php"); 
 ?>
 	</body>
