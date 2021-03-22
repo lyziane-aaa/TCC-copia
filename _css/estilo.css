@@ -13,6 +13,11 @@
     font-weight: normal;
     font-style: normal;
 }
+html,
+body {
+    padding: 0 !important;
+    margin: 0 !important;
+}
 
 
 /* ESTILIZAÇÃO DO MENU */

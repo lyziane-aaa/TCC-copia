@@ -194,7 +194,7 @@ if ((isset($_POST['login'])) && (isset($_POST['senha']))) {
 
 
 		//estou redirecionando ao realizar o login        
-		header("Location: /TCC/emprestimo/listar_emprestimo.php");
+		header ("Location: /TCC/");
 		//se não forem iguais, exibe a mensagem
 	} else {
 		$mensg1="<br> <br>
@@ -250,7 +250,7 @@ if ((isset($_POST['login'])) && (isset($_POST['senha']))) {
 <?php
 } else { 
 	//redireciona para o início caso esteja logado
-	header ("Location: /Funcs/inicio.php");
+	header ("Location:" . SITE_ROOT);
 }
 ?>
 </body>

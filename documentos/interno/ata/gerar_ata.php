@@ -119,6 +119,12 @@ include_once(SITE_ROOT . "/funcs/menu.php");
 
 			</div><!-- fim div #interface-->
 		</div>
+		<script>
+			CKEDITOR.replace('input-texto_doc_ata');
+
+			CKEDITOR.config.width = '158mm';
+			CKEDITOR.config.height = '120mm';
+		</script>
 		<?php
 	}
 	include_once(SITE_ROOT . "funcs/footer.php");
@@ -127,13 +133,4 @@ include_once(SITE_ROOT . "/funcs/menu.php");
 
 
 		
-		<script>
-			CKEDITOR.replace('input-texto_doc_ata');
-
-			CKEDITOR.config.width = '158mm';
-			CKEDITOR.config.height = '138mm';
-		</script>
-
-</body>
-
-</html>
+		
