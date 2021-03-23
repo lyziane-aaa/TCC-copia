@@ -143,11 +143,7 @@
 }
 
 #input-cardOfc {
-    margin-top: -130px;
-    margin-left: 720px;
-    position: absolute;
-    padding-left: 20px;
-    padding-right: 20px;
+   position:relative
 }
 
 
@@ -222,9 +218,10 @@
     background-color: grey;
 }
 
-#input-fecho-port {
-    width: 42mm;
-    height: 5mm;
+#input-matricula_doc_port {
+    width: 65mm;
+    height: 6mm;
+    text-align: center;
 }
 
 #assinatura-port {
@@ -260,7 +257,7 @@
 #input-card-port {
     margin-top: -130px;
     margin-left: 720px;
-    position: absolute;
+    position: relative;
     padding-left: 20px;
     padding-right: 20px;
 }

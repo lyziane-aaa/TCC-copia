@@ -2,17 +2,17 @@
 ?>
 
 
-	<script type="text/javascript">
-		setTimeout(function() {
-			var msg = document.getElementsByClassName("alertaDeErro");
-			while (msg.length > 0) {
-				msg[0].parentNode.removeChild(msg[0]);
-			}
-		}, 5000);
-	</script>
+<script type="text/javascript">
+	setTimeout(function() {
+		var msg = document.getElementsByClassName("alertaDeErro");
+		while (msg.length > 0) {
+			msg[0].parentNode.removeChild(msg[0]);
+		}
+	}, 5000);
+</script>
 
-	<!-- Teste de Tab-->
-
+<!-- Teste de Tab-->
+<title>Novo Ofício</title>
 
 
 </head>
@@ -20,7 +20,7 @@
 <body class="bg-dark">
 	<?php
 	include_once(SITE_ROOT . "funcs/menu.php");
-	
+
 
 
 
@@ -110,7 +110,6 @@
 					<input required name="gremista_registro_ofc" type="text" hidden value="<?php echo $_SESSION['login'] ?>">
 
 					<div class="card border-danger mb-3" style="min-width:12rem;max-width: 18rem;" id="input-cardOfc">
-
 						<div class="card-body text-danger">
 							<h5 class="card-title">Salvar ofíco</h5>
 							<p class="card-text">Terminou o ofício?</p>
@@ -121,25 +120,26 @@
 			</div>
 			</form>
 
-			</div><!-- fim div #interface-->
-		<?php
-		
-	}include_once(SITE_ROOT . "funcs/footer.php");
-		?>
-		
-	
-		<script>
-			// Replace the <textarea id="editor1"> with a CKEditor 4
-			// instance, using default configuration.
+		</div><!-- fim div #interface-->
+	<?php
 
-			CKEDITOR.replace('input-corpoOficio');
-
-			CKEDITOR.config.width = '166mm';
-			CKEDITOR.config.height = '80mm';
-		</script>
- <?php
+	}
 	include_once(SITE_ROOT . "funcs/footer.php");
- ?>
+	?>
+
+
+	<script>
+		// Replace the <textarea id="editor1"> with a CKEditor 4
+		// instance, using default configuration.
+
+		CKEDITOR.replace('input-corpoOficio');
+
+		CKEDITOR.config.width = '166mm';
+		CKEDITOR.config.height = '80mm';
+	</script>
+	<?php
+	include_once(SITE_ROOT . "funcs/footer.php");
+	?>
 </body>
 
 </html>

@@ -1,6 +1,6 @@
 <?php include_once("../../../funcs/header.php");
 ?>
-	<title>Gerar Nova Portaria</title>
+	<title>Nova Portaria</title>
 
 
 
@@ -41,8 +41,9 @@
 					</div>-->
 
 					<div id="titulo_doc_port">
-						<input name="titulo_doc_port" id="input-titulo_doc_port" type="text" placeholder="PORTARIA Nº <NÚMERO>/<ANO>, DE <DIA> DE <MÊS> DE <ANO>" value="<?php echo $titulo_doc_port ?>" required>
-						<input hidden name="num_doc_port"  type="text" value="<?php echo $num_doc_port; ?>" required>
+						<input name="titulo_doc_port" id="input-titulo_doc_port" type="text" placeholder="PORTARIA Nº <NÚMERO>/<ANO>, DE <DIA> DE <MÊS> DE <ANO>" value="<?=$titulo_doc_port ?>" required>
+						<input hidden name="num_doc_port"  type="text" value="<?=$num_doc_port; ?>" required>
+						
 					</div>
 
 					<div id="resumo-port">
@@ -55,14 +56,14 @@
 					</div>
 
 					<div id="assinatura-port">
-						<input name="autor_doc_port" required id="input-assinatura-port" type="text" placeholder="<NOME DO GREMISTA>" value="<?php echo strtoupper($_SESSION['nome_usuarios']) ?>" readonly>
+						<input name="autor_doc_port" required id="input-assinatura-port" type="text" placeholder="<NOME DO GREMISTA>" value="<?=$_SESSION['nome_usuarios']?>" readonly>
 					</div>
 
 					<div id="cargo-port">
-						<input required id="input-cargo-port" readonly type="text" value="<?php echo $_SESSION['cargo'] ?>" name="cargo_doc_port" spellcheck="true">
+						<input required id="input-cargo-port" readonly type="text" value="<?=$_SESSION['cargo'] ?>" name="cargo_doc_port" spellcheck="true">
 
 					</div>
-					<input required name="gremista_registro_port" type="text" hidden value="<?php echo $_SESSION['login'] ?>">
+					<input required name="gremista_registro_port" type="text" hidden value="<?=$_SESSION['login'] ?>">
 
 					<div class="card border-danger mb-3" style="min-width:12rem;max-width: 18rem;" id="input-card-port">
 
