@@ -838,7 +838,7 @@ div#fardas_chart {
 }
 
 .card-header{
-    background-color: rgb(205, 20, 20);
+    background-color: #008a75;
     border-top-left-radius: 20px !important;
     border-top-right-radius: 20px !important;
 }

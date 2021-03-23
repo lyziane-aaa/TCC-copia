@@ -29,9 +29,6 @@ $hre="excluir_patrimonio.php?id_pat="?>
 
 <body class="bg-dark">
     <?php
-    if (!isset($_SESSION['login'])) {
-        session_start();
-    }
     include_once(SITE_ROOT . "funcs/menu.php");
     ?>
         <br />

@@ -21,6 +21,41 @@
 			}
 		})
 	};
+
+	function sendEmail() {
+            var name = $("#name");
+            var email = $("#email");
+            var subject = $("#subject");
+            var body = $("#body");
+
+            if (isNotEmpty(name) && isNotEmpty(email) && isNotEmpty(subject) && isNotEmpty(body)) {
+                $.ajax({
+                   url: 'envioEmail.php',
+                   method: 'POST',
+                   dataType: 'json',
+                   data: {
+                       name: name.val(),
+                       email: email.val(),
+                       subject: subject.val(),
+                       body: body.val()
+                   }, success: function (response) {
+                        $('#contatoForm')[0].reset();
+                        $('.sent-notification').text("Mensagem enviada com sucesso.");
+                   }
+                });
+            }
+        };
+
+        function isNotEmpty(caller) {
+            if (caller.val() == "") {
+                caller.css('border', '1px solid red');
+                return false;
+            } else
+                caller.css('border', '');
+
+            return true;
+        };
+
 </script>
 
 <?php
@@ -58,6 +93,9 @@ if (isset($_GET['sucesso'])) {
 		echo "Deu ERRADO!";
 	}
 }
+
+
+        
 
 ?>
 </div>

@@ -137,7 +137,7 @@
                 <li>
                 <li> <a href="/TCC/patrimonio/listar_patrimonio.php"><i class="fas fa-atlas"></i> Diário Oficial da Agremiação</a></li>
 
-                <li> <a href="/TCC/achados/listar_achados.php"><i class="fas fa-phone-square-alt"></i> Fale Conosco</a></li>
+                <li> <a href="/TCC/contato/contato.php"><i class="fas fa-phone-square-alt"></i> Fale Conosco</a></li>
 
                 <li> <a href="/TCC/fardas/painel_fardas.php"><i class="fas fa-Tshirt"></i> Fardas</a></li>
 
@@ -169,6 +169,10 @@
 
                     <ul class="list-unstyled collapse" id="submenuservicos">
                         <li> <a href="/TCC/emprestimo/listar_emprestimo.php"><i class="fas fa-user-clock"></i> Emprestimos</a></li>
+                    </ul>
+
+                    <ul class="list-unstyled collapse" id="submenuservicos">
+                        <li> <a href="/TCC/patrimonio/listar_patrimonio.php"><i class="fas fa-gem"></i> Patrimônio</a></li>
                     </ul>
                 </li>
 

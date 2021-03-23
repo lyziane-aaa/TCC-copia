@@ -81,7 +81,7 @@ sair da sessão clicando no icone de usuário. -->
                         $l = mysqli_fetch_assoc($lote_atual);
 
                         ?>
-                        <form action="update_fardas_lote.php" method="post" enctype="multipart/form-data">
+                        <form class= "cadastro" action="update_fardas_lote.php" method="post" enctype="multipart/form-data">
                             <label for="fornecedor_lote">Nome do Fornecedor (nome da empresa):</label>
                             <input  type="text" name="fornecedor_lote" value="<?= $l['fornecedor_lote'] ?>" readonly required>
                             <input  type="number" name="id_fardas_lote" value="<?= $l['id_fardas_lote'] ?>" readonly required>
