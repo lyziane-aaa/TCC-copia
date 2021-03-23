@@ -59,14 +59,16 @@
 sair da sessão clicando no icone de usuário. -->
 
 <body class="bg-dark">
-    <h2 class="cad-titulo">Configurações de Lote</h2>
     <div id="config-lote">
+    <div class="list-group-item "><h2> <i class="fas fa-cogs"></i> Configurações do Lote</h2></div>
+    <br>
+
         <div class="accordion" id="accordionExample">
             <div class="card">
                 <div class="card-header" id="headingOne">
-                    <h5 class="mb-0">
-                        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                            Gerenciar lote atual
+                    <h5 class="mb-0" align="center">
+                        <button class="btn btn-link"  type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                        <i class="fas fa-caret-square-right"></i> Gerenciar lote atual 
                         </button>
                     </h5>
                 </div>
@@ -74,7 +76,8 @@ sair da sessão clicando no icone de usuário. -->
                 <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
                     <div class="card-body" id="card-body-lote-atual">
 
-                        <h3> Lote atual</h3>
+                        <h3 align="center"> <i class="fas fa-archive"></i> Lote atual</h3>
+                        <hr>
                         <?php
                         $sql = "SELECT * from fardas_lote WHERE vigente_lote = 1";
                         $lote_atual = mysqli_query($conn, $sql) or die("erro " . mysqli_error($conn));
@@ -131,17 +134,15 @@ sair da sessão clicando no icone de usuário. -->
                             <input type="reset" class="botao" value="Limpar">
                             <input type="submit" class="botao" value="Encerrar lote atual">
                         </form>
-
-
-
                     </div>
                 </div>
             </div>
+
             <div class="card">
                 <div class="card-header" id="headingTwo">
-                    <h5 class="mb-0">
+                    <h5 class="mb-0" align="center">
                         <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                            Adicionar novo lote
+                        <i class="fas fa-caret-square-right"></i>  Adicionar novo lote
                         </button>
                     </h5>
                 </div>
@@ -149,8 +150,8 @@ sair da sessão clicando no icone de usuário. -->
                     <div class="card-body" id="card-body-gerenciar-lote">
 
                         <h4>Atenção: apenas um lote pode ser ativo por vez. Ao cadastrar um novo lote, o antigo será desativado.</h4>
-                        <form action="inserir_fardas_lote.php" method="post" enctype="multipart/form-data">
-                            <hr class="divisor">
+                        <form action="inserir_fardas_lote.php" method="post" class="cadastro" enctype="multipart/form-data">
+                            <hr>
 
 
                             <label for="fornecedor_lote">Nome do Fornecedor (nome da empresa):</label>
@@ -211,8 +212,8 @@ sair da sessão clicando no icone de usuário. -->
                             <input type="number" name="montante_total_previsto" value='' id="montante_total_previsto" readonly required>
                             <br>
 
-                            <input type="reset" class="botao" value="Limpar">
-                            <input type="submit" class="botao" value="Cadastrar novo lote">
+                            <input type="reset" class="btn-lote3" value="Limpar">
+                            <input type="submit" class="btn-lote3" value="Cadastrar novo lote">
                         </form>
                     </div>
                 </div>
@@ -236,7 +237,7 @@ sair da sessão clicando no icone de usuário. -->
 
 
 
-      
+        
 
                     </div>
                 </div>

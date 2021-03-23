@@ -56,6 +56,16 @@
             return true;
         };
 
+		$(document).ready(function () {
+                $('.collapse-bc').on('click', function () {
+                    if ($(this).find('.caret-icon').hasClass('fa-caret-down')) {
+                        $(this).find('.caret-icon').removeClass('fa-caret-down').addClass('fa-caret-up');
+                    } else {
+                        $(this).find('.caret-icon').removeClass('fa-caret-up').addClass('fa-caret-down');
+                    }
+                });
+            });
+
 </script>
 
 <?php

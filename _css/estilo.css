@@ -271,7 +271,7 @@ select {
 select {
     padding: 8px;
     margin: 2px;
-    border-radius: 25px;
+    border-radius: 15px;
     margin-left: 5%;
     border: none;
     margin-top: 10px;
@@ -838,7 +838,7 @@ div#fardas_chart {
 }
 
 .card-header{
-    background-color: #008a75;
+    background-color: #06bda1;
     border-top-left-radius: 20px !important;
     border-top-right-radius: 20px !important;
 }
@@ -857,4 +857,64 @@ div#fardas_chart {
     }
 }
 
+
+/*ESTILO FARDAS */
+
+
+.accordion .cadastro{
+    background-color: #03011c;
+}
+
+.accordion .card-body{
+    background-color: #03011c;
+    color: white;
+    border: none;
+}
+
+#card-body-lote-atual .cadastro input{
+    
+}
+
+
+.accordion .card{
+    border-radius: 25px !important;
+    border: none;
+
+}
+
+.accordion .card-header{
+    background-color: #eb4034;
+}
+
+.accordion .card-body hr{
+    border-color: white;
+}
+
+.accordion .btn-link{
+    text-decoration: none;
+    color: white;
+    font-size: 18pt;
+    font-family:'nasalization';
+    align-self: center;
+
+}
+
+#config-lote .list-group-item{
+    border-radius: 10px;
+    text-decoration: solid;
+    color: rgb(18, 58, 58);
+    background-color: rgb(241, 235, 235);
+    text-align: center;
+    font-family: 'nasalization';
+}
+
+#config-lote .list-group-item:hover{
+    background-color: rgb(206, 200, 200);
+}
+
+
+#config-lote .list-group-item fieldset{
+    border:solid 10px white;
+
+}
 
