@@ -104,6 +104,9 @@
                     <ul class="list-unstyled collapse" id="submenuusu">
                         <li> <a href="/TCC/usuarios/listar_usuarios.php"><i class="fas fa-list-ul"></i> Todos os usuários </a></li>
                         <li> <a href="/TCC/usuarios/gestao/listar_gestoes.php"><i class="fas fa-cash-register"></i> Gestões </a></li>
+                       <?php if($_SESSION['nivel'] == 2){?>
+                        <li> <a href="/TCC/usuarios/gestao/cadastrar_gestao.php"><i class="fas fa-plus-circle"></i> Cadastrar Gestão </a></li>
+                    <?php }?>
                     </ul>
 
                 </li>
@@ -148,7 +151,7 @@
                         <i class="fab fa-guilded"></i> Grêmio</a>
 
                     <ul class="list-unstyled collapse" id="submenugremio">
-                        <li> <a href="/TCC/bolsacopia/listar_bolsacopia.php"><i class="fas fa-users"></i> Atual Gestão</a></li>
+                        <li> <a href="/TCC/usuarios/listar_usuarios.php"><i class="fas fa-users"></i> Atual Gestão</a></li>
                     </ul>
 
                         <ul class="list-unstyled collapse" id="submenugremio">

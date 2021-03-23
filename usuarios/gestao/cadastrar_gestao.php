@@ -1,18 +1,4 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastrar Gestão</title>
-    <!-- Links CSS -->
-    <link rel="stylesheet" href="/TCC/_css/estilo.css">
-    <!-- SCRIPTS -->
-    <script src="/TCC/js/scripts.js"></script>
 
-</head>
-
-<!-- Analisar possibilidade de uma segunda logo e de colocar novamente a o local onde podiamos 
-sair da sessão clicando no icone de usuário. -->
 <body class="bg-dark">
     <?php 
         
@@ -20,7 +6,6 @@ sair da sessão clicando no icone de usuário. -->
         include_once(SITE_ROOT . "funcs/menu.php");
         if(isset($_SESSION['login'])) {
             if ($_SESSION['nivel'] = 2) {
-            $_SESSION['listar'] = 2; 
     ?>
 <p> O Cadastro de uma nova gestão necessariamente implicará no arquivamento de todos os usuários existentes para o módulo Histórico </p>
 

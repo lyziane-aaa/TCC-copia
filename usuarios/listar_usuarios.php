@@ -29,9 +29,9 @@ $hre="excluir_usuarios.php?id_usuarios="; ?>
 
 <body class="bg-dark">	
 	<?php
-		if(!isset($_SESSION['login'])) {session_start();}
-		include_once(SITE_ROOT . "funcs/menu.php");
-		$nivel_necessario = 2;
+	include_once(SITE_ROOT . "funcs/menu.php");
+	$nivel_necessario = 2;
+		if(isset($_SESSION['login'])) {
 	?>
     <br/>
     <div class="panel panel-default listar-escuro " align="center">
@@ -62,6 +62,34 @@ $hre="excluir_usuarios.php?id_usuarios="; ?>
             </div> <!-- Panel-body !-->
         </div>
     </div>
+
+
+	<?php } 
+	else{
+		?>
+		<div class="panel panel-default listar-escuro " align="center">
+        <div class="panel-heading">Usuários da Gestão</div>
+        <div class="panel-body">
+            <div class="table-responsive">
+				<table id="tabela_usuarios" class="table table-bordered table-striped">
+					<thead>
+						<tr>
+							<th>id</th>
+							<th>Nome Completo</th>
+							<th>Cargo</th>
+							<th>Matrícula</th>
+							<th>Telefone</th>
+							<th>E-mail</th>
+						</tr>
+					</thead>
+					<tbody>
+					</tbody>
+				</table>
+            </div> <!-- Panel-body !-->
+        </div>
+    </div>
+
+	<?php }?>
 							</div>
 
 

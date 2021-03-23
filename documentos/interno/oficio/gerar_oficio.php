@@ -1,4 +1,5 @@
 <?php include_once("../../../funcs/header.php");
+if(isset($_SESSION['login'])){
 ?>
 
 
@@ -139,6 +140,11 @@
 	</script>
 	<?php
 	include_once(SITE_ROOT . "funcs/footer.php");
+
+}
+else{
+	header("location: /TCC/usuarios/login.php");
+}
 	?>
 </body>
 

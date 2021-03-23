@@ -1,6 +1,7 @@
 <?php
-if (!isset($_SESSION)) {
+if (isset($_SESSION)) {
     include_once("../../TCC/funcs/header.php"); 
+
 ?>
     <!DOCTYPE html>
     <html lang="pt-br">
@@ -9,9 +10,6 @@ if (!isset($_SESSION)) {
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Cadastrar Empréstimo</title>
-        <!-- Links CSS -->
-        <link rel="stylesheet" href="../css/estilo.css">
-
     </head>
 
    
@@ -87,7 +85,7 @@ if (!isset($_SESSION)) {
             include_once(SITE_ROOT . "funcs/footer.php");
         }
     } else {
-        header("location:../usuarios/login.php");
+        header("location: /TCC/usuarios/login.php");
     }
     ?>
 

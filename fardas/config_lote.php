@@ -1,6 +1,11 @@
-<?php if (!isset($_SESSION)) {include_once("../../TCC/funcs/header.php");
+<?php include_once("../../TCC/funcs/header.php");
     include_once(SITE_ROOT . "funcs/menu.php");
-    include_once("../funcs/conexao.php"); ?>
+    include_once("../funcs/conexao.php"); 
+    
+    if(isset($_SESSION['login'])){
+
+    
+    ?>
 
     <script>
         function lucro() {
@@ -252,8 +257,10 @@ sair da sessão clicando no icone de usuário. -->
 
     </div>
     <?php
-}else {header("Location: /TCC");}
-    include_once(SITE_ROOT . "funcs/footer.php");  ?>
+    include_once(SITE_ROOT . "funcs/footer.php"); }
+    else{
+		header("location: /TCC/usuarios/login.php");
+	} ?>
 </body>
 
 </html>

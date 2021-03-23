@@ -1,4 +1,6 @@
-<?php include_once("../../../funcs/header.php");
+<?php 
+include_once("../../../funcs/header.php");
+if(isset($_SESSION['login'])){
 ?>
 	<title>Nova Portaria</title>
 
@@ -94,6 +96,14 @@
 			// Replace the <textarea id="editor1"> with a CKEditor 4
 			// instance, using default configuration.
 		</script>
+
+		<?php }
+		
+		else{
+			header("location: /TCC/usuarios/login.php");
+		}
+		?>
+
 
 </body>
 
