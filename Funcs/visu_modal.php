@@ -128,14 +128,6 @@ if (!empty($_POST)){
 
 
     echo '
-    <div class="modal-header">
-  <h5 class="modal-title" id="TituloModalCentralizado">Cadastro de novo Bimestre</h5>
-  <button type="button" class="close" onclick="window.location.reload();" data-dismiss="modal" aria-label="Close">
-  <span aria-hidden="true">&times;</span>
-</button>
-  </div>
-
-
   <form action="bimestre/inserir_bimestrenovo.php" class = "cadastro" method="post">
     <label for="nome-bc">Número do novo bimestre</label>
     <input type="text" name="nome_bim_bc" id="nome-bc" required>
@@ -148,12 +140,12 @@ if (!empty($_POST)){
     <label for="laudas-bc">Data de término do bimestre</label>
     <input type="date" name="bimestrefim_bim_bc" id="laudas-bc" onKeyPress="return Onlynumbers(event);" required>
     <br>
-    <!-- inputs escondidas 
-    
+    <!-- inputs escondidas -->
     <input type="hidden" name="bimestre_vigor_bim_bc" value=0>
-     
     <input type="hidden" name="gremista_registrou_bim_bc" value="' . $_SESSION['nome_usuarios'] . '">
     
+    <input type="reset" class="botao" value="Limpar">
+    <input type="submit" class="botao" onclick="window.location.reload();" value="Cadastrar">
     ';
   }
 

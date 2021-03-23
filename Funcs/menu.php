@@ -150,16 +150,9 @@
                     <li>
                         <a href="#submenugremio" data-toggle="collapse">
                         <i class="fab fa-guilded"></i> Grêmio</a>
-                        <ul class="list-unstyled collapse" id="submenugremio">
-                            <li> <a href="/TCC/achados/listar_achados.php"><i class="fas fa-bookmark"></i> História</a></li>
-                        </ul>
 
                         <ul class="list-unstyled collapse" id="submenugremio">
                             <li> <a href="/TCC/bolsacopia/listar_bolsacopia.php"><i class="fas fa-users"></i> Atual Gestão</a></li>
-                        </ul>
-
-                        <ul class="list-unstyled collapse" id="submenugremio">
-                            <li> <a href="/TCC/emprestimo/listar_emprestimo.php"><i class="fas fa-user-graduate"></i></i> Gestões Passadas</a></li>
                         </ul>
 
                         <ul class="list-unstyled collapse" id="submenugremio">

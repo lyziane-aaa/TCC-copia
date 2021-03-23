@@ -51,9 +51,6 @@ $(document).ready(function() {
 
 	include_once(SITE_ROOT . "funcs/menu.php");
 	?>
-	<?php include_once("../funcs/conexao.php");
-	//if(isset($_SESSION['login']) && isset($_SESSION['nivel'])) {
-	?>
 
 		<br/>
 		<div class="panel panel-default listar-escuro" align="center">

@@ -577,6 +577,7 @@ img {
     color: black;
     font-size: 15px;
     height: 470px;
+    width: -webkit-fill-available;
 }
 
 .modal-body .cadastro {
@@ -584,6 +585,8 @@ img {
     height: 90%;
     margin-top: -8px;
 }
+
+
 
 .modal-body label {
     margin-bottom: 1px;
@@ -644,6 +647,7 @@ input[type="date"] {
 
 .alt-bimestre {
     height: 20%!important;
+    width: -webkit-fill-available;
 }
 
 .cad-titulo {
@@ -786,5 +790,66 @@ div#fardas_chart {
     color: red;
 }
 
+
+/* Estilo do inicio */
+.centralizado{
+    text-align: center;
+}
+
+.img-intro{
+    height: 100px;
+    width: 100px;
+    align-self: center;
+    padding: 0;
+    margin-top:10px;
+    margin-bottom: 5px;
+    
+}
+
+.fa-intro{
+    align-self: center;
+    margin-top:10px;
+    margin-bottom: 5px;
+}
+.card{
+    margin-bottom: 10px;
+}
+
+
+.card-redondo{
+    border-radius: 20px;
+}
+
+.card-header a:hover{
+    text-decoration:none ;
+}
+
+.espaco{
+    margin-left: 12%;
+}
+
+.espaco-2{
+    margin-left: 8%;
+}
+
+.card-header{
+    background-color: rgb(205, 20, 20);
+    border-top-left-radius: 20px !important;
+    border-top-right-radius: 20px !important;
+}
+
+.card-header a{
+    color: white;
+}
+
+
+@media screen and (max-width: 992px) {
+    .espaco{
+        margin-left: 0;
+    }
+    .espaco-2{
+        margin-left: 8%;
+    }
+}
 
 
